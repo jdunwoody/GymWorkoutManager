@@ -15,6 +15,10 @@
 		1ABFF5311595A63F004C7EE1 /* SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */; };
 		1ABFF5381595A65A004C7EE1 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */; };
 		1ABFF53B1595E634004C7EE1 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */; };
+		1ABFF5461595F427004C7EE1 /* ExerciseDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */; };
+		1ABFF54E1595F53A004C7EE1 /* AddExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5491595F53A004C7EE1 /* AddExerciseCell.m */; };
+		1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54B1595F53A004C7EE1 /* Exercise.m */; };
+		1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,14 @@
 		1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		1ABFF5391595E634004C7EE1 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
+		1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseDataController.h; sourceTree = "<group>"; };
+		1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseDataController.m; sourceTree = "<group>"; };
+		1ABFF5481595F53A004C7EE1 /* AddExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExerciseCell.h; sourceTree = "<group>"; };
+		1ABFF5491595F53A004C7EE1 /* AddExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExerciseCell.m; sourceTree = "<group>"; };
+		1ABFF54A1595F53A004C7EE1 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		1ABFF54B1595F53A004C7EE1 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseCell.h; sourceTree = "<group>"; };
+		1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,14 @@
 				1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */,
 				1ABFF5391595E634004C7EE1 /* ExerciseViewController.h */,
 				1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */,
+				1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */,
+				1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */,
+				1ABFF5481595F53A004C7EE1 /* AddExerciseCell.h */,
+				1ABFF5491595F53A004C7EE1 /* AddExerciseCell.m */,
+				1ABFF54A1595F53A004C7EE1 /* Exercise.h */,
+				1ABFF54B1595F53A004C7EE1 /* Exercise.m */,
+				1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */,
+				1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */,
 				1ABFF5271595A63F004C7EE1 /* Supporting Files */,
 			);
 			path = SampleMultiview;
@@ -164,6 +184,10 @@
 				1ABFF52D1595A63F004C7EE1 /* main.m in Sources */,
 				1ABFF5311595A63F004C7EE1 /* SampleAppDelegate.m in Sources */,
 				1ABFF53B1595E634004C7EE1 /* ExerciseViewController.m in Sources */,
+				1ABFF5461595F427004C7EE1 /* ExerciseDataController.m in Sources */,
+				1ABFF54E1595F53A004C7EE1 /* AddExerciseCell.m in Sources */,
+				1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */,
+				1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +293,7 @@
 				1ABFF5361595A63F004C7EE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

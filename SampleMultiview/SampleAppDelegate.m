@@ -25,9 +25,9 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     ExerciseViewController *rootViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
     
-//    ExerciseDataController *aDataController = [[ExerciseDataController alloc] init];
-//    
-//    rootViewController.dataController = aDataController;
+    ExerciseDataController *aDataController = [[ExerciseDataController alloc] init];
+    
+    rootViewController.dataController = aDataController;
     
     // Override point for customization after application launch.
     return YES;
