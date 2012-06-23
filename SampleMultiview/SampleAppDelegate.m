@@ -7,6 +7,7 @@
 //
 
 #import "SampleAppDelegate.h"
+#import "ExerciseViewController.h"
 
 @implementation SampleAppDelegate
 
@@ -14,10 +15,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+//    return YES;
+    
+    
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    ExerciseViewController *rootViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
+    
+//    ExerciseDataController *aDataController = [[ExerciseDataController alloc] init];
+//    
+//    rootViewController.dataController = aDataController;
+    
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 

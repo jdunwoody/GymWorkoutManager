@@ -13,6 +13,8 @@
 		1ABFF52B1595A63F004C7EE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ABFF5291595A63F004C7EE1 /* InfoPlist.strings */; };
 		1ABFF52D1595A63F004C7EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF52C1595A63F004C7EE1 /* main.m */; };
 		1ABFF5311595A63F004C7EE1 /* SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */; };
+		1ABFF5381595A65A004C7EE1 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */; };
+		1ABFF53B1595E634004C7EE1 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,15 @@
 		1ABFF5201595A63E004C7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1ABFF5221595A63E004C7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1ABFF5241595A63F004C7EE1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1ABFF5281595A63F004C7EE1 /* SampleMultiview-Info.plist */ = {isa = PBXFileReference; path = "SampleMultiview-Info.plist"; sourceTree = "<group>"; };
+		1ABFF5281595A63F004C7EE1 /* SampleMultiview-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SampleMultiview-Info.plist"; sourceTree = "<group>"; };
 		1ABFF52A1595A63F004C7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1ABFF52C1595A63F004C7EE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1ABFF52E1595A63F004C7EE1 /* SampleMultiview-Prefix.pch */ = {isa = PBXFileReference; path = "SampleMultiview-Prefix.pch"; sourceTree = "<group>"; };
-		1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */ = {isa = PBXFileReference; path = SampleAppDelegate.h; sourceTree = "<group>"; };
+		1ABFF52E1595A63F004C7EE1 /* SampleMultiview-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SampleMultiview-Prefix.pch"; sourceTree = "<group>"; };
+		1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAppDelegate.h; sourceTree = "<group>"; };
 		1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleAppDelegate.m; sourceTree = "<group>"; };
+		1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		1ABFF5391595E634004C7EE1 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
+		1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +77,11 @@
 		1ABFF5261595A63F004C7EE1 /* SampleMultiview */ = {
 			isa = PBXGroup;
 			children = (
+				1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */,
 				1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */,
 				1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */,
+				1ABFF5391595E634004C7EE1 /* ExerciseViewController.h */,
+				1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */,
 				1ABFF5271595A63F004C7EE1 /* Supporting Files */,
 			);
 			path = SampleMultiview;
@@ -142,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ABFF52B1595A63F004C7EE1 /* InfoPlist.strings in Resources */,
+				1ABFF5381595A65A004C7EE1 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +163,7 @@
 			files = (
 				1ABFF52D1595A63F004C7EE1 /* main.m in Sources */,
 				1ABFF5311595A63F004C7EE1 /* SampleAppDelegate.m in Sources */,
+				1ABFF53B1595E634004C7EE1 /* ExerciseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
