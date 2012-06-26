@@ -11,10 +11,11 @@
 @implementation Exercise
 
 @synthesize name = _name;
-@synthesize weights = _weights;
+@synthesize weight = _weight;
 @synthesize rest = _rest;
 @synthesize sets = _sets;
 @synthesize reps = _reps;
+@synthesize bodyPart = _bodyPart;
 @synthesize category = _category;
 @synthesize isAdd = _isAdd;
 @synthesize isCompleted = _isCompleted;

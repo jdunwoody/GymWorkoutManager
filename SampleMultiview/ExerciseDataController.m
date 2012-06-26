@@ -24,37 +24,37 @@
     
     self.exercises = [[NSMutableArray alloc] init];
     
-    Exercise *exercise = [[Exercise alloc] init];
-    exercise.category = @"Individual";
-    exercise.name = @"Air Squat";
-    exercise.rest = @"10sec";
-    exercise.weights = [NSNumber numberWithInt:10];
-    exercise.intensity = ExerciseIntensityAnaerobicLight;
-    [self.exercises addObject:exercise];
-   
-    exercise = [[Exercise alloc] init];
-    exercise.category = @"Super set";
-    exercise.name = @"Push up";
-    exercise.rest = nil;
-    exercise.weights = [NSNumber numberWithInt:20];
-    exercise.intensity = ExerciseIntensityAnaerobicIntense;
-    [self.exercises addObject:exercise];
-  
-    exercise = [[Exercise alloc] init];
-    exercise.category = @"Super set";
-    exercise.name = @"Push up";
-    exercise.rest = @"30sec";
-    exercise.weights = [NSNumber numberWithInt:110];
-    exercise.intensity = ExerciseIntensityAerobicIntense;
-    [self.exercises addObject:exercise];
-  
-    exercise = [[Exercise alloc] init];
-    exercise.category = @"Super set";
-    exercise.name = @"Push up";
-    exercise.rest = @"15sec";
-    exercise.weights = [NSNumber numberWithInt:1];
-    exercise.intensity = ExerciseIntensityAerobicLight;
-    [self.exercises addObject:exercise];
+//    Exercise *exercise = [[Exercise alloc] init];
+//    exercise.category = @"Individual";
+//    exercise.name = @"Air Squat";
+//    exercise.rest = @"10sec";
+//    exercise.weights = [NSNumber numberWithInt:10];
+//    exercise.intensity = ExerciseIntensityAnaerobicLight;
+//    [self.exercises addObject:exercise];
+//   
+//    exercise = [[Exercise alloc] init];
+//    exercise.category = @"Super set";
+//    exercise.name = @"Push up";
+//    exercise.rest = nil;
+//    exercise.weights = [NSNumber numberWithInt:20];
+//    exercise.intensity = ExerciseIntensityAnaerobicIntense;
+//    [self.exercises addObject:exercise];
+//  
+//    exercise = [[Exercise alloc] init];
+//    exercise.category = @"Super set";
+//    exercise.name = @"Push up";
+//    exercise.rest = @"30sec";
+//    exercise.weights = [NSNumber numberWithInt:110];
+//    exercise.intensity = ExerciseIntensityAerobicIntense;
+//    [self.exercises addObject:exercise];
+//  
+//    exercise = [[Exercise alloc] init];
+//    exercise.category = @"Super set";
+//    exercise.name = @"Push up";
+//    exercise.rest = @"15sec";
+//    exercise.weights = [NSNumber numberWithInt:1];
+//    exercise.intensity = ExerciseIntensityAerobicLight;
+//    [self.exercises addObject:exercise];
     
 //    exercise = [[Exercise alloc] init];
 //    exercise.category = @"None";

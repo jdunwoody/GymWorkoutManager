@@ -8,6 +8,7 @@
 
 #import "SampleAppDelegate.h"
 #import "ExerciseViewController.h"
+#import "ExerciseTableDelegate.h"
 
 @implementation SampleAppDelegate
 
@@ -21,13 +22,14 @@
 //    [self.window makeKeyAndVisible];
 //    return YES;
     
-    
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     ExerciseViewController *rootViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
     
-    ExerciseDataController *aDataController = [[ExerciseDataController alloc] init];
+    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc]init];
+    ExerciseDataController *dataController = [[ExerciseDataController alloc] init];
     
-    rootViewController.dataController = aDataController;
+    tableDelegate.dataController = dataController;
+    rootViewController.tableDelegate = tableDelegate;
     
     // Override point for customization after application launch.
     return YES;

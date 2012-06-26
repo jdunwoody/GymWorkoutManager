@@ -8,20 +8,37 @@
 
 #import <UIKit/UIKit.h>
 #import "ExerciseDataController.h"
+#import "ExerciseTableDelegate.h"
+
+typedef enum  {
+    WEIGHT = 6,
+    INTENSITY = 5,
+    REST = 4,
+    SETS = 3,
+    BODYPART = 2,
+    REPS = 1,
+    NAME = 0
+} ExercisePickerComponents;
 
 @interface ExerciseViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 {
     UIPickerView *exercisePicker;
-    NSArray *exercises;
-    NSMutableArray *reps;
-    NSMutableArray *sets;
-    NSMutableArray *weight;
-    NSArray *bodyPart;
-    NSArray *intensity;
-    NSMutableArray *rest;
+    
+    NSArray *nameValues;
+    NSMutableArray *repValues;
+    NSMutableArray *setValues;
+    NSMutableArray *weightValues;
+    NSArray *bodyPartValues;
+    NSArray *intensityValues;
+    NSMutableArray *restValues;
 }
 
+@property (strong, nonatomic) IBOutlet ExerciseTableDelegate *tableDelegate;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
 
-@property (strong, nonatomic) ExerciseDataController *dataController;
+- (IBAction)addExercise:(id)sender;
+//@property (weak, nonatomic) IBOutlet UIButton *addExerciseButton;
 
 @end

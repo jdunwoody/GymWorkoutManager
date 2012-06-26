@@ -19,6 +19,7 @@
 		1ABFF54E1595F53A004C7EE1 /* AddExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5491595F53A004C7EE1 /* AddExerciseCell.m */; };
 		1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54B1595F53A004C7EE1 /* Exercise.m */; };
 		1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */; };
+		1ABFF5531595F804004C7EE1 /* ExerciseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		1ABFF54B1595F53A004C7EE1 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
 		1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseCell.h; sourceTree = "<group>"; };
 		1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
+		1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableDelegate.h; sourceTree = "<group>"; };
+		1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */,
 				1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */,
 				1ABFF5271595A63F004C7EE1 /* Supporting Files */,
+				1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */,
+				1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */,
 			);
 			path = SampleMultiview;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				1ABFF54E1595F53A004C7EE1 /* AddExerciseCell.m in Sources */,
 				1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */,
 				1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */,
+				1ABFF5531595F804004C7EE1 /* ExerciseTableDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

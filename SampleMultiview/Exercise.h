@@ -15,18 +15,19 @@ typedef enum {
     ExerciseIntensityAnaerobicLight, 
     ExerciseIntensityAnaerobicMedium, 
     ExerciseIntensityAnaerobicIntense
-} Intensity;
+} IntensityTypes;
 
 @interface Exercise : NSObject 
     @property NSString *name;
     @property NSNumber *reps;
     @property NSNumber *sets;
-    @property NSNumber *weights;
+    @property NSNumber *weight;
     @property BOOL isSingle;
+    @property NSString *bodyPart;
     @property NSString *category;
     @property NSString *rest;
     @property BOOL isCompleted;
-    @property Intensity intensity;
+    @property NSString *intensity;
     @property BOOL superSet;
     @property BOOL isAdd;
 

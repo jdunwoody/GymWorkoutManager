@@ -30,8 +30,8 @@
 @synthesize reps = _reps;
 @synthesize bodyPart = _bodyPart;
 @synthesize rest = _rest;
-@synthesize weights = _weights;
-@synthesize type = _type;
+@synthesize weight = _weights;
+@synthesize category = _category;
 @synthesize intensity = _intensity;
 
 @end

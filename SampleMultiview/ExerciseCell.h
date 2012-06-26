@@ -14,8 +14,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *reps;
 @property (nonatomic, strong) IBOutlet UILabel *bodyPart;
 @property (nonatomic, strong) IBOutlet UILabel *rest;
-@property (nonatomic, strong) IBOutlet UILabel *weights;
-@property (nonatomic, strong) IBOutlet UILabel *type;
+@property (nonatomic, strong) IBOutlet UILabel *weight;
+@property (nonatomic, strong) IBOutlet UILabel *category;
 @property (nonatomic, strong) IBOutlet UILabel *intensity;
 
 @end

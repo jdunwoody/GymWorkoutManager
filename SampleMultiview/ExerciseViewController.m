@@ -16,62 +16,66 @@
 @end
 
 @implementation ExerciseViewController
+//@synthesize addExerciseButton;
+
+@synthesize tableDelegate = _tableDelegate;
+@synthesize tableView = _tableView;
+@synthesize exerciseComponentPicker;
+@synthesize categoryButton;
+
 
 //@synthesize exercise = _exercise;
-@synthesize dataController = _dataController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.tableView.delegate = self.tableDelegate;
+    self.tableView.dataSource = self.tableDelegate;
+
     self.title = @"Exercises";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //    self.slideNavigationViewController.delegate = self;
-    //    self.slideNavigationViewController.dataSource = self;
+    nameValues = [[NSArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];    
+    bodyPartValues = [[NSArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
+    intensityValues = [[NSArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
     
-    //    self.slideNavigationController.panEnabled = YES;
-    
-    //    [self.view addSubview:tableViewController.tableView];
-    
-    exercises = [[NSArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];
-    bodyPart = [[NSArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
-    intensity = [[NSArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
-    
-    sets = [[NSMutableArray alloc] init];
+    setValues = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < 20; i++) {
-        [sets addObject:[NSString stringWithFormat:@"%d", i]];
+        [setValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     
-    reps = [[NSMutableArray alloc] init];
-    
+    repValues = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < 20; i++) {
-        [reps addObject:[NSString stringWithFormat:@"%d", i]];
+        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     for (NSUInteger i = 25; i <= 50; i+=5) {
-        [reps addObject:[NSString stringWithFormat:@"%d", i]];
+        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     
-    rest = [NSMutableArray arrayWithObjects:@"10s", @"20s", @"30s", nil];
+    restValues = [NSMutableArray arrayWithObjects:@"10", @"20", @"30", nil];
     for (NSUInteger i = 1; i <= 20; i++) {
-        [rest addObject:[NSString stringWithFormat:@"%dmin", i]];
+        [restValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     
-    weight = [[NSMutableArray alloc]init ];
+    weightValues = [[NSMutableArray alloc]init ];
     for (NSUInteger i = 1; i <= 20; i++) {
-        [weight addObject:[NSString stringWithFormat:@"%dkg", i]];
+        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     for (NSUInteger i = 25; i < 50; i+=5) {
-        [weight addObject:[NSString stringWithFormat:@"%dkg", i]];
+        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     for (NSUInteger i = 50; i <= 150; i+=10) {
-        [weight addObject:[NSString stringWithFormat:@"%dkg", i]];
+        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     
 }
 
 - (void)viewDidUnload
 {
+//    [self setAddExerciseButton:nil];
+    [self setExerciseComponentPicker:nil];
+    [self setCategoryButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -120,103 +124,13 @@
 //    return nil; //menuCtl;
 //}
 
-// Table functions
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.dataController countOfList];
-}
-
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    return @"title for header in section";
-//}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
-    
-//    if (exercise.isAdd) {
-//        static NSString *CellIdentifier = @"AddExerciseCell";
-//        AddExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//        
-//        [[cell exercisePicker] setDelegate:self];
-//        [[cell exercisePicker] setDataSource:self];
-//        
-//        //        NSString *valueAtIndex = [self.dataController objectInListAtIndex:indexPath.row];
-//        //        [[cell category] setText: @"exercise category"];
-//        //        [[cell exerciseLabel] setText:@"exercise label"];
-//        
-//        return cell;    
-//        
-//    } else {
-        static NSString *CellIdentifier = @"ExerciseCell";
-        ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        [[cell name] setText: exercise.name];
-        [[cell reps] setText: [NSString stringWithFormat:@"%d", exercise.reps]];
-        //        [[cell sets] setText: [NSString stringWithFormat:@"%d", exercise.sets]];
-        [[cell rest] setText: [NSString stringWithFormat:@"%@ Rest", exercise.rest == nil ? @"No" : exercise.rest]];
-        [[cell weights] setText: [NSString stringWithFormat:@"%dkg", exercise.weights]];
-        [[cell type] setText: exercise.isSingle ? @"Single" : @"Super"];
-        //        cell.indentationLevel = 50;
-        //        cell.indentationWidth = 50;
-        return cell;
-        
-        //        @property NSString *type;
-        
-        //        Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
-        //        [[cell reps] setText: [NSString stringWithFormat:@"%d" exercise.reps]];
-        //        [[cell bodyPart] setText: exercise.bodyPart];
-        //        [cell sizeToFit];
-        //        cell.backgroundColor = [UIColor redColor];
-        //        cell.backgroundColor = [UIColor colorWithRed:172.0/255.0 green:173.0/255.0 blue:175.0/255.0 alpha:1.0];
-        //        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop]    
-        //    NSIndexPath *selectedIndex = [tableView indexPathForSelectedRow];
-//    }
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
-    
-    
-    if (exercise.isAdd) {
-        cell.backgroundColor = [UIColor brownColor];  
-        
-    } else {
-        cell.backgroundColor = [UIColor cyanColor];  
-        
-    }
-    //        [cell textColor];
-    //    cell.textLabel.textColor = [UIColor brownColor];
-    //    cell.backgroundColor = [UIColor lightGrayColor];
-    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
-    
-    if (exercise.isAdd) {
-        return tableView.rowHeight;
-    } else {
-        //        return 62;
-        return 92;
-    }
-}
 
 // [pickerView reloadComponent]
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return NO;
+    return YES;
 }
 
 // Picker functions
@@ -230,59 +144,56 @@
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
     switch(component) {
-        case 0: return 150.0f;
-        case 1: return 44.0f;
-        case 2: return 150.0f;
-        case 3: return 44.0f;
-        case 4: return 88.0f;
-        case 5: return 200.0f;
-        case 6: return 88.0f;
-        default: return 22.0f;
+        case NAME: return 150.0f;
+        case REPS: return 44.0f;
+        case BODYPART: return 150.0f;
+        case SETS: return 44.0f;
+        case REST: return 88.0f;
+        case INTENSITY: return 200.0f;
+        case WEIGHT: 
+        default: return 88.0f;
     }
-    
-    //NOT REACHED
-    return 22;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     switch (component) {
-        case 6:
-            return weight.count;
-        case 5:
-            return intensity.count;
-        case 4:
-            return rest.count;
-        case 3:
-            return sets.count;
-        case 2:
-            return bodyPart.count;
-        case 1:
-            return reps.count;
-        case 0:
+        case WEIGHT:
+            return weightValues.count;
+        case INTENSITY:
+            return intensityValues.count;
+        case REST:
+            return restValues.count;
+        case SETS:
+            return setValues.count;
+        case BODYPART:
+            return bodyPartValues.count;
+        case REPS:
+            return repValues.count;
+        case NAME:
         default:
-            return exercises.count;
+            return nameValues.count;
     }
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     switch (component) {
-        case 6:
-            return [weight objectAtIndex:row];
-        case 5:
-            return [intensity objectAtIndex:row];
-        case 4:
-            return [rest objectAtIndex:row];
-        case 3:
-            return [sets objectAtIndex:row];
-        case 2:
-            return [bodyPart objectAtIndex:row];
-        case 1:
-            return[reps objectAtIndex:row];
-        case 0:
+        case WEIGHT:
+            return [weightValues objectAtIndex:row];
+        case INTENSITY:
+            return [intensityValues objectAtIndex:row];
+        case REST:
+            return [restValues objectAtIndex:row];
+        case SETS:
+            return [setValues objectAtIndex:row];
+        case BODYPART:
+            return [bodyPartValues objectAtIndex:row];
+        case REPS:
+            return[repValues objectAtIndex:row];
+        case NAME:
         default:
-            return [exercises objectAtIndex:row];
+            return [nameValues objectAtIndex:row];
     }
 }
 
@@ -299,7 +210,23 @@
 //        //        asker.question = @"What do you want your label to say?";
 //        //        asker.answer = @"Label text";
     }
+
+- (IBAction)addExercise:(id)sender {
     
+    NSString *selectedName = [nameValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:NAME]];
+    NSString *selectedReps = [repValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REPS]];
+    NSString *selectedWeight = [weightValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:WEIGHT]];
+    NSString *selectedRest = [restValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REST]];
+    NSString *selectedBodyPart = [bodyPartValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:BODYPART]];
+    NSString *selectedIntensity = [intensityValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:INTENSITY]];
+    
+    NSString *selectedCategory = [categoryButton titleForSegmentAtIndex:[categoryButton selectedSegmentIndex]];
+    
+    [self.tableDelegate addExerciseWithName: selectedName withReps: selectedReps withRest: selectedRest withWeight: selectedWeight withBodyPart: selectedBodyPart withIntensity: selectedIntensity withCategory: selectedCategory];
+    
+    [self.tableView reloadData];
+}
+@end  
     
     //    
     //    NSUInteger row = indexPath.row;
@@ -363,7 +290,37 @@
 //                                        self.contentView.frame.origin.y,self.contentView.frame.size.width - indentPoints,self.contentView.frame.size.height);
 //}
 
-@end
+//- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+//    self.selectedName = names objectAtIndex:row;
+//    
+//    NSLog(@"Selected Color: %@. Index of selected color: %i", [arrayColors objectAtIndex:row], row);
+//}
+//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+//{
+//    return view;
+//}
+
+
+
+
+
+//    NSUInteger numComponents = [[exerciseComponentPicker dataSource] numberOfComponentsInPickerView:self.exerciseComponentPicker];
+     
+     //    NSMutableString * text = [NSMutableString string];
+//    for(NSUInteger i = 0; i < numComponents; ++i) {
+//        NSUInteger selectedRow = [exerciseComponentPicker selectedRowInComponent:i];
+        
+        
+//        NSString *title = [[exerciseComponentPicker delegate] pickerView:exerciseComponentPicker titleForRow:selectedRow forComponent:exerciseComponentPicker];
+//    
+//        NSString *title = [[exerciseComponentPicker delegate] pickerView:exerciseComponentPicker titleForRow:selectedRow inComponent:i];
+//        [text appendFormat:@"Selected item \"%@\" in component %lu\n", title, i];
+//    }
+    
+//    NSLog(@"%@", text);
+//    [self.tableDelegate 
+    
+
 
 //- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 //{
