@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ExerciseDataController.h"
 #import "ExerciseTableDelegate.h"
+#import "ExerciseTimer.h"
 
 typedef enum  {
     WEIGHT = 6,
@@ -31,14 +32,21 @@ typedef enum  {
     NSArray *bodyPartValues;
     NSArray *intensityValues;
     NSMutableArray *restValues;
+    ExerciseTimer *timer;
 }
 
 @property (strong, nonatomic) IBOutlet ExerciseTableDelegate *tableDelegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
+@property (weak, nonatomic) IBOutlet UILabel *elapsedTimeLabel;
+
+- (IBAction)startTimerPressed:(id)sender;
+- (IBAction)pauseTimerPressed:(id)sender;
+- (IBAction)stopTimerPressed:(id)sender;
 
 - (IBAction)addExercise:(id)sender;
+
 //@property (weak, nonatomic) IBOutlet UIButton *addExerciseButton;
 
 @end

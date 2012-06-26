@@ -7,7 +7,6 @@
 //
 
 #import "ExerciseTableDelegate.h"
-#import "AddExerciseCell.h"
 #import "ExerciseCell.h"
 #import "Exercise.h"
 
@@ -40,9 +39,9 @@
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [[cell name] setText: exercise.name];
-    [[cell reps] setText: [NSString stringWithFormat:@"%d", exercise.reps]];
-    [[cell rest] setText: [NSString stringWithFormat:exercise.rest]];
-    [[cell weight] setText: [NSString stringWithFormat:@"%dkg", exercise.weight]];
+    [[cell reps] setText: [exercise.reps stringValue]];
+    [[cell rest] setText: exercise.rest];
+    [[cell weight] setText: [exercise.weight stringValue]];
     [[cell bodyPart] setText: exercise.bodyPart];
     [[cell intensity] setText: exercise.intensity];
     [[cell category] setText: exercise.category];

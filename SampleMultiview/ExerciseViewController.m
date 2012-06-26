@@ -7,9 +7,9 @@
 //
 
 #import "ExerciseViewController.h"
-#import "AddExerciseCell.h"
 #import "ExerciseCell.h"
 #import "Exercise.h"
+#import "ExerciseTimer.h"
 
 @interface ExerciseViewController ()
 
@@ -22,6 +22,7 @@
 @synthesize tableView = _tableView;
 @synthesize exerciseComponentPicker;
 @synthesize categoryButton;
+@synthesize elapsedTimeLabel;
 
 
 //@synthesize exercise = _exercise;
@@ -29,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    timer = [[ExerciseTimer alloc] initWithLabel:elapsedTimeLabel];
     
     self.tableView.delegate = self.tableDelegate;
     self.tableView.dataSource = self.tableDelegate;
@@ -76,6 +78,7 @@
 //    [self setAddExerciseButton:nil];
     [self setExerciseComponentPicker:nil];
     [self setCategoryButton:nil];
+    [self setElapsedTimeLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -212,20 +215,31 @@
     }
 
 - (IBAction)addExercise:(id)sender {
-    
     NSString *selectedName = [nameValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:NAME]];
     NSString *selectedReps = [repValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REPS]];
     NSString *selectedWeight = [weightValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:WEIGHT]];
     NSString *selectedRest = [restValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REST]];
     NSString *selectedBodyPart = [bodyPartValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:BODYPART]];
     NSString *selectedIntensity = [intensityValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:INTENSITY]];
-    
     NSString *selectedCategory = [categoryButton titleForSegmentAtIndex:[categoryButton selectedSegmentIndex]];
     
     [self.tableDelegate addExerciseWithName: selectedName withReps: selectedReps withRest: selectedRest withWeight: selectedWeight withBodyPart: selectedBodyPart withIntensity: selectedIntensity withCategory: selectedCategory];
     
     [self.tableView reloadData];
 }
+
+- (IBAction)startTimerPressed:(id)sender {
+    [timer start];
+}
+
+- (IBAction)pauseTimerPressed:(id)sender {
+    [timer pause];
+}
+
+- (IBAction)stopTimerPressed:(id)sender {
+    [timer stop];
+}
+
 @end  
     
     //    
