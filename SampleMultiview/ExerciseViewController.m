@@ -270,24 +270,24 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)randomiseBodyPart:(id)sender {
+    [self randomisePickerComponentWithComponentId: BODYPART withValues: bodyPartValues];
+}
+
 - (IBAction)randomiseExercise:(id)sender {
+    [self randomisePickerComponentWithComponentId: NAME withValues: nameValues];
+}
+
+-(void) randomisePickerComponentWithComponentId: (int) component withValues: (NSArray *)values
+{
+    int randomIndex = arc4random() % values.count;    
+    [self.exerciseComponentPicker selectRow:randomIndex inComponent:component animated:YES];
+
     NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
     
     if (selectedRow != nil) {
-        int randomIndex = arc4random() % nameValues.count;
-
-        [self.exerciseComponentPicker selectRow:randomIndex inComponent:NAME animated:YES];
-
+    
         [self updateSelectedRow];
-        
-        //        Exercise *selectedPickerExercise = [self selectedPickerExercise];
-        //        int randomIndex = arc4random() % nameValues.count;
-        ////        NSLog(@"Random name index %d", randomIndex);
-        //        [self.exerciseComponentPicker selectedRowInComponent:NAME];
-        //        selectedPickerExercise.name = [nameValues objectAtIndex:randomIndex];
-        //    
-        //        [self.tableDelegate updateRowWithExercise:selectedPickerExercise withRow:selectedRow.row];
-        
     }
 }
 

@@ -41,6 +41,7 @@ typedef enum  {
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
 @property (weak, nonatomic) IBOutlet UILabel *elapsedTimeLabel;
 
+- (IBAction)randomiseBodyPart:(id)sender;
 - (IBAction)randomiseExercise:(id)sender;
 - (IBAction)startTimerPressed:(id)sender;
 - (IBAction)pauseTimerPressed:(id)sender;
