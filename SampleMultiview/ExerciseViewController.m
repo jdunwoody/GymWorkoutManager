@@ -71,7 +71,7 @@
         [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+  self.tableDelegate.tableView = self.tableView;
 }
 
 - (void)viewDidUnload
@@ -201,6 +201,41 @@
     }
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
+    
+    if (selectedRow != nil) {
+        Exercise *exercise = [self selectedExercise];
+        [self.tableDelegate updateRowWithExercise:exercise withRow:selectedRow.row];
+    }
+}
+
+-(Exercise *) selectedExercise
+{
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    
+    NSString *selectedName = [nameValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:NAME]];
+    NSString *selectedReps = [repValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REPS]];
+    NSString *selectedWeight = [weightValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:WEIGHT]];
+    NSString *selectedRest = [restValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REST]];
+    NSString *selectedBodyPart = [bodyPartValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:BODYPART]];
+    NSString *selectedIntensity = [intensityValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:INTENSITY]];
+    NSString *selectedCategory = [categoryButton titleForSegmentAtIndex:[categoryButton selectedSegmentIndex]];
+    
+    Exercise *exercise = [[Exercise alloc] init];
+    exercise.name = selectedName;
+    exercise.reps = [numberFormatter numberFromString: selectedReps];
+    exercise.rest = selectedRest;
+    exercise.weight = [numberFormatter numberFromString:selectedWeight];
+    exercise.bodyPart = selectedBodyPart;
+    exercise.intensity = selectedIntensity;
+    
+    exercise.category = selectedCategory;
+    
+    return exercise;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender 
 {
 //    if ([segue.identifier isEqualToString:@"AddExercise"]) {
@@ -215,15 +250,11 @@
     }
 
 - (IBAction)addExercise:(id)sender {
-    NSString *selectedName = [nameValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:NAME]];
-    NSString *selectedReps = [repValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REPS]];
-    NSString *selectedWeight = [weightValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:WEIGHT]];
-    NSString *selectedRest = [restValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REST]];
-    NSString *selectedBodyPart = [bodyPartValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:BODYPART]];
-    NSString *selectedIntensity = [intensityValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:INTENSITY]];
-    NSString *selectedCategory = [categoryButton titleForSegmentAtIndex:[categoryButton selectedSegmentIndex]];
-    
-    [self.tableDelegate addExerciseWithName: selectedName withReps: selectedReps withRest: selectedRest withWeight: selectedWeight withBodyPart: selectedBodyPart withIntensity: selectedIntensity withCategory: selectedCategory];
+   
+    Exercise *exercise = [self selectedExercise];
+
+    [self.tableDelegate addExerciseWithExercise:exercise];
+//    [self.tableDelegate addExerciseWithName: selectedName withReps: selectedReps withRest: selectedRest withWeight: selectedWeight withBodyPart: selectedBodyPart withIntensity: selectedIntensity withCategory: selectedCategory];
     
     [self.tableView reloadData];
 }
@@ -255,7 +286,7 @@
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
-    self.tableDelegate.tableView = self.tableView;
+//    self.tableDelegate.tableView = self.tableView;
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:YES];
     

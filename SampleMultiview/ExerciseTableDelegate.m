@@ -120,21 +120,22 @@
     }
 }
 
--(void) addExerciseWithName:(NSString *)name withReps: (NSString *)reps withRest: (NSString *)rest withWeight: (NSString *)weight withBodyPart: (NSString *)selectedBodyPart withIntensity:(NSString *)selectedIntensity withCategory:(NSString *)selectedCategory
-{
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    
-    Exercise *exercise = [[Exercise alloc] init];
-    exercise.name = name;
-    exercise.reps = [numberFormatter numberFromString: reps];
-    exercise.rest = rest;
-    exercise.weight = [numberFormatter numberFromString:weight];
-    exercise.bodyPart = selectedBodyPart;
-    exercise.intensity = selectedIntensity;
-    
-    exercise.category = selectedCategory;
-    [self.dataController.exercises addObject:exercise];
-}
+//
+//-(void) addExerciseWithName:(NSString *)name withReps: (NSString *)reps withRest: (NSString *)rest withWeight: (NSString *)weight withBodyPart: (NSString *)selectedBodyPart withIntensity:(NSString *)selectedIntensity withCategory:(NSString *)selectedCategory
+//{
+//    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+//    
+//    Exercise *exercise = [[Exercise alloc] init];
+//    exercise.name = name;
+//    exercise.reps = [numberFormatter numberFromString: reps];
+//    exercise.rest = rest;
+//    exercise.weight = [numberFormatter numberFromString:weight];
+//    exercise.bodyPart = selectedBodyPart;
+//    exercise.intensity = selectedIntensity;
+//    
+//    exercise.category = selectedCategory;
+//    [self.dataController.exercises addObject:exercise];
+//}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -163,12 +164,28 @@
     return YES;
 }
 
+-(void) addExerciseWithExercise:(Exercise *)exercise
+{
+    [self.dataController.exercises addObject:exercise];
+}
+
 -(void) deleteWithIndexPaths: (NSArray *)indexPaths
 {
     for (NSIndexPath *path in indexPaths) {
         [self.dataController.exercises removeObjectAtIndex:path.row];
     }
 }
+
+-(void) updateRowWithExercise: (Exercise *) exercise withRow: (NSInteger) row
+{   
+    [self.dataController.exercises replaceObjectAtIndex:row withObject:exercise];
+    [self.tableView reloadData];
+}
+
+//-(void) updateRowWithRow: (NSInteger)row withComponent: (NSInteger)component
+//{
+//    [self.tableView  
+//}
 
 //- (void)insertRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 //{

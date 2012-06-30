@@ -11,7 +11,9 @@
 
 @protocol ExerciseMaintainable <NSObject>
 
--(void)addExerciseWithName: (NSString *)name withReps: (NSString *)reps withRest: (NSString *) selectedRest withWeight: (NSString *) selectedWeight withBodyPart: (NSString *)selectedBodyPart withIntensity: (NSString *)selectedIntensity withCategory: (NSString *)selectedCategory;
+-(void) addExerciseWithExercise:(Exercise *)exercise;
+
+//-(void)addExerciseWithName: (NSString *)name withReps: (NSString *)reps withRest: (NSString *) selectedRest withWeight: (NSString *) selectedWeight withBodyPart: (NSString *)selectedBodyPart withIntensity: (NSString *)selectedIntensity withCategory: (NSString *)selectedCategory;
 
 @end
 
@@ -20,6 +22,8 @@
 //-(id) initWithTableView
 -(void) deleteWithIndexPaths: (NSArray *)indexPaths;
 //-(id) initWithTableView:(UITableView *)tableView;
+-(void) updateRowWithExercise: (Exercise *) exercise withRow: (NSInteger) row; 
+-(void) addExerciseWithExercise:(Exercise *)exercise;
 
 @property (strong, nonatomic) ExerciseDataController *dataController;
 @property (strong, nonatomic) UITableView *tableView;
