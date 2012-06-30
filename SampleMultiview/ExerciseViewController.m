@@ -70,7 +70,8 @@
     for (NSUInteger i = 50; i <= 150; i+=10) {
         [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
-    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)viewDidUnload
@@ -200,7 +201,6 @@
     }
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender 
 {
 //    if ([segue.identifier isEqualToString:@"AddExercise"]) {
@@ -239,6 +239,44 @@
 - (IBAction)stopTimerPressed:(id)sender {
     [timer stop];
 }
+
+//- (void)setEditing:(BOOL)editing animated:(BOOL)animate
+//{
+//    if (editing == YES) {
+//        NSLog(@"Editing mode for table");
+//    }
+//}
+
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath 
+//{
+//    return UITableViewCellEditingStyleDelete;
+////    return UITableViewCellEditingStyleInsert;
+//}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    self.tableDelegate.tableView = self.tableView;
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:YES];
+    
+//    if (editing) {
+//        addButton.enabled = NO;
+//    } else {
+//        addButton.enabled = YES;
+//    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//- (void)deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+//{
+//    [self.tableDelegate deleteWithIndexPaths:indexPaths];
+//    [self.tableView reloadData];
+//}
 
 @end  
     

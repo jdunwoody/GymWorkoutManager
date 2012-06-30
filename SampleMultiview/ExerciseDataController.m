@@ -21,7 +21,6 @@
 }
 
 - (void)initializeDefaultDataList {
-    
     self.exercises = [[NSMutableArray alloc] init];
     
 //    Exercise *exercise = [[Exercise alloc] init];

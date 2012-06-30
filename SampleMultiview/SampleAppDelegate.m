@@ -25,7 +25,8 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     ExerciseViewController *rootViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
     
-    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc]init];
+//    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] initWithTableView:rootViewController.tableView];
+    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
     ExerciseDataController *dataController = [[ExerciseDataController alloc] init];
     
     tableDelegate.dataController = dataController;

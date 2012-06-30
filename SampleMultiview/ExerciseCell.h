@@ -17,5 +17,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *weight;
 @property (nonatomic, strong) IBOutlet UILabel *category;
 @property (nonatomic, strong) IBOutlet UILabel *intensity;
+@property (nonatomic, strong) IBOutlet UILabel *editingMode;
 
 @end

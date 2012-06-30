@@ -12,7 +12,16 @@
 
 @implementation ExerciseTableDelegate
 
+@synthesize tableView = _tableView;
 @synthesize dataController = _dataController;
+
+//-(id) initWithTableView:(UITableView *)tableView
+//{
+//    if (self = [super init]) {
+//        self.tableView = tableView;
+//    }
+//    return self;
+//}
 
 // Table functions
 
@@ -113,7 +122,6 @@
 
 -(void) addExerciseWithName:(NSString *)name withReps: (NSString *)reps withRest: (NSString *)rest withWeight: (NSString *)weight withBodyPart: (NSString *)selectedBodyPart withIntensity:(NSString *)selectedIntensity withCategory:(NSString *)selectedCategory
 {
-    NSLog(@"Delegate received addExercise");
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     
     Exercise *exercise = [[Exercise alloc] init];
@@ -127,4 +135,66 @@
     exercise.category = selectedCategory;
     [self.dataController.exercises addObject:exercise];
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+        
+    } else if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.dataController.exercises removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadData];
+  
+//        NSLog(@"%d", [self.dataController.exercises count]);
+//        NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
+//        [self.tableView setEditing:FALSE animated:YES];
+   
+        //        [self.tableView deleteRowsAtIndexPaths:indexPath withRowAnimation:YES];
+        //        int row = indexPath.row; 
+        //        SimpleEditableListAppDelegate *controller = (SimpleEditableListAppDelegate *)[[UIApplication sharedApplication] delegate];
+        //        [controller removeObjectFromListAtIndex:indexPath.row];
+        //        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(void) deleteWithIndexPaths: (NSArray *)indexPaths
+{
+    for (NSIndexPath *path in indexPaths) {
+        [self.dataController.exercises removeObjectAtIndex:path.row];
+    }
+}
+
+//- (void)insertRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+//{
+//    NSLog(@"Insert rows");
+//}
+//
+//- (void)deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+//{
+//    NSLog(@"Delete rows");
+//}
+//
+//- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
+//{
+//    NSLog(@"Move rows");
+//}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    return UITableViewCellEditingStyleInsert;   
+    return UITableViewCellEditingStyleDelete;  
+}
+
+//-(void) deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+//{
+//    [self deleteWithIndexPaths:indexPaths];
+////    [self.tableView reloadData];
+//}
+
 @end

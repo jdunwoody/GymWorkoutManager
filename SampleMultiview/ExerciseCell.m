@@ -10,6 +10,15 @@
 
 @implementation ExerciseCell
 
+@synthesize name = name;
+@synthesize reps = _reps;
+@synthesize bodyPart = _bodyPart;
+@synthesize rest = _rest;
+@synthesize weight = _weights;
+@synthesize category = _category;
+@synthesize intensity = _intensity;
+@synthesize editingMode = _editingMode;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -26,12 +35,33 @@
     // Configure the view for the selected state
 }
 
-@synthesize name = name;
-@synthesize reps = _reps;
-@synthesize bodyPart = _bodyPart;
-@synthesize rest = _rest;
-@synthesize weight = _weights;
-@synthesize category = _category;
-@synthesize intensity = _intensity;
+//- (void)setEditing:(BOOL)editing animated:(BOOL)animate
+//{
+//    return [super setEditing:editing animated:<#animate#>];
+//}
+
+//- (void)setEditing:(BOOL)editing animated:(BOOL)animate
+//{
+//    [super setEditing:editing animated:animate];
+// 
+//    
+//    [UIView beginAnimations:nil context:NULL];
+//    [UIView setAnimationDuration:0.1];
+//    [UIView setAnimationDelegate:self];
+//    [UIView setAnimationBeginsFromCurrentState:YES];
+//    
+//    if(editing){
+//        self.editingMode.enabled = YES;
+//    }else{
+//        self.editingMode.enabled = NO;
+//    }
+//    
+//    [UIView commitAnimations];
+//    if (editing == YES) {
+//        NSLog(@"Editing mode for cell");
+//    }
+//}
+
+
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A64EA3E159DE1A5002A3054 /* Orange.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A64EA3D159DE1A5002A3054 /* Orange.gif */; };
 		1ABFF5211595A63E004C7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5201595A63E004C7EE1 /* UIKit.framework */; };
 		1ABFF5231595A63F004C7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5221595A63E004C7EE1 /* Foundation.framework */; };
 		1ABFF5251595A63F004C7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5241595A63F004C7EE1 /* CoreGraphics.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A64EA3D159DE1A5002A3054 /* Orange.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Orange.gif; sourceTree = "<group>"; };
 		1ABFF51C1595A63E004C7EE1 /* SampleMultiview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleMultiview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABFF5201595A63E004C7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1ABFF5221595A63E004C7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,13 +94,12 @@
 		1ABFF5261595A63F004C7EE1 /* SampleMultiview */ = {
 			isa = PBXGroup;
 			children = (
+				1A64EA3D159DE1A5002A3054 /* Orange.gif */,
 				1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */,
 				1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */,
 				1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */,
 				1ABFF5391595E634004C7EE1 /* ExerciseViewController.h */,
 				1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */,
-				1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */,
-				1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */,
 				1ABFF54A1595F53A004C7EE1 /* Exercise.h */,
 				1ABFF54B1595F53A004C7EE1 /* Exercise.m */,
 				1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */,
@@ -106,6 +107,8 @@
 				1ABFF5271595A63F004C7EE1 /* Supporting Files */,
 				1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */,
 				1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */,
+				1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */,
+				1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */,
 				1AF76B3E1599F16600417F1D /* ExerciseTimer.h */,
 				1AF76B3F1599F16600417F1D /* ExerciseTimer.m */,
 			);
@@ -176,6 +179,7 @@
 			files = (
 				1ABFF52B1595A63F004C7EE1 /* InfoPlist.strings in Resources */,
 				1ABFF5381595A65A004C7EE1 /* Storyboard.storyboard in Resources */,
+				1A64EA3E159DE1A5002A3054 /* Orange.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

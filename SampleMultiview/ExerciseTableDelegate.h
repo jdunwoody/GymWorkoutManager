@@ -17,6 +17,11 @@
 
 @interface ExerciseTableDelegate : NSObject <UITableViewDelegate, UITableViewDataSource, ExerciseMaintainable> 
 
+//-(id) initWithTableView
+-(void) deleteWithIndexPaths: (NSArray *)indexPaths;
+//-(id) initWithTableView:(UITableView *)tableView;
+
 @property (strong, nonatomic) ExerciseDataController *dataController;
+@property (strong, nonatomic) UITableView *tableView;
 
 @end
