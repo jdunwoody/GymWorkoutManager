@@ -133,6 +133,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="randomiseExercise:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="LG0-0u-gEc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f4h-He-we4">
                                 <rect key="frame" x="531" y="647" width="54" height="37"/>

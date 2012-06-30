@@ -203,19 +203,25 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    [self updateSelectedRow];
+    
+}
+
+-(void) updateSelectedRow
+{
     NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
     
     if (selectedRow != nil) {
-        Exercise *exercise = [self selectedExercise];
+        Exercise *exercise = [self selectedPickerExercise];
         [self.tableDelegate updateRowWithExercise:exercise withRow:selectedRow.row];
     }
 }
 
--(Exercise *) selectedExercise
+-(Exercise *) selectedPickerExercise
 {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     
-    NSString *selectedName = [nameValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:NAME]];
+    NSString *selectedName = [self selectedPickerValueForExercise];
     NSString *selectedReps = [repValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REPS]];
     NSString *selectedWeight = [weightValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:WEIGHT]];
     NSString *selectedRest = [restValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REST]];
@@ -236,6 +242,11 @@
     return exercise;
 }
 
+-(NSString *) selectedPickerValueForExercise
+{
+    return [nameValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:NAME]];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender 
 {
 //    if ([segue.identifier isEqualToString:@"AddExercise"]) {
@@ -251,12 +262,33 @@
 
 - (IBAction)addExercise:(id)sender {
    
-    Exercise *exercise = [self selectedExercise];
+    Exercise *exercise = [self selectedPickerExercise];
 
     [self.tableDelegate addExerciseWithExercise:exercise];
 //    [self.tableDelegate addExerciseWithName: selectedName withReps: selectedReps withRest: selectedRest withWeight: selectedWeight withBodyPart: selectedBodyPart withIntensity: selectedIntensity withCategory: selectedCategory];
     
     [self.tableView reloadData];
+}
+
+- (IBAction)randomiseExercise:(id)sender {
+    NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
+    
+    if (selectedRow != nil) {
+        int randomIndex = arc4random() % nameValues.count;
+
+        [self.exerciseComponentPicker selectRow:randomIndex inComponent:NAME animated:YES];
+
+        [self updateSelectedRow];
+        
+        //        Exercise *selectedPickerExercise = [self selectedPickerExercise];
+        //        int randomIndex = arc4random() % nameValues.count;
+        ////        NSLog(@"Random name index %d", randomIndex);
+        //        [self.exerciseComponentPicker selectedRowInComponent:NAME];
+        //        selectedPickerExercise.name = [nameValues objectAtIndex:randomIndex];
+        //    
+        //        [self.tableDelegate updateRowWithExercise:selectedPickerExercise withRow:selectedRow.row];
+        
+    }
 }
 
 - (IBAction)startTimerPressed:(id)sender {
