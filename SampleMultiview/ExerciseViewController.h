@@ -10,45 +10,41 @@
 #import "ExerciseDataController.h"
 #import "ExerciseTableDelegate.h"
 #import "ExerciseTimer.h"
+#import "ExercisePickerDelegate.h"
+#import "ExercisePickerControllerProtocol.h"
 
-typedef enum  {
-    WEIGHT = 6,
-    INTENSITY = 5,
-    REST = 4,
-    SETS = 3,
-    BODYPART = 2,
-    REPS = 1,
-    NAME = 0
-} ExercisePickerComponents;
-
-@interface ExerciseViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol>
 {
     UIPickerView *exercisePicker;
     
-    NSArray *nameValues;
-    NSMutableArray *repValues;
-    NSMutableArray *setValues;
-    NSMutableArray *weightValues;
-    NSArray *bodyPartValues;
-    NSArray *intensityValues;
-    NSMutableArray *restValues;
     ExerciseTimer *timer;
 }
 
 @property (strong, nonatomic) IBOutlet ExerciseTableDelegate *tableDelegate;
+@property (strong, nonatomic) IBOutlet ExercisePickerDelegate *pickerDelegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
 @property (weak, nonatomic) IBOutlet UILabel *elapsedTimeLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
 
-- (IBAction)randomiseBodyPart:(id)sender;
-- (IBAction)randomiseExercise:(id)sender;
 - (IBAction)startTimerPressed:(id)sender;
 - (IBAction)pauseTimerPressed:(id)sender;
 - (IBAction)stopTimerPressed:(id)sender;
-
 - (IBAction)addExercise:(id)sender;
-
-//@property (weak, nonatomic) IBOutlet UIButton *addExerciseButton;
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+- (IBAction) randomiseBodyPart:(id)sender;
+- (IBAction) randomiseExercise:(id)sender;
 
 @end
+
+//    NSArray *nameValues;
+//    NSMutableArray *repValues;
+//    NSMutableArray *setValues;
+//    NSMutableArray *weightValues;
+//    NSArray *bodyPartValues;
+//    NSArray *intensityValues;
+//    NSMutableArray *restValues;
+//- (IBAction)randomiseBodyPart:(id)sender;
+//- (IBAction)randomiseExercise:(id)sender;
+//@property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
+//@property (weak, nonatomic) IBOutlet UIButton *addExerciseButton;

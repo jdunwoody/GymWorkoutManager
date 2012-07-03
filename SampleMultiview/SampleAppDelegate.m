@@ -9,6 +9,7 @@
 #import "SampleAppDelegate.h"
 #import "ExerciseViewController.h"
 #import "ExerciseTableDelegate.h"
+#import "ExercisePickerDelegate.h"
 
 @implementation SampleAppDelegate
 
@@ -28,9 +29,11 @@
 //    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] initWithTableView:rootViewController.tableView];
     ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
     ExerciseDataController *dataController = [[ExerciseDataController alloc] init];
+    ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:rootViewController];
     
     tableDelegate.dataController = dataController;
     rootViewController.tableDelegate = tableDelegate;
+    rootViewController.pickerDelegate = pickerDelegate;
     
     // Override point for customization after application launch.
     return YES;

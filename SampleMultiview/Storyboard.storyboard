@@ -303,7 +303,7 @@
                     <navigationItem key="navigationItem" id="kqg-oF-b0D"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="categoryButton" destination="Xpb-la-gyS" id="856-O8-Y8T"/>
+                        <outlet property="categoryButton" destination="Xpb-la-gyS" id="dmr-IC-X5a"/>
                         <outlet property="elapsedTimeLabel" destination="qyz-Yg-Sp0" id="olD-SH-hNv"/>
                         <outlet property="exerciseComponentPicker" destination="aRB-ah-VHx" id="04z-jo-lvz"/>
                         <outlet property="tableView" destination="d0F-xQ-7jB" id="PpB-q3-VoV"/>
@@ -343,6 +343,15 @@
                 <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="ExercisePickerDelegate" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisePickerDelegate.h"/>
+            <relationships>
+                <relationship kind="action" name="randomiseBodyPart:"/>
+                <relationship kind="action" name="randomiseExercise:"/>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
         <class className="ExerciseTableDelegate" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseTableDelegate.h"/>
         </class>
@@ -351,13 +360,12 @@
             <relationships>
                 <relationship kind="action" name="addExercise:"/>
                 <relationship kind="action" name="pauseTimerPressed:"/>
-                <relationship kind="action" name="randomiseBodyPart:"/>
-                <relationship kind="action" name="randomiseExercise:"/>
                 <relationship kind="action" name="startTimerPressed:"/>
                 <relationship kind="action" name="stopTimerPressed:"/>
                 <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="elapsedTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="elapsedTimeLabel" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="pickerDelegate" candidateClass="ExercisePickerDelegate"/>
                 <relationship kind="outlet" name="tableDelegate" candidateClass="ExerciseTableDelegate"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>

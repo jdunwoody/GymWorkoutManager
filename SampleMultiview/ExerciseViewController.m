@@ -15,70 +15,86 @@
 
 @end
 
+//- (IBAction)randomiseBodyPart:(id)sender;
+//- (IBAction)randomiseExercise:(id)sender;
+//- (IBAction)startTimerPressed:(id)sender;
+//- (IBAction)pauseTimerPressed:(id)sender;
+//- (IBAction)stopTimerPressed:(id)sender;
+//
+//- (IBAction)addExercise:(id)sender;
+
+
 @implementation ExerciseViewController
 //@synthesize addExerciseButton;
 
 @synthesize tableDelegate = _tableDelegate;
 @synthesize tableView = _tableView;
-@synthesize exerciseComponentPicker;
-@synthesize categoryButton;
-@synthesize elapsedTimeLabel;
-
+@synthesize exerciseComponentPicker = _exerciseComponentPicker;
+//@synthesize categoryButton = _categoryButton;
+@synthesize elapsedTimeLabel = _elapsedTimeLabel;
+@synthesize pickerDelegate = _pickerDelegate;
+@synthesize categoryButton = _categoryButton;
 
 //@synthesize exercise = _exercise;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    timer = [[ExerciseTimer alloc] initWithLabel:elapsedTimeLabel];
+    timer = [[ExerciseTimer alloc] initWithLabel:_elapsedTimeLabel];
     
+    self.tableDelegate.tableView = self.tableView;
     self.tableView.delegate = self.tableDelegate;
     self.tableView.dataSource = self.tableDelegate;
-
+    self.exerciseComponentPicker.delegate = self.pickerDelegate;
+    self.exerciseComponentPicker.dataSource = self.pickerDelegate;
+    self.pickerDelegate.categoryButton = self.categoryButton;
+    self.pickerDelegate.exerciseComponentPicker = self.exerciseComponentPicker;
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     self.title = @"Exercises";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    nameValues = [[NSArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];    
-    bodyPartValues = [[NSArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
-    intensityValues = [[NSArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
+//    nameValues = [[NSArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];    
+//    bodyPartValues = [[NSArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
+//    intensityValues = [[NSArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
+//    
+//    setValues = [[NSMutableArray alloc] init];
+//    for (NSUInteger i = 0; i < 20; i++) {
+//        [setValues addObject:[NSString stringWithFormat:@"%d", i]];
+//    }
+//    
+//    repValues = [[NSMutableArray alloc] init];
+//    for (NSUInteger i = 0; i < 20; i++) {
+//        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
+//    }
+//    for (NSUInteger i = 25; i <= 50; i+=5) {
+//        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
+//    }
+//    
+//    restValues = [NSMutableArray arrayWithObjects:@"10", @"20", @"30", nil];
+//    for (NSUInteger i = 1; i <= 20; i++) {
+//        [restValues addObject:[NSString stringWithFormat:@"%d", i]];
+//    }
+//    
+//    weightValues = [[NSMutableArray alloc]init ];
+//    for (NSUInteger i = 1; i <= 20; i++) {
+//        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
+//    }
+//    for (NSUInteger i = 25; i < 50; i+=5) {
+//        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
+//    }
+//    for (NSUInteger i = 50; i <= 150; i+=10) {
+//        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
+//    }
     
-    setValues = [[NSMutableArray alloc] init];
-    for (NSUInteger i = 0; i < 20; i++) {
-        [setValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    
-    repValues = [[NSMutableArray alloc] init];
-    for (NSUInteger i = 0; i < 20; i++) {
-        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    for (NSUInteger i = 25; i <= 50; i+=5) {
-        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    
-    restValues = [NSMutableArray arrayWithObjects:@"10", @"20", @"30", nil];
-    for (NSUInteger i = 1; i <= 20; i++) {
-        [restValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    
-    weightValues = [[NSMutableArray alloc]init ];
-    for (NSUInteger i = 1; i <= 20; i++) {
-        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    for (NSUInteger i = 25; i < 50; i+=5) {
-        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    for (NSUInteger i = 50; i <= 150; i+=10) {
-        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-  self.tableDelegate.tableView = self.tableView;
 }
 
 - (void)viewDidUnload
 {
 //    [self setAddExerciseButton:nil];
     [self setExerciseComponentPicker:nil];
-    [self setCategoryButton:nil];
+//    [self setCategoryButton:nil];
     [self setElapsedTimeLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -93,118 +109,10 @@
     }
 }
 
-// MW Slider Stuff
-//
-//- (IBAction) showEditStuff:(id)sender
-//{
-//    [self.slideNavigationViewController slideWithDirection:MWFSlideDirectionRight];
-//}
-//
-//- (IBAction) hideEditStuff:(id)sender
-//{
-//    [self.slideNavigationViewController slideWithDirection:MWFSlideDirectionNone];
-//}
-//
-//- (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller 
-//                   distanceForSlideDirecton:(MWFSlideDirection)direction 
-//                        portraitOrientation:(BOOL)portraitOrientation
-//{
-//    if (portraitOrientation)
-//    {
-//        return 180;
-//    }
-//    else
-//    {
-//        return 100;
-//    }
-//}
-//
-//- (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller 
-//                      viewControllerForSlideDirecton:(MWFSlideDirection)direction
-//{
-//    [self performSegueWithIdentifier:@"AddExercise" sender:self];
-//    
-////    PickerTestViewController * menuCtl = ...; // alloc and init your controller
-//    return nil; //menuCtl;
-//}
-
-
-// [pickerView reloadComponent]
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
-}
-
-// Picker functions
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 7;
-}
-
-//UIViewAutoresizingFlexibleWidth
-
-- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-    switch(component) {
-        case NAME: return 150.0f;
-        case REPS: return 44.0f;
-        case BODYPART: return 150.0f;
-        case SETS: return 44.0f;
-        case REST: return 88.0f;
-        case INTENSITY: return 200.0f;
-        case WEIGHT: 
-        default: return 88.0f;
-    }
-}
-
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    switch (component) {
-        case WEIGHT:
-            return weightValues.count;
-        case INTENSITY:
-            return intensityValues.count;
-        case REST:
-            return restValues.count;
-        case SETS:
-            return setValues.count;
-        case BODYPART:
-            return bodyPartValues.count;
-        case REPS:
-            return repValues.count;
-        case NAME:
-        default:
-            return nameValues.count;
-    }
-}
-
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    switch (component) {
-        case WEIGHT:
-            return [weightValues objectAtIndex:row];
-        case INTENSITY:
-            return [intensityValues objectAtIndex:row];
-        case REST:
-            return [restValues objectAtIndex:row];
-        case SETS:
-            return [setValues objectAtIndex:row];
-        case BODYPART:
-            return [bodyPartValues objectAtIndex:row];
-        case REPS:
-            return[repValues objectAtIndex:row];
-        case NAME:
-        default:
-            return [nameValues objectAtIndex:row];
-    }
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    [self updateSelectedRow];
-    
 }
 
 -(void) updateSelectedRow
@@ -212,39 +120,9 @@
     NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
     
     if (selectedRow != nil) {
-        Exercise *exercise = [self selectedPickerExercise];
+        Exercise *exercise = [self.pickerDelegate selectedPickerExercise];
         [self.tableDelegate updateRowWithExercise:exercise withRow:selectedRow.row];
     }
-}
-
--(Exercise *) selectedPickerExercise
-{
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    
-    NSString *selectedName = [self selectedPickerValueForExercise];
-    NSString *selectedReps = [repValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REPS]];
-    NSString *selectedWeight = [weightValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:WEIGHT]];
-    NSString *selectedRest = [restValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REST]];
-    NSString *selectedBodyPart = [bodyPartValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:BODYPART]];
-    NSString *selectedIntensity = [intensityValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:INTENSITY]];
-    NSString *selectedCategory = [categoryButton titleForSegmentAtIndex:[categoryButton selectedSegmentIndex]];
-    
-    Exercise *exercise = [[Exercise alloc] init];
-    exercise.name = selectedName;
-    exercise.reps = [numberFormatter numberFromString: selectedReps];
-    exercise.rest = selectedRest;
-    exercise.weight = [numberFormatter numberFromString:selectedWeight];
-    exercise.bodyPart = selectedBodyPart;
-    exercise.intensity = selectedIntensity;
-    
-    exercise.category = selectedCategory;
-    
-    return exercise;
-}
-
--(NSString *) selectedPickerValueForExercise
-{
-    return [nameValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:NAME]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender 
@@ -262,7 +140,7 @@
 
 - (IBAction)addExercise:(id)sender {
    
-    Exercise *exercise = [self selectedPickerExercise];
+    Exercise *exercise = [self.pickerDelegate selectedPickerExercise];
 
     [self.tableDelegate addExerciseWithExercise:exercise];
 //    [self.tableDelegate addExerciseWithName: selectedName withReps: selectedReps withRest: selectedRest withWeight: selectedWeight withBodyPart: selectedBodyPart withIntensity: selectedIntensity withCategory: selectedCategory];
@@ -270,26 +148,6 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)randomiseBodyPart:(id)sender {
-    [self randomisePickerComponentWithComponentId: BODYPART withValues: bodyPartValues];
-}
-
-- (IBAction)randomiseExercise:(id)sender {
-    [self randomisePickerComponentWithComponentId: NAME withValues: nameValues];
-}
-
--(void) randomisePickerComponentWithComponentId: (int) component withValues: (NSArray *)values
-{
-    int randomIndex = arc4random() % values.count;    
-    [self.exerciseComponentPicker selectRow:randomIndex inComponent:component animated:YES];
-
-    NSIndexPath *selectedRow = [self.tableView indexPathForSelectedRow];
-    
-    if (selectedRow != nil) {
-    
-        [self updateSelectedRow];
-    }
-}
 
 - (IBAction)startTimerPressed:(id)sender {
     [timer start];
@@ -341,8 +199,52 @@
 //    [self.tableView reloadData];
 //}
 
+- (IBAction)randomiseBodyPart:(id)sender {
+    [self.pickerDelegate randomiseBodyPart:sender];
+}
+
+- (IBAction)randomiseExercise:(id)sender{
+    [self.pickerDelegate randomiseExercise:sender];
+}
 @end  
-    
+  
+
+// MW Slider Stuff
+//
+//- (IBAction) showEditStuff:(id)sender
+//{
+//    [self.slideNavigationViewController slideWithDirection:MWFSlideDirectionRight];
+//}
+//
+//- (IBAction) hideEditStuff:(id)sender
+//{
+//    [self.slideNavigationViewController slideWithDirection:MWFSlideDirectionNone];
+//}
+//
+//- (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller 
+//                   distanceForSlideDirecton:(MWFSlideDirection)direction 
+//                        portraitOrientation:(BOOL)portraitOrientation
+//{
+//    if (portraitOrientation)
+//    {
+//        return 180;
+//    }
+//    else
+//    {
+//        return 100;
+//    }
+//}
+//
+//- (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller 
+//                      viewControllerForSlideDirecton:(MWFSlideDirection)direction
+//{
+//    [self performSegueWithIdentifier:@"AddExercise" sender:self];
+//    
+////    PickerTestViewController * menuCtl = ...; // alloc and init your controller
+//    return nil; //menuCtl;
+//}
+
+
     //    
     //    NSUInteger row = indexPath.row;
     //    if (row != NSNotFound)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A64EA3E159DE1A5002A3054 /* Orange.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A64EA3D159DE1A5002A3054 /* Orange.gif */; };
+		1AA6360715A049EB00938C5F /* ExercisePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */; };
 		1ABFF5211595A63E004C7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5201595A63E004C7EE1 /* UIKit.framework */; };
 		1ABFF5231595A63F004C7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5221595A63E004C7EE1 /* Foundation.framework */; };
 		1ABFF5251595A63F004C7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5241595A63F004C7EE1 /* CoreGraphics.framework */; };
@@ -24,7 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExercisePickerControllerProtocol.h; sourceTree = "<group>"; };
 		1A64EA3D159DE1A5002A3054 /* Orange.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Orange.gif; sourceTree = "<group>"; };
+		1AA6360515A049EB00938C5F /* ExercisePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePickerDelegate.h; sourceTree = "<group>"; };
+		1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePickerDelegate.m; sourceTree = "<group>"; };
 		1ABFF51C1595A63E004C7EE1 /* SampleMultiview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleMultiview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABFF5201595A63E004C7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1ABFF5221595A63E004C7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -111,6 +115,9 @@
 				1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */,
 				1AF76B3E1599F16600417F1D /* ExerciseTimer.h */,
 				1AF76B3F1599F16600417F1D /* ExerciseTimer.m */,
+				1AA6360515A049EB00938C5F /* ExercisePickerDelegate.h */,
+				1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */,
+				1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */,
 			);
 			path = SampleMultiview;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 				1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */,
 				1ABFF5531595F804004C7EE1 /* ExerciseTableDelegate.m in Sources */,
 				1AF76B401599F16600417F1D /* ExerciseTimer.m in Sources */,
+				1AA6360715A049EB00938C5F /* ExercisePickerDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
