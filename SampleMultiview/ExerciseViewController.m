@@ -15,27 +15,14 @@
 
 @end
 
-//- (IBAction)randomiseBodyPart:(id)sender;
-//- (IBAction)randomiseExercise:(id)sender;
-//- (IBAction)startTimerPressed:(id)sender;
-//- (IBAction)pauseTimerPressed:(id)sender;
-//- (IBAction)stopTimerPressed:(id)sender;
-//
-//- (IBAction)addExercise:(id)sender;
-
-
 @implementation ExerciseViewController
-//@synthesize addExerciseButton;
 
 @synthesize tableDelegate = _tableDelegate;
 @synthesize tableView = _tableView;
 @synthesize exerciseComponentPicker = _exerciseComponentPicker;
-//@synthesize categoryButton = _categoryButton;
 @synthesize elapsedTimeLabel = _elapsedTimeLabel;
 @synthesize pickerDelegate = _pickerDelegate;
 @synthesize categoryButton = _categoryButton;
-
-//@synthesize exercise = _exercise;
 
 - (void)viewDidLoad
 {
@@ -54,50 +41,13 @@
     
     self.title = @"Exercises";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-//    nameValues = [[NSArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];    
-//    bodyPartValues = [[NSArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
-//    intensityValues = [[NSArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
-//    
-//    setValues = [[NSMutableArray alloc] init];
-//    for (NSUInteger i = 0; i < 20; i++) {
-//        [setValues addObject:[NSString stringWithFormat:@"%d", i]];
-//    }
-//    
-//    repValues = [[NSMutableArray alloc] init];
-//    for (NSUInteger i = 0; i < 20; i++) {
-//        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
-//    }
-//    for (NSUInteger i = 25; i <= 50; i+=5) {
-//        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
-//    }
-//    
-//    restValues = [NSMutableArray arrayWithObjects:@"10", @"20", @"30", nil];
-//    for (NSUInteger i = 1; i <= 20; i++) {
-//        [restValues addObject:[NSString stringWithFormat:@"%d", i]];
-//    }
-//    
-//    weightValues = [[NSMutableArray alloc]init ];
-//    for (NSUInteger i = 1; i <= 20; i++) {
-//        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
-//    }
-//    for (NSUInteger i = 25; i < 50; i+=5) {
-//        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
-//    }
-//    for (NSUInteger i = 50; i <= 150; i+=10) {
-//        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
-//    }
-    
 }
 
 - (void)viewDidUnload
 {
-//    [self setAddExerciseButton:nil];
     [self setExerciseComponentPicker:nil];
-//    [self setCategoryButton:nil];
     [self setElapsedTimeLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -142,12 +92,9 @@
    
     Exercise *exercise = [self.pickerDelegate selectedPickerExercise];
 
-    [self.tableDelegate addExerciseWithExercise:exercise];
-//    [self.tableDelegate addExerciseWithName: selectedName withReps: selectedReps withRest: selectedRest withWeight: selectedWeight withBodyPart: selectedBodyPart withIntensity: selectedIntensity withCategory: selectedCategory];
-    
+    [self.tableDelegate addExerciseWithExercise:exercise];    
     [self.tableView reloadData];
 }
-
 
 - (IBAction)startTimerPressed:(id)sender {
     [timer start];
@@ -176,7 +123,6 @@
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
-//    self.tableDelegate.tableView = self.tableView;
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:YES];
     

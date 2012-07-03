@@ -11,21 +11,13 @@
 #import "ExerciseViewController.h"
 
 @implementation ExercisePickerDelegate
-
-//@synthesize controller = _controller;
 @synthesize categoryButton = _categoryButton;
-
 @synthesize exerciseComponentPicker = _exerciseComponentPicker;
 
 -(id) initWithWithController:(id<ExercisePickerControllerProtocol>) newController
-//-(id) initWithUIPickerView:(UIPickerView *)exerciesComponentPicker withController: (id<ExercisePickerControllerProtocol>) newController withCategoryButton:(UISegmentedControl *)categoryButton
 {
     if (self = [super init]) {
-        //        self.exerciseComponentPicker = exerciesComponentPicker;
-        
-        //    self.exerciseComponentPicker = exerciesComponentPicker;
         controller = newController;
-        //    self.categoryButton = categoryButton;
         
         nameValues = [[NSArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];    
         bodyPartValues = [[NSArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
@@ -98,7 +90,6 @@
     return [nameValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:NAME]];
 }
 
-
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
     switch(component) {
         case NAME: return 150.0f;
@@ -157,7 +148,6 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [controller updateSelectedRow];
-    
 }
 
 - (void)randomiseBodyPart:(id)sender {

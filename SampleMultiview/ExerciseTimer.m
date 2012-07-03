@@ -44,8 +44,7 @@
 - (void) start {
     if (![self isRunning]) {
         [self reset];
-        [timer invalidate];
-        timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(updateCountdown) userInfo:nil repeats: YES];    
+        [self resume];
     }
 }
 
@@ -55,10 +54,16 @@
             [timer invalidate];
         } else {
             [self updateLabel];
-            [self start];
+            [self resume];
         }
     }
 }
+
+-(void) resume {
+    [timer invalidate];
+    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(updateCountdown) userInfo:nil repeats: YES];        
+}
+
 -(void) reset {
     secondsElapsed = 0;
 }
