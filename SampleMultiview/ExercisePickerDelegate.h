@@ -24,12 +24,12 @@ typedef enum  {
 
 @interface ExercisePickerDelegate : NSObject <UIPickerViewDataSource, UIPickerViewDelegate>
 {
-    NSArray *nameValues;
+    NSMutableArray *nameValues;
     NSMutableArray *repValues;
     NSMutableArray *setValues;
     NSMutableArray *weightValues;
-    NSArray *bodyPartValues;
-    NSArray *intensityValues;
+    NSMutableArray *bodyPartValues;
+    NSMutableArray *intensityValues;
     NSMutableArray *restValues;
     
     id<ExercisePickerControllerProtocol> controller;
@@ -44,6 +44,8 @@ typedef enum  {
 -(void) randomiseBodyPart:(id)sender;
 -(void) randomiseExercise:(id)sender;
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+- (void) addNameWithName: (NSString *)newName;
+- (void) addBodyPartWithBodyPart: (NSString *)newBodyPart;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;

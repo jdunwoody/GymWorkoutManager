@@ -26,6 +26,10 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
 @property (weak, nonatomic) IBOutlet UILabel *elapsedTimeLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
+- (IBAction)addNewBodyPart:(id)sender;
+- (IBAction)addNewExerciseType:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *addNewExerciseType;
+@property (weak, nonatomic) IBOutlet UITextField *addNewBodyPart;
 
 - (IBAction)startTimerPressed:(id)sender;
 - (IBAction)pauseTimerPressed:(id)sender;

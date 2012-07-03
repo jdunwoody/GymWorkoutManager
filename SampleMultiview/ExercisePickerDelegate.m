@@ -19,9 +19,9 @@
     if (self = [super init]) {
         controller = newController;
         
-        nameValues = [[NSArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];    
-        bodyPartValues = [[NSArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
-        intensityValues = [[NSArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
+        nameValues = [[NSMutableArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];    
+        bodyPartValues = [[NSMutableArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
+        intensityValues = [[NSMutableArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
         
         setValues = [[NSMutableArray alloc] init];
         for (NSUInteger i = 0; i < 20; i++) {
@@ -164,6 +164,18 @@
     [self.exerciseComponentPicker selectRow:randomIndex inComponent:component animated:YES];
     
     [controller updateSelectedRow];
+}
+
+- (void) addNameWithName: (NSString *)newName
+{
+    [nameValues addObject:newName];
+    [self.exerciseComponentPicker reloadComponent:NAME];
+}
+
+- (void) addBodyPartWithBodyPart: (NSString *)newBodyPart
+{
+    [bodyPartValues addObject:newBodyPart];
+    [self.exerciseComponentPicker reloadComponent:BODYPART];    
 }
 
 @end

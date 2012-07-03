@@ -16,7 +16,8 @@
 @end
 
 @implementation ExerciseViewController
-
+@synthesize addNewExerciseType = _addNewExerciseType;
+@synthesize addNewBodyPart = _addNewBodyPart;
 @synthesize tableDelegate = _tableDelegate;
 @synthesize tableView = _tableView;
 @synthesize exerciseComponentPicker = _exerciseComponentPicker;
@@ -47,6 +48,9 @@
 {
     [self setExerciseComponentPicker:nil];
     [self setElapsedTimeLabel:nil];
+    [self setAddNewExerciseType:nil];
+    [self setAddNewBodyPart:nil];
+    [self setAddNewBodyPart:nil];
     [super viewDidUnload];
 }
 
@@ -89,11 +93,20 @@
     }
 
 - (IBAction)addExercise:(id)sender {
-   
     Exercise *exercise = [self.pickerDelegate selectedPickerExercise];
 
     [self.tableDelegate addExerciseWithExercise:exercise];    
     [self.tableView reloadData];
+}
+
+- (IBAction)addNewBodyPart:(id)sender {
+    [self.pickerDelegate addBodyPartWithBodyPart: self.addNewBodyPart.text];
+    self.addNewBodyPart.text = nil;
+}
+
+- (IBAction)addNewExerciseType:(id)sender {
+    [self.pickerDelegate addNameWithName: self.addNewExerciseType.text];
+    self.addNewExerciseType.text = nil;
 }
 
 - (IBAction)startTimerPressed:(id)sender {

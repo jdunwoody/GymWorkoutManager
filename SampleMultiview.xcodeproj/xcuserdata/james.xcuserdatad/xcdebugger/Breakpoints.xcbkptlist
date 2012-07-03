@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/ExerciseViewController.m"
-         timestampString = "363010876.819255"
+         timestampString = "363014025.014892"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "278"
-         endingLineNumber = "278">
+         startingLineNumber = "291"
+         endingLineNumber = "291">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
