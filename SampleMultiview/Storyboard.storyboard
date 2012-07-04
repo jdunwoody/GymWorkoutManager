@@ -115,7 +115,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fgA-6s-C5b">
-                                <rect key="frame" x="267" y="647" width="54" height="37"/>
+                                <rect key="frame" x="209" y="651" width="72" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Rnd">
@@ -130,7 +130,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f4h-He-we4">
-                                <rect key="frame" x="531" y="647" width="54" height="37"/>
+                                <rect key="frame" x="426" y="647" width="69" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Rnd">
@@ -240,52 +240,26 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="yTC-t9-hQ0">
-                                <rect key="frame" x="209" y="612" width="97" height="31"/>
+                                <rect key="frame" x="209" y="612" width="145" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="addNewExerciseType:" destination="3Jg-20-Tn5" eventType="editingDidEnd" id="TCb-kK-Z4q"/>
+                                    <action selector="hideKeyboard:" destination="3Jg-20-Tn5" eventType="editingDidEndOnExit" id="bN5-Sr-68a"/>
+                                    <outlet property="delegate" destination="3Jg-20-Tn5" id="VYN-Et-lbD"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="M6B-4x-Amv">
-                                <rect key="frame" x="377" y="612" width="41" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="N1e-ow-LxE">
-                                <rect key="frame" x="559" y="612" width="41" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="I3f-pc-oJe">
-                                <rect key="frame" x="426" y="612" width="125" height="31"/>
+                                <rect key="frame" x="426" y="612" width="137" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="addNewBodyPart:" destination="3Jg-20-Tn5" eventType="editingDidEnd" id="Ucl-ff-guM"/>
+                                    <action selector="hideKeyboard:" destination="3Jg-20-Tn5" eventType="editingDidEndOnExit" id="9cf-EZ-SyJ"/>
+                                    <outlet property="delegate" destination="3Jg-20-Tn5" id="2gs-Jc-Nic"/>
                                 </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Rh9-1B-VFA">
-                                <rect key="frame" x="608" y="612" width="125" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="YcE-KE-5PS">
-                                <rect key="frame" x="753" y="612" width="125" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Zvc-Nn-5oP">
-                                <rect key="frame" x="886" y="612" width="125" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fpX-B5-yzV">
                                 <rect key="frame" x="80" y="539" width="72" height="37"/>
@@ -310,7 +284,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="addNewBodyPart" destination="I3f-pc-oJe" id="fYP-Br-cag"/>
-                        <outlet property="addNewExerciseType" destination="yTC-t9-hQ0" id="JgA-Wu-9bO"/>
+                        <outlet property="addNewExerciseType" destination="yTC-t9-hQ0" id="Txy-rL-rlc"/>
                         <outlet property="categoryButton" destination="Xpb-la-gyS" id="dmr-IC-X5a"/>
                         <outlet property="elapsedTimeLabel" destination="qyz-Yg-Sp0" id="olD-SH-hNv"/>
                         <outlet property="exerciseComponentPicker" destination="aRB-ah-VHx" id="04z-jo-lvz"/>
@@ -337,6 +311,53 @@
             <point key="canvasLocation" x="-1718" y="-256"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ExerciseCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bodyPart" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="category" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="editingMode" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="intensity" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rest" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ExercisePickerDelegate" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisePickerDelegate.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="ExerciseTableDelegate" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseTableDelegate.h"/>
+        </class>
+        <class className="ExerciseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addExercise:"/>
+                <relationship kind="action" name="addNewBodyPart:"/>
+                <relationship kind="action" name="addNewExerciseType:"/>
+                <relationship kind="action" name="hideKeyboard:"/>
+                <relationship kind="action" name="pauseTimerPressed:"/>
+                <relationship kind="action" name="randomiseBodyPart:"/>
+                <relationship kind="action" name="randomiseExercise:"/>
+                <relationship kind="action" name="startTimerPressed:"/>
+                <relationship kind="action" name="stopTimerPressed:"/>
+                <relationship kind="outlet" name="addNewBodyPart" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="addNewExerciseType" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="elapsedTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="pickerDelegate" candidateClass="ExercisePickerDelegate"/>
+                <relationship kind="outlet" name="tableDelegate" candidateClass="ExerciseTableDelegate"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>

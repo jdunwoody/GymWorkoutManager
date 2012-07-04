@@ -30,6 +30,7 @@
 - (IBAction)addNewExerciseType:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *addNewExerciseType;
 @property (weak, nonatomic) IBOutlet UITextField *addNewBodyPart;
+- (IBAction)hideKeyboard:(id)sender;
 
 - (IBAction)startTimerPressed:(id)sender;
 - (IBAction)pauseTimerPressed:(id)sender;

@@ -102,11 +102,20 @@
 - (IBAction)addNewBodyPart:(id)sender {
     [self.pickerDelegate addBodyPartWithBodyPart: self.addNewBodyPart.text];
     self.addNewBodyPart.text = nil;
+//    [sender resignFirstResponder];
 }
 
 - (IBAction)addNewExerciseType:(id)sender {
     [self.pickerDelegate addNameWithName: self.addNewExerciseType.text];
     self.addNewExerciseType.text = nil;
+//    [self.addNewExerciseType resignFirstResponder];
+//    [sender endEditing];
+//    [sender resignFirstResponder];
+}
+
+- (IBAction)hideKeyboard:(id)sender {
+   [sender resignFirstResponder];
+
 }
 
 - (IBAction)startTimerPressed:(id)sender {
@@ -120,6 +129,7 @@
 - (IBAction)stopTimerPressed:(id)sender {
     [timer stop];
 }
+
 
 //- (void)setEditing:(BOOL)editing animated:(BOOL)animate
 //{

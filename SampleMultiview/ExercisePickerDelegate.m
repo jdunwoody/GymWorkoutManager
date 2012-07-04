@@ -19,8 +19,12 @@
     if (self = [super init]) {
         controller = newController;
         
-        nameValues = [[NSMutableArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];    
+        nameValues = [[NSMutableArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];  
+        [nameValues sortUsingSelector:@selector(compare:)];
+        
         bodyPartValues = [[NSMutableArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
+        [bodyPartValues sortUsingSelector:@selector(compare:)];
+        
         intensityValues = [[NSMutableArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
         
         setValues = [[NSMutableArray alloc] init];
@@ -168,13 +172,15 @@
 
 - (void) addNameWithName: (NSString *)newName
 {
-    [nameValues addObject:newName];
+    [nameValues addObject:[newName capitalizedString]];
+    [nameValues sortUsingSelector:@selector(compare:)];
     [self.exerciseComponentPicker reloadComponent:NAME];
 }
 
 - (void) addBodyPartWithBodyPart: (NSString *)newBodyPart
 {
-    [bodyPartValues addObject:newBodyPart];
+    [bodyPartValues addObject:[newBodyPart capitalizedString]];
+    [bodyPartValues sortUsingSelector:@selector(compare:)];
     [self.exerciseComponentPicker reloadComponent:BODYPART];    
 }
 
