@@ -41,10 +41,10 @@
 		1ABFF5201595A63E004C7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1ABFF5221595A63E004C7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1ABFF5241595A63F004C7EE1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1ABFF5281595A63F004C7EE1 /* GymApp-Info.plist */ = {isa = PBXFileReference; path = "GymApp-Info.plist"; sourceTree = "<group>"; };
+		1ABFF5281595A63F004C7EE1 /* GymApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GymApp-Info.plist"; sourceTree = "<group>"; };
 		1ABFF52A1595A63F004C7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1ABFF52C1595A63F004C7EE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1ABFF52E1595A63F004C7EE1 /* GymApp-Prefix.pch */ = {isa = PBXFileReference; path = "GymApp-Prefix.pch"; sourceTree = "<group>"; };
+		1ABFF52E1595A63F004C7EE1 /* GymApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GymApp-Prefix.pch"; sourceTree = "<group>"; };
 		1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAppDelegate.h; sourceTree = "<group>"; };
 		1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleAppDelegate.m; sourceTree = "<group>"; };
 		1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 				1A9E40E915A45FE4001A189C /* Default-Landscape~ipad.png */,
 				1A9E40E715A45FC4001A189C /* 144x144.png */,
 				1A9E40E515A45FAC001A189C /* 72x72.png */,
-				1ABFF5261595A63F004C7EE1 /* SampleMultiview */,
+				1ABFF5261595A63F004C7EE1 /* GymApp */,
 				1ABFF51F1595A63E004C7EE1 /* Frameworks */,
 				1ABFF51D1595A63E004C7EE1 /* Products */,
 			);
@@ -108,7 +108,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1ABFF5261595A63F004C7EE1 /* SampleMultiview */ = {
+		1ABFF5261595A63F004C7EE1 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
 				1A64EA3D159DE1A5002A3054 /* Orange.gif */,
@@ -132,6 +132,7 @@
 				1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */,
 				1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */,
 			);
+			name = GymApp;
 			path = SampleMultiview;
 			sourceTree = "<group>";
 		};

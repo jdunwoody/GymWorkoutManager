@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1ABFF51B1595A63E004C7EE1"
-               BuildableName = "SampleMultiview.app"
+               BuildableName = "GymApp.app"
                BlueprintName = "GymApp"
                ReferencedContainer = "container:GymApp.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ABFF51B1595A63E004C7EE1"
-            BuildableName = "SampleMultiview.app"
+            BuildableName = "GymApp.app"
             BlueprintName = "GymApp"
             ReferencedContainer = "container:GymApp.xcodeproj">
          </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ABFF51B1595A63E004C7EE1"
-            BuildableName = "SampleMultiview.app"
+            BuildableName = "GymApp.app"
             BlueprintName = "GymApp"
             ReferencedContainer = "container:GymApp.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ABFF51B1595A63E004C7EE1"
-            BuildableName = "SampleMultiview.app"
+            BuildableName = "GymApp.app"
             BlueprintName = "GymApp"
             ReferencedContainer = "container:GymApp.xcodeproj">
          </BuildableReference>
