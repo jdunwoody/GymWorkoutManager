@@ -15,8 +15,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1ABFF51B1595A63E004C7EE1"
                BuildableName = "SampleMultiview.app"
-               BlueprintName = "SampleMultiview"
-               ReferencedContainer = "container:SampleMultiview.xcodeproj">
+               BlueprintName = "GymApp"
+               ReferencedContainer = "container:GymApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,8 +33,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ABFF51B1595A63E004C7EE1"
             BuildableName = "SampleMultiview.app"
-            BlueprintName = "SampleMultiview"
-            ReferencedContainer = "container:SampleMultiview.xcodeproj">
+            BlueprintName = "GymApp"
+            ReferencedContainer = "container:GymApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,8 +52,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ABFF51B1595A63E004C7EE1"
             BuildableName = "SampleMultiview.app"
-            BlueprintName = "SampleMultiview"
-            ReferencedContainer = "container:SampleMultiview.xcodeproj">
+            BlueprintName = "GymApp"
+            ReferencedContainer = "container:GymApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,8 +70,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1ABFF51B1595A63E004C7EE1"
             BuildableName = "SampleMultiview.app"
-            BlueprintName = "SampleMultiview"
-            ReferencedContainer = "container:SampleMultiview.xcodeproj">
+            BlueprintName = "GymApp"
+            ReferencedContainer = "container:GymApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -79,8 +79,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release for Ross"
-      customArchiveName = "GymAppForRoss"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
