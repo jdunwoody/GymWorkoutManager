@@ -14,6 +14,7 @@
 
 @synthesize tableView = _tableView;
 @synthesize dataController = _dataController;
+@synthesize backgroundColor = _backgroundColor;
 
 //-(id) initWithTableView:(UITableView *)tableView
 //{
@@ -94,16 +95,15 @@
 {
     Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
     
-    
     if (exercise.isAdd) {
         cell.backgroundColor = [UIColor brownColor];  
         
     } else {
-        cell.backgroundColor = [UIColor cyanColor];  
+        cell.backgroundColor = self.backgroundColor;  
         
     }
     //        [cell textColor];
-    //    cell.textLabel.textColor = [UIColor brownColor];
+    cell.textLabel.textColor = [UIColor whiteColor];
     //    cell.backgroundColor = [UIColor lightGrayColor];
     
 }

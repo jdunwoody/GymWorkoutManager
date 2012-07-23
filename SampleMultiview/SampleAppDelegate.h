@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ExerciseViewController.h"
 
 @interface SampleAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) ExerciseViewController *exerciseViewController;
 
 @end

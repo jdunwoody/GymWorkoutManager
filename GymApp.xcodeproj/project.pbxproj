@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
 		1A64EA3E159DE1A5002A3054 /* Orange.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1A64EA3D159DE1A5002A3054 /* Orange.gif */; };
+		1A7887C715BD809200C18BD2 /* carbon_fibre.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A7887C615BD809200C18BD2 /* carbon_fibre.png */; };
 		1A9E40E615A45FAC001A189C /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E515A45FAC001A189C /* 72x72.png */; };
 		1A9E40E815A45FC4001A189C /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E715A45FC4001A189C /* 144x144.png */; };
 		1AA6360715A049EB00938C5F /* ExercisePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */; };
@@ -28,9 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExercisePickerControllerProtocol.h; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		1A64EA3D159DE1A5002A3054 /* Orange.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Orange.gif; sourceTree = "<group>"; };
+		1A7887C615BD809200C18BD2 /* carbon_fibre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carbon_fibre.png; sourceTree = "<group>"; };
 		1A9E40E515A45FAC001A189C /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72x72.png; sourceTree = "<group>"; };
 		1A9E40E715A45FC4001A189C /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
 		1A9E40E915A45FE4001A189C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -76,9 +80,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A7887C815BD822C00C18BD2 /* backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				1A7887C615BD809200C18BD2 /* carbon_fibre.png */,
+			);
+			name = backgrounds;
+			sourceTree = "<group>";
+		};
 		1ABFF5111595A63E004C7EE1 = {
 			isa = PBXGroup;
 			children = (
+				1A7887C815BD822C00C18BD2 /* backgrounds */,
 				1A582F3F15AC49CA004C1A9B /* iTunesArtwork */,
 				1A9E40EB15A45FF4001A189C /* Default-Landscape@2x~ipad.png */,
 				1A9E40E915A45FE4001A189C /* Default-Landscape~ipad.png */,
@@ -143,6 +156,7 @@
 				1ABFF5291595A63F004C7EE1 /* InfoPlist.strings */,
 				1ABFF52C1595A63F004C7EE1 /* main.m */,
 				1ABFF52E1595A63F004C7EE1 /* GymApp-Prefix.pch */,
+				1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -204,6 +218,8 @@
 				1A9E40E615A45FAC001A189C /* 72x72.png in Resources */,
 				1A9E40E815A45FC4001A189C /* 144x144.png in Resources */,
 				1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */,
+				1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */,
+				1A7887C715BD809200C18BD2 /* carbon_fibre.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +288,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Dunwoody";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -281,6 +297,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A5B41247-5512-4244-835E-A39E1E4289A1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -301,10 +318,12 @@
 		1ABFF5361595A63F004C7EE1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Dunwoody";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleMultiview/GymApp-Prefix.pch";
 				INFOPLIST_FILE = "SampleMultiview/GymApp-Info.plist";
 				PRODUCT_NAME = GymApp;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FBAC21B6-CC9E-4035-BA3C-8F76456811F1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

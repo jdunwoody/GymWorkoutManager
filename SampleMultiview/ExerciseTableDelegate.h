@@ -27,5 +27,6 @@
 
 @property (strong, nonatomic) ExerciseDataController *dataController;
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIColor *backgroundColor;
 
 @end

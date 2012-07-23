@@ -24,6 +24,7 @@
 @synthesize elapsedTimeLabel = _elapsedTimeLabel;
 @synthesize pickerDelegate = _pickerDelegate;
 @synthesize categoryButton = _categoryButton;
+@synthesize backgroundColor = _backgroundColor;
 
 - (void)viewDidLoad
 {
@@ -42,6 +43,12 @@
     
     self.title = @"Exercises";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
+    
+    self.view.backgroundColor = self.backgroundColor;
+    self.tableView.backgroundColor = self.backgroundColor;
+    self.tableDelegate.backgroundColor = self.backgroundColor;
 }
 
 - (void)viewDidUnload
@@ -54,12 +61,17 @@
     [super viewDidUnload];
 }
 
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+//    return YES;
+    
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
-        return YES;
+//        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
     }
 }
 
@@ -81,7 +93,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender 
 {
-//    if ([segue.identifier isEqualToString:@"AddExercise"]) {
+    if ([segue.identifier isEqualToString:@"AddExercise"]) {
 //        AddTypeViewController *destination = (AddTypeViewController *)segue.destinationViewController;
 //        
 //        destination.addExerciseViewControllerDelegate = self;
@@ -89,8 +101,9 @@
 //        //        PickerTestViewController *asker = (PickerTestViewController *) segue.destinationViewController;
 //        //        asker.delegate = self;
 //        //        asker.question = @"What do you want your label to say?";
-//        //        asker.answer = @"Label text";
+        //        asker.answer = @"Label text";
     }
+}
 
 - (IBAction)addExercise:(id)sender {
     Exercise *exercise = [self.pickerDelegate selectedPickerExercise];

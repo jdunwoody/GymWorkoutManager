@@ -74,11 +74,12 @@
 }
 
 - (NSString *) text {
-    int hours = secondsElapsed / 3600;
+//    int hours = secondsElapsed / 3600;
     int minutes = (secondsElapsed % 3600) / 60;
     int seconds = (secondsElapsed %3600) % 60;
     
-    return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];    
+//    return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];    
+    return [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];    
 }
 
 @end

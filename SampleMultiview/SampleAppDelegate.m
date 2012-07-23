@@ -14,6 +14,7 @@
 @implementation SampleAppDelegate
 
 @synthesize window = _window;
+@synthesize exerciseViewController = _exerciseViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,17 +24,23 @@
 //    [self.window makeKeyAndVisible];
 //    return YES;
     
+    
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    ExerciseViewController *rootViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
+//    OptionsViewController *optionsViewController = (OptionsViewController *)[[navigationController viewControllers] objectAtIndex:0];
+    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+//    
+//    ExerciseViewController *exerciseViewController = (ExerciseViewController*)[storyboard instantiateViewControllerWithIdentifier: @"exerciseViewController"];    
+    ExerciseViewController *exerciseViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
     
 //    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] initWithTableView:rootViewController.tableView];
     ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
     ExerciseDataController *dataController = [[ExerciseDataController alloc] init];
-    ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:rootViewController];
+    ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
     
     tableDelegate.dataController = dataController;
-    rootViewController.tableDelegate = tableDelegate;
-    rootViewController.pickerDelegate = pickerDelegate;
+    exerciseViewController.tableDelegate = tableDelegate;
+    exerciseViewController.pickerDelegate = pickerDelegate;
     
     // Override point for customization after application launch.
     return YES;
@@ -65,5 +72,15 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+//- (void)applicationDidFinishLaunching:(UIApplication *)application
+//{
+//    self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
+//    
+//    self.exerciseViewController.backgroundColor = self.backgroundColor;
+//    
+////    [window addSubview:tabBarController.view];
+////    [window makeKeyAndVisible];
+//}
 
 @end
