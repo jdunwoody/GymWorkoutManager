@@ -7,15 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TimerAlertDelegate.h"
+
+typedef enum {
+    CountDown,
+    CountUp
+} TimerDirection;
 
 @interface ExerciseTimer : NSObject
-- (id) initWithLabel: (UILabel *) label;
+- (id) initWithTimerAlertDelegate: (id<TimerAlertDelegate>) timerAlertDelegate withDirection: (TimerDirection) direction withInitialSeconds: (int) newInitialSeconds;
 - (BOOL) isRunning;
 - (void) pause;
 - (void) stop;
 - (void) start;
 @end
 
-int secondsElapsed;
+id<TimerAlertDelegate> timerAlertDelegate;
+int secondsCounted;
+int initialSeconds;
+TimerDirection direction;
 NSTimer *timer;
 UILabel *label;

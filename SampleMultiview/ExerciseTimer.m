@@ -7,13 +7,16 @@
 //
 
 #import "ExerciseTimer.h"
+#import "TimerAlertDelegate.h"
 
 @implementation ExerciseTimer
 
-- (id) initWithLabel: (UILabel *) newLabel {
-    secondsElapsed = 0;
+- (id) initWithTimerAlertDelegate: (id<TimerAlertDelegate>) newTimerAlertDelegate withDirection: (TimerDirection) newDirection withInitialSeconds: (int) newInitialSeconds {
+    initialSeconds = newInitialSeconds;
+    secondsCounted = 120;
     timer = nil;
-    label = newLabel;
+    timerAlertDelegate = newTimerAlertDelegate;
+    direction = newDirection;
     return self;
 }
 
@@ -31,7 +34,8 @@
 }
 
 -(void) updateLabel {
-    label.text = [self text];
+    [timerAlertDelegate updateLabelWithText: [self text]];
+//    label.text = [self text];
 }
 
 - (void) stop {
@@ -61,22 +65,32 @@
 
 -(void) resume {
     [timer invalidate];
-    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(updateCountdown) userInfo:nil repeats: YES];        
+    timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(nextSecond) userInfo:nil repeats: YES];        
 }
 
 -(void) reset {
-    secondsElapsed = 0;
+    secondsCounted = initialSeconds;
 }
 
--(void) updateCountdown {
-    secondsElapsed++;
-    [self updateLabel];
+-(void) nextSecond {
+    if (secondsCounted > 0) {
+        secondsCounted--;
+       
+        if (secondsCounted < 10) {
+            [timerAlertDelegate timerAlert];
+        } else if (secondsCounted < 20) {
+            [timerAlertDelegate timerWarning];
+        }
+        
+        [self updateLabel];
+    }
 }
+
 
 - (NSString *) text {
 //    int hours = secondsElapsed / 3600;
-    int minutes = (secondsElapsed % 3600) / 60;
-    int seconds = (secondsElapsed %3600) % 60;
+    int minutes = (secondsCounted % 3600) / 60;
+    int seconds = (secondsCounted %3600) % 60;
     
 //    return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];    
     return [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];    

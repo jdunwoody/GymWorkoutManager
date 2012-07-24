@@ -12,8 +12,9 @@
 #import "ExerciseTimer.h"
 #import "ExercisePickerDelegate.h"
 #import "ExercisePickerControllerProtocol.h"
+#import "TimerAlertDelegate.h"
 
-@interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol>
+@interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol, TimerAlertDelegate>
 {
     UIPickerView *exercisePicker;
     
@@ -31,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *addNewExerciseType;
 @property (weak, nonatomic) IBOutlet UITextField *addNewBodyPart;
 @property (strong, nonatomic) UIColor *backgroundColor;
+@property (strong, nonatomic) UIColor *timerAlertColour;
+@property (strong, nonatomic) UIColor *timerWarningColour;
 
 - (IBAction)hideKeyboard:(id)sender;
 - (IBAction)startTimerPressed:(id)sender;
@@ -40,6 +43,9 @@
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 - (IBAction) randomiseBodyPart:(id)sender;
 - (IBAction) randomiseExercise:(id)sender;
+
+-(void) timerAlert;
+-(void) timerWarning;
 
 @end
 

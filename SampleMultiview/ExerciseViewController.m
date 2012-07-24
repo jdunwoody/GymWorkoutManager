@@ -25,11 +25,13 @@
 @synthesize pickerDelegate = _pickerDelegate;
 @synthesize categoryButton = _categoryButton;
 @synthesize backgroundColor = _backgroundColor;
+@synthesize timerAlertColour = _timerAlertColour;
+@synthesize timerWarningColour = _timerWarningColour;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    timer = [[ExerciseTimer alloc] initWithLabel:_elapsedTimeLabel];
+    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
     
     self.tableDelegate.tableView = self.tableView;
     self.tableView.delegate = self.tableDelegate;
@@ -48,7 +50,9 @@
     
     self.view.backgroundColor = self.backgroundColor;
     self.tableView.backgroundColor = self.backgroundColor;
-    self.tableDelegate.backgroundColor = self.backgroundColor;
+    self.tableDelegate.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"brushed_alu.png"]];
+    self.timerAlertColour = [UIColor redColor];
+    self.timerWarningColour = [UIColor orangeColor];
 }
 
 - (void)viewDidUnload
@@ -60,8 +64,6 @@
     [self setAddNewBodyPart:nil];
     [super viewDidUnload];
 }
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -143,6 +145,18 @@
     [timer stop];
 }
 
+- (void) timerAlert {
+    _elapsedTimeLabel.textColor = self.timerAlertColour;
+}
+
+- (void) timerWarning {
+    _elapsedTimeLabel.textColor = self.timerWarningColour;
+}
+
+- (void) updateLabelWithText:(NSString *)text
+{
+    _elapsedTimeLabel.text = text;
+}
 
 //- (void)setEditing:(BOOL)editing animated:(BOOL)animate
 //{
