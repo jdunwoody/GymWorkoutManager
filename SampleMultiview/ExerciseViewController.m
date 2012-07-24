@@ -11,6 +11,9 @@
 #import "Exercise.h"
 #import "ExerciseTimer.h"
 
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
+
 @interface ExerciseViewController ()
 
 @end
@@ -53,6 +56,19 @@
     self.tableDelegate.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"brushed_alu.png"]];
     self.timerAlertColour = [UIColor redColor];
     self.timerWarningColour = [UIColor orangeColor];
+    
+    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"sound.aif" withExtension:nil];
+               
+//    SystemSoundID soundId;
+//    OSStatus error = 
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef) fileURL, &systemSoundID);
+//    CFURLRef *fileUrl = (CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource: @"sound" ofType:@"aif"]];
+//    AudioServicesCreateSystemSoundID(fileUrl, &systemSoundID);
+    
+    
+    //	player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"]] error:nil];
+//	
+//	[player prepareToPlay];
 }
 
 - (void)viewDidUnload
@@ -63,6 +79,11 @@
     [self setAddNewBodyPart:nil];
     [self setAddNewBodyPart:nil];
     [super viewDidUnload];
+}
+
+- (void) playSound
+{
+    AudioServicesPlaySystemSound(systemSoundID);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -146,6 +167,7 @@
 }
 
 - (void) timerAlert {
+    [self playSound];
     _elapsedTimeLabel.textColor = self.timerAlertColour;
 }
 

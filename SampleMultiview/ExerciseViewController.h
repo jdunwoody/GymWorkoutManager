@@ -14,11 +14,14 @@
 #import "ExercisePickerControllerProtocol.h"
 #import "TimerAlertDelegate.h"
 
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
+
 @interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol, TimerAlertDelegate>
 {
     UIPickerView *exercisePicker;
-    
     ExerciseTimer *timer;
+    SystemSoundID systemSoundID;
 }
 
 @property (strong, nonatomic) IBOutlet ExerciseTableDelegate *tableDelegate;
@@ -46,6 +49,9 @@
 
 -(void) timerAlert;
 -(void) timerWarning;
+
+//@property (nonatomic, retain) IBOutlet AVAudioPlayer *player;
+//- (IBAction) playSound: (id) sender;
 
 @end
 

@@ -45,6 +45,8 @@
 		1ADF8DA215BE6C8100356568 /* tex2res4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF8D8E15BE6C8100356568 /* tex2res4.png */; };
 		1ADF8DA315BE6C8100356568 /* triangles.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF8D8F15BE6C8100356568 /* triangles.png */; };
 		1AF76B401599F16600417F1D /* ExerciseTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF76B3F1599F16600417F1D /* ExerciseTimer.m */; };
+		1AFADC6615BEDD9E006B03BC /* sound.aif in Resources */ = {isa = PBXBuildFile; fileRef = 1AFADC6515BEDD9E006B03BC /* sound.aif */; };
+		1AFADC6815BEDED6006B03BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,8 @@
 		1AF76B3E1599F16600417F1D /* ExerciseTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTimer.h; sourceTree = "<group>"; };
 		1AF76B3F1599F16600417F1D /* ExerciseTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTimer.m; sourceTree = "<group>"; };
 		1AFADC5E15BEC890006B03BC /* TimerAlertDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimerAlertDelegate.h; path = ../TimerAlertDelegate.h; sourceTree = "<group>"; };
+		1AFADC6515BEDD9E006B03BC /* sound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.aif; sourceTree = "<group>"; };
+		1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AFADC6815BEDED6006B03BC /* AudioToolbox.framework in Frameworks */,
 				1ABFF5211595A63E004C7EE1 /* UIKit.framework in Frameworks */,
 				1ABFF5231595A63F004C7EE1 /* Foundation.framework in Frameworks */,
 				1ABFF5251595A63F004C7EE1 /* CoreGraphics.framework in Frameworks */,
@@ -120,6 +125,7 @@
 		1ABFF5111595A63E004C7EE1 = {
 			isa = PBXGroup;
 			children = (
+				1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */,
 				1ADF8D7B15BE6C8100356568 /* backgrounds */,
 				1A582F3F15AC49CA004C1A9B /* iTunesArtwork */,
 				1A9E40EB15A45FF4001A189C /* Default-Landscape@2x~ipad.png */,
@@ -153,6 +159,7 @@
 		1ABFF5261595A63F004C7EE1 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AFADC6515BEDD9E006B03BC /* sound.aif */,
 				1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */,
 				1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */,
 				1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */,
@@ -295,6 +302,7 @@
 				1ADF8DA115BE6C8100356568 /* tactile_noise.png in Resources */,
 				1ADF8DA215BE6C8100356568 /* tex2res4.png in Resources */,
 				1ADF8DA315BE6C8100356568 /* triangles.png in Resources */,
+				1AFADC6615BEDD9E006B03BC /* sound.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
