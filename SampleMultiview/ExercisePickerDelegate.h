@@ -9,15 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "Exercise.h"
 #import "ExercisePickerControllerProtocol.h"
+#import "ExerciseWeightOrTimeMode.h"
 
 typedef enum  {
+    NAME = 0,
+    BODYPART = 1,
+    INTENSITY = 2,
+    REST = 3,
+    SETS = 4,
+    REPS = 5,
     WEIGHT = 6,
-    INTENSITY = 5,
-    REST = 4,
-    SETS = 3,
-    BODYPART = 2,
-    REPS = 1,
-    NAME = 0
+    TIME = 4
+   
 } ExercisePickerComponents;
 
 //@class ExerciseViewControllerProtocol;
@@ -31,10 +34,11 @@ typedef enum  {
     NSMutableArray *bodyPartValues;
     NSMutableArray *intensityValues;
     NSMutableArray *restValues;
+    NSMutableArray *timeValues;
     
     id<ExercisePickerControllerProtocol> controller;
-
 }
+
 -(id) initWithWithController:(id<ExercisePickerControllerProtocol>) controller;
 -(Exercise *) selectedPickerExercise;
 -(NSString *) selectedPickerValueForExercise;
@@ -43,12 +47,14 @@ typedef enum  {
 -(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 -(void) randomiseBodyPart:(id)sender;
 -(void) randomiseExercise:(id)sender;
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView;
 - (void) addNameWithName: (NSString *)newName;
 - (void) addBodyPartWithBodyPart: (NSString *)newBodyPart;
+- (void) weightOrTimeChosen: (ExerciseWeightOrTimeMode) exerciseWeightOrTimeMode;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
+@property (nonatomic) ExerciseWeightOrTimeMode exerciseWeightOrTimeMode;
 
 @end
 

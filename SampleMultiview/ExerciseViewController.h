@@ -27,28 +27,31 @@
 @property (strong, nonatomic) IBOutlet ExerciseTableDelegate *tableDelegate;
 @property (strong, nonatomic) IBOutlet ExercisePickerDelegate *pickerDelegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
 @property (weak, nonatomic) IBOutlet UILabel *elapsedTimeLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
-- (IBAction)addNewBodyPart:(id)sender;
-- (IBAction)addNewExerciseType:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *weightOrTime;
 @property (weak, nonatomic) IBOutlet UITextField *addNewExerciseType;
 @property (weak, nonatomic) IBOutlet UITextField *addNewBodyPart;
+
 @property (strong, nonatomic) UIColor *backgroundColor;
 @property (strong, nonatomic) UIColor *timerAlertColour;
 @property (strong, nonatomic) UIColor *timerWarningColour;
 
+- (IBAction)addNewBodyPart:(id)sender;
+- (IBAction)addNewExerciseType:(id)sender;
 - (IBAction)hideKeyboard:(id)sender;
 - (IBAction)startTimerPressed:(id)sender;
 - (IBAction)pauseTimerPressed:(id)sender;
 - (IBAction)stopTimerPressed:(id)sender;
 - (IBAction)addExercise:(id)sender;
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 - (IBAction) randomiseBodyPart:(id)sender;
 - (IBAction) randomiseExercise:(id)sender;
 
--(void) timerAlert;
--(void) timerWarning;
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+- (void) timerAlert;
+- (void) timerWarning;
 
 //@property (nonatomic, retain) IBOutlet AVAudioPlayer *player;
 //- (IBAction) playSound: (id) sender;

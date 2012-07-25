@@ -18,6 +18,7 @@
 @synthesize category = _category;
 @synthesize intensity = _intensity;
 @synthesize editingMode = _editingMode;
+@synthesize time = _time;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

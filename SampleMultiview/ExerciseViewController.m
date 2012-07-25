@@ -30,6 +30,7 @@
 @synthesize backgroundColor = _backgroundColor;
 @synthesize timerAlertColour = _timerAlertColour;
 @synthesize timerWarningColour = _timerWarningColour;
+@synthesize weightOrTime = _weightOrTime;
 
 - (void)viewDidLoad
 {
@@ -69,6 +70,13 @@
     //	player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"]] error:nil];
 //	
 //	[player prepareToPlay];
+}
+- (IBAction)weightOrTimeChosen:(id)sender {
+    if ([self.weightOrTime selectedSegmentIndex] == 0) {
+        [self.pickerDelegate weightOrTimeChosen:ExerciseWeightMode];
+    } else {
+        [self.pickerDelegate weightOrTimeChosen:ExerciseTimeMode];
+    }
 }
 
 - (void)viewDidUnload
@@ -151,7 +159,6 @@
 
 - (IBAction)hideKeyboard:(id)sender {
    [sender resignFirstResponder];
-
 }
 
 - (IBAction)startTimerPressed:(id)sender {

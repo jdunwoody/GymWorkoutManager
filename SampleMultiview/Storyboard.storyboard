@@ -91,6 +91,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="n3w-HY-BGW">
+                                                    <rect key="frame" x="599" y="40" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -101,6 +108,7 @@
                                             <outlet property="name" destination="9D7-Hw-MfG" id="zgC-cQ-2L4"/>
                                             <outlet property="reps" destination="pgD-Ip-Nun" id="ER8-CQ-csh"/>
                                             <outlet property="rest" destination="58e-l2-pTA" id="HoT-Sg-rFk"/>
+                                            <outlet property="time" destination="n3w-HY-BGW" id="hnt-8O-dh5"/>
                                             <outlet property="weight" destination="4ou-RV-ULA" id="ddr-Wo-jfL"/>
                                         </connections>
                                     </tableViewCell>
@@ -234,6 +242,17 @@
                                     <segment title="Super Set"/>
                                 </segments>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="uav-Mp-Bhf">
+                                <rect key="frame" x="560" y="874" width="195" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="weights44x44.png"/>
+                                    <segment title="" image="clock44x44.png"/>
+                                </segments>
+                                <connections>
+                                    <action selector="weightOrTimeChosen:" destination="3Jg-20-Tn5" eventType="valueChanged" id="A7V-u3-jRZ"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="kqg-oF-b0D"/>
@@ -245,6 +264,7 @@
                         <outlet property="elapsedTimeLabel" destination="qyz-Yg-Sp0" id="olD-SH-hNv"/>
                         <outlet property="exerciseComponentPicker" destination="aRB-ah-VHx" id="04z-jo-lvz"/>
                         <outlet property="tableView" destination="d0F-xQ-7jB" id="PpB-q3-VoV"/>
+                        <outlet property="weightOrTime" destination="uav-Mp-Bhf" id="3Hd-lJ-R0e"/>
                     </connections>
                 </viewController>
             </objects>
@@ -267,6 +287,10 @@
             <point key="canvasLocation" x="-2358" y="583"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="clock44x44.png" width="44" height="44"/>
+        <image name="weights44x44.png" width="44" height="44"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

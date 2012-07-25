@@ -9,6 +9,9 @@
 #import "ExerciseTableDelegate.h"
 #import "ExerciseCell.h"
 #import "Exercise.h"
+#import "ExerciseWeightOrTimeMode.h"
+#import "WeightExercise.h"
+#import "TimeExercise.h"
 
 @implementation ExerciseTableDelegate
 
@@ -44,23 +47,32 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
-
+    
     static NSString *CellIdentifier = @"ExerciseCell";
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [[cell name] setText: exercise.name];
-    [[cell reps] setText: [exercise.reps stringValue]];
-    [[cell rest] setText: exercise.rest];
-    [[cell weight] setText: [exercise.weight stringValue]];
+    [[cell rest] setText: [exercise restAsDisplayValue]];
     [[cell bodyPart] setText: exercise.bodyPart];
     [[cell intensity] setText: exercise.intensity];
     [[cell category] setText: exercise.category];
+   
+    if (exercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
+        WeightExercise *weightExercise = (WeightExercise *) exercise;
+        [[cell reps] setText: [weightExercise repsAsDisplayValue]];
+        [[cell weight] setText: [weightExercise weightAsDisplayValue]];
+    } else {
+        TimeExercise *timeExercise = (TimeExercise *) exercise;
+        [[cell time] setText: [timeExercise timeAsDisplayValue]];
+        
+    }
+    
+    return cell;
     
     //        [[cell sets] setText: [NSString stringWithFormat:@"%d", exercise.sets]];
-//    [[cell category] setText: exercise.isSingle ? @"Single" : @"Super"];
+    //    [[cell category] setText: exercise.isSingle ? @"Single" : @"Super"];
     //        cell.indentationLevel = 50;
     //        cell.indentationWidth = 50;
-    return cell;
     
     
     //    if (exercise.isAdd) {
@@ -77,9 +89,7 @@
     //        return cell;    
     //        
     //    } else {
-    
     //        @property NSString *type;
-    
     //        Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
     //        [[cell reps] setText: [NSString stringWithFormat:@"%d" exercise.reps]];
     //        [[cell bodyPart] setText: exercise.bodyPart];
@@ -146,11 +156,11 @@
         [self.dataController.exercises removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadData];
-  
-//        NSLog(@"%d", [self.dataController.exercises count]);
-//        NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
-//        [self.tableView setEditing:FALSE animated:YES];
-   
+        
+        //        NSLog(@"%d", [self.dataController.exercises count]);
+        //        NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
+        //        [self.tableView setEditing:FALSE animated:YES];
+        
         //        [self.tableView deleteRowsAtIndexPaths:indexPath withRowAnimation:YES];
         //        int row = indexPath.row; 
         //        SimpleEditableListAppDelegate *controller = (SimpleEditableListAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -204,7 +214,7 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    return UITableViewCellEditingStyleInsert;   
+    //    return UITableViewCellEditingStyleInsert;   
     return UITableViewCellEditingStyleDelete;  
 }
 

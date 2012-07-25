@@ -18,5 +18,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *category;
 @property (nonatomic, strong) IBOutlet UILabel *intensity;
 @property (nonatomic, strong) IBOutlet UILabel *editingMode;
+@property (nonatomic, strong) IBOutlet UILabel *time;
 
 @end

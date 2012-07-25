@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ExerciseDataController.h"
+#import "ExerciseWeightOrTimeMode.h"
 
 @protocol ExerciseMaintainable <NSObject>
 

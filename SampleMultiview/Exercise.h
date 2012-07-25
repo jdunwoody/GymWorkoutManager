@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ExerciseWeightOrTimeMode.h"
 
 typedef enum {
     ExerciseIntensityAerobicLight, 
@@ -19,9 +20,9 @@ typedef enum {
 
 @interface Exercise : NSObject 
     @property NSString *name;
-    @property NSNumber *reps;
-    @property NSNumber *sets;
-    @property NSNumber *weight;
+//    @property NSNumber *reps;
+//    @property NSNumber *sets;
+//    @property NSNumber *weight;
     @property BOOL isSingle;
     @property NSString *bodyPart;
     @property NSString *category;
@@ -30,6 +31,9 @@ typedef enum {
     @property NSString *intensity;
     @property BOOL superSet;
     @property BOOL isAdd;
+    @property ExerciseWeightOrTimeMode exerciseWeightOrTimeMode;
+
+- (NSString *) restAsDisplayValue;
 
 //    - (id)initWithLabel: (NSString *)label;
 

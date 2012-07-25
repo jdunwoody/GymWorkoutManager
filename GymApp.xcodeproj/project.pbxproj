@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0B08A215C0291E00567BBD /* TimeExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B08A115C0291E00567BBD /* TimeExercise.m */; };
+		1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B08A515C0293C00567BBD /* WeightExercise.m */; };
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
 		1A9E40E615A45FAC001A189C /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E515A45FAC001A189C /* 72x72.png */; };
 		1A9E40E815A45FC4001A189C /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E715A45FC4001A189C /* 144x144.png */; };
 		1AA6360715A049EB00938C5F /* ExercisePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */; };
+		1ABD3F1415C00414002E9520 /* Clock-Icon2-by-Nagaya.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F0E15C00414002E9520 /* Clock-Icon2-by-Nagaya.png */; };
+		1ABD3F1515C00414002E9520 /* clock44x44.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F0F15C00414002E9520 /* clock44x44.png */; };
+		1ABD3F1615C00414002E9520 /* physical_education 400x400.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F1015C00414002E9520 /* physical_education 400x400.png */; };
+		1ABD3F1715C00414002E9520 /* physical_education 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F1115C00414002E9520 /* physical_education 72x72.png */; };
+		1ABD3F1815C00414002E9520 /* physical_education.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F1215C00414002E9520 /* physical_education.png */; };
+		1ABD3F1915C00414002E9520 /* weights44x44.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F1315C00414002E9520 /* weights44x44.png */; };
 		1ABFF5211595A63E004C7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5201595A63E004C7EE1 /* UIKit.framework */; };
 		1ABFF5231595A63F004C7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5221595A63E004C7EE1 /* Foundation.framework */; };
 		1ABFF5251595A63F004C7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5241595A63F004C7EE1 /* CoreGraphics.framework */; };
@@ -50,6 +58,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A0B08A015C0291E00567BBD /* TimeExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeExercise.h; path = ../TimeExercise.h; sourceTree = "<group>"; };
+		1A0B08A115C0291E00567BBD /* TimeExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeExercise.m; path = ../TimeExercise.m; sourceTree = "<group>"; };
+		1A0B08A415C0293C00567BBD /* WeightExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightExercise.h; sourceTree = "<group>"; };
+		1A0B08A515C0293C00567BBD /* WeightExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightExercise.m; sourceTree = "<group>"; };
+		1A0B08A815C02C8300567BBD /* ExerciseWeightOrTimeMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExerciseWeightOrTimeMode.h; sourceTree = "<group>"; };
 		1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExercisePickerControllerProtocol.h; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
@@ -59,6 +72,12 @@
 		1A9E40EB15A45FF4001A189C /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		1AA6360515A049EB00938C5F /* ExercisePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePickerDelegate.h; sourceTree = "<group>"; };
 		1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePickerDelegate.m; sourceTree = "<group>"; };
+		1ABD3F0E15C00414002E9520 /* Clock-Icon2-by-Nagaya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clock-Icon2-by-Nagaya.png"; sourceTree = "<group>"; };
+		1ABD3F0F15C00414002E9520 /* clock44x44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock44x44.png; sourceTree = "<group>"; };
+		1ABD3F1015C00414002E9520 /* physical_education 400x400.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "physical_education 400x400.png"; sourceTree = "<group>"; };
+		1ABD3F1115C00414002E9520 /* physical_education 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "physical_education 72x72.png"; sourceTree = "<group>"; };
+		1ABD3F1215C00414002E9520 /* physical_education.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = physical_education.png; sourceTree = "<group>"; };
+		1ABD3F1315C00414002E9520 /* weights44x44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weights44x44.png; sourceTree = "<group>"; };
 		1ABFF51C1595A63E004C7EE1 /* GymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABFF5201595A63E004C7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1ABFF5221595A63E004C7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,9 +141,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1ABD3F0D15C00414002E9520 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				1ABD3F0E15C00414002E9520 /* Clock-Icon2-by-Nagaya.png */,
+				1ABD3F0F15C00414002E9520 /* clock44x44.png */,
+				1ABD3F1015C00414002E9520 /* physical_education 400x400.png */,
+				1ABD3F1115C00414002E9520 /* physical_education 72x72.png */,
+				1ABD3F1215C00414002E9520 /* physical_education.png */,
+				1ABD3F1315C00414002E9520 /* weights44x44.png */,
+			);
+			name = icons;
+			path = SampleMultiview/icons;
+			sourceTree = "<group>";
+		};
 		1ABFF5111595A63E004C7EE1 = {
 			isa = PBXGroup;
 			children = (
+				1ABD3F0D15C00414002E9520 /* icons */,
 				1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */,
 				1ADF8D7B15BE6C8100356568 /* backgrounds */,
 				1A582F3F15AC49CA004C1A9B /* iTunesArtwork */,
@@ -167,6 +201,10 @@
 				1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */,
 				1ABFF54A1595F53A004C7EE1 /* Exercise.h */,
 				1ABFF54B1595F53A004C7EE1 /* Exercise.m */,
+				1A0B08A015C0291E00567BBD /* TimeExercise.h */,
+				1A0B08A115C0291E00567BBD /* TimeExercise.m */,
+				1A0B08A415C0293C00567BBD /* WeightExercise.h */,
+				1A0B08A515C0293C00567BBD /* WeightExercise.m */,
 				1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */,
 				1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */,
 				1ABFF5271595A63F004C7EE1 /* Supporting Files */,
@@ -180,6 +218,7 @@
 				1AA6360515A049EB00938C5F /* ExercisePickerDelegate.h */,
 				1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */,
 				1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */,
+				1A0B08A815C02C8300567BBD /* ExerciseWeightOrTimeMode.h */,
 			);
 			name = GymApp;
 			path = SampleMultiview;
@@ -303,6 +342,12 @@
 				1ADF8DA215BE6C8100356568 /* tex2res4.png in Resources */,
 				1ADF8DA315BE6C8100356568 /* triangles.png in Resources */,
 				1AFADC6615BEDD9E006B03BC /* sound.aif in Resources */,
+				1ABD3F1415C00414002E9520 /* Clock-Icon2-by-Nagaya.png in Resources */,
+				1ABD3F1515C00414002E9520 /* clock44x44.png in Resources */,
+				1ABD3F1615C00414002E9520 /* physical_education 400x400.png in Resources */,
+				1ABD3F1715C00414002E9520 /* physical_education 72x72.png in Resources */,
+				1ABD3F1815C00414002E9520 /* physical_education.png in Resources */,
+				1ABD3F1915C00414002E9520 /* weights44x44.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +367,8 @@
 				1ABFF5531595F804004C7EE1 /* ExerciseTableDelegate.m in Sources */,
 				1AF76B401599F16600417F1D /* ExerciseTimer.m in Sources */,
 				1AA6360715A049EB00938C5F /* ExercisePickerDelegate.m in Sources */,
+				1A0B08A215C0291E00567BBD /* TimeExercise.m in Sources */,
+				1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
