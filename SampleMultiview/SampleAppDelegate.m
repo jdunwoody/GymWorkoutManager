@@ -25,15 +25,12 @@
 //    return YES;
     
     
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-//    OptionsViewController *optionsViewController = (OptionsViewController *)[[navigationController viewControllers] objectAtIndex:0];
+//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+//    ExerciseViewController *exerciseViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
+
+    ExerciseViewController *exerciseViewController = (ExerciseViewController *)self.window.rootViewController;
+
     
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
-//    
-//    ExerciseViewController *exerciseViewController = (ExerciseViewController*)[storyboard instantiateViewControllerWithIdentifier: @"exerciseViewController"];    
-    ExerciseViewController *exerciseViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
-    
-//    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] initWithTableView:rootViewController.tableView];
     ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
     ExerciseDataController *dataController = [[ExerciseDataController alloc] init];
     ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
@@ -44,6 +41,14 @@
     
     // Override point for customization after application launch.
     return YES;
+
+    //    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] initWithTableView:rootViewController.tableView];
+    //    OptionsViewController *optionsViewController = (OptionsViewController *)[[navigationController viewControllers] objectAtIndex:0];
+    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    //
+    //    ExerciseViewController *exerciseViewController = (ExerciseViewController*)[storyboard instantiateViewControllerWithIdentifier: @"exerciseViewController"];
+
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -56,6 +61,9 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // store the program
+    // make the app background friendly to continue to timer if any
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

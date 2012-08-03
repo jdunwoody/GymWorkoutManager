@@ -20,7 +20,7 @@ typedef enum  {
     REPS = 5,
     WEIGHT = 6,
     TIME = 4
-   
+    
 } ExercisePickerComponents;
 
 //@class ExerciseViewControllerProtocol;
@@ -45,12 +45,18 @@ typedef enum  {
 -(CGFloat) pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component;
 -(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
 -(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
--(void) randomiseBodyPart:(id)sender;
--(void) randomiseExercise:(id)sender;
 - (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView;
 - (void) addNameWithName: (NSString *)newName;
 - (void) addBodyPartWithBodyPart: (NSString *)newBodyPart;
 - (void) weightOrTimeChosen: (ExerciseWeightOrTimeMode) exerciseWeightOrTimeMode;
+
+- (void) randomiseBodyPart:(id)sender;
+- (void) randomiseExercise:(id)sender;
+- (void) randomiseIntensity:(id)sender;
+- (void) randomiseRest:(id)sender;
+- (void) randomiseWeight:(id)sender;
+- (void) randomiseReps:(id)sender;
+- (void) randomiseSets:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;

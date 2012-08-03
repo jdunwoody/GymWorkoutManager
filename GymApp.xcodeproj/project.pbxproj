@@ -52,6 +52,7 @@
 		1ADF8DA115BE6C8100356568 /* tactile_noise.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF8D8D15BE6C8100356568 /* tactile_noise.png */; };
 		1ADF8DA215BE6C8100356568 /* tex2res4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF8D8E15BE6C8100356568 /* tex2res4.png */; };
 		1ADF8DA315BE6C8100356568 /* triangles.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF8D8F15BE6C8100356568 /* triangles.png */; };
+		1AE841DB15CBC43500EE9724 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE841DA15CBC43500EE9724 /* Program.m */; };
 		1AF76B401599F16600417F1D /* ExerciseTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF76B3F1599F16600417F1D /* ExerciseTimer.m */; };
 		1AFADC6615BEDD9E006B03BC /* sound.aif in Resources */ = {isa = PBXBuildFile; fileRef = 1AFADC6515BEDD9E006B03BC /* sound.aif */; };
 		1AFADC6815BEDED6006B03BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */; };
@@ -119,6 +120,8 @@
 		1ADF8D8D15BE6C8100356568 /* tactile_noise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tactile_noise.png; sourceTree = "<group>"; };
 		1ADF8D8E15BE6C8100356568 /* tex2res4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex2res4.png; sourceTree = "<group>"; };
 		1ADF8D8F15BE6C8100356568 /* triangles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangles.png; sourceTree = "<group>"; };
+		1AE841D915CBC43500EE9724 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
+		1AE841DA15CBC43500EE9724 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		1AF76B3E1599F16600417F1D /* ExerciseTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTimer.h; sourceTree = "<group>"; };
 		1AF76B3F1599F16600417F1D /* ExerciseTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTimer.m; sourceTree = "<group>"; };
 		1AFADC5E15BEC890006B03BC /* TimerAlertDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimerAlertDelegate.h; path = ../TimerAlertDelegate.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */,
 				1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */,
 				1A0B08A815C02C8300567BBD /* ExerciseWeightOrTimeMode.h */,
+				1AE841D915CBC43500EE9724 /* Program.h */,
+				1AE841DA15CBC43500EE9724 /* Program.m */,
 			);
 			name = GymApp;
 			path = SampleMultiview;
@@ -369,6 +374,7 @@
 				1AA6360715A049EB00938C5F /* ExercisePickerDelegate.m in Sources */,
 				1A0B08A215C0291E00567BBD /* TimeExercise.m in Sources */,
 				1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */,
+				1AE841DB15CBC43500EE9724 /* Program.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

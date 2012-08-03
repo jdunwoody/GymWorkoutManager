@@ -13,6 +13,7 @@
 #import "ExercisePickerDelegate.h"
 #import "ExercisePickerControllerProtocol.h"
 #import "TimerAlertDelegate.h"
+#import "Program.h"
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
@@ -46,17 +47,26 @@
 - (IBAction)pauseTimerPressed:(id)sender;
 - (IBAction)stopTimerPressed:(id)sender;
 - (IBAction)addExercise:(id)sender;
+
 - (IBAction) randomiseBodyPart:(id)sender;
 - (IBAction) randomiseExercise:(id)sender;
+- (IBAction) randomiseIntensity:(id)sender;
+- (IBAction) randomiseWeight:(id)sender;
+- (IBAction) randomiseRest:(id)sender;
+- (IBAction) randomiseReps:(id)sender;
+- (IBAction) randomiseSets:(id)sender;
+
+- (IBAction)makeSuperSet:(id)sender;
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 - (void) timerAlert;
 - (void) timerWarning;
 
+@end
+
+
 //@property (nonatomic, retain) IBOutlet AVAudioPlayer *player;
 //- (IBAction) playSound: (id) sender;
-
-@end
 
 //    NSArray *nameValues;
 //    NSMutableArray *repValues;

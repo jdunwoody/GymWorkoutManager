@@ -19,6 +19,9 @@
 @end
 
 @implementation ExerciseViewController
+
+// or this way
+//@synthesize addNewExerciseType;
 @synthesize addNewExerciseType = _addNewExerciseType;
 @synthesize addNewBodyPart = _addNewBodyPart;
 @synthesize tableDelegate = _tableDelegate;
@@ -31,6 +34,12 @@
 @synthesize timerAlertColour = _timerAlertColour;
 @synthesize timerWarningColour = _timerWarningColour;
 @synthesize weightOrTime = _weightOrTime;
+
+// NOTES
+// are datadetectors such as email on a field necessary Detection:Phone for instance
+// use strong for properties
+// create @2x versions of all images, but only reference the origin ones in code.
+// create a custom image see hour 7 with UIImage *normalImage = [[UIImage imageNamed:@"whiteButton.png"]  stretchableImageWithLeftCapWidth:12.0  topCapHeight:0.0];
 
 - (void)viewDidLoad
 {
@@ -81,6 +90,7 @@
 
 - (void)viewDidUnload
 {
+    // MAKE sure all properties are deallocated
     [self setExerciseComponentPicker:nil];
     [self setElapsedTimeLabel:nil];
     [self setAddNewExerciseType:nil];
@@ -101,7 +111,7 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
-//        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+//        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight); 
         return (interfaceOrientation == UIInterfaceOrientationPortrait);
     }
 }
@@ -138,7 +148,7 @@
 
 - (IBAction)addExercise:(id)sender {
     Exercise *exercise = [self.pickerDelegate selectedPickerExercise];
-
+    
     [self.tableDelegate addExerciseWithExercise:exercise];    
     [self.tableView reloadData];
 }
@@ -231,6 +241,38 @@
 - (IBAction)randomiseExercise:(id)sender{
     [self.pickerDelegate randomiseExercise:sender];
 }
+
+- (IBAction) randomiseIntensity:(id)sender
+{
+    [self.pickerDelegate randomiseIntensity:sender];
+}
+
+- (IBAction) randomiseWeight:(id)sender
+{
+    [self.pickerDelegate randomiseWeight:sender];
+}
+
+- (IBAction) randomiseRest:(id)sender
+{
+    [self.pickerDelegate randomiseRest:sender];
+}
+
+- (IBAction) randomiseReps:(id)sender
+{
+    [self.pickerDelegate randomiseReps:sender];
+}
+
+- (IBAction) randomiseSets:(id)sender
+{
+    [self.pickerDelegate randomiseSets:sender];
+}
+
+- (IBAction)makeSuperSet:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    
+    
+}
+
 @end  
   
 

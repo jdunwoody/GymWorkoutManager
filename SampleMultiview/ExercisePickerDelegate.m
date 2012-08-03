@@ -239,6 +239,26 @@
     [self randomisePickerComponentWithComponentId: NAME withValues: nameValues];
 }
 
+- (void)randomiseIntensity:(id)sender {
+    [self randomisePickerComponentWithComponentId: INTENSITY withValues: intensityValues];
+}
+
+- (void)randomiseRest:(id)sender {
+    [self randomisePickerComponentWithComponentId: REST withValues: restValues];
+}
+
+- (void)randomiseWeight:(id)sender {
+    [self randomisePickerComponentWithComponentId: WEIGHT withValues: weightValues];
+}
+
+- (void)randomiseReps:(id)sender {
+    [self randomisePickerComponentWithComponentId: REPS withValues: repValues];
+}
+
+- (void)randomiseSets:(id)sender {
+    [self randomisePickerComponentWithComponentId: SETS withValues: setValues];
+}
+
 -(void) randomisePickerComponentWithComponentId: (int) component withValues: (NSArray *)values
 {
     int randomIndex = arc4random() % values.count;    

@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "Exercise.h"
+#import "Program.h"
 
 @interface ExerciseDataController : NSObject
 
-@property (nonatomic, copy) NSMutableArray *exercises;
+//@property (nonatomic, copy) NSMutableArray *exercises;
+@property (nonatomic, copy) Program *program;
 
 -(NSUInteger) countOfList;
 
 -(Exercise *) objectInListAtIndex:(NSUInteger)theIndex;
--(void) makeSuperSetForRow: (NSInteger)row;
 
 @end

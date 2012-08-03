@@ -11,7 +11,7 @@
 
 @implementation ExerciseDataController
 
-@synthesize exercises = _exercises;
+@synthesize program;
 
 - (id)init {
     if (self = [super init]) {
@@ -21,7 +21,9 @@
 }
 
 - (void)initializeDefaultDataList {
-    self.exercises = [[NSMutableArray alloc] init];
+    program = [[Program alloc] init];
+    
+//    self.exercises = [[NSMutableArray alloc] init];
     
 //    Exercise *exercise = [[Exercise alloc] init];
 //    exercise.category = @"Individual";
@@ -75,24 +77,19 @@
 //    [self.exercises addObject: @"Push up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other"];
 }
 
-- (void)setExercises:(NSMutableArray *)newList {
-    if(_exercises != newList) {
-        _exercises = [newList mutableCopy];
-    }
-}
+//- (void)setExercises:(NSMutableArray *)newList {
+//    if(_exercises != newList) {
+//        _exercises = [newList mutableCopy];
+//    }
+//}
 
 - (NSUInteger)countOfList {
-    return [self.exercises count];
+    return [self.program.exercises count];
 }
 
 - (Exercise *)objectInListAtIndex:(NSUInteger)theIndex {
-    return [self.exercises objectAtIndex:theIndex];
+    return [self.program.exercises objectAtIndex:theIndex];
 }
 
--(void) makeSuperSetForRow: (NSInteger)row
-{
-    Exercise *exercise = [self objectInListAtIndex:row];
-    exercise.superSet = true;
-}
 
 @end
