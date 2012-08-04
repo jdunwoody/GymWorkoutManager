@@ -226,7 +226,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="31" id="qyz-Yg-Sp0">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="31" id="qyz-Yg-Sp0">
                                 <rect key="frame" x="104" y="63" width="555" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="187"/>
@@ -269,51 +269,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addExercise:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="XSv-w0-od3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qxb-mG-qpA">
-                                <rect key="frame" x="676" y="126" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Start" image="button_black_play.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="Z9B-6a-Hqz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lR4-ya-Kfx">
-                                <rect key="frame" x="28" y="82" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Pause" image="button_black_pause.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pauseTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="MGl-Fw-cZj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MfW-Vg-77e">
-                                <rect key="frame" x="28" y="163" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Stop" image="button_black_stop.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="geT-mV-0KD"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="uav-Mp-Bhf">
@@ -432,27 +387,6 @@
                                     <action selector="randomiseWeight:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="g29-ba-ant"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vCQ-W6-9Fe">
-                                <rect key="frame" x="20" y="7" width="366" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
-                                <color key="textColor" red="0.77772241709183676" green="0.73516581365439748" blue="0.13020978000877462" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="2gl-IJ-uaE">
-                                <rect key="frame" x="30" y="238" width="271" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
-                                <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Body part" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fDW-3w-PyX">
-                                <rect key="frame" x="346" y="239" width="230" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
-                                <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="qx5-gC-fl4">
                                 <rect key="frame" x="622" y="235" width="146" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -460,13 +394,85 @@
                                 <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="XVu-1N-dkH">
-                                <rect key="frame" x="594" y="3" width="154" height="55"/>
+                            <view opaque="NO" contentMode="scaleToFill" id="AaQ-v9-h9k" userLabel="Time exercises">
+                                <rect key="frame" x="0.0" y="-13" width="760" height="315"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
-                                <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vCQ-W6-9Fe">
+                                        <rect key="frame" x="20" y="20" width="366" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="0.77772241709183676" green="0.73516581365439748" blue="0.13020978000877462" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lR4-ya-Kfx">
+                                        <rect key="frame" x="28" y="95" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Pause" image="button_black_pause.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pauseTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="MGl-Fw-cZj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MfW-Vg-77e">
+                                        <rect key="frame" x="28" y="176" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Stop" image="button_black_stop.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="geT-mV-0KD"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="2gl-IJ-uaE">
+                                        <rect key="frame" x="30" y="251" width="271" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Body part" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fDW-3w-PyX">
+                                        <rect key="frame" x="346" y="252" width="230" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qxb-mG-qpA">
+                                        <rect key="frame" x="676" y="139" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Start" image="button_black_play.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="Z9B-6a-Hqz"/>
+                                        </connections>
+                                    </button>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="XVu-1N-dkH">
+                                        <rect key="frame" x="95" y="76" width="555" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="187"/>
+                                        <color key="textColor" red="0.0" green="0.68055791440217384" blue="0.060243139023692653" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="kqg-oF-b0D"/>
@@ -478,8 +484,8 @@
                         <outlet property="currentExerciseInTimer" destination="vCQ-W6-9Fe" id="l5N-jl-2xg"/>
                         <outlet property="currentIntensityInTimer" destination="2gl-IJ-uaE" id="s9n-7n-oZ5"/>
                         <outlet property="currentRepsInTimer" destination="XVu-1N-dkH" id="RYq-Ys-trg"/>
+                        <outlet property="currentTimeInTimer" destination="qyz-Yg-Sp0" id="YnX-zx-L7c"/>
                         <outlet property="currentWeightInTimer" destination="qx5-gC-fl4" id="h0x-T0-aUx"/>
-                        <outlet property="elapsedTimeLabel" destination="qyz-Yg-Sp0" id="olD-SH-hNv"/>
                         <outlet property="exerciseComponentPicker" destination="aRB-ah-VHx" id="04z-jo-lvz"/>
                         <outlet property="tableView" destination="d0F-xQ-7jB" id="PpB-q3-VoV"/>
                         <outlet property="timerPauseButton" destination="lR4-ya-Kfx" id="vwD-bd-ciU"/>
@@ -502,6 +508,74 @@
         <image name="clock44x44.png" width="44" height="44"/>
         <image name="weights44x44.png" width="44" height="44"/>
     </resources>
+    <classes>
+        <class className="ExerciseCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseCell.h"/>
+            <relationships>
+                <relationship kind="action" name="makeSuperSet:"/>
+                <relationship kind="action" name="unmakeSuperSet:"/>
+                <relationship kind="outlet" name="bodyPart" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="category" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentExerciseIndicator" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="editingMode" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="intensity" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="makeSuperSet" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rest" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="time" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="unmakeSuperSet" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ExercisePickerDelegate" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisePickerDelegate.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="ExerciseTableDelegate" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseTableDelegate.h"/>
+        </class>
+        <class className="ExerciseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addExercise:"/>
+                <relationship kind="action" name="addNewBodyPart:"/>
+                <relationship kind="action" name="addNewExerciseType:"/>
+                <relationship kind="action" name="hideKeyboard:"/>
+                <relationship kind="action" name="pauseTimerPressed:"/>
+                <relationship kind="action" name="randomiseBodyPart:"/>
+                <relationship kind="action" name="randomiseExercise:"/>
+                <relationship kind="action" name="randomiseIntensity:"/>
+                <relationship kind="action" name="randomiseReps:"/>
+                <relationship kind="action" name="randomiseRest:"/>
+                <relationship kind="action" name="randomiseSets:"/>
+                <relationship kind="action" name="randomiseWeight:"/>
+                <relationship kind="action" name="startTimerPressed:"/>
+                <relationship kind="action" name="stopTimerPressed:"/>
+                <relationship kind="action" name="weightOrTimeChosen:"/>
+                <relationship kind="outlet" name="addNewBodyPart" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="addNewExerciseType" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="currentBodyPartInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentExerciseInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentIntensityInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentRepsInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentTimeInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentWeightInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="pickerDelegate" candidateClass="ExercisePickerDelegate"/>
+                <relationship kind="outlet" name="tableDelegate" candidateClass="ExerciseTableDelegate"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="timerPauseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timerStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timerStopButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="weightOrTime" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

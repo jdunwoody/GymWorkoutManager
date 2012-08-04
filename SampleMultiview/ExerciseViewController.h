@@ -31,7 +31,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *exerciseComponentPicker;
-@property (weak, nonatomic) IBOutlet UILabel *elapsedTimeLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *weightOrTime;
 @property (weak, nonatomic) IBOutlet UITextField *addNewExerciseType;
@@ -56,10 +55,12 @@
 - (IBAction) randomiseRest:(id)sender;
 - (IBAction) randomiseReps:(id)sender;
 - (IBAction) randomiseSets:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *timerStartButton;
 @property (weak, nonatomic) IBOutlet UIButton *timerStopButton;
 @property (weak, nonatomic) IBOutlet UIButton *timerPauseButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *timerStartButton;
+@property (weak, nonatomic) IBOutlet UILabel *currentTimeInTimer;
 @property (weak, nonatomic) IBOutlet UILabel *currentExerciseInTimer;
 @property (weak, nonatomic) IBOutlet UILabel *currentIntensityInTimer;
 @property (weak, nonatomic) IBOutlet UILabel *currentBodyPartInTimer;

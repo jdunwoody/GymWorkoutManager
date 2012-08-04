@@ -25,9 +25,9 @@
 @synthesize timerStopButton;
 @synthesize timerPauseButton;
 @synthesize timerStartButton;
-@synthesize currentExerciseInTimer, currentIntensityInTimer, currentBodyPartInTimer, currentWeightInTimer, currentRepsInTimer;
+@synthesize currentExerciseInTimer, currentIntensityInTimer, currentBodyPartInTimer, currentWeightInTimer, currentRepsInTimer, currentTimeInTimer;
 @synthesize addNewExerciseType, addNewBodyPart;
-@synthesize tableDelegate, tableView, exerciseComponentPicker, elapsedTimeLabel, pickerDelegate,categoryButton = _categoryButton;
+@synthesize tableDelegate, tableView, exerciseComponentPicker, pickerDelegate,categoryButton;
 @synthesize backgroundColor, timerAlertColour, timerWarningColour, weightOrTime;
 
 // NOTES
@@ -87,7 +87,7 @@
 {
     // MAKE sure all properties are deallocated
     [self setExerciseComponentPicker:nil];
-    [self setElapsedTimeLabel:nil];
+    [self setCurrentTimeInTimer:nil];
     [self setAddNewExerciseType:nil];
     [self setAddNewBodyPart:nil];
     [self setAddNewBodyPart:nil];
@@ -170,51 +170,77 @@
     //    [sender resignFirstResponder];
 }
 
-- (IBAction)hideKeyboard:(id)sender {
+- (IBAction)hideKeyboard:(id)sender
+{
     [sender resignFirstResponder];
 }
 
-- (IBAction)startTimerPressed:(id)sender {
+- (IBAction)startTimerPressed:(id)sender
+{
     if (self.tableDelegate.currentExercise != nil) {
         [timer start];
+        
         self.timerPauseButton.enabled = true;
         self.timerStopButton.enabled = true;
         self.timerStartButton.enabled = false;
         
-        self.currentExerciseInTimer.text = self.tableDelegate.currentExercise.name;
-        self.currentIntensityInTimer.text = self.tableDelegate.currentExercise.intensity;
-        self.currentWeightInTimer.text = self.tableDelegate.currentExercise.weight.stringValue;
-        self.currentBodyPartInTimer.text = self.tableDelegate.currentExercise.bodyPart;
-        self.currentRepsInTimer.text = self.tableDelegate.currentExercise.reps.stringValue;
+        [self updateCurrentExerciseView];
     }
 }
 
-- (IBAction)pauseTimerPressed:(id)sender {
+- (void) updateCurrentExerciseView
+{
+    Exercise *currentExercise = self.tableDelegate.currentExercise;
+    
+    self.currentExerciseInTimer.text = self.tableDelegate.currentExercise.name;
+    self.currentIntensityInTimer.text = self.tableDelegate.currentExercise.intensity;
+    self.currentBodyPartInTimer.text = self.tableDelegate.currentExercise.bodyPart;
+    
+    if (currentExercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
+        self.currentWeightInTimer.text = self.tableDelegate.currentExercise.weight.stringValue;
+        self.currentRepsInTimer.text = self.tableDelegate.currentExercise.reps.stringValue;
+        
+        self.currentWeightInTimer.hidden = false;
+        self.currentRepsInTimer.hidden = false;
+        
+    } else {
+        self.currentWeightInTimer.hidden = false;
+        self.currentRepsInTimer.hidden = false;
+    }
+    
+    currentExercise = nil;
+}
+
+- (IBAction)pauseTimerPressed:(id)sender
+{
     [timer pause];
     self.timerStartButton.enabled = false;
     self.timerStopButton.enabled = true;
     self.timerPauseButton.enabled = true;
 }
 
-- (IBAction)stopTimerPressed:(id)sender {
+- (IBAction)stopTimerPressed:(id)sender
+{
     [timer stop];
     self.timerStartButton.enabled = true;
     self.timerStopButton.enabled = false;
     self.timerPauseButton.enabled = false;
 }
 
-- (void) timerAlert {
+- (void) timerAlert
+{
     [self playSound];
-    self.elapsedTimeLabel.textColor = self.timerAlertColour;
+    self.currentTimeInTimer.textColor = self.timerAlertColour;
 }
 
-- (void) timerWarning {
-    self.elapsedTimeLabel.textColor = self.timerWarningColour;
+- (void) timerWarning
+{
+    self.currentTimeInTimer.textColor = self.timerWarningColour;
 }
 
 - (void) updateLabelWithText:(NSString *)text
 {
-    self.elapsedTimeLabel.text = text;
+    self.currentTimeInTimer.text = text;
 }
 
 //- (void)setEditing:(BOOL)editing animated:(BOOL)animate

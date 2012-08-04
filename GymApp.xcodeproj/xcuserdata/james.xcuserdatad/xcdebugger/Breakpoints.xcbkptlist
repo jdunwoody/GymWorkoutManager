@@ -357,11 +357,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/ExerciseViewController.m"
-         timestampString = "365767522.843342"
+         timestampString = "365777892.502835"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "178"
-         endingLineNumber = "178"
+         startingLineNumber = "180"
+         endingLineNumber = "180"
          landmarkName = "-startTimerPressed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -409,11 +409,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/ExerciseViewController.m"
-         timestampString = "365774530.170892"
+         timestampString = "365777892.502835"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "292"
-         endingLineNumber = "292"
+         startingLineNumber = "318"
+         endingLineNumber = "318"
          landmarkName = "-programNonEmpty"
          landmarkType = "5">
       </FileBreakpoint>
@@ -467,6 +467,32 @@
          startingLineNumber = "17"
          endingLineNumber = "17"
          landmarkName = "-initWithProgramStatus:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/ExerciseViewController.m"
+         timestampString = "365777892.502835"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
+         landmarkName = "-updateCurrentExerciseView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/ExerciseViewController.m"
+         timestampString = "365778871.903176"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
