@@ -56,6 +56,9 @@
 - (IBAction) randomiseReps:(id)sender;
 - (IBAction) randomiseSets:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIView *timeView;
+@property (weak, nonatomic) IBOutlet UIView *repsView;
+
 @property (weak, nonatomic) IBOutlet UIButton *timerStartButton;
 @property (weak, nonatomic) IBOutlet UIButton *timerStopButton;
 @property (weak, nonatomic) IBOutlet UIButton *timerPauseButton;

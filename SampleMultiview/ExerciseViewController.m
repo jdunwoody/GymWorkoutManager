@@ -24,6 +24,8 @@
 //@synthesize addNewExerciseType;
 @synthesize timerStopButton;
 @synthesize timerPauseButton;
+@synthesize timeView;
+@synthesize repsView;
 @synthesize timerStartButton;
 @synthesize currentExerciseInTimer, currentIntensityInTimer, currentBodyPartInTimer, currentWeightInTimer, currentRepsInTimer, currentTimeInTimer;
 @synthesize addNewExerciseType, addNewBodyPart;
@@ -99,6 +101,8 @@
     [self setTimerStartButton:nil];
     [self setTimerStopButton:nil];
     [self setTimerPauseButton:nil];
+    [self setTimeView:nil];
+    [self setRepsView:nil];
     [super viewDidUnload];
 }
 
@@ -192,21 +196,28 @@
 {
     Exercise *currentExercise = self.tableDelegate.currentExercise;
     
+    if (currentExercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
+        self.repsView.hidden = true;
+        self.timeView.hidden = false;
+        
+        self.currentWeightInTimer.text = self.tableDelegate.currentExercise.weight.stringValue;
+        self.currentRepsInTimer.text = self.tableDelegate.currentExercise.reps.stringValue;
+
+//        self.currentWeightInTimer.hidden = false;
+//        self.currentRepsInTimer.hidden = false;
+//        
+    } else {
+//        self.repsView.hidden = false;
+//        self.timeView.hidden = true;
+      
+//        self.currentWeightInTimer.hidden = false;
+//        self.currentRepsInTimer.hidden = false;
+    }
+    
+ 
     self.currentExerciseInTimer.text = self.tableDelegate.currentExercise.name;
     self.currentIntensityInTimer.text = self.tableDelegate.currentExercise.intensity;
     self.currentBodyPartInTimer.text = self.tableDelegate.currentExercise.bodyPart;
-    
-    if (currentExercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
-        self.currentWeightInTimer.text = self.tableDelegate.currentExercise.weight.stringValue;
-        self.currentRepsInTimer.text = self.tableDelegate.currentExercise.reps.stringValue;
-        
-        self.currentWeightInTimer.hidden = false;
-        self.currentRepsInTimer.hidden = false;
-        
-    } else {
-        self.currentWeightInTimer.hidden = false;
-        self.currentRepsInTimer.hidden = false;
-    }
     
     currentExercise = nil;
 }
@@ -315,6 +326,7 @@
 
 - (void) programNonEmpty
 {
+    [self updateCurrentExerciseView];
     self.timerStartButton.enabled= true;
 }
 

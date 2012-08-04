@@ -226,14 +226,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="31" id="qyz-Yg-Sp0">
-                                <rect key="frame" x="104" y="63" width="555" height="164"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="187"/>
-                                <color key="textColor" red="0.0" green="0.68055791440217384" blue="0.060243139023692653" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.11735733695652173" green="0.0028233926190759937" blue="0.0014398010154320776" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="yTC-t9-hQ0">
                                 <rect key="frame" x="275" y="949" width="145" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -387,40 +379,58 @@
                                     <action selector="randomiseWeight:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="g29-ba-ant"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="qx5-gC-fl4">
-                                <rect key="frame" x="622" y="235" width="146" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
-                                <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view opaque="NO" contentMode="scaleToFill" id="AaQ-v9-h9k" userLabel="Time exercises">
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" id="ZoG-0e-kDi" userLabel="repsView">
                                 <rect key="frame" x="0.0" y="-13" width="760" height="315"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vCQ-W6-9Fe">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="b7f-n0-D9H">
                                         <rect key="frame" x="20" y="20" width="366" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
-                                        <color key="textColor" red="0.77772241709183676" green="0.73516581365439748" blue="0.13020978000877462" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.77772241710000001" green="0.7351658137" blue="0.13020978" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lR4-ya-Kfx">
-                                        <rect key="frame" x="28" y="95" width="64" height="64"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="FEy-VN-uAz">
+                                        <rect key="frame" x="30" y="249" width="271" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Body part" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="AtH-GE-dNH">
+                                        <rect key="frame" x="346" y="249" width="230" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="4f1-0V-Y3t">
+                                        <rect key="frame" x="95" y="76" width="555" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="187"/>
+                                        <color key="textColor" red="0.0" green="0.68055791440000002" blue="0.060243139020000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="qx5-gC-fl4">
+                                        <rect key="frame" x="591" y="251" width="146" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EbZ-EJ-XTn" userLabel="Button - Next">
+                                        <rect key="frame" x="676" y="139" width="64" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Pause" image="button_black_pause.png">
+                                        <state key="normal" title="Start" image="button_black_play.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="pauseTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="MGl-Fw-cZj"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MfW-Vg-77e">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="R8c-Kb-bDC">
                                         <rect key="frame" x="28" y="176" width="64" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -431,10 +441,40 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="stopTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="geT-mV-0KD"/>
-                                        </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sl6-bn-aaA">
+                                        <rect key="frame" x="28" y="95" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Pause" image="button_black_pause.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" id="AaQ-v9-h9k" userLabel="timeView">
+                                <rect key="frame" x="0.0" y="-13" width="760" height="315"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="31" id="qyz-Yg-Sp0" userLabel="Label - Time">
+                                        <rect key="frame" x="102" y="76" width="555" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="187"/>
+                                        <color key="textColor" red="0.0" green="0.68055791440217384" blue="0.060243139023692653" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.11735733695652173" green="0.0028233926190759937" blue="0.0014398010154320776" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vCQ-W6-9Fe">
+                                        <rect key="frame" x="20" y="20" width="366" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="0.77772241709183676" green="0.73516581365439748" blue="0.13020978000877462" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="2gl-IJ-uaE">
                                         <rect key="frame" x="30" y="251" width="271" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -444,6 +484,13 @@
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Body part" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fDW-3w-PyX">
                                         <rect key="frame" x="346" y="252" width="230" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="4ej-YL-BSF">
+                                        <rect key="frame" x="592" y="251" width="144" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                         <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -464,13 +511,36 @@
                                             <action selector="startTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="Z9B-6a-Hqz"/>
                                         </connections>
                                     </button>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="XVu-1N-dkH">
-                                        <rect key="frame" x="95" y="76" width="555" height="164"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MfW-Vg-77e">
+                                        <rect key="frame" x="28" y="176" width="64" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="187"/>
-                                        <color key="textColor" red="0.0" green="0.68055791440217384" blue="0.060243139023692653" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Stop" image="button_black_stop.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="geT-mV-0KD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lR4-ya-Kfx">
+                                        <rect key="frame" x="28" y="95" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Pause" image="button_black_pause.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pauseTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="MGl-Fw-cZj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                         </subviews>
@@ -483,11 +553,12 @@
                         <outlet property="currentBodyPartInTimer" destination="fDW-3w-PyX" id="piI-Sh-lZg"/>
                         <outlet property="currentExerciseInTimer" destination="vCQ-W6-9Fe" id="l5N-jl-2xg"/>
                         <outlet property="currentIntensityInTimer" destination="2gl-IJ-uaE" id="s9n-7n-oZ5"/>
-                        <outlet property="currentRepsInTimer" destination="XVu-1N-dkH" id="RYq-Ys-trg"/>
                         <outlet property="currentTimeInTimer" destination="qyz-Yg-Sp0" id="YnX-zx-L7c"/>
                         <outlet property="currentWeightInTimer" destination="qx5-gC-fl4" id="h0x-T0-aUx"/>
                         <outlet property="exerciseComponentPicker" destination="aRB-ah-VHx" id="04z-jo-lvz"/>
+                        <outlet property="repsView" destination="ZoG-0e-kDi" id="oTn-o6-r7u"/>
                         <outlet property="tableView" destination="d0F-xQ-7jB" id="PpB-q3-VoV"/>
+                        <outlet property="timeView" destination="AaQ-v9-h9k" id="NgM-Gp-wEE"/>
                         <outlet property="timerPauseButton" destination="lR4-ya-Kfx" id="vwD-bd-ciU"/>
                         <outlet property="timerStartButton" destination="Qxb-mG-qpA" id="XiG-st-R4w"/>
                         <outlet property="timerStopButton" destination="MfW-Vg-77e" id="Eye-gT-FRo"/>
@@ -567,8 +638,10 @@
                 <relationship kind="outlet" name="currentWeightInTimer" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="pickerDelegate" candidateClass="ExercisePickerDelegate"/>
+                <relationship kind="outlet" name="repsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="tableDelegate" candidateClass="ExerciseTableDelegate"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="timeView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="timerPauseButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timerStartButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timerStopButton" candidateClass="UIButton"/>
