@@ -7,34 +7,39 @@
 //
 
 #import "ExerciseCell.h"
+#import "Exercise.h"
 
 @implementation ExerciseCell
 
-@synthesize name = name;
-@synthesize reps = _reps;
-@synthesize bodyPart = _bodyPart;
-@synthesize rest = _rest;
-@synthesize weight = _weights;
-@synthesize category = _category;
-@synthesize intensity = _intensity;
+@synthesize name;
+@synthesize reps;
+@synthesize bodyPart;
+@synthesize rest;
+@synthesize weight;
+@synthesize category;
+@synthesize intensity;
 @synthesize editingMode = _editingMode;
 @synthesize time = _time;
+@synthesize currentExerciseIndicator;
+@synthesize makeSuperSet;
+@synthesize unmakeSuperSet;
+@synthesize exercise;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+//{
+//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+//    if (self) {
+//        // Initialization code
+//    }
+//    return self;
+//}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+//{
+//    [super setSelected:selected animated:animated];
+//    
+//    // Configure the view for the selected state
+//}
 
 //- (void)setEditing:(BOOL)editing animated:(BOOL)animate
 //{
@@ -63,6 +68,30 @@
 //    }
 //}
 
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+//{
+//    if (animated) {
+//        // animation code
+//        [super setSelected:selected animated:NO];
+//        // more animation code
+//    } else {
+//        [super setSelected:selected animated:NO];
+//    }
+//}
 
+- (IBAction)makeSuperSet:(id)sender {
+    self.exercise.superSet = YES;
+    UITableView *tv = (UITableView *) self.superview;
+//    [tv ]reloadRowsAtIndexPaths:[[NSArray alloc] initWithObjects:<#(id), ...#>, nil indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+    [tv reloadData];
+//    [self setNeedsDisplay];
+}
+
+- (IBAction)unmakeSuperSet:(id)sender {
+    self.exercise.superSet = NO;
+    UITableView *tv = (UITableView *) self.superview;
+    [tv reloadData];
+//    [self setNeedsDisplay];
+}
 
 @end

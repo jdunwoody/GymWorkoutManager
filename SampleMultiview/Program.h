@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Exercise.h"
 
 @interface Program : NSObject
+{
+    Exercise *current;
+}
+
+- (Exercise *)currentExercise;
 
 @property (strong, nonatomic) NSMutableArray *exercises;
 

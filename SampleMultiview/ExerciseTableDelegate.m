@@ -19,16 +19,6 @@
 @synthesize dataController = _dataController;
 @synthesize backgroundColor = _backgroundColor;
 
-//-(id) initWithTableView:(UITableView *)tableView
-//{
-//    if (self = [super init]) {
-//        self.tableView = tableView;
-//    }
-//    return self;
-//}
-
-// Table functions
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -46,19 +36,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ExerciseCell";
+    Exercise *exercise = [self.dataController.program.exercises objectAtIndex:indexPath.row];
+    NSString *cellIdentifier = exercise.superSet ? @"SuperSetExerciseCell" : @"ExerciseCell";
     
-    UITableViewCell *tableViewCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ExerciseCell *cell = (ExerciseCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if (tableViewCell == nil) {
-        tableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[ExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    ExerciseCell *cell = (ExerciseCell *)tableViewCell;
+    cell.exercise = exercise;
     
-    Exercise *exercise = [self.dataController.program.exercises objectAtIndex:indexPath.row];
-    
-    
+    if (exercise == self.dataController.program.currentExercise) {
+        cell.currentExerciseIndicator.hidden = NO;
+//        cell.backgroundColor = [UIColor ]
+    } else {
+        cell.currentExerciseIndicator.hidden = YES;
+    }
+   
     [[cell name] setText: exercise.name];
     [[cell rest] setText: [exercise restAsDisplayValue]];
     [[cell bodyPart] setText: exercise.bodyPart];
@@ -73,20 +68,20 @@
         TimeExercise *timeExercise = (TimeExercise *) exercise;
         [[cell time] setText: [timeExercise timeAsDisplayValue]];
     }
-    
-    //        UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
-    //        gesture.direction = UISwipeGestureRecognizerDirectionRight;
-    //        [cell.contentView addGestureRecognizer:gesture];
-    
-    
-    
-    //    UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
-    ////    [gesture setDirection: (UISwipeGestureRecognizerDirectionLeft|UISwipeGestureRecognizerDirectionRight)];
-    //    gesture.direction = UISwipeGestureRecognizerDirectionRight;
-    //    [tableView addGestureRecognizer:gesture];
-    //
     return cell;
 }
+
+//        UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+//        gesture.direction = UISwipeGestureRecognizerDirectionRight;
+//        [cell.contentView addGestureRecognizer:gesture];
+
+
+
+//    UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+////    [gesture setDirection: (UISwipeGestureRecognizerDirectionLeft|UISwipeGestureRecognizerDirectionRight)];
+//    gesture.direction = UISwipeGestureRecognizerDirectionRight;
+//    [tableView addGestureRecognizer:gesture];
+//
 
 //-(void)didSwipe:(UISwipeGestureRecognizer *)recognizer {
 //
@@ -119,17 +114,17 @@
 //    }
 //}
 
-- (void) makeSuperSetWithCell: (ExerciseCell *)cell withExercise: (Exercise *)exercise
-{
-    cell.backgroundColor = [UIColor purpleColor];
-    exercise.superSet = YES;
-}
-
-- (void) makeNormalSetWithCell: (ExerciseCell *)cell withExercise: (Exercise *)exercise
-{
-    cell.backgroundColor = [UIColor whiteColor];
-    exercise.superSet = NO;
-}
+//- (void) makeSuperSetWithCell: (ExerciseCell *)cell withExercise: (Exercise *)exercise
+//{
+//    cell.backgroundColor = [UIColor purpleColor];
+//    exercise.superSet = YES;
+//}
+//
+//- (void) makeNormalSetWithCell: (ExerciseCell *)cell withExercise: (Exercise *)exercise
+//{
+//    cell.backgroundColor = [UIColor whiteColor];
+//    exercise.superSet = NO;
+//}
 
 //        [[cell sets] setText: [NSString stringWithFormat:@"%d", exercise.sets]];
 //    [[cell category] setText: exercise.isSingle ? @"Single" : @"Super"];

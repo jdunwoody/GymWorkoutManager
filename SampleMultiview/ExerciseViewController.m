@@ -267,11 +267,11 @@
     [self.pickerDelegate randomiseSets:sender];
 }
 
-- (IBAction)makeSuperSet:(id)sender {
-    UIButton *btn = (UIButton *)sender;
-    
-    
-}
+//- (IBAction)makeSuperSet:(id)sender {
+//    UIButton *btn = (UIButton *)sender;
+//    
+//    
+//}
 
 @end  
   

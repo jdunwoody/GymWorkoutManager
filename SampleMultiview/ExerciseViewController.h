@@ -56,8 +56,6 @@
 - (IBAction) randomiseReps:(id)sender;
 - (IBAction) randomiseSets:(id)sender;
 
-- (IBAction)makeSuperSet:(id)sender;
-
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 - (void) timerAlert;
 - (void) timerWarning;

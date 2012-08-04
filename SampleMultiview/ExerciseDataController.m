@@ -22,9 +22,10 @@
 
 - (void)initializeDefaultDataList {
     program = [[Program alloc] init];
-    
+}
+
 //    self.exercises = [[NSMutableArray alloc] init];
-    
+
 //    Exercise *exercise = [[Exercise alloc] init];
 //    exercise.category = @"Individual";
 //    exercise.name = @"Air Squat";
@@ -32,7 +33,7 @@
 //    exercise.weights = [NSNumber numberWithInt:10];
 //    exercise.intensity = ExerciseIntensityAnaerobicLight;
 //    [self.exercises addObject:exercise];
-//   
+//
 //    exercise = [[Exercise alloc] init];
 //    exercise.category = @"Super set";
 //    exercise.name = @"Push up";
@@ -40,7 +41,7 @@
 //    exercise.weights = [NSNumber numberWithInt:20];
 //    exercise.intensity = ExerciseIntensityAnaerobicIntense;
 //    [self.exercises addObject:exercise];
-//  
+//
 //    exercise = [[Exercise alloc] init];
 //    exercise.category = @"Super set";
 //    exercise.name = @"Push up";
@@ -48,7 +49,7 @@
 //    exercise.weights = [NSNumber numberWithInt:110];
 //    exercise.intensity = ExerciseIntensityAerobicIntense;
 //    [self.exercises addObject:exercise];
-//  
+//
 //    exercise = [[Exercise alloc] init];
 //    exercise.category = @"Super set";
 //    exercise.name = @"Push up";
@@ -56,7 +57,7 @@
 //    exercise.weights = [NSNumber numberWithInt:1];
 //    exercise.intensity = ExerciseIntensityAerobicLight;
 //    [self.exercises addObject:exercise];
-    
+
 //    exercise = [[Exercise alloc] init];
 //    exercise.category = @"None";
 //    exercise.name = @"Add exercise";
@@ -65,17 +66,17 @@
 //    exercise.intensity = ExerciseIntensityAerobicMedium;
 //    exercise.rest = @"10sec";
 //    [self.exercises addObject:exercise];
-    
+
 //    NSMutableArray *exerciseList = [[NSMutableArray alloc] initWithObjects:@"Push up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];
 //    self.exercises = exerciseList;
-  
+
 //    NSMutableArray *exerciseList = [[NSMutableArray alloc] init];
-//  
+//
 //    [exerciseList addObject: [Exercise in
 //    self.exercises = exerciseList;
-    
+
 //    [self.exercises addObject: @"Push up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other"];
-}
+
 
 //- (void)setExercises:(NSMutableArray *)newList {
 //    if(_exercises != newList) {

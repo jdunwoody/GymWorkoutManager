@@ -16,8 +16,18 @@
 {
     if (self = [super init]) {
         exercises = [[NSMutableArray alloc] init];
+        current = nil;
     }
     return self;
+}
+
+- (Exercise *)currentExercise
+{
+    if (current == nil) {
+        current = [exercises objectAtIndex:0];
+    }
+    
+    return current;
 }
 
 -(void) makeSuperSetForRow: (NSInteger)row
