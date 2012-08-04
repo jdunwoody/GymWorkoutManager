@@ -22,18 +22,13 @@
 
 // or this way
 //@synthesize addNewExerciseType;
-@synthesize addNewExerciseType = _addNewExerciseType;
-@synthesize addNewBodyPart = _addNewBodyPart;
-@synthesize tableDelegate = _tableDelegate;
-@synthesize tableView = _tableView;
-@synthesize exerciseComponentPicker = _exerciseComponentPicker;
-@synthesize elapsedTimeLabel = _elapsedTimeLabel;
-@synthesize pickerDelegate = _pickerDelegate;
-@synthesize categoryButton = _categoryButton;
-@synthesize backgroundColor = _backgroundColor;
-@synthesize timerAlertColour = _timerAlertColour;
-@synthesize timerWarningColour = _timerWarningColour;
-@synthesize weightOrTime = _weightOrTime;
+@synthesize timerStopButton;
+@synthesize timerPauseButton;
+@synthesize timerStartButton;
+@synthesize currentExerciseInTimer, currentIntensityInTimer, currentBodyPartInTimer, currentWeightInTimer, currentRepsInTimer;
+@synthesize addNewExerciseType, addNewBodyPart;
+@synthesize tableDelegate, tableView, exerciseComponentPicker, elapsedTimeLabel, pickerDelegate,categoryButton = _categoryButton;
+@synthesize backgroundColor, timerAlertColour, timerWarningColour, weightOrTime;
 
 // NOTES
 // are datadetectors such as email on a field necessary Detection:Phone for instance
@@ -68,17 +63,17 @@
     self.timerWarningColour = [UIColor orangeColor];
     
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"sound.aif" withExtension:nil];
-               
-//    SystemSoundID soundId;
-//    OSStatus error = 
+    
+    //    SystemSoundID soundId;
+    //    OSStatus error =
     AudioServicesCreateSystemSoundID((__bridge CFURLRef) fileURL, &systemSoundID);
-//    CFURLRef *fileUrl = (CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource: @"sound" ofType:@"aif"]];
-//    AudioServicesCreateSystemSoundID(fileUrl, &systemSoundID);
+    //    CFURLRef *fileUrl = (CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource: @"sound" ofType:@"aif"]];
+    //    AudioServicesCreateSystemSoundID(fileUrl, &systemSoundID);
     
     
     //	player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"]] error:nil];
-//	
-//	[player prepareToPlay];
+    //
+    //	[player prepareToPlay];
 }
 - (IBAction)weightOrTimeChosen:(id)sender {
     if ([self.weightOrTime selectedSegmentIndex] == 0) {
@@ -96,6 +91,14 @@
     [self setAddNewExerciseType:nil];
     [self setAddNewBodyPart:nil];
     [self setAddNewBodyPart:nil];
+    [self setCurrentExerciseInTimer:nil];
+    [self setCurrentIntensityInTimer:nil];
+    [self setCurrentBodyPartInTimer:nil];
+    [self setCurrentWeightInTimer:nil];
+    [self setCurrentRepsInTimer:nil];
+    [self setTimerStartButton:nil];
+    [self setTimerStopButton:nil];
+    [self setTimerPauseButton:nil];
     [super viewDidUnload];
 }
 
@@ -106,12 +109,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-//    return YES;
+    //    return YES;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
     } else {
-//        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight); 
+        //        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
         return (interfaceOrientation == UIInterfaceOrientationPortrait);
     }
 }
@@ -132,16 +135,16 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"AddExercise"]) {
-//        AddTypeViewController *destination = (AddTypeViewController *)segue.destinationViewController;
-//        
-//        destination.addExerciseViewControllerDelegate = self;
-//        
-//        //        PickerTestViewController *asker = (PickerTestViewController *) segue.destinationViewController;
-//        //        asker.delegate = self;
-//        //        asker.question = @"What do you want your label to say?";
+        //        AddTypeViewController *destination = (AddTypeViewController *)segue.destinationViewController;
+        //
+        //        destination.addExerciseViewControllerDelegate = self;
+        //
+        //        //        PickerTestViewController *asker = (PickerTestViewController *) segue.destinationViewController;
+        //        //        asker.delegate = self;
+        //        //        asker.question = @"What do you want your label to say?";
         //        asker.answer = @"Label text";
     }
 }
@@ -149,30 +152,38 @@
 - (IBAction)addExercise:(id)sender {
     Exercise *exercise = [self.pickerDelegate selectedPickerExercise];
     
-    [self.tableDelegate addExerciseWithExercise:exercise];    
+    [self.tableDelegate addExerciseWithExercise:exercise];
     [self.tableView reloadData];
 }
 
 - (IBAction)addNewBodyPart:(id)sender {
     [self.pickerDelegate addBodyPartWithBodyPart: self.addNewBodyPart.text];
     self.addNewBodyPart.text = nil;
-//    [sender resignFirstResponder];
+    //    [sender resignFirstResponder];
 }
 
 - (IBAction)addNewExerciseType:(id)sender {
     [self.pickerDelegate addNameWithName: self.addNewExerciseType.text];
     self.addNewExerciseType.text = nil;
-//    [self.addNewExerciseType resignFirstResponder];
-//    [sender endEditing];
-//    [sender resignFirstResponder];
+    //    [self.addNewExerciseType resignFirstResponder];
+    //    [sender endEditing];
+    //    [sender resignFirstResponder];
 }
 
 - (IBAction)hideKeyboard:(id)sender {
-   [sender resignFirstResponder];
+    [sender resignFirstResponder];
 }
 
 - (IBAction)startTimerPressed:(id)sender {
-    [timer start];
+    if (self.tableDelegate.currentExercise != nil) {
+        [timer start];
+    
+        self.currentExerciseInTimer.text = self.tableDelegate.currentExercise.name;
+        self.currentIntensityInTimer.text = self.tableDelegate.currentExercise.intensity;
+        self.currentWeightInTimer.text = self.tableDelegate.currentExercise.weight.stringValue;
+        self.currentBodyPartInTimer.text = self.tableDelegate.currentExercise.bodyPart;
+        self.currentRepsInTimer.text = self.tableDelegate.currentExercise.reps.stringValue;
+    }
 }
 
 - (IBAction)pauseTimerPressed:(id)sender {
@@ -185,16 +196,16 @@
 
 - (void) timerAlert {
     [self playSound];
-    _elapsedTimeLabel.textColor = self.timerAlertColour;
+    self.elapsedTimeLabel.textColor = self.timerAlertColour;
 }
 
 - (void) timerWarning {
-    _elapsedTimeLabel.textColor = self.timerWarningColour;
+    self.elapsedTimeLabel.textColor = self.timerWarningColour;
 }
 
 - (void) updateLabelWithText:(NSString *)text
 {
-    _elapsedTimeLabel.text = text;
+    self.elapsedTimeLabel.text = text;
 }
 
 //- (void)setEditing:(BOOL)editing animated:(BOOL)animate
@@ -204,7 +215,7 @@
 //    }
 //}
 
-//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath 
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    return UITableViewCellEditingStyleDelete;
 ////    return UITableViewCellEditingStyleInsert;
@@ -215,11 +226,11 @@
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:YES];
     
-//    if (editing) {
-//        addButton.enabled = NO;
-//    } else {
-//        addButton.enabled = YES;
-//    }
+    //    if (editing) {
+    //        addButton.enabled = NO;
+    //    } else {
+    //        addButton.enabled = YES;
+    //    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -267,14 +278,19 @@
     [self.pickerDelegate randomiseSets:sender];
 }
 
+- (void) programNonEmpty
+{
+    self.timerStartButton.enabled= true;
+}
+
 //- (IBAction)makeSuperSet:(id)sender {
 //    UIButton *btn = (UIButton *)sender;
-//    
-//    
+//
+//
 //}
 
-@end  
-  
+@end
+
 
 // MW Slider Stuff
 //
@@ -288,8 +304,8 @@
 //    [self.slideNavigationViewController slideWithDirection:MWFSlideDirectionNone];
 //}
 //
-//- (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller 
-//                   distanceForSlideDirecton:(MWFSlideDirection)direction 
+//- (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
+//                   distanceForSlideDirecton:(MWFSlideDirection)direction
 //                        portraitOrientation:(BOOL)portraitOrientation
 //{
 //    if (portraitOrientation)
@@ -302,28 +318,28 @@
 //    }
 //}
 //
-//- (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller 
+//- (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
 //                      viewControllerForSlideDirecton:(MWFSlideDirection)direction
 //{
 //    [self performSegueWithIdentifier:@"AddExercise" sender:self];
-//    
+//
 ////    PickerTestViewController * menuCtl = ...; // alloc and init your controller
 //    return nil; //menuCtl;
 //}
 
 
-    //    
-    //    NSUInteger row = indexPath.row;
-    //    if (row != NSNotFound)
-    //    {
-    //        // Create the view controller and initialize it with the
-    //        // next level of data.
-    //        MyViewController *viewController = [[MyViewController alloc]
-    //                                            initWithTable:tableView andDataAtIndexPath:indexPath];
-    //        [[self navigationController] pushViewController:viewController
-    //                                               animated:YES];
-    //    }
-    
+//
+//    NSUInteger row = indexPath.row;
+//    if (row != NSNotFound)
+//    {
+//        // Create the view controller and initialize it with the
+//        // next level of data.
+//        MyViewController *viewController = [[MyViewController alloc]
+//                                            initWithTable:tableView andDataAtIndexPath:indexPath];
+//        [[self navigationController] pushViewController:viewController
+//                                               animated:YES];
+//    }
+
 //}
 //
 //- (void)addItemViewController:(AddTypeViewController *)controller didFinishEnteringItem:(NSString *)item
@@ -333,16 +349,16 @@
 //
 //- (IBAction)makeSuperSetButtonPressed:(id)sender
 //{
-//    NSLog(@"make super set pressed");   
-//    
+//    NSLog(@"make super set pressed");
+//
 //    ExerciseCell *cell = (ExerciseCell*)[sender superview];
 //    cell.backgroundColor = [UIColor yellowColor];
-//    
+//
 //    NSIndexPath *pathToCell = [self.tableView indexPathForCell:cell];
 //    NSInteger row = pathToCell.row;
-//    
+//
 //    [self.dataController makeSuperSetForRow: row];
-//    
+//
 //    //    [self rel
 //    //    UITableViewCell *owningCell = (UITableViewCell*)[sender superview];
 //    //    cell.indentationLevel = 1;
@@ -376,7 +392,7 @@
 
 //- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
 //    self.selectedName = names objectAtIndex:row;
-//    
+//
 //    NSLog(@"Selected Color: %@. Index of selected color: %i", [arrayColors objectAtIndex:row], row);
 //}
 //- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
@@ -389,21 +405,21 @@
 
 
 //    NSUInteger numComponents = [[exerciseComponentPicker dataSource] numberOfComponentsInPickerView:self.exerciseComponentPicker];
-     
-     //    NSMutableString * text = [NSMutableString string];
+
+//    NSMutableString * text = [NSMutableString string];
 //    for(NSUInteger i = 0; i < numComponents; ++i) {
 //        NSUInteger selectedRow = [exerciseComponentPicker selectedRowInComponent:i];
-        
-        
+
+
 //        NSString *title = [[exerciseComponentPicker delegate] pickerView:exerciseComponentPicker titleForRow:selectedRow forComponent:exerciseComponentPicker];
-//    
+//
 //        NSString *title = [[exerciseComponentPicker delegate] pickerView:exerciseComponentPicker titleForRow:selectedRow inComponent:i];
 //        [text appendFormat:@"Selected item \"%@\" in component %lu\n", title, i];
 //    }
-    
+
 //    NSLog(@"%@", text);
-//    [self.tableDelegate 
-    
+//    [self.tableDelegate
+
 
 
 //- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
@@ -412,7 +428,7 @@
 //        return view;
 //    }
 //    UIView *a,*b,*c;
-//    
+//
 //    switch (component) {
 //        case 2:
 //            a = [bodyPart objectAtIndex:row];
@@ -423,15 +439,15 @@
 //        case 0:
 //        default:
 //            c= [exercises objectAtIndex:row];
-//            
+//
 //            return [exercises objectAtIndex:row];
-//    } 
+//    }
 //}
 //@end
 //    static NSDateFormatter *formatter = nil;
-//    
+//
 //    if (formatter == nil) {
 //        formatter = [[NSDateFormatter alloc] init];
 //        [formatter setDateStyle:NSDateFormatterMediumStyle];
 //    }
-//    
+//

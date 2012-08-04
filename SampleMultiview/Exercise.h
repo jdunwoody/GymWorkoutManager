@@ -20,9 +20,9 @@ typedef enum {
 
 @interface Exercise : NSObject 
     @property NSString *name;
-//    @property NSNumber *reps;
+    @property NSNumber *reps;
 //    @property NSNumber *sets;
-//    @property NSNumber *weight;
+    @property NSNumber *weight;
     @property BOOL isSingle;
     @property NSString *bodyPart;
     @property NSString *category;

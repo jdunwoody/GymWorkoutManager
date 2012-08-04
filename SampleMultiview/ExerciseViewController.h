@@ -14,11 +14,12 @@
 #import "ExercisePickerControllerProtocol.h"
 #import "TimerAlertDelegate.h"
 #import "Program.h"
+#import "ProgramStatusProtocol.h"
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol, TimerAlertDelegate>
+@interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol, TimerAlertDelegate, ProgramStatusProtocol>
 {
     UIPickerView *exercisePicker;
     ExerciseTimer *timer;
@@ -55,6 +56,15 @@
 - (IBAction) randomiseRest:(id)sender;
 - (IBAction) randomiseReps:(id)sender;
 - (IBAction) randomiseSets:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *timerStopButton;
+@property (weak, nonatomic) IBOutlet UIButton *timerPauseButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *timerStartButton;
+@property (weak, nonatomic) IBOutlet UILabel *currentExerciseInTimer;
+@property (weak, nonatomic) IBOutlet UILabel *currentIntensityInTimer;
+@property (weak, nonatomic) IBOutlet UILabel *currentBodyPartInTimer;
+@property (weak, nonatomic) IBOutlet UILabel *currentWeightInTimer;
+@property (weak, nonatomic) IBOutlet UILabel *currentRepsInTimer;
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 - (void) timerAlert;

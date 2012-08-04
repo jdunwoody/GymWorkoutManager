@@ -12,12 +12,28 @@
 #import "ExerciseWeightOrTimeMode.h"
 #import "WeightExercise.h"
 #import "TimeExercise.h"
+#import "Exercise.h"
 
 @implementation ExerciseTableDelegate
 
 @synthesize tableView = _tableView;
 @synthesize dataController = _dataController;
 @synthesize backgroundColor = _backgroundColor;
+@synthesize programStatus;
+
+- (id) initWithTimerViewDelegate:(id<ProgramStatusProtocol>)withProgramStatus
+{
+    if (self = [super init])
+    {
+        self.programStatus = withProgramStatus;
+    }
+    return self;
+}
+
+- (Exercise *)currentExercise
+{
+    return self.dataController.program.currentExercise;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -44,10 +60,12 @@
     if (cell == nil) {
         cell = [[ExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
+
     cell.exercise = exercise;
-    
-    if (exercise == self.dataController.program.currentExercise) {
+
+    Exercise *current = self.dataController.program.currentExercise;
+
+    if (exercise == current) {
         cell.currentExerciseIndicator.hidden = NO;
 //        cell.backgroundColor = [UIColor ]
     } else {
@@ -68,6 +86,8 @@
         TimeExercise *timeExercise = (TimeExercise *) exercise;
         [[cell time] setText: [timeExercise timeAsDisplayValue]];
     }
+    current = nil;
+    cellIdentifier = nil;
     return cell;
 }
 

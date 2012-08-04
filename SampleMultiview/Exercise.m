@@ -10,15 +10,8 @@
 
 @implementation Exercise
 
-@synthesize name = _name;
-@synthesize rest = _rest;
-@synthesize bodyPart = _bodyPart;
-@synthesize category = _category;
-@synthesize isAdd = _isAdd;
-@synthesize isCompleted = _isCompleted;
-@synthesize isSingle = _isSingle;
-@synthesize intensity = _intensity;
-@synthesize superSet = _superSet;
+@synthesize name, rest, bodyPart, category, intensity, superSet, weight, reps;
+@synthesize isAdd, isCompleted, isSingle;
 @synthesize exerciseWeightOrTimeMode = _exerciseWeightOrTimeMode;
 
 //- (id)initWithLabel: (NSString *)label 

@@ -24,6 +24,9 @@
 - (Exercise *)currentExercise
 {
     if (current == nil) {
+        if ([exercises count] == 0) {
+            return nil;
+        }
         current = [exercises objectAtIndex:0];
     }
     

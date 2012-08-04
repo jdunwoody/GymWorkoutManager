@@ -47,8 +47,6 @@
     //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
     //
     //    ExerciseViewController *exerciseViewController = (ExerciseViewController*)[storyboard instantiateViewControllerWithIdentifier: @"exerciseViewController"];
-
-
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -85,6 +85,7 @@
 		1A0B08A815C02C8300567BBD /* ExerciseWeightOrTimeMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExerciseWeightOrTimeMode.h; sourceTree = "<group>"; };
 		1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExercisePickerControllerProtocol.h; sourceTree = "<group>"; };
+		1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramStatusProtocol.h; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		1A9E40E515A45FAC001A189C /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72x72.png; sourceTree = "<group>"; };
 		1A9E40E715A45FC4001A189C /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
@@ -281,6 +282,7 @@
 				1A0B08A815C02C8300567BBD /* ExerciseWeightOrTimeMode.h */,
 				1AE841D915CBC43500EE9724 /* Program.h */,
 				1AE841DA15CBC43500EE9724 /* Program.m */,
+				1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */,
 			);
 			name = GymApp;
 			path = SampleMultiview;
