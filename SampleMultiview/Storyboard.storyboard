@@ -316,14 +316,6 @@
                                     <action selector="stopTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="geT-mV-0KD"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Xpb-la-gyS">
-                                <rect key="frame" x="72" y="950" width="195" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Single"/>
-                                    <segment title="Super Set"/>
-                                </segments>
-                            </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="uav-Mp-Bhf">
                                 <rect key="frame" x="560" y="950" width="195" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -441,35 +433,35 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vCQ-W6-9Fe">
-                                <rect key="frame" x="72" y="-2" width="366" height="48"/>
+                                <rect key="frame" x="20" y="7" width="366" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                 <color key="textColor" red="0.77772241709183676" green="0.73516581365439748" blue="0.13020978000877462" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="2gl-IJ-uaE">
-                                <rect key="frame" x="30" y="238" width="229" height="44"/>
+                                <rect key="frame" x="30" y="238" width="271" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Body part" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fDW-3w-PyX">
-                                <rect key="frame" x="275" y="243" width="230" height="41"/>
+                                <rect key="frame" x="346" y="239" width="230" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="qx5-gC-fl4">
-                                <rect key="frame" x="513" y="243" width="146" height="49"/>
+                                <rect key="frame" x="622" y="235" width="146" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="XVu-1N-dkH">
-                                <rect key="frame" x="466" y="13" width="154" height="55"/>
+                                <rect key="frame" x="594" y="3" width="154" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -482,7 +474,6 @@
                     <connections>
                         <outlet property="addNewBodyPart" destination="I3f-pc-oJe" id="fYP-Br-cag"/>
                         <outlet property="addNewExerciseType" destination="yTC-t9-hQ0" id="Txy-rL-rlc"/>
-                        <outlet property="categoryButton" destination="Xpb-la-gyS" id="dmr-IC-X5a"/>
                         <outlet property="currentBodyPartInTimer" destination="fDW-3w-PyX" id="piI-Sh-lZg"/>
                         <outlet property="currentExerciseInTimer" destination="vCQ-W6-9Fe" id="l5N-jl-2xg"/>
                         <outlet property="currentIntensityInTimer" destination="2gl-IJ-uaE" id="s9n-7n-oZ5"/>
@@ -511,74 +502,6 @@
         <image name="clock44x44.png" width="44" height="44"/>
         <image name="weights44x44.png" width="44" height="44"/>
     </resources>
-    <classes>
-        <class className="ExerciseCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseCell.h"/>
-            <relationships>
-                <relationship kind="action" name="makeSuperSet:"/>
-                <relationship kind="action" name="unmakeSuperSet:"/>
-                <relationship kind="outlet" name="bodyPart" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="category" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentExerciseIndicator" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="editingMode" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="intensity" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="makeSuperSet" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rest" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="time" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="unmakeSuperSet" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ExercisePickerDelegate" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisePickerDelegate.h"/>
-            <relationships>
-                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="ExerciseTableDelegate" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseTableDelegate.h"/>
-        </class>
-        <class className="ExerciseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addExercise:"/>
-                <relationship kind="action" name="addNewBodyPart:"/>
-                <relationship kind="action" name="addNewExerciseType:"/>
-                <relationship kind="action" name="hideKeyboard:"/>
-                <relationship kind="action" name="pauseTimerPressed:"/>
-                <relationship kind="action" name="randomiseBodyPart:"/>
-                <relationship kind="action" name="randomiseExercise:"/>
-                <relationship kind="action" name="randomiseIntensity:"/>
-                <relationship kind="action" name="randomiseReps:"/>
-                <relationship kind="action" name="randomiseRest:"/>
-                <relationship kind="action" name="randomiseSets:"/>
-                <relationship kind="action" name="randomiseWeight:"/>
-                <relationship kind="action" name="startTimerPressed:"/>
-                <relationship kind="action" name="stopTimerPressed:"/>
-                <relationship kind="action" name="weightOrTimeChosen:"/>
-                <relationship kind="outlet" name="addNewBodyPart" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="addNewExerciseType" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="currentBodyPartInTimer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentExerciseInTimer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentIntensityInTimer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentRepsInTimer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentWeightInTimer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="elapsedTimeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="pickerDelegate" candidateClass="ExercisePickerDelegate"/>
-                <relationship kind="outlet" name="tableDelegate" candidateClass="ExerciseTableDelegate"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="timerPauseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timerStartButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timerStopButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="weightOrTime" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

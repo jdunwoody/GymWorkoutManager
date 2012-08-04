@@ -8,14 +8,15 @@
 
 #import "Program.h"
 #import "Exercise.h"
+#import "ProgramStatusProtocol.h"
 
 @implementation Program
-@synthesize exercises;
 
-- (id) init
+- (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus
 {
     if (self = [super init]) {
         exercises = [[NSMutableArray alloc] init];
+        programStatus = withProgramStatus;
         current = nil;
     }
     return self;
@@ -35,8 +36,35 @@
 
 -(void) makeSuperSetForRow: (NSInteger)row
 {
-    Exercise *exercise = [self.exercises objectAtIndex:row];
+    Exercise *exercise = [exercises objectAtIndex:row];
     exercise.superSet = true;
 }
+
+- (int) count
+{
+    return [exercises count];
+}
+
+- (Exercise *) exerciseAtIndex:(NSUInteger)theIndex
+{
+    return [exercises objectAtIndex:theIndex];
+}
+
+-(void) removeExerciseAtIndex:(NSUInteger)theIndex
+{
+    [exercises removeObjectAtIndex:theIndex];
+}
+
+- (void) addExercise:(Exercise *)exercise
+{
+    [programStatus programNonEmpty];
+    [exercises addObject:exercise];
+}
+
+- (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise
+{
+    [exercises replaceObjectAtIndex:row withObject:exercise];
+}
+
 
 @end

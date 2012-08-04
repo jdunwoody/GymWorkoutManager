@@ -21,15 +21,6 @@
 @synthesize backgroundColor = _backgroundColor;
 @synthesize programStatus;
 
-- (id) initWithTimerViewDelegate:(id<ProgramStatusProtocol>)withProgramStatus
-{
-    if (self = [super init])
-    {
-        self.programStatus = withProgramStatus;
-    }
-    return self;
-}
-
 - (Exercise *)currentExercise
 {
     return self.dataController.program.currentExercise;
@@ -52,7 +43,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Exercise *exercise = [self.dataController.program.exercises objectAtIndex:indexPath.row];
+    Exercise *exercise = [self.dataController.program exerciseAtIndex:indexPath.row];
     NSString *cellIdentifier = exercise.superSet ? @"SuperSetExerciseCell" : @"ExerciseCell";
     
     ExerciseCell *cell = (ExerciseCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -229,7 +220,7 @@
         
         
     } else if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.dataController.program.exercises removeObjectAtIndex:indexPath.row];
+        [self.dataController.program removeExerciseAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadData];
         
@@ -252,19 +243,19 @@
 
 -(void) addExerciseWithExercise:(Exercise *)exercise
 {
-    [self.dataController.program.exercises addObject:exercise];
+    [self.dataController.program addExercise:exercise];
 }
 
 -(void) deleteWithIndexPaths: (NSArray *)indexPaths
 {
     for (NSIndexPath *path in indexPaths) {
-        [self.dataController.program.exercises removeObjectAtIndex:path.row];
+        [self.dataController.program removeExerciseAtIndex:path.row];
     }
 }
 
 -(void) updateRowWithExercise: (Exercise *) exercise withRow: (NSInteger) row
 {
-    [self.dataController.program.exercises replaceObjectAtIndex:row withObject:exercise];
+    [self.dataController.program updateExerciseAtIndex:row withObject:exercise];
     [self.tableView reloadData];
 }
 

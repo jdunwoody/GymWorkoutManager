@@ -177,7 +177,10 @@
 - (IBAction)startTimerPressed:(id)sender {
     if (self.tableDelegate.currentExercise != nil) {
         [timer start];
-    
+        self.timerPauseButton.enabled = true;
+        self.timerStopButton.enabled = true;
+        self.timerStartButton.enabled = false;
+        
         self.currentExerciseInTimer.text = self.tableDelegate.currentExercise.name;
         self.currentIntensityInTimer.text = self.tableDelegate.currentExercise.intensity;
         self.currentWeightInTimer.text = self.tableDelegate.currentExercise.weight.stringValue;
@@ -188,10 +191,16 @@
 
 - (IBAction)pauseTimerPressed:(id)sender {
     [timer pause];
+    self.timerStartButton.enabled = false;
+    self.timerStopButton.enabled = true;
+    self.timerPauseButton.enabled = true;
 }
 
 - (IBAction)stopTimerPressed:(id)sender {
     [timer stop];
+    self.timerStartButton.enabled = true;
+    self.timerStopButton.enabled = false;
+    self.timerPauseButton.enabled = false;
 }
 
 - (void) timerAlert {
@@ -283,14 +292,13 @@
     self.timerStartButton.enabled= true;
 }
 
+@end
+
 //- (IBAction)makeSuperSet:(id)sender {
 //    UIButton *btn = (UIButton *)sender;
 //
 //
 //}
-
-@end
-
 
 // MW Slider Stuff
 //
@@ -326,7 +334,6 @@
 ////    PickerTestViewController * menuCtl = ...; // alloc and init your controller
 //    return nil; //menuCtl;
 //}
-
 
 //
 //    NSUInteger row = indexPath.row;
@@ -370,8 +377,6 @@
 //    //    NSInteger section = indexPath.section;
 //}
 
-
-
 //- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    NSInteger retValue=1;
@@ -400,16 +405,11 @@
 //    return view;
 //}
 
-
-
-
-
 //    NSUInteger numComponents = [[exerciseComponentPicker dataSource] numberOfComponentsInPickerView:self.exerciseComponentPicker];
 
 //    NSMutableString * text = [NSMutableString string];
 //    for(NSUInteger i = 0; i < numComponents; ++i) {
 //        NSUInteger selectedRow = [exerciseComponentPicker selectedRowInComponent:i];
-
 
 //        NSString *title = [[exerciseComponentPicker delegate] pickerView:exerciseComponentPicker titleForRow:selectedRow forComponent:exerciseComponentPicker];
 //
@@ -419,8 +419,6 @@
 
 //    NSLog(@"%@", text);
 //    [self.tableDelegate
-
-
 
 //- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 //{

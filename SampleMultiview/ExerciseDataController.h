@@ -15,6 +15,8 @@
 //@property (nonatomic, copy) NSMutableArray *exercises;
 @property (nonatomic, copy) Program *program;
 
+- (id)initWithProgramStatus: (id<ProgramStatusProtocol>) withProgramStatus;
+
 -(NSUInteger) countOfList;
 
 -(Exercise *) objectInListAtIndex:(NSUInteger)theIndex;

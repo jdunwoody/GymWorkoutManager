@@ -10,7 +10,6 @@
 #import "ExerciseDataController.h"
 #import "ExerciseWeightOrTimeMode.h"
 #import "Exercise.h"
-#import "ProgramStatusProtocol.h"
 
 @protocol ExerciseMaintainable <NSObject>
 
@@ -21,7 +20,6 @@
 @end
 
 @interface ExerciseTableDelegate : NSObject <UITableViewDelegate, UITableViewDataSource, ExerciseMaintainable> 
-- (id) initWithTimerViewDelegate: (id<ProgramStatusProtocol>)programStatus;
 
 //-(id) initWithTableView
 -(void) deleteWithIndexPaths: (NSArray *)indexPaths;

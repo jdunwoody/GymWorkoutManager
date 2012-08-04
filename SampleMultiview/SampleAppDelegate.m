@@ -30,9 +30,8 @@
 
     ExerciseViewController *exerciseViewController = (ExerciseViewController *)self.window.rootViewController;
 
-    
     ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
-    ExerciseDataController *dataController = [[ExerciseDataController alloc] init];
+    ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
     ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
     
     tableDelegate.dataController = dataController;
