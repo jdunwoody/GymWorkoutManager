@@ -10,6 +10,7 @@
 #import "ExerciseCell.h"
 #import "Exercise.h"
 #import "ExerciseTimer.h"
+#import "ProgramTimer.h"
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
@@ -22,6 +23,7 @@
 
 // or this way
 //@synthesize addNewExerciseType;
+@synthesize programTime;
 @synthesize timerStopButton;
 @synthesize timerPauseButton;
 @synthesize timeView;
@@ -41,7 +43,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
+//    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
+    programTimer = [[ProgramTimer alloc] initWithElapsedTimeObserver:(id<ProgramTimerObserver>)self];
     
     self.tableDelegate.tableView = self.tableView;
     self.tableView.delegate = self.tableDelegate;
@@ -77,6 +80,7 @@
     //
     //	[player prepareToPlay];
 }
+
 - (IBAction)weightOrTimeChosen:(id)sender {
     if ([self.weightOrTime selectedSegmentIndex] == 0) {
         [self.pickerDelegate weightOrTimeChosen:ExerciseWeightMode];
@@ -103,6 +107,7 @@
     [self setTimerPauseButton:nil];
     [self setTimeView:nil];
     [self setRepsView:nil];
+    [self setProgramTime:nil];
     [super viewDidUnload];
 }
 
@@ -179,18 +184,6 @@
     [sender resignFirstResponder];
 }
 
-- (IBAction)startTimerPressed:(id)sender
-{
-    if (self.tableDelegate.currentExercise != nil) {
-        [timer start];
-        
-        self.timerPauseButton.enabled = true;
-        self.timerStopButton.enabled = true;
-        self.timerStartButton.enabled = false;
-        
-        [self updateCurrentExerciseView];
-    }
-}
 
 - (void) updateCurrentExerciseView
 {
@@ -222,9 +215,25 @@
     currentExercise = nil;
 }
 
+- (IBAction)startTimerPressed:(id)sender
+{
+    if (self.tableDelegate.currentExercise != nil) {
+//        [timer start];
+        [programTimer start];
+        
+        self.timerPauseButton.enabled = true;
+        self.timerStopButton.enabled = true;
+        self.timerStartButton.enabled = false;
+        
+        [self updateCurrentExerciseView];
+    }
+}
+
 - (IBAction)pauseTimerPressed:(id)sender
 {
-    [timer pause];
+//    [timer pause];
+    [programTimer pause];
+
     self.timerStartButton.enabled = false;
     self.timerStopButton.enabled = true;
     self.timerPauseButton.enabled = true;
@@ -232,7 +241,9 @@
 
 - (IBAction)stopTimerPressed:(id)sender
 {
-    [timer stop];
+//    [timer stop];
+    [programTimer stop];
+
     self.timerStartButton.enabled = true;
     self.timerStopButton.enabled = false;
     self.timerPauseButton.enabled = false;
@@ -252,6 +263,11 @@
 - (void) updateLabelWithText:(NSString *)text
 {
     self.currentTimeInTimer.text = text;
+}
+
+- (void) programTimerUpdate: (NSString *)text
+{
+    self.programTime.text = text;
 }
 
 //- (void)setEditing:(BOOL)editing animated:(BOOL)animate

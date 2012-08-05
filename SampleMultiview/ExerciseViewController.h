@@ -15,14 +15,16 @@
 #import "TimerAlertDelegate.h"
 #import "Program.h"
 #import "ProgramStatusProtocol.h"
-
+#import "ProgramTimer.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "ProgramTimer.h"
 
-@interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol, TimerAlertDelegate, ProgramStatusProtocol>
+@interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol, TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol>
 {
     UIPickerView *exercisePicker;
     ExerciseTimer *timer;
+    ProgramTimer *programTimer;
     SystemSoundID systemSoundID;
 }
 
@@ -69,6 +71,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentBodyPartInTimer;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeightInTimer;
 @property (weak, nonatomic) IBOutlet UILabel *currentRepsInTimer;
+@property (weak, nonatomic) IBOutlet UILabel *programTime;
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 - (void) timerAlert;

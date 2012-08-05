@@ -24,6 +24,8 @@
 @property (nonatomic, strong) Exercise *exercise;
 @property (weak, nonatomic) IBOutlet UIButton *makeSuperSet;
 @property (weak, nonatomic) IBOutlet UIButton *unmakeSuperSet;
+@property (weak, nonatomic) IBOutlet UIImageView *weightImage;
+@property (weak, nonatomic) IBOutlet UIImageView *repsImage;
 
 - (IBAction)makeSuperSet:(id)sender;
 - (IBAction)unmakeSuperSet:(id)sender;

@@ -11,6 +11,7 @@
 		1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B08A515C0293C00567BBD /* WeightExercise.m */; };
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
+		1A60FCB615CE0EF70093380B /* ProgramTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A60FCB515CE0EF70093380B /* ProgramTimer.m */; };
 		1A9E40E615A45FAC001A189C /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E515A45FAC001A189C /* 72x72.png */; };
 		1A9E40E815A45FC4001A189C /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E715A45FC4001A189C /* 144x144.png */; };
 		1AA6360715A049EB00938C5F /* ExercisePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */; };
@@ -87,6 +88,9 @@
 		1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExercisePickerControllerProtocol.h; sourceTree = "<group>"; };
 		1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramStatusProtocol.h; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		1A60FCB415CE0EF70093380B /* ProgramTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramTimer.h; sourceTree = "<group>"; };
+		1A60FCB515CE0EF70093380B /* ProgramTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramTimer.m; sourceTree = "<group>"; };
+		1A60FCB715CE10770093380B /* ProgramTimerObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramTimerObserver.h; sourceTree = "<group>"; };
 		1A9E40E515A45FAC001A189C /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72x72.png; sourceTree = "<group>"; };
 		1A9E40E715A45FC4001A189C /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
 		1A9E40E915A45FE4001A189C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -183,6 +187,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A60FCB215CE0EA30093380B /* time */ = {
+			isa = PBXGroup;
+			children = (
+				1AF76B3E1599F16600417F1D /* ExerciseTimer.h */,
+				1AF76B3F1599F16600417F1D /* ExerciseTimer.m */,
+				1A60FCB415CE0EF70093380B /* ProgramTimer.h */,
+				1A60FCB515CE0EF70093380B /* ProgramTimer.m */,
+				1AFADC5E15BEC890006B03BC /* TimerAlertDelegate.h */,
+				1A60FCB715CE10770093380B /* ProgramTimerObserver.h */,
+			);
+			name = time;
+			sourceTree = "<group>";
+		};
 		1ABD3F0D15C00414002E9520 /* icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,9 +290,6 @@
 				1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */,
 				1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */,
 				1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */,
-				1AF76B3E1599F16600417F1D /* ExerciseTimer.h */,
-				1AF76B3F1599F16600417F1D /* ExerciseTimer.m */,
-				1AFADC5E15BEC890006B03BC /* TimerAlertDelegate.h */,
 				1AA6360515A049EB00938C5F /* ExercisePickerDelegate.h */,
 				1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */,
 				1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */,
@@ -283,6 +297,7 @@
 				1AE841D915CBC43500EE9724 /* Program.h */,
 				1AE841DA15CBC43500EE9724 /* Program.m */,
 				1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */,
+				1A60FCB215CE0EA30093380B /* time */,
 			);
 			name = GymApp;
 			path = SampleMultiview;
@@ -453,6 +468,7 @@
 				1A0B08A215C0291E00567BBD /* TimeExercise.m in Sources */,
 				1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */,
 				1AE841DB15CBC43500EE9724 /* Program.m in Sources */,
+				1A60FCB615CE0EF70093380B /* ProgramTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

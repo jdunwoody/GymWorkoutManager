@@ -86,7 +86,6 @@
     }
 }
 
-
 - (NSString *) text {
 //    int hours = secondsElapsed / 3600;
     int minutes = (secondsCounted % 3600) / 60;

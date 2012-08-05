@@ -18,11 +18,12 @@
 @synthesize weight;
 @synthesize category;
 @synthesize intensity;
-@synthesize editingMode = _editingMode;
+@synthesize editingMode;
 @synthesize time = _time;
 @synthesize currentExerciseIndicator;
 @synthesize makeSuperSet;
 @synthesize unmakeSuperSet;
+@synthesize weightImage, repsImage;
 @synthesize exercise;
 
 //- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

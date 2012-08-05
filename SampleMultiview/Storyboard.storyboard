@@ -95,7 +95,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1bZ-jo-XKp">
-                                                    <rect key="frame" x="72" y="32" width="36" height="37"/>
+                                                    <rect key="frame" x="102" y="32" width="36" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" image="button_black_ffw.png">
@@ -109,6 +109,14 @@
                                                         <action selector="makeSuperSet:" destination="vx7-vK-8ep" eventType="touchUpInside" id="taL-44-aUP"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="weights44x44.png" id="pPE-Bd-cjA" userLabel="weightImage">
+                                                    <rect key="frame" x="52" y="31" width="49" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Clock-Icon2-by-Nagaya.png" id="dfO-3B-uhw" userLabel="repsImage">
+                                                    <rect key="frame" x="52" y="31" width="49" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -120,9 +128,11 @@
                                             <outlet property="makeSuperSet" destination="1bZ-jo-XKp" id="rSw-Ff-a5B"/>
                                             <outlet property="name" destination="9D7-Hw-MfG" id="zgC-cQ-2L4"/>
                                             <outlet property="reps" destination="pgD-Ip-Nun" id="ER8-CQ-csh"/>
+                                            <outlet property="repsImage" destination="dfO-3B-uhw" id="cJV-Z0-bGH"/>
                                             <outlet property="rest" destination="58e-l2-pTA" id="HoT-Sg-rFk"/>
                                             <outlet property="time" destination="n3w-HY-BGW" id="hnt-8O-dh5"/>
                                             <outlet property="weight" destination="4ou-RV-ULA" id="ddr-Wo-jfL"/>
+                                            <outlet property="weightImage" destination="pPE-Bd-cjA" id="yha-6I-EAO"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="SuperSetExerciseCell" rowHeight="77" id="dGl-Ph-rVx" customClass="ExerciseCell">
@@ -207,6 +217,14 @@
                                                         <action selector="unmakeSuperSet:" destination="dGl-Ph-rVx" eventType="touchUpInside" id="ZBX-he-l6t"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="weights44x44.png" id="0sM-bJ-gPY" userLabel="weightImage">
+                                                    <rect key="frame" x="49" y="32" width="49" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="clock44x44.png" id="NYF-sb-rOj" userLabel="repsImage">
+                                                    <rect key="frame" x="50" y="31" width="49" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -218,15 +236,17 @@
                                             <outlet property="intensity" destination="Td2-lZ-gq1" id="pwX-jl-rOr"/>
                                             <outlet property="name" destination="D9g-LQ-2cr" id="4vJ-LB-4Ht"/>
                                             <outlet property="reps" destination="Dqx-GZ-Fne" id="tjw-Lv-Q6P"/>
+                                            <outlet property="repsImage" destination="NYF-sb-rOj" id="gI1-Gf-vDU"/>
                                             <outlet property="rest" destination="GXh-Ud-lqU" id="kp2-FJ-V9R"/>
                                             <outlet property="time" destination="KhB-W1-37j" id="kDg-3E-qsK"/>
                                             <outlet property="unmakeSuperSet" destination="ozR-t3-iiw" id="Dm7-g0-azL"/>
                                             <outlet property="weight" destination="i23-BW-DHU" id="29T-Yb-aeq"/>
+                                            <outlet property="weightImage" destination="0sM-bJ-gPY" id="lGp-Da-QRU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="yTC-t9-hQ0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="yTC-t9-hQ0" userLabel="customExercise">
                                 <rect key="frame" x="275" y="949" width="145" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -237,7 +257,7 @@
                                     <outlet property="delegate" destination="3Jg-20-Tn5" id="VYN-Et-lbD"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="I3f-pc-oJe">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="I3f-pc-oJe" userLabel="customBodyPart">
                                 <rect key="frame" x="421" y="950" width="137" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -469,7 +489,7 @@
                                         <color key="shadowColor" red="0.11735733695652173" green="0.0028233926190759937" blue="0.0014398010154320776" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vCQ-W6-9Fe">
-                                        <rect key="frame" x="20" y="20" width="366" height="48"/>
+                                        <rect key="frame" x="20" y="14" width="366" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
                                         <color key="textColor" red="0.77772241709183676" green="0.73516581365439748" blue="0.13020978000877462" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -541,6 +561,13 @@
                                             <action selector="pauseTimerPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="MGl-Fw-cZj"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="m83-lu-TMg" userLabel="elaped time">
+                                        <rect key="frame" x="489" y="20" width="251" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                        <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </view>
                         </subviews>
@@ -554,7 +581,7 @@
                         <outlet property="currentExerciseInTimer" destination="vCQ-W6-9Fe" id="l5N-jl-2xg"/>
                         <outlet property="currentIntensityInTimer" destination="2gl-IJ-uaE" id="s9n-7n-oZ5"/>
                         <outlet property="currentTimeInTimer" destination="qyz-Yg-Sp0" id="YnX-zx-L7c"/>
-                        <outlet property="currentWeightInTimer" destination="qx5-gC-fl4" id="h0x-T0-aUx"/>
+                        <outlet property="currentWeightInTimer" destination="4ej-YL-BSF" id="vns-Qs-huy"/>
                         <outlet property="exerciseComponentPicker" destination="aRB-ah-VHx" id="04z-jo-lvz"/>
                         <outlet property="repsView" destination="ZoG-0e-kDi" id="oTn-o6-r7u"/>
                         <outlet property="tableView" destination="d0F-xQ-7jB" id="PpB-q3-VoV"/>
@@ -570,6 +597,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clock-Icon2-by-Nagaya.png" width="520" height="520"/>
         <image name="MB_0018_viewer.png" width="256" height="256"/>
         <image name="button_black_ffw.png" width="128" height="128"/>
         <image name="button_black_pause.png" width="128" height="128"/>
@@ -593,10 +621,12 @@
                 <relationship kind="outlet" name="makeSuperSet" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="name" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="repsImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="rest" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="time" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="unmakeSuperSet" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weightImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ExercisePickerDelegate" superclassName="NSObject">
@@ -638,6 +668,7 @@
                 <relationship kind="outlet" name="currentWeightInTimer" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="pickerDelegate" candidateClass="ExercisePickerDelegate"/>
+                <relationship kind="outlet" name="programTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="repsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="tableDelegate" candidateClass="ExerciseTableDelegate"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>

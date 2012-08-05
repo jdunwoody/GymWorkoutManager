@@ -73,9 +73,13 @@
         WeightExercise *weightExercise = (WeightExercise *) exercise;
         [[cell reps] setText: [weightExercise repsAsDisplayValue]];
         [[cell weight] setText: [weightExercise weightAsDisplayValue]];
+        cell.weightImage.hidden = false;
+        cell.repsImage.hidden = true;
     } else {
         TimeExercise *timeExercise = (TimeExercise *) exercise;
         [[cell time] setText: [timeExercise timeAsDisplayValue]];
+        cell.weightImage.hidden = true;
+        cell.repsImage.hidden = false;
     }
     current = nil;
     cellIdentifier = nil;
