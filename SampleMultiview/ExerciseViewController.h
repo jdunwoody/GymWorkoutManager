@@ -78,19 +78,3 @@
 - (void) timerWarning;
 
 @end
-
-
-//@property (nonatomic, retain) IBOutlet AVAudioPlayer *player;
-//- (IBAction) playSound: (id) sender;
-
-//    NSArray *nameValues;
-//    NSMutableArray *repValues;
-//    NSMutableArray *setValues;
-//    NSMutableArray *weightValues;
-//    NSArray *bodyPartValues;
-//    NSArray *intensityValues;
-//    NSMutableArray *restValues;
-//- (IBAction)randomiseBodyPart:(id)sender;
-//- (IBAction)randomiseExercise:(id)sender;
-//@property (weak, nonatomic) IBOutlet UISegmentedControl *categoryButton;
-//@property (weak, nonatomic) IBOutlet UIButton *addExerciseButton;

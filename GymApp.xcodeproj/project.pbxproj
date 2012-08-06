@@ -200,6 +200,54 @@
 			name = time;
 			sourceTree = "<group>";
 		};
+		1A60FCB815CE9F3E0093380B /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				1AFADC6515BEDD9E006B03BC /* sound.aif */,
+			);
+			name = sound;
+			sourceTree = "<group>";
+		};
+		1A60FCB915CE9F540093380B /* models */ = {
+			isa = PBXGroup;
+			children = (
+				1A0B08A015C0291E00567BBD /* TimeExercise.h */,
+				1A0B08A115C0291E00567BBD /* TimeExercise.m */,
+				1A0B08A415C0293C00567BBD /* WeightExercise.h */,
+				1A0B08A515C0293C00567BBD /* WeightExercise.m */,
+				1ABFF54A1595F53A004C7EE1 /* Exercise.h */,
+				1ABFF54B1595F53A004C7EE1 /* Exercise.m */,
+				1AE841D915CBC43500EE9724 /* Program.h */,
+				1AE841DA15CBC43500EE9724 /* Program.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		1A60FCBA15CE9F800093380B /* program view */ = {
+			isa = PBXGroup;
+			children = (
+				1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */,
+				1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */,
+				1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */,
+				1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */,
+				1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */,
+				1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */,
+				1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */,
+			);
+			name = "program view";
+			sourceTree = "<group>";
+		};
+		1A60FCBB15CE9FA00093380B /* controls */ = {
+			isa = PBXGroup;
+			children = (
+				1A0B08A815C02C8300567BBD /* ExerciseWeightOrTimeMode.h */,
+				1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */,
+				1AA6360515A049EB00938C5F /* ExercisePickerDelegate.h */,
+				1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */,
+			);
+			name = controls;
+			sourceTree = "<group>";
+		};
 		1ABD3F0D15C00414002E9520 /* icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,32 +319,16 @@
 		1ABFF5261595A63F004C7EE1 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
-				1AFADC6515BEDD9E006B03BC /* sound.aif */,
 				1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */,
 				1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */,
 				1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */,
 				1ABFF5391595E634004C7EE1 /* ExerciseViewController.h */,
 				1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */,
-				1ABFF54A1595F53A004C7EE1 /* Exercise.h */,
-				1ABFF54B1595F53A004C7EE1 /* Exercise.m */,
-				1A0B08A015C0291E00567BBD /* TimeExercise.h */,
-				1A0B08A115C0291E00567BBD /* TimeExercise.m */,
-				1A0B08A415C0293C00567BBD /* WeightExercise.h */,
-				1A0B08A515C0293C00567BBD /* WeightExercise.m */,
-				1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */,
-				1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */,
+				1A60FCBA15CE9F800093380B /* program view */,
+				1A60FCB915CE9F540093380B /* models */,
+				1A60FCBB15CE9FA00093380B /* controls */,
 				1ABFF5271595A63F004C7EE1 /* Supporting Files */,
-				1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */,
-				1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */,
-				1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */,
-				1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */,
-				1AA6360515A049EB00938C5F /* ExercisePickerDelegate.h */,
-				1AA6360615A049EB00938C5F /* ExercisePickerDelegate.m */,
-				1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */,
-				1A0B08A815C02C8300567BBD /* ExerciseWeightOrTimeMode.h */,
-				1AE841D915CBC43500EE9724 /* Program.h */,
-				1AE841DA15CBC43500EE9724 /* Program.m */,
-				1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */,
+				1A60FCB815CE9F3E0093380B /* sound */,
 				1A60FCB215CE0EA30093380B /* time */,
 			);
 			name = GymApp;
