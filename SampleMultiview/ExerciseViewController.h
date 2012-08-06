@@ -41,6 +41,9 @@
 @property (strong, nonatomic) UIColor *backgroundColor;
 @property (strong, nonatomic) UIColor *timerAlertColour;
 @property (strong, nonatomic) UIColor *timerWarningColour;
+@property (weak, nonatomic) IBOutlet UIView *programControlsView;
+@property (weak, nonatomic) IBOutlet UIView *programView;
+@property (weak, nonatomic) IBOutlet UIView *currentView;
 
 - (IBAction)addNewBodyPart:(id)sender;
 - (IBAction)addNewExerciseType:(id)sender;
@@ -57,6 +60,11 @@
 - (IBAction) randomiseRest:(id)sender;
 - (IBAction) randomiseReps:(id)sender;
 - (IBAction) randomiseSets:(id)sender;
+- (IBAction)hideControls:(id)sender;
+- (IBAction)showControls:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *hideControlsButton;
+@property (weak, nonatomic) IBOutlet UIButton *showControlsButton;
 
 @property (weak, nonatomic) IBOutlet UIView *timeView;
 @property (weak, nonatomic) IBOutlet UIView *repsView;

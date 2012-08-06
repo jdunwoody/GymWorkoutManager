@@ -23,9 +23,14 @@
 
 // or this way
 //@synthesize addNewExerciseType;
+@synthesize programControlsView;
+@synthesize programView;
+@synthesize currentView;
 @synthesize programTime;
 @synthesize timerStopButton;
 @synthesize timerPauseButton;
+@synthesize hideControlsButton;
+@synthesize showControlsButton;
 @synthesize timeView;
 @synthesize repsView;
 @synthesize timerStartButton;
@@ -43,7 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
+    //    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
     programTimer = [[ProgramTimer alloc] initWithElapsedTimeObserver:(id<ProgramTimerObserver>)self];
     
     self.tableDelegate.tableView = self.tableView;
@@ -108,6 +113,11 @@
     [self setTimeView:nil];
     [self setRepsView:nil];
     [self setProgramTime:nil];
+    [self setProgramControlsView:nil];
+    [self setProgramView:nil];
+    [self setCurrentView:nil];
+    [self setHideControlsButton:nil];
+    [self setShowControlsButton:nil];
     [super viewDidUnload];
 }
 
@@ -195,19 +205,19 @@
         
         self.currentWeightInTimer.text = self.tableDelegate.currentExercise.weight.stringValue;
         self.currentRepsInTimer.text = self.tableDelegate.currentExercise.reps.stringValue;
-
-//        self.currentWeightInTimer.hidden = false;
-//        self.currentRepsInTimer.hidden = false;
-//        
+        
+        //        self.currentWeightInTimer.hidden = false;
+        //        self.currentRepsInTimer.hidden = false;
+        //
     } else {
-//        self.repsView.hidden = false;
-//        self.timeView.hidden = true;
-      
-//        self.currentWeightInTimer.hidden = false;
-//        self.currentRepsInTimer.hidden = false;
+        //        self.repsView.hidden = false;
+        //        self.timeView.hidden = true;
+        
+        //        self.currentWeightInTimer.hidden = false;
+        //        self.currentRepsInTimer.hidden = false;
     }
     
- 
+    
     self.currentExerciseInTimer.text = self.tableDelegate.currentExercise.name;
     self.currentIntensityInTimer.text = self.tableDelegate.currentExercise.intensity;
     self.currentBodyPartInTimer.text = self.tableDelegate.currentExercise.bodyPart;
@@ -218,7 +228,7 @@
 - (IBAction)startTimerPressed:(id)sender
 {
     if (self.tableDelegate.currentExercise != nil) {
-//        [timer start];
+        //        [timer start];
         [programTimer start];
         
         self.timerPauseButton.enabled = true;
@@ -231,9 +241,9 @@
 
 - (IBAction)pauseTimerPressed:(id)sender
 {
-//    [timer pause];
+    //    [timer pause];
     [programTimer pause];
-
+    
     self.timerStartButton.enabled = false;
     self.timerStopButton.enabled = true;
     self.timerPauseButton.enabled = true;
@@ -241,9 +251,9 @@
 
 - (IBAction)stopTimerPressed:(id)sender
 {
-//    [timer stop];
+    //    [timer stop];
     [programTimer stop];
-
+    
     self.timerStartButton.enabled = true;
     self.timerStopButton.enabled = false;
     self.timerPauseButton.enabled = false;
@@ -339,6 +349,60 @@
 {
     [self.pickerDelegate randomiseSets:sender];
 }
+
+- (IBAction)hideControls:(id)sender {
+    self.programView.frame = CGRectMake(self.programView.frame.origin.x,
+                                        self.programView.frame.origin.y,
+                                        self.programView.bounds.size.width,
+                                        self.view.bounds.size.height - self.currentView.bounds.size.height - 10);
+    self.hideControlsButton.hidden = true;
+    self.showControlsButton.hidden = false;
+    
+    NSTimeInterval animationDuration = 0.5; /* determine length of animation */;
+    CGRect currentFrame =self.programControlsView.frame;
+    CGRect newFrameSize = CGRectMake(currentFrame.origin.x,
+                                     self.view.bounds.size.height - self.currentView.bounds.size.height - 10,
+                                     self.programView.bounds.size.width,
+                                     self.programView.bounds.size.height);
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    self.programControlsView.frame = newFrameSize;
+    [UIView commitAnimations];
+    
+}
+
+- (IBAction)showControls:(id)sender {
+    self.programView.frame = CGRectMake(self.programView.frame.origin.x,
+                                        0,
+                                        self.programView.bounds.size.width,
+                                        self.view.bounds.size.height);
+    self.hideControlsButton.hidden = false;
+    self.showControlsButton.hidden = true;
+    
+    NSTimeInterval animationDuration = 0.5; /* determine length of animation */;
+    CGRect currentFrame =self.programControlsView.frame;
+    CGRect newFrameSize = CGRectMake(currentFrame.origin.x,
+                                     self.view.bounds.size.height - self.currentView.bounds.size.height - 10,
+                                     self.programView.bounds.size.width,
+                                     self.programView.bounds.size.height);
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    self.programControlsView.frame = newFrameSize;
+    [UIView commitAnimations];
+    
+
+}
+
+//    NSLog(@"self.view.frame.size.height %f - self.currentView.frame.size.height %f - 50",  self.view.bounds.size.height, self.currentView.bounds.size.height);
+
+//    NSLog(@"self.programView.frame.origin.x %f, self.programView.frame.origin.y %f, self.programView.frame.size.width %f, self.view.frame.size.height - self.currentView.frame.size.height - %f ",
+//          self.programView.frame.origin.x,
+//          self.programView.frame.origin.y,
+//          self.programView.bounds.size.width,
+//          self.view.bounds.size.height - self.currentView.bounds.size.height - 10);
+//
 
 - (void) programNonEmpty
 {
