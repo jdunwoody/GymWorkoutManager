@@ -26,13 +26,14 @@
 		1ABFF5251595A63F004C7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5241595A63F004C7EE1 /* CoreGraphics.framework */; };
 		1ABFF52B1595A63F004C7EE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ABFF5291595A63F004C7EE1 /* InfoPlist.strings */; };
 		1ABFF52D1595A63F004C7EE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF52C1595A63F004C7EE1 /* main.m */; };
-		1ABFF5311595A63F004C7EE1 /* SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */; };
+		1ABFF5311595A63F004C7EE1 /* GymAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5301595A63F004C7EE1 /* GymAppDelegate.m */; };
 		1ABFF5381595A65A004C7EE1 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */; };
-		1ABFF53B1595E634004C7EE1 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */; };
+		1ABFF53B1595E634004C7EE1 /* ProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF53A1595E634004C7EE1 /* ProgramViewController.m */; };
 		1ABFF5461595F427004C7EE1 /* ExerciseDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */; };
 		1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54B1595F53A004C7EE1 /* Exercise.m */; };
 		1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */; };
 		1ABFF5531595F804004C7EE1 /* ExerciseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */; };
+		1AD7CE6F15D122B300651C52 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD7CE6E15D122B300651C52 /* CurrentViewController.m */; };
 		1ADF8D9015BE6C8100356568 /* batthern.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF8D7C15BE6C8100356568 /* batthern.png */; };
 		1ADF8D9115BE6C8100356568 /* black_linen_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF8D7D15BE6C8100356568 /* black_linen_v2.png */; };
 		1ADF8D9215BE6C8100356568 /* bo_play_pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADF8D7E15BE6C8100356568 /* bo_play_pattern.png */; };
@@ -111,11 +112,11 @@
 		1ABFF52A1595A63F004C7EE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1ABFF52C1595A63F004C7EE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1ABFF52E1595A63F004C7EE1 /* GymApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GymApp-Prefix.pch"; sourceTree = "<group>"; };
-		1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAppDelegate.h; sourceTree = "<group>"; };
-		1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleAppDelegate.m; sourceTree = "<group>"; };
+		1ABFF52F1595A63F004C7EE1 /* GymAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GymAppDelegate.h; sourceTree = "<group>"; };
+		1ABFF5301595A63F004C7EE1 /* GymAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GymAppDelegate.m; sourceTree = "<group>"; };
 		1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		1ABFF5391595E634004C7EE1 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
-		1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
+		1ABFF5391595E634004C7EE1 /* ProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramViewController.h; sourceTree = "<group>"; };
+		1ABFF53A1595E634004C7EE1 /* ProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramViewController.m; sourceTree = "<group>"; };
 		1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseDataController.h; sourceTree = "<group>"; };
 		1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseDataController.m; sourceTree = "<group>"; };
 		1ABFF54A1595F53A004C7EE1 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
@@ -124,6 +125,8 @@
 		1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
 		1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableDelegate.h; sourceTree = "<group>"; };
 		1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableDelegate.m; sourceTree = "<group>"; };
+		1AD7CE6D15D122B300651C52 /* CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentViewController.h; sourceTree = "<group>"; };
+		1AD7CE6E15D122B300651C52 /* CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentViewController.m; sourceTree = "<group>"; };
 		1ADF8D7C15BE6C8100356568 /* batthern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batthern.png; sourceTree = "<group>"; };
 		1ADF8D7D15BE6C8100356568 /* black_linen_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_linen_v2.png; sourceTree = "<group>"; };
 		1ADF8D7E15BE6C8100356568 /* bo_play_pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bo_play_pattern.png; sourceTree = "<group>"; };
@@ -320,16 +323,12 @@
 			isa = PBXGroup;
 			children = (
 				1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */,
-				1ABFF52F1595A63F004C7EE1 /* SampleAppDelegate.h */,
-				1ABFF5301595A63F004C7EE1 /* SampleAppDelegate.m */,
-				1ABFF5391595E634004C7EE1 /* ExerciseViewController.h */,
-				1ABFF53A1595E634004C7EE1 /* ExerciseViewController.m */,
-				1A60FCBA15CE9F800093380B /* program view */,
+				1ABFF52F1595A63F004C7EE1 /* GymAppDelegate.h */,
+				1ABFF5301595A63F004C7EE1 /* GymAppDelegate.m */,
+				1AD7CE6A15D11DC100651C52 /* current */,
+				1AD7CE6C15D11DCA00651C52 /* program */,
 				1A60FCB915CE9F540093380B /* models */,
-				1A60FCBB15CE9FA00093380B /* controls */,
 				1ABFF5271595A63F004C7EE1 /* Supporting Files */,
-				1A60FCB815CE9F3E0093380B /* sound */,
-				1A60FCB215CE0EA30093380B /* time */,
 			);
 			name = GymApp;
 			path = SampleMultiview;
@@ -345,6 +344,28 @@
 				1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AD7CE6A15D11DC100651C52 /* current */ = {
+			isa = PBXGroup;
+			children = (
+				1AD7CE6D15D122B300651C52 /* CurrentViewController.h */,
+				1AD7CE6E15D122B300651C52 /* CurrentViewController.m */,
+				1A60FCB815CE9F3E0093380B /* sound */,
+				1A60FCB215CE0EA30093380B /* time */,
+			);
+			name = current;
+			sourceTree = "<group>";
+		};
+		1AD7CE6C15D11DCA00651C52 /* program */ = {
+			isa = PBXGroup;
+			children = (
+				1ABFF5391595E634004C7EE1 /* ProgramViewController.h */,
+				1ABFF53A1595E634004C7EE1 /* ProgramViewController.m */,
+				1A60FCBB15CE9FA00093380B /* controls */,
+				1A60FCBA15CE9F800093380B /* program view */,
+			);
+			name = program;
 			sourceTree = "<group>";
 		};
 		1ADF8D7B15BE6C8100356568 /* backgrounds */ = {
@@ -489,8 +510,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ABFF52D1595A63F004C7EE1 /* main.m in Sources */,
-				1ABFF5311595A63F004C7EE1 /* SampleAppDelegate.m in Sources */,
-				1ABFF53B1595E634004C7EE1 /* ExerciseViewController.m in Sources */,
+				1ABFF5311595A63F004C7EE1 /* GymAppDelegate.m in Sources */,
+				1ABFF53B1595E634004C7EE1 /* ProgramViewController.m in Sources */,
 				1ABFF5461595F427004C7EE1 /* ExerciseDataController.m in Sources */,
 				1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */,
 				1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */,
@@ -501,6 +522,7 @@
 				1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */,
 				1AE841DB15CBC43500EE9724 /* Program.m in Sources */,
 				1A60FCB615CE0EF70093380B /* ProgramTimer.m in Sources */,
+				1AD7CE6F15D122B300651C52 /* CurrentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

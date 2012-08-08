@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "ExerciseViewController.h"
+#import "ProgramViewController.h"
 #import "ExerciseCell.h"
 #import "Exercise.h"
 #import "ExerciseTimer.h"
@@ -15,29 +15,20 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ExerciseViewController ()
+@interface ProgramViewController ()
 
 @end
 
-@implementation ExerciseViewController
+@implementation ProgramViewController
 
 // or this way
 //@synthesize addNewExerciseType;
 @synthesize programControlsView;
 @synthesize programView;
-@synthesize currentView;
-@synthesize programTime;
-@synthesize timerStopButton;
-@synthesize timerPauseButton;
 @synthesize hideControlsButton;
 @synthesize showControlsButton;
-@synthesize timeView;
-@synthesize repsView;
-@synthesize timerStartButton;
-@synthesize currentExerciseInTimer, currentIntensityInTimer, currentBodyPartInTimer, currentWeightInTimer, currentRepsInTimer, currentTimeInTimer;
 @synthesize addNewExerciseType, addNewBodyPart;
-@synthesize tableDelegate, tableView, exerciseComponentPicker, pickerDelegate,categoryButton;
-@synthesize backgroundColor, timerAlertColour, timerWarningColour, weightOrTime;
+@synthesize tableDelegate, tableView, exerciseComponentPicker, pickerDelegate,categoryButton, weightOrTime;
 
 // NOTES
 // are datadetectors such as email on a field necessary Detection:Phone for instance
@@ -48,8 +39,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
-    programTimer = [[ProgramTimer alloc] initWithElapsedTimeObserver:(id<ProgramTimerObserver>)self];
     
     self.tableDelegate.tableView = self.tableView;
     self.tableView.delegate = self.tableDelegate;
@@ -59,32 +48,29 @@
     self.pickerDelegate.categoryButton = self.categoryButton;
     self.pickerDelegate.exerciseComponentPicker = self.exerciseComponentPicker;
     
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"Exercises";
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
     
     self.view.backgroundColor = self.backgroundColor;
     self.tableView.backgroundColor = self.backgroundColor;
     self.tableDelegate.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"brushed_alu.png"]];
-    self.timerAlertColour = [UIColor redColor];
-    self.timerWarningColour = [UIColor orangeColor];
-    
-    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"sound.aif" withExtension:nil];
-    
-    //    SystemSoundID soundId;
-    //    OSStatus error =
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef) fileURL, &systemSoundID);
-    //    CFURLRef *fileUrl = (CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource: @"sound" ofType:@"aif"]];
-    //    AudioServicesCreateSystemSoundID(fileUrl, &systemSoundID);
-    
-    
-    //	player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"]] error:nil];
-    //
-    //	[player prepareToPlay];
 }
+//    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
+
+//    SystemSoundID soundId;
+//    OSStatus error =
+//    CFURLRef *fileUrl = (CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource: @"sound" ofType:@"aif"]];
+//    AudioServicesCreateSystemSoundID(fileUrl, &systemSoundID);
+
+
+//	player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"]] error:nil];
+//
+//	[player prepareToPlay];
+
 
 - (IBAction)weightOrTimeChosen:(id)sender {
     if ([self.weightOrTime selectedSegmentIndex] == 0) {
@@ -98,33 +84,16 @@
 {
     // MAKE sure all properties are deallocated
     [self setExerciseComponentPicker:nil];
-    [self setCurrentTimeInTimer:nil];
     [self setAddNewExerciseType:nil];
     [self setAddNewBodyPart:nil];
     [self setAddNewBodyPart:nil];
-    [self setCurrentExerciseInTimer:nil];
-    [self setCurrentIntensityInTimer:nil];
-    [self setCurrentBodyPartInTimer:nil];
-    [self setCurrentWeightInTimer:nil];
-    [self setCurrentRepsInTimer:nil];
-    [self setTimerStartButton:nil];
-    [self setTimerStopButton:nil];
-    [self setTimerPauseButton:nil];
-    [self setTimeView:nil];
-    [self setRepsView:nil];
-    [self setProgramTime:nil];
     [self setProgramControlsView:nil];
-    [self setProgramView:nil];
-    [self setCurrentView:nil];
     [self setHideControlsButton:nil];
     [self setShowControlsButton:nil];
+    [self setProgramView:nil];
     [super viewDidUnload];
 }
 
-- (void) playSound
-{
-    AudioServicesPlaySystemSound(systemSoundID);
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -192,92 +161,6 @@
 - (IBAction)hideKeyboard:(id)sender
 {
     [sender resignFirstResponder];
-}
-
-
-- (void) updateCurrentExerciseView
-{
-    Exercise *currentExercise = self.tableDelegate.currentExercise;
-    
-    if (currentExercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
-        self.repsView.hidden = true;
-        self.timeView.hidden = false;
-        
-        self.currentWeightInTimer.text = self.tableDelegate.currentExercise.weight.stringValue;
-        self.currentRepsInTimer.text = self.tableDelegate.currentExercise.reps.stringValue;
-        
-        //        self.currentWeightInTimer.hidden = false;
-        //        self.currentRepsInTimer.hidden = false;
-        //
-    } else {
-        //        self.repsView.hidden = false;
-        //        self.timeView.hidden = true;
-        
-        //        self.currentWeightInTimer.hidden = false;
-        //        self.currentRepsInTimer.hidden = false;
-    }
-    
-    
-    self.currentExerciseInTimer.text = self.tableDelegate.currentExercise.name;
-    self.currentIntensityInTimer.text = self.tableDelegate.currentExercise.intensity;
-    self.currentBodyPartInTimer.text = self.tableDelegate.currentExercise.bodyPart;
-    
-    currentExercise = nil;
-}
-
-- (IBAction)startTimerPressed:(id)sender
-{
-    if (self.tableDelegate.currentExercise != nil) {
-        //        [timer start];
-        [programTimer start];
-        
-        self.timerPauseButton.enabled = true;
-        self.timerStopButton.enabled = true;
-        self.timerStartButton.enabled = false;
-        
-        [self updateCurrentExerciseView];
-    }
-}
-
-- (IBAction)pauseTimerPressed:(id)sender
-{
-    //    [timer pause];
-    [programTimer pause];
-    
-    self.timerStartButton.enabled = false;
-    self.timerStopButton.enabled = true;
-    self.timerPauseButton.enabled = true;
-}
-
-- (IBAction)stopTimerPressed:(id)sender
-{
-    //    [timer stop];
-    [programTimer stop];
-    
-    self.timerStartButton.enabled = true;
-    self.timerStopButton.enabled = false;
-    self.timerPauseButton.enabled = false;
-}
-
-- (void) timerAlert
-{
-    [self playSound];
-    self.currentTimeInTimer.textColor = self.timerAlertColour;
-}
-
-- (void) timerWarning
-{
-    self.currentTimeInTimer.textColor = self.timerWarningColour;
-}
-
-- (void) updateLabelWithText:(NSString *)text
-{
-    self.currentTimeInTimer.text = text;
-}
-
-- (void) programTimerUpdate: (NSString *)text
-{
-    self.programTime.text = text;
 }
 
 //- (void)setEditing:(BOOL)editing animated:(BOOL)animate
@@ -350,51 +233,53 @@
     [self.pickerDelegate randomiseSets:sender];
 }
 
-- (IBAction)hideControls:(id)sender {
-    self.programView.frame = CGRectMake(self.programView.frame.origin.x,
-                                        self.programView.frame.origin.y,
-                                        self.programView.bounds.size.width,
-                                        self.view.bounds.size.height - self.currentView.bounds.size.height - 10);
-    self.hideControlsButton.hidden = true;
-    self.showControlsButton.hidden = false;
-    
-    NSTimeInterval animationDuration = 0.5; /* determine length of animation */;
-    CGRect currentFrame =self.programControlsView.frame;
-    CGRect newFrameSize = CGRectMake(currentFrame.origin.x,
-                                     self.view.bounds.size.height - self.currentView.bounds.size.height - 10,
-                                     self.programView.bounds.size.width,
-                                     self.programView.bounds.size.height);
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    self.programControlsView.frame = newFrameSize;
-    [UIView commitAnimations];
-    
-}
+@end
 
-- (IBAction)showControls:(id)sender {
-    self.programView.frame = CGRectMake(self.programView.frame.origin.x,
-                                        0,
-                                        self.programView.bounds.size.width,
-                                        self.view.bounds.size.height);
-    self.hideControlsButton.hidden = false;
-    self.showControlsButton.hidden = true;
-    
-    NSTimeInterval animationDuration = 0.5; /* determine length of animation */;
-    CGRect currentFrame =self.programControlsView.frame;
-    CGRect newFrameSize = CGRectMake(currentFrame.origin.x,
-                                     self.view.bounds.size.height - self.currentView.bounds.size.height - 10,
-                                     self.programView.bounds.size.width,
-                                     self.programView.bounds.size.height);
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    self.programControlsView.frame = newFrameSize;
-    [UIView commitAnimations];
-    
-
-}
-
+//- (IBAction)hideControls:(id)sender {
+//    self.programView.frame = CGRectMake(self.programView.frame.origin.x,
+//                                        self.programView.frame.origin.y,
+//                                        self.programView.bounds.size.width,
+//                                        self.view.bounds.size.height - self.currentView.bounds.size.height - 10);
+//    self.hideControlsButton.hidden = true;
+//    self.showControlsButton.hidden = false;
+//
+//    NSTimeInterval animationDuration = 0.5; /* determine length of animation */;
+//    CGRect currentFrame =self.programControlsView.frame;
+//    CGRect newFrameSize = CGRectMake(currentFrame.origin.x,
+//                                     self.view.bounds.size.height - self.currentView.bounds.size.height - 10,
+//                                     self.programView.bounds.size.width,
+//                                     self.programView.bounds.size.height);
+//    [UIView beginAnimations:nil context:NULL];
+//    [UIView setAnimationDuration:animationDuration];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    self.programControlsView.frame = newFrameSize;
+//    [UIView commitAnimations];
+//
+//}
+//
+//- (IBAction)showControls:(id)sender {
+//    self.programView.frame = CGRectMake(self.programView.frame.origin.x,
+//                                        0,
+//                                        self.programView.bounds.size.width,
+//                                        self.view.bounds.size.height);
+//    self.hideControlsButton.hidden = false;
+//    self.showControlsButton.hidden = true;
+//
+//    NSTimeInterval animationDuration = 0.5; /* determine length of animation */;
+//    CGRect currentFrame =self.programControlsView.frame;
+//    CGRect newFrameSize = CGRectMake(currentFrame.origin.x,
+//                                     self.view.bounds.size.height - self.currentView.bounds.size.height - 10,
+//                                     self.programView.bounds.size.width,
+//                                     self.programView.bounds.size.height);
+//    [UIView beginAnimations:nil context:NULL];
+//    [UIView setAnimationDuration:animationDuration];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    self.programControlsView.frame = newFrameSize;
+//    [UIView commitAnimations];
+//
+//
+//}
+//
 //    NSLog(@"self.view.frame.size.height %f - self.currentView.frame.size.height %f - 50",  self.view.bounds.size.height, self.currentView.bounds.size.height);
 
 //    NSLog(@"self.programView.frame.origin.x %f, self.programView.frame.origin.y %f, self.programView.frame.size.width %f, self.view.frame.size.height - self.currentView.frame.size.height - %f ",
@@ -404,13 +289,8 @@
 //          self.view.bounds.size.height - self.currentView.bounds.size.height - 10);
 //
 
-- (void) programNonEmpty
-{
-    [self updateCurrentExerciseView];
-    self.timerStartButton.enabled= true;
-}
 
-@end
+
 
 //- (IBAction)makeSuperSet:(id)sender {
 //    UIButton *btn = (UIButton *)sender;

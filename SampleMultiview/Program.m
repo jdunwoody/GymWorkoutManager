@@ -57,8 +57,8 @@
 
 - (void) addExercise:(Exercise *)exercise
 {
-    [programStatus programNonEmpty];
     [exercises addObject:exercise];
+    [programStatus programNonEmpty];
 }
 
 - (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise

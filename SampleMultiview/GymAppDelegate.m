@@ -6,47 +6,48 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SampleAppDelegate.h"
-#import "ExerciseViewController.h"
+#import "GymAppDelegate.h"
+#import "ProgramViewController.h"
 #import "ExerciseTableDelegate.h"
 #import "ExercisePickerDelegate.h"
+#import "CurrentViewController.h"
 
-@implementation SampleAppDelegate
+@implementation GymAppDelegate
 
 @synthesize window = _window;
-@synthesize exerciseViewController = _exerciseViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    CurrentViewController *currentViewController = (CurrentViewController *)self.window.rootViewController;
+
+    //ProgramViewController *exerciseViewController = (ProgramViewController *)self.window.rootViewController;
+
+//    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
+//    ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
+//    ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
+    
+//    tableDelegate.dataController = dataController;
+//    exerciseViewController.tableDelegate = tableDelegate;
+//    exerciseViewController.pickerDelegate = pickerDelegate;
+    
+    return YES;
+}
+
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    // Override point for customization after application launch.
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
 //    return YES;
-    
-    
+//    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] initWithTableView:rootViewController.tableView];
+//    OptionsViewController *optionsViewController = (OptionsViewController *)[[navigationController viewControllers] objectAtIndex:0];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+//
+//    ExerciseViewController *exerciseViewController = (ExerciseViewController*)[storyboard instantiateViewControllerWithIdentifier: @"exerciseViewController"];
+
+
 //    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
 //    ExerciseViewController *exerciseViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
 
-    ExerciseViewController *exerciseViewController = (ExerciseViewController *)self.window.rootViewController;
-
-    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
-    ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
-    ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
-    
-    tableDelegate.dataController = dataController;
-    exerciseViewController.tableDelegate = tableDelegate;
-    exerciseViewController.pickerDelegate = pickerDelegate;
-    
-    // Override point for customization after application launch.
-    return YES;
-
-    //    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] initWithTableView:rootViewController.tableView];
-    //    OptionsViewController *optionsViewController = (OptionsViewController *)[[navigationController viewControllers] objectAtIndex:0];
-    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
-    //
-    //    ExerciseViewController *exerciseViewController = (ExerciseViewController*)[storyboard instantiateViewControllerWithIdentifier: @"exerciseViewController"];
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

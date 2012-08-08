@@ -16,17 +16,11 @@
 #import "Program.h"
 #import "ProgramStatusProtocol.h"
 #import "ProgramTimer.h"
-#import <AudioToolbox/AudioToolbox.h>
-#import <AVFoundation/AVFoundation.h>
-#import "ProgramTimer.h"
 
-@interface ExerciseViewController : UIViewController <ExercisePickerControllerProtocol, TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol>
+@interface ProgramViewController : UIViewController <ExercisePickerControllerProtocol>
 {
     UIPickerView *exercisePicker;
-    ExerciseTimer *timer;
-    ProgramTimer *programTimer;
-    SystemSoundID systemSoundID;
-}
+   }
 
 @property (strong, nonatomic) IBOutlet ExerciseTableDelegate *tableDelegate;
 @property (strong, nonatomic) IBOutlet ExercisePickerDelegate *pickerDelegate;
@@ -39,18 +33,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *addNewBodyPart;
 
 @property (strong, nonatomic) UIColor *backgroundColor;
-@property (strong, nonatomic) UIColor *timerAlertColour;
-@property (strong, nonatomic) UIColor *timerWarningColour;
 @property (weak, nonatomic) IBOutlet UIView *programControlsView;
 @property (weak, nonatomic) IBOutlet UIView *programView;
-@property (weak, nonatomic) IBOutlet UIView *currentView;
+
 
 - (IBAction)addNewBodyPart:(id)sender;
 - (IBAction)addNewExerciseType:(id)sender;
 - (IBAction)hideKeyboard:(id)sender;
-- (IBAction)startTimerPressed:(id)sender;
-- (IBAction)pauseTimerPressed:(id)sender;
-- (IBAction)stopTimerPressed:(id)sender;
 - (IBAction)addExercise:(id)sender;
 
 - (IBAction) randomiseBodyPart:(id)sender;
@@ -60,29 +49,10 @@
 - (IBAction) randomiseRest:(id)sender;
 - (IBAction) randomiseReps:(id)sender;
 - (IBAction) randomiseSets:(id)sender;
-- (IBAction)hideControls:(id)sender;
-- (IBAction)showControls:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *hideControlsButton;
 @property (weak, nonatomic) IBOutlet UIButton *showControlsButton;
 
-@property (weak, nonatomic) IBOutlet UIView *timeView;
-@property (weak, nonatomic) IBOutlet UIView *repsView;
-
-@property (weak, nonatomic) IBOutlet UIButton *timerStartButton;
-@property (weak, nonatomic) IBOutlet UIButton *timerStopButton;
-@property (weak, nonatomic) IBOutlet UIButton *timerPauseButton;
-
-@property (weak, nonatomic) IBOutlet UILabel *currentTimeInTimer;
-@property (weak, nonatomic) IBOutlet UILabel *currentExerciseInTimer;
-@property (weak, nonatomic) IBOutlet UILabel *currentIntensityInTimer;
-@property (weak, nonatomic) IBOutlet UILabel *currentBodyPartInTimer;
-@property (weak, nonatomic) IBOutlet UILabel *currentWeightInTimer;
-@property (weak, nonatomic) IBOutlet UILabel *currentRepsInTimer;
-@property (weak, nonatomic) IBOutlet UILabel *programTime;
-
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
-- (void) timerAlert;
-- (void) timerWarning;
 
 @end

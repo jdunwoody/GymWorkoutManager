@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ExerciseViewController.h"
+#import "ProgramViewController.h"
 
-@interface SampleAppDelegate : UIResponder <UIApplicationDelegate>
+@interface GymAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) ExerciseViewController *exerciseViewController;
 
 @end

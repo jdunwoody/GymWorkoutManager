@@ -8,7 +8,7 @@
 
 #import "ExercisePickerDelegate.h"
 #import "Exercise.h"
-#import "ExerciseViewController.h"
+#import "ProgramViewController.h"
 #import "WeightExercise.h"
 #import "TimeExercise.h"
 
