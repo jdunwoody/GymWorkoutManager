@@ -13,6 +13,8 @@
 @synthesize programTime;
 @synthesize timerStopButton;
 @synthesize timerPauseButton;
+@synthesize nextButton;
+@synthesize nextExerciseLabel;
 @synthesize repsView;
 @synthesize timerStartButton;
 @synthesize currentExerciseInTimer, currentWeightInTimer, currentRepsInTimer, currentTimeInTimer;
@@ -21,24 +23,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.program = [[Program alloc] initWithProgramStatus:self];
-    Exercise *exercise = [[Exercise alloc] init];
-    exercise.category = @"Super set";
-    exercise.name = @"Push up";
-    exercise.rest = nil;
-    exercise.reps = [NSNumber numberWithInt:10];
-    exercise.weight = [NSNumber numberWithInt:20];
-    exercise.exerciseWeightOrTimeMode = ExerciseWeightMode;
-    //    exercise.intensity = ExerciseIntensityAnaerobicIntense;
     
+    
+    self.program = [[Program alloc] initWithProgramStatus:self];
+    
+    Exercise *exercise;
+    
+    exercise = [[Exercise alloc] init];
+    exercise.category = @"Super set";
+    exercise.name = @"Dumbell Flys";
+    exercise.rest = nil;
+    exercise.reps = [NSNumber numberWithInt:12];
+    exercise.weight = [NSNumber numberWithInt:24];
+    exercise.exerciseWeightOrTimeMode = ExerciseWeightMode;
     [self.program addExercise:exercise];
-//    self.repsView.hidden = false;
+    
+    exercise = [[Exercise alloc] init];
+    exercise.category = @"Set";
+    exercise.name = @"Bicep Curls";
+    exercise.rest = @"1min";
+    exercise.reps = [NSNumber numberWithInt:18];
+    exercise.weight = [NSNumber numberWithInt:40];
+    exercise.exerciseWeightOrTimeMode = ExerciseWeightMode;
+    [self.program addExercise:exercise];
+    
+    
+    //    self.repsView.hidden = false;
     
     self.timerAlertColour = [UIColor redColor];
     self.timerWarningColour = [UIColor orangeColor];
     
-    self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
     self.title = @"Current View";
+    self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
+    self.view.backgroundColor = self.backgroundColor;
     
     programTimer = [[ProgramTimer alloc] initWithElapsedTimeObserver:(id<ProgramTimerObserver>)self];
     
@@ -62,6 +79,8 @@
     [self setProgramTime:nil];
     [self setCurrentView:nil];
     
+    [self setNextButton:nil];
+    [self setNextExerciseLabel:nil];
     [super viewDidUnload];
 }
 
@@ -87,9 +106,15 @@
         self.repsView.hidden = false;
         //        self.timeView.hidden = false;
         
-        self.currentWeightInTimer.text = self.program.currentExercise.weight.stringValue;
-        self.currentRepsInTimer.text = self.program.currentExercise.reps.stringValue;
+        self.currentWeightInTimer.text = [NSString stringWithFormat:@"%@ kg", self.program.currentExercise.weight.stringValue];
+        self.currentRepsInTimer.text = [NSString stringWithFormat:@"%@ reps", self.program.currentExercise.reps.stringValue];
         
+        Exercise *nextExercise = self.program.nextExercise;
+        if (nextExercise != nil) {
+            self.nextExerciseLabel.text = [NSString stringWithFormat:@"Coming up... %@ %@kg %@ reps", nextExercise.name, nextExercise.weight, nextExercise.reps];
+        } else {
+            self.nextExerciseLabel.text = @"nothing next";
+        }
         //        self.currentWeightInTimer.hidden = false;
         //        self.currentRepsInTimer.hidden = false;
         //
@@ -121,7 +146,7 @@
     }
 }
 
-- (IBAction)pauseTimerPressed:(id)sender
+- (IBAction)pauseButtonPressed:(id)sender
 {
     //    [timer pause];
     [programTimer pause];
@@ -131,7 +156,7 @@
     self.timerPauseButton.enabled = true;
 }
 
-- (IBAction)stopTimerPressed:(id)sender
+- (IBAction)stopButtonPressed:(id)sender
 {
     //    [timer stop];
     [programTimer stop];
@@ -139,6 +164,11 @@
     self.timerStartButton.enabled = true;
     self.timerStopButton.enabled = false;
     self.timerPauseButton.enabled = false;
+}
+
+- (IBAction)nextButtonPressed:(id)sender {
+    [self.program next];
+    [self updateCurrentExerciseView];
 }
 
 - (void) timerAlert

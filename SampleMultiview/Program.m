@@ -28,10 +28,29 @@
         if ([exercises count] == 0) {
             return nil;
         }
-        current = [exercises objectAtIndex:0];
+        currentExerciseIndex = 0;
+    }
+    
+    if (currentExerciseIndex >= [exercises count]) {
+        current = nil;
+    } else {
+        current = [exercises objectAtIndex:currentExerciseIndex];
     }
     
     return current;
+}
+
+- (void) next
+{
+    currentExerciseIndex++;
+}
+
+- (Exercise *)nextExercise
+{
+    if (currentExerciseIndex < [exercises count] - 1) {
+        return [exercises objectAtIndex:currentExerciseIndex + 1];
+    }
+    return nil;
 }
 
 -(void) makeSuperSetForRow: (NSInteger)row

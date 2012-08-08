@@ -39,10 +39,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *timerStartButton;
 @property (weak, nonatomic) IBOutlet UIButton *timerStopButton;
 @property (weak, nonatomic) IBOutlet UIButton *timerPauseButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UILabel *nextExerciseLabel;
 
 - (IBAction)startButtonPressed:(id)sender;
-- (IBAction)pauseTimerPressed:(id)sender;
-- (IBAction)stopTimerPressed:(id)sender;
+- (IBAction)pauseButtonPressed:(id)sender;
+- (IBAction)stopButtonPressed:(id)sender;
+- (IBAction)nextButtonPressed:(id)sender;
 
 - (void) timerAlert;
 - (void) timerWarning;
