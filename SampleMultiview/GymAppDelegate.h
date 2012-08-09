@@ -13,4 +13,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) ExerciseTableDelegate *tableDelegate;
+@property (strong, nonatomic) ExerciseDataController *dataController;
+@property (strong, nonatomic) ExercisePickerDelegate *pickerDelegate;
+
 @end

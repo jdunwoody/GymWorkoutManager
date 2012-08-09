@@ -22,10 +22,10 @@
 
     //ProgramViewController *exerciseViewController = (ProgramViewController *)self.window.rootViewController;
 
-//    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
-//    ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
-//    ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
-    
+//    self.tableDelegate = [[ExerciseTableDelegate alloc] init];
+//    self.dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
+//    self.pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
+//    
 //    tableDelegate.dataController = dataController;
 //    exerciseViewController.tableDelegate = tableDelegate;
 //    exerciseViewController.pickerDelegate = pickerDelegate;

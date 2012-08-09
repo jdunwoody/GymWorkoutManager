@@ -48,10 +48,10 @@
     self.pickerDelegate.categoryButton = self.categoryButton;
     self.pickerDelegate.exerciseComponentPicker = self.exerciseComponentPicker;
     
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"Exercises";
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
     
@@ -125,11 +125,21 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"AddExercise"]) {
-        //        AddTypeViewController *destination = (AddTypeViewController *)segue.destinationViewController;
-        //
-        //        destination.addExerciseViewControllerDelegate = self;
-        //
+    if ([segue.identifier isEqualToString:@"showProgram"]) {
+        ProgramViewController *destination = (ProgramViewController *)segue.destinationViewController;
+        
+//        destination.addExerciseViewControllerDelegate = self;
+        
+        
+        //    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
+        //    ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
+        //    ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
+        
+        //    tableDelegate.dataController = dataController;
+        //    exerciseViewController.tableDelegate = tableDelegate;
+        //    exerciseViewController.pickerDelegate = pickerDelegate;
+
+        
         //        //        PickerTestViewController *asker = (PickerTestViewController *) segue.destinationViewController;
         //        //        asker.delegate = self;
         //        //        asker.question = @"What do you want your label to say?";

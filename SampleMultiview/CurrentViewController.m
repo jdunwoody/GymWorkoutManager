@@ -7,6 +7,7 @@
 //
 
 #import "CurrentViewController.h"
+#import "GymAppDelegate.h"
 
 @implementation CurrentViewController
 @synthesize currentView;
@@ -196,6 +197,23 @@
 {
     [self updateCurrentExerciseView];
     self.timerStartButton.enabled= true;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showProgram"]) {
+        //        GymAppDelegate *appDelegate = (GymAppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        ProgramViewController *destination = (ProgramViewController *) segue.destinationViewController;
+        
+        ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
+        ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgramStatus:self];
+        ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:destination];
+        tableDelegate.dataController = dataController;
+        destination.tableDelegate = tableDelegate;
+        destination.pickerDelegate = pickerDelegate;
+        
+    }
 }
 
 @end
