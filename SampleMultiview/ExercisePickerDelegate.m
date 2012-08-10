@@ -22,7 +22,6 @@
     if (self = [super init]) {
         controller = newController;
         
-        
         nameValues = [[NSMutableArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];  
         [nameValues sortUsingSelector:@selector(compare:)];
         
@@ -68,7 +67,7 @@
     return self;
 }
 
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+-(NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return self.exerciseWeightOrTimeMode ==  ExerciseWeightMode ? 7 : 5;
 }

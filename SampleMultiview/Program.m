@@ -18,6 +18,7 @@
         exercises = [[NSMutableArray alloc] init];
         programStatus = withProgramStatus;
         current = nil;
+        currentExerciseIndex = 0;
     }
     return self;
 }

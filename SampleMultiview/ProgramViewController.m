@@ -39,6 +39,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController: self];
+    self.tableDelegate = [[ExerciseTableDelegate alloc] init];
+    
+    ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgram: self.program];
+    self.tableDelegate.dataController = dataController;
     
     self.tableDelegate.tableView = self.tableView;
     self.tableView.delegate = self.tableDelegate;
@@ -58,7 +64,9 @@
     self.view.backgroundColor = self.backgroundColor;
     self.tableView.backgroundColor = self.backgroundColor;
     self.tableDelegate.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"brushed_alu.png"]];
+
 }
+
 //    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
 
 //    SystemSoundID soundId;
@@ -126,7 +134,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showProgram"]) {
-        ProgramViewController *destination = (ProgramViewController *)segue.destinationViewController;
+//        ProgramViewController *destination = (ProgramViewController *)segue.destinationViewController;
         
 //        destination.addExerciseViewControllerDelegate = self;
         

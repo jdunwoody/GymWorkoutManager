@@ -13,8 +13,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ProgramTimer.h"
 #import "Program.h"
+#import "LoadProgramObserver.h"
 
-@interface CurrentViewController : UIViewController<TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol>
+@interface CurrentViewController : UIViewController<TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol, LoadProgramObserver>
 {
     ExerciseTimer *timer;
     ProgramTimer *programTimer;
@@ -47,7 +48,10 @@
 - (IBAction)stopButtonPressed:(id)sender;
 - (IBAction)nextButtonPressed:(id)sender;
 
+- (void) programNonEmpty;
 - (void) timerAlert;
 - (void) timerWarning;
+
+- (void) programLoadedWithProgram: (Program *)withProgram;
 
 @end

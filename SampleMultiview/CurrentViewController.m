@@ -8,6 +8,7 @@
 
 #import "CurrentViewController.h"
 #import "GymAppDelegate.h"
+#import "LoadProgramViewController.h"
 
 @implementation CurrentViewController
 @synthesize currentView;
@@ -26,29 +27,6 @@
     [super viewDidLoad];
     
     
-    self.program = [[Program alloc] initWithProgramStatus:self];
-    
-    Exercise *exercise;
-    
-    exercise = [[Exercise alloc] init];
-    exercise.category = @"Super set";
-    exercise.name = @"Dumbell Flys";
-    exercise.rest = nil;
-    exercise.reps = [NSNumber numberWithInt:12];
-    exercise.weight = [NSNumber numberWithInt:24];
-    exercise.exerciseWeightOrTimeMode = ExerciseWeightMode;
-    [self.program addExercise:exercise];
-    
-    exercise = [[Exercise alloc] init];
-    exercise.category = @"Set";
-    exercise.name = @"Bicep Curls";
-    exercise.rest = @"1min";
-    exercise.reps = [NSNumber numberWithInt:18];
-    exercise.weight = [NSNumber numberWithInt:40];
-    exercise.exerciseWeightOrTimeMode = ExerciseWeightMode;
-    [self.program addExercise:exercise];
-    
-    
     //    self.repsView.hidden = false;
     
     self.timerAlertColour = [UIColor redColor];
@@ -65,6 +43,14 @@
     AudioServicesCreateSystemSoundID((__bridge CFURLRef) fileURL, &systemSoundID);
     
     [self updateCurrentExerciseView];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self performSegueWithIdentifier: @"chooseProgram" sender: self];
+    //    [self showProgramChooser:self];
 }
 
 - (void)viewDidUnload
@@ -92,6 +78,37 @@
     } else {
         return (interfaceOrientation == UIInterfaceOrientationPortrait);
     }
+}
+
+- (void)showProgramChooser:(id)sender
+{
+    // Create the root view controller for the navigation controller
+    // The new view controller configures a Cancel and Done button for the
+    // navigation bar.
+    LoadProgramViewController *addController = [[LoadProgramViewController alloc] init];
+    
+    // Configure the RecipeAddViewController. In this case, it reports any
+    // changes to a custom delegate object.
+    //    addController.delegate = self;
+    
+    //    // Create the navigation controller and present it.
+    //    UINavigationController *navigationController = [[UINavigationController alloc]
+    //                                                    initWithRootViewController:addController];
+    [self presentViewController:addController animated:YES completion: nil];
+}
+
+- (void) programLoadedWithProgram: (Program *)withProgram
+{
+    if (withProgram) {
+        //        int recipeCount = [recipesController countOfRecipes];
+        //        UITableView *tableView = [self tableView];
+        self.program = program;
+        
+        [self updateCurrentExerciseView];
+        //        [tableView reloadData];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion: nil];
 }
 
 - (void) playSound
@@ -202,16 +219,23 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showProgram"]) {
+        
+        ProgramViewController *destination = segue.destinationViewController;
+        destination.program = self.program;
+        
         //        GymAppDelegate *appDelegate = (GymAppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-        ProgramViewController *destination = (ProgramViewController *) segue.destinationViewController;
-        
-        ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
-        ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgramStatus:self];
-        ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:destination];
-        tableDelegate.dataController = dataController;
-        destination.tableDelegate = tableDelegate;
-        destination.pickerDelegate = pickerDelegate;
+        //        ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
+        //        destination.tableDelegate = tableDelegate;
+        //
+        //        ExerciseDataController *dataController = [[ExerciseDataController alloc] initWithProgram: program];
+        //        tableDelegate.dataController = dataController;
+        //
+        //        ExercisePickerDelegate *pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController: destination];
+        //        destination.pickerDelegate = pickerDelegate;
+        //
+    } else if([segue.identifier isEqualToString:@"chooseProgram"]) {
+        LoadProgramViewController *loadProgramViewController = (LoadProgramViewController *) segue.destinationViewController;
+        loadProgramViewController.delegate = self;
         
     }
 }

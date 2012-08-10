@@ -21,6 +21,7 @@
 		1ABD3F1715C00414002E9520 /* physical_education 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F1115C00414002E9520 /* physical_education 72x72.png */; };
 		1ABD3F1815C00414002E9520 /* physical_education.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F1215C00414002E9520 /* physical_education.png */; };
 		1ABD3F1915C00414002E9520 /* weights44x44.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD3F1315C00414002E9520 /* weights44x44.png */; };
+		1ABECA1A15D4F0E300A199F7 /* LoadProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABECA1915D4F0E300A199F7 /* LoadProgramViewController.m */; };
 		1ABFF5211595A63E004C7EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5201595A63E004C7EE1 /* UIKit.framework */; };
 		1ABFF5231595A63F004C7EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5221595A63E004C7EE1 /* Foundation.framework */; };
 		1ABFF5251595A63F004C7EE1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABFF5241595A63F004C7EE1 /* CoreGraphics.framework */; };
@@ -104,6 +105,9 @@
 		1ABD3F1115C00414002E9520 /* physical_education 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "physical_education 72x72.png"; sourceTree = "<group>"; };
 		1ABD3F1215C00414002E9520 /* physical_education.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = physical_education.png; sourceTree = "<group>"; };
 		1ABD3F1315C00414002E9520 /* weights44x44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weights44x44.png; sourceTree = "<group>"; };
+		1ABECA1815D4F0E300A199F7 /* LoadProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramViewController.h; sourceTree = "<group>"; };
+		1ABECA1915D4F0E300A199F7 /* LoadProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgramViewController.m; sourceTree = "<group>"; };
+		1ABECA1B15D53D8B00A199F7 /* LoadProgramObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadProgramObserver.h; sourceTree = "<group>"; };
 		1ABFF51C1595A63E004C7EE1 /* GymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABFF5201595A63E004C7EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1ABFF5221595A63E004C7EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -284,6 +288,16 @@
 			path = SampleMultiview/icons;
 			sourceTree = "<group>";
 		};
+		1ABECA1615D4F0CC00A199F7 /* loadProgram */ = {
+			isa = PBXGroup;
+			children = (
+				1ABECA1815D4F0E300A199F7 /* LoadProgramViewController.h */,
+				1ABECA1915D4F0E300A199F7 /* LoadProgramViewController.m */,
+				1ABECA1B15D53D8B00A199F7 /* LoadProgramObserver.h */,
+			);
+			name = loadProgram;
+			sourceTree = "<group>";
+		};
 		1ABFF5111595A63E004C7EE1 = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +339,7 @@
 				1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */,
 				1ABFF52F1595A63F004C7EE1 /* GymAppDelegate.h */,
 				1ABFF5301595A63F004C7EE1 /* GymAppDelegate.m */,
+				1ABECA1615D4F0CC00A199F7 /* loadProgram */,
 				1AD7CE6A15D11DC100651C52 /* current */,
 				1AD7CE6C15D11DCA00651C52 /* program */,
 				1A60FCB915CE9F540093380B /* models */,
@@ -523,6 +538,7 @@
 				1AE841DB15CBC43500EE9724 /* Program.m in Sources */,
 				1A60FCB615CE0EF70093380B /* ProgramTimer.m in Sources */,
 				1AD7CE6F15D122B300651C52 /* CurrentViewController.m in Sources */,
+				1ABECA1A15D4F0E300A199F7 /* LoadProgramViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

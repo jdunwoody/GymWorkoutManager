@@ -20,7 +20,7 @@
 @interface ProgramViewController : UIViewController <ExercisePickerControllerProtocol>
 {
     UIPickerView *exercisePicker;
-   }
+}
 
 @property (strong, nonatomic) IBOutlet ExerciseTableDelegate *tableDelegate;
 @property (strong, nonatomic) IBOutlet ExercisePickerDelegate *pickerDelegate;
@@ -35,12 +35,12 @@
 @property (strong, nonatomic) UIColor *backgroundColor;
 @property (weak, nonatomic) IBOutlet UIView *programControlsView;
 @property (weak, nonatomic) IBOutlet UIView *programView;
+@property (strong, nonatomic) Program *program;
 
-
-- (IBAction)addNewBodyPart:(id)sender;
-- (IBAction)addNewExerciseType:(id)sender;
-- (IBAction)hideKeyboard:(id)sender;
-- (IBAction)addExercise:(id)sender;
+- (IBAction) addNewBodyPart:(id)sender;
+- (IBAction) addNewExerciseType:(id)sender;
+- (IBAction) hideKeyboard:(id)sender;
+- (IBAction) addExercise:(id)sender;
 
 - (IBAction) randomiseBodyPart:(id)sender;
 - (IBAction) randomiseExercise:(id)sender;
@@ -53,6 +53,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *hideControlsButton;
 @property (weak, nonatomic) IBOutlet UIButton *showControlsButton;
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated;
+- (void) setEditing:(BOOL)editing animated:(BOOL)animated;
 
 @end

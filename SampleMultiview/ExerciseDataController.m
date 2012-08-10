@@ -13,15 +13,27 @@
 
 @synthesize program;
 
-- (id)initWithProgramStatus: (id<ProgramStatusProtocol>) withProgramStatus {
+- (id)initWithProgram: (Program *) withProgram {
     if (self = [super init]) {
-        program = [[Program alloc] initWithProgramStatus:withProgramStatus];
+        program = withProgram;
     }
     return self;
 }
 
-- (void)initializeDefaultDataList {
+
+- (NSUInteger)countOfList {
+    return [self.program count];
 }
+
+- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex {
+    return [self.program exerciseAtIndex:theIndex];
+}
+
+@end
+
+
+//- (void)initializeDefaultDataList {
+//}
 
 //    self.exercises = [[NSMutableArray alloc] init];
 
@@ -82,13 +94,3 @@
 //        _exercises = [newList mutableCopy];
 //    }
 //}
-
-- (NSUInteger)countOfList {
-    return [self.program count];
-}
-
-- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex {
-    return [self.program exerciseAtIndex:theIndex];
-}
-
-@end
