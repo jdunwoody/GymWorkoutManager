@@ -14,8 +14,9 @@
 #import "ProgramTimer.h"
 #import "Program.h"
 #import "LoadProgramObserver.h"
+#import "ProgramChangedObserver.h"
 
-@interface CurrentViewController : UIViewController<TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol, LoadProgramObserver>
+@interface CurrentViewController : UIViewController<TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol, LoadProgramObserver, ProgramChangedObserver>
 {
     ExerciseTimer *timer;
     ProgramTimer *programTimer;
@@ -53,5 +54,6 @@
 - (void) timerWarning;
 
 - (void) programLoadedWithProgram: (Program *)withProgram;
+- (void) programChanged;
 
 @end

@@ -111,6 +111,12 @@
     [self dismissViewControllerAnimated:YES completion: nil];
 }
 
+- (void) programChanged
+{
+    [self dismissViewControllerAnimated:YES completion: nil];    
+}
+
+
 - (void) playSound
 {
     AudioServicesPlaySystemSound(systemSoundID);
@@ -119,6 +125,10 @@
 - (void) updateCurrentExerciseView
 {
     Exercise *currentExercise = self.program.currentExercise;
+    
+    if (currentExercise == nil) {
+        return;
+    }
     
     if (currentExercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
         self.repsView.hidden = false;
@@ -222,6 +232,8 @@
         
         ProgramViewController *destination = segue.destinationViewController;
         destination.program = self.program;
+        
+        destination.programChangeObserver = self;
         
         //        GymAppDelegate *appDelegate = (GymAppDelegate *)[[UIApplication sharedApplication] delegate];
         //        ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];

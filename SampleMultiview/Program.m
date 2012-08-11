@@ -11,6 +11,7 @@
 #import "ProgramStatusProtocol.h"
 
 @implementation Program
+@synthesize name;
 
 - (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus
 {

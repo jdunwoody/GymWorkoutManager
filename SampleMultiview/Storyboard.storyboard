@@ -41,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="programCell" textLabel="0rN-pf-4Ff" style="IBUITableViewCellStyleDefault" id="urN-9c-7OX">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="programCell" textLabel="0rN-pf-4Ff" style="IBUITableViewCellStyleDefault" id="urN-9c-7OX" customClass="LoadProgramCell">
                                         <rect key="frame" x="0.0" y="22" width="247" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -58,6 +58,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="title" destination="0rN-pf-4Ff" id="uan-7X-3tb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -65,6 +68,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="sGd-E2-7WB" id="wd4-F0-jOf"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-962" y="920"/>
@@ -153,21 +159,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="b7f-n0-D9H">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="b7f-n0-D9H">
                                         <rect key="frame" x="100" y="76" width="626" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="84"/>
                                         <color key="textColor" red="0.77772241710000001" green="0.7351658137" blue="0.13020978" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="4f1-0V-Y3t">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="4f1-0V-Y3t">
                                         <rect key="frame" x="100" y="302" width="648" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="84"/>
                                         <color key="textColor" red="0.0" green="0.68055791440000002" blue="0.060243139020000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="qx5-gC-fl4">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="qx5-gC-fl4">
                                         <rect key="frame" x="100" y="549" width="626" height="211"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="84"/>
@@ -245,7 +251,7 @@
                                         <rect key="frame" x="20" y="947" width="728" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Program">
+                                        <state key="normal" title="Edit Program">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -260,7 +266,7 @@
                                         <rect key="frame" x="13" y="880" width="72" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" title="Load">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -533,6 +539,21 @@
                                             <action selector="addExercise:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="XSv-w0-od3"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2T9-vq-Xjy">
+                                        <rect key="frame" x="311" y="3" width="72" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="close">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeProgramModalPressed:" destination="3Jg-20-Tn5" eventType="touchUpInside" id="LmV-Mf-aiS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
@@ -543,6 +564,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="closeProgramModal" destination="2T9-vq-Xjy" id="k9j-4M-glv"/>
                         <outlet property="exerciseComponentPicker" destination="aRB-ah-VHx" id="04z-jo-lvz"/>
                         <outlet property="programControlsView" destination="3ik-RU-4sr" id="tzV-Jv-cqF"/>
                         <outlet property="programView" destination="vfl-es-4Jt" id="QE4-SL-b7S"/>
@@ -635,10 +657,21 @@
         <class className="ExerciseTableDelegate" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseTableDelegate.h"/>
         </class>
+        <class className="LoadProgramCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoadProgramTableDelegate" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramTableDelegate.h"/>
+        </class>
         <class className="LoadProgramViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramViewController.h"/>
             <relationships>
                 <relationship kind="action" name="newProgramChosen:"/>
+                <relationship kind="outlet" name="tableDelegate" candidateClass="LoadProgramTableDelegate"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="ProgramViewController" superclassName="UIViewController">
@@ -647,6 +680,7 @@
                 <relationship kind="action" name="addExercise:"/>
                 <relationship kind="action" name="addNewBodyPart:"/>
                 <relationship kind="action" name="addNewExerciseType:"/>
+                <relationship kind="action" name="closeProgramModalPressed:"/>
                 <relationship kind="action" name="hideKeyboard:"/>
                 <relationship kind="action" name="randomiseBodyPart:"/>
                 <relationship kind="action" name="randomiseExercise:"/>
@@ -659,6 +693,7 @@
                 <relationship kind="outlet" name="addNewBodyPart" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="addNewExerciseType" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="closeProgramModal" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="hideControlsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="pickerDelegate" candidateClass="ExercisePickerDelegate"/>

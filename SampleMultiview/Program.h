@@ -18,6 +18,8 @@
     id<ProgramStatusProtocol> programStatus;
 }
 
+@property (strong, nonatomic) NSString *name;
+
 - (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus;
 
 - (int) count;

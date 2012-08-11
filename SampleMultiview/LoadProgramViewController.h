@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CurrentViewController.h"
+#import "LoadProgramTableDelegate.h"
 
 @interface LoadProgramViewController : UIViewController
 
 - (IBAction)newProgramChosen:(id)sender;
 
 @property (strong, nonatomic) CurrentViewController *delegate;
+@property (strong, nonatomic) IBOutlet LoadProgramTableDelegate *tableDelegate;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

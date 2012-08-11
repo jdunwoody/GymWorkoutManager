@@ -16,6 +16,7 @@
 #import "Program.h"
 #import "ProgramStatusProtocol.h"
 #import "ProgramTimer.h"
+#import "ProgramChangedObserver.h"
 
 @interface ProgramViewController : UIViewController <ExercisePickerControllerProtocol>
 {
@@ -36,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UIView *programControlsView;
 @property (weak, nonatomic) IBOutlet UIView *programView;
 @property (strong, nonatomic) Program *program;
+@property (strong, nonatomic) id<ProgramChangedObserver> programChangeObserver;
 
 - (IBAction) addNewBodyPart:(id)sender;
 - (IBAction) addNewExerciseType:(id)sender;
@@ -49,6 +51,8 @@
 - (IBAction) randomiseRest:(id)sender;
 - (IBAction) randomiseReps:(id)sender;
 - (IBAction) randomiseSets:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *closeProgramModal;
+- (IBAction)closeProgramModalPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *hideControlsButton;
 @property (weak, nonatomic) IBOutlet UIButton *showControlsButton;

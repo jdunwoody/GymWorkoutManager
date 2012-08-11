@@ -25,10 +25,11 @@
 //@synthesize addNewExerciseType;
 @synthesize programControlsView;
 @synthesize programView;
+@synthesize closeProgramModal;
 @synthesize hideControlsButton;
 @synthesize showControlsButton;
 @synthesize addNewExerciseType, addNewBodyPart;
-@synthesize tableDelegate, tableView, exerciseComponentPicker, pickerDelegate,categoryButton, weightOrTime;
+@synthesize tableDelegate, tableView, exerciseComponentPicker, pickerDelegate,categoryButton, weightOrTime, programChangeObserver;
 
 // NOTES
 // are datadetectors such as email on a field necessary Detection:Phone for instance
@@ -99,6 +100,7 @@
     [self setHideControlsButton:nil];
     [self setShowControlsButton:nil];
     [self setProgramView:nil];
+    [self setCloseProgramModal:nil];
     [super viewDidUnload];
 }
 
@@ -251,6 +253,9 @@
     [self.pickerDelegate randomiseSets:sender];
 }
 
+- (IBAction)closeProgramModalPressed:(id)sender {
+    [self.programChangeObserver programChanged];
+}
 @end
 
 //- (IBAction)hideControls:(id)sender {
