@@ -109,13 +109,20 @@
     }
     
     [self dismissViewControllerAnimated:YES completion: nil];
+    
+    if ([self.program empty]) {
+        [self performSegueWithIdentifier: @"showProgram" sender: self];
+        
+//        ProgramViewController *programViewController = [[ProgramViewController alloc] init];
+        
+//        [self presentViewController:programViewController animated:YES completion: nil];        
+    }
 }
 
 - (void) programChanged
 {
     [self dismissViewControllerAnimated:YES completion: nil];    
 }
-
 
 - (void) playSound
 {

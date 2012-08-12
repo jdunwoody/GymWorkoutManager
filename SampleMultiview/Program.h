@@ -20,8 +20,10 @@
 
 @property (strong, nonatomic) NSString *name;
 
-- (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus;
+//- (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus;
+- (id) initWithName: (NSString *) name;
 
+- (BOOL) empty;
 - (int) count;
 - (Exercise *) currentExercise;
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex;

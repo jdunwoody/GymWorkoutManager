@@ -11,18 +11,35 @@
 #import "ProgramStatusProtocol.h"
 
 @implementation Program
-@synthesize name;
+@synthesize name = _name;
 
-- (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus
+- (id) initWithName: (NSString *) name
 {
     if (self = [super init]) {
         exercises = [[NSMutableArray alloc] init];
-        programStatus = withProgramStatus;
+        self.name = name;
         current = nil;
         currentExerciseIndex = 0;
     }
     return self;
+
 }
+
+- (BOOL) empty
+{
+    return [exercises count] == 0;
+}
+
+//- (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus
+//{
+//    if (self = [super init]) {
+//        exercises = [[NSMutableArray alloc] init];
+//        programStatus = withProgramStatus;
+//        current = nil;
+//        currentExerciseIndex = 0;
+//    }
+//    return self;
+//}
 
 - (Exercise *)currentExercise
 {

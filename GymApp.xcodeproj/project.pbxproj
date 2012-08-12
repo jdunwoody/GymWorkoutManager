@@ -13,7 +13,6 @@
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
 		1A60FCB615CE0EF70093380B /* ProgramTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A60FCB515CE0EF70093380B /* ProgramTimer.m */; };
 		1A95729415D5FE890051E864 /* LoadProgramTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95729315D5FE890051E864 /* LoadProgramTableDelegate.m */; };
-		1A95729715D5FEA50051E864 /* LoadProgramDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95729615D5FEA50051E864 /* LoadProgramDataSource.m */; };
 		1A95729E15D603FA0051E864 /* LoadProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95729D15D603FA0051E864 /* LoadProgramCell.m */; };
 		1A9E40E615A45FAC001A189C /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E515A45FAC001A189C /* 72x72.png */; };
 		1A9E40E815A45FC4001A189C /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E715A45FC4001A189C /* 144x144.png */; };
@@ -99,8 +98,6 @@
 		1A79A40C15D67ECC00DF09C2 /* ProgramChangedObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramChangedObserver.h; sourceTree = "<group>"; };
 		1A95729215D5FE890051E864 /* LoadProgramTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramTableDelegate.h; sourceTree = "<group>"; };
 		1A95729315D5FE890051E864 /* LoadProgramTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgramTableDelegate.m; sourceTree = "<group>"; };
-		1A95729515D5FEA50051E864 /* LoadProgramDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramDataSource.h; sourceTree = "<group>"; };
-		1A95729615D5FEA50051E864 /* LoadProgramDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgramDataSource.m; sourceTree = "<group>"; };
 		1A95729C15D603FA0051E864 /* LoadProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramCell.h; sourceTree = "<group>"; };
 		1A95729D15D603FA0051E864 /* LoadProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgramCell.m; sourceTree = "<group>"; };
 		1A9E40E515A45FAC001A189C /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72x72.png; sourceTree = "<group>"; };
@@ -306,8 +303,6 @@
 				1ABECA1B15D53D8B00A199F7 /* LoadProgramObserver.h */,
 				1A95729215D5FE890051E864 /* LoadProgramTableDelegate.h */,
 				1A95729315D5FE890051E864 /* LoadProgramTableDelegate.m */,
-				1A95729515D5FEA50051E864 /* LoadProgramDataSource.h */,
-				1A95729615D5FEA50051E864 /* LoadProgramDataSource.m */,
 				1A95729C15D603FA0051E864 /* LoadProgramCell.h */,
 				1A95729D15D603FA0051E864 /* LoadProgramCell.m */,
 			);
@@ -557,7 +552,6 @@
 				1AD7CE6F15D122B300651C52 /* CurrentViewController.m in Sources */,
 				1ABECA1A15D4F0E300A199F7 /* LoadProgramViewController.m in Sources */,
 				1A95729415D5FE890051E864 /* LoadProgramTableDelegate.m in Sources */,
-				1A95729715D5FEA50051E864 /* LoadProgramDataSource.m in Sources */,
 				1A95729E15D603FA0051E864 /* LoadProgramCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

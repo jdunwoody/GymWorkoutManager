@@ -68,6 +68,11 @@
 
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+}
+
 //    timer = [[ExerciseTimer alloc] initWithTimerAlertDelegate:(id <TimerAlertDelegate>)self withDirection: CountDown withInitialSeconds:30];
 
 //    SystemSoundID soundId;

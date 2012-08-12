@@ -15,7 +15,8 @@
 - (IBAction)newProgramChosen:(id)sender;
 
 @property (strong, nonatomic) CurrentViewController *delegate;
-@property (strong, nonatomic) IBOutlet LoadProgramTableDelegate *tableDelegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSMutableArray *programs;
 
 @end
