@@ -10,22 +10,14 @@
 
 @implementation Exercise
 
-@synthesize name, rest, bodyPart, category, intensity, superSet, weight, reps;
-@synthesize isAdd, isCompleted, isSingle;
-@synthesize exerciseWeightOrTimeMode = _exerciseWeightOrTimeMode;
-
-//- (id)initWithLabel: (NSString *)label 
-//{
-//    if (self = [super init]) {
-////        [self set
-//    }
-//    return self;
-//    
-//}
+@synthesize name = _name;
+@synthesize bodyPart = _bodyPart;
+@synthesize rest = _rest;
+@synthesize completed = _completed;
 
 - (NSString *) restAsDisplayValue
 {
-    return [NSString stringWithFormat:@"%@ min", [self rest]];        
+    return [NSString stringWithFormat:@"%@ min", [self rest]];
 }
 
 @end

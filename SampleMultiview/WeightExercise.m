@@ -10,29 +10,14 @@
 
 
 @implementation WeightExercise
-@synthesize weight = _weight;
 @synthesize sets = _sets;
-@synthesize reps = _reps;
 
 - (id)init 
 {
     if (self = [super init]) {
-        self.exerciseWeightOrTimeMode = ExerciseWeightMode;    
+        self.sets = [[NSMutableArray alloc] init];
     }
     return self;
-}
-
-- (NSString *) repsAsDisplayValue
-{
-    return [NSString stringWithFormat:@"%@ reps", [_reps stringValue]]; 
-    //  myString = [NSString stringWithFormat:@"%d", [myPowerOnOrNot stringValue]];
-    
-}
-
-
-- (NSString *) weightAsDisplayValue
-{
-    return [NSString stringWithFormat:@"%@ kg", [self.weight stringValue]];    
 }
 
 @end

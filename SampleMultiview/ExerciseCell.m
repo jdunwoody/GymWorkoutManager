@@ -11,20 +11,8 @@
 
 @implementation ExerciseCell
 
-@synthesize name;
-@synthesize reps;
-@synthesize bodyPart;
-@synthesize rest;
-@synthesize weight;
-@synthesize category;
-@synthesize intensity;
-@synthesize editingMode;
-@synthesize time = _time;
-@synthesize currentExerciseIndicator;
-@synthesize makeSuperSet;
-@synthesize unmakeSuperSet;
-@synthesize weightImage, repsImage;
-@synthesize exercise;
+
+@end
 
 //- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 //{
@@ -79,20 +67,3 @@
 //        [super setSelected:selected animated:NO];
 //    }
 //}
-
-- (IBAction)makeSuperSet:(id)sender {
-    self.exercise.superSet = YES;
-    UITableView *tv = (UITableView *) self.superview;
-//    [tv ]reloadRowsAtIndexPaths:[[NSArray alloc] initWithObjects:<#(id), ...#>, nil indexPaths withRowAnimation:(UITableViewRowAnimation)animation
-    [tv reloadData];
-//    [self setNeedsDisplay];
-}
-
-- (IBAction)unmakeSuperSet:(id)sender {
-    self.exercise.superSet = NO;
-    UITableView *tv = (UITableView *) self.superview;
-    [tv reloadData];
-//    [self setNeedsDisplay];
-}
-
-@end

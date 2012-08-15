@@ -72,12 +72,6 @@
     return nil;
 }
 
--(void) makeSuperSetForRow: (NSInteger)row
-{
-    Exercise *exercise = [exercises objectAtIndex:row];
-    exercise.superSet = true;
-}
-
 - (int) count
 {
     return [exercises count];

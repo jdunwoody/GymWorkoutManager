@@ -11,7 +11,6 @@
 #import "Exercise.h"
 #import "ExerciseWeightOrTimeMode.h"
 #import "WeightExercise.h"
-#import "TimeExercise.h"
 #import "Exercise.h"
 
 @implementation ExerciseTableDelegate
@@ -44,43 +43,34 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Exercise *exercise = [self.dataController.program exerciseAtIndex:indexPath.row];
-    NSString *cellIdentifier = exercise.superSet ? @"SuperSetExerciseCell" : @"ExerciseCell";
+    NSString *cellIdentifier = @"ExerciseCell";
     
     ExerciseCell *cell = (ExerciseCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
         cell = [[ExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-
+    
     cell.exercise = exercise;
-
+    
     Exercise *current = self.dataController.program.currentExercise;
-
+    
     if (exercise == current) {
         cell.currentExerciseIndicator.hidden = NO;
-//        cell.backgroundColor = [UIColor ]
     } else {
         cell.currentExerciseIndicator.hidden = YES;
     }
-   
-    [[cell name] setText: exercise.name];
-    [[cell rest] setText: [exercise restAsDisplayValue]];
-    [[cell bodyPart] setText: exercise.bodyPart];
-    [[cell intensity] setText: exercise.intensity];
-    [[cell category] setText: exercise.category];
     
-    if (exercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
-        WeightExercise *weightExercise = (WeightExercise *) exercise;
-        [[cell reps] setText: [weightExercise repsAsDisplayValue]];
-        [[cell weight] setText: [weightExercise weightAsDisplayValue]];
-        cell.weightImage.hidden = false;
-        cell.repsImage.hidden = true;
-    } else {
-        TimeExercise *timeExercise = (TimeExercise *) exercise;
-        [[cell time] setText: [timeExercise timeAsDisplayValue]];
-        cell.weightImage.hidden = true;
-        cell.repsImage.hidden = false;
-    }
+    [[cell name] setText: exercise.name];
+//    [[cell rest] setText: [exercise restAsDisplayValue]];
+//    [[cell bodyPart] setText: exercise.bodyPart];
+//    
+    //    WeightExercise *weightExercise = (WeightExercise *) exercise;
+    //    [[cell reps] setText: [weightExercise repsAsDisplayValue]];
+    //    [[cell weight] setText: [weightExercise weightAsDisplayValue]];
+    //    cell.weightImage.hidden = false;
+    //    cell.repsImage.hidden = true;
+    //
     current = nil;
     cellIdentifier = nil;
     return cell;
@@ -175,15 +165,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
-    
-    if (exercise.isAdd) {
-        cell.backgroundColor = [UIColor brownColor];
-        
-    } else {
-        cell.backgroundColor = self.backgroundColor;
-        
-    }
+    cell.backgroundColor = self.backgroundColor;
     //        [cell textColor];
     cell.textLabel.textColor = [UIColor whiteColor];
     //    cell.backgroundColor = [UIColor lightGrayColor];
@@ -192,13 +174,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
-    
-    if (exercise.isAdd) {
-        return tableView.rowHeight;
-    } else {
-        return 92;
-    }
+    return 92;
 }
 
 //

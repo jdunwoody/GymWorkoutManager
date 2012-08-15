@@ -11,6 +11,7 @@
 #import "CurrentViewController.h"
 #import "WeightExercise.h"
 #import "LoadProgramCell.h"
+#import "Set.h"
 
 @implementation LoadProgramViewController
 
@@ -21,55 +22,40 @@
 {
     [super viewDidLoad];
     
+    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
+    self.programs = [[NSMutableArray alloc] initWithObjects: program, nil];
     
-    self.programs = [[NSMutableArray alloc] initWithObjects:
-                     [[Program alloc] initWithName: @"11 August 10:01pm"],
-                     [[Program alloc] initWithName: @"12 August 05:03pm"],
-                     [[Program alloc] initWithName: @"13 August 10:01pm"],
-                     [[Program alloc] initWithName: @"14 August 10:01pm"],
-                     [[Program alloc] initWithName: [self currentDateString]],
-                     nil];
+    program = nil;
+}
+
+- (Program *) makeExampleProgramWithName: (NSString *) name
+{
+    Program *program = [[Program alloc] initWithName: name];
     
-//    self.tableDelegate = [[LoadProgramTableDelegate alloc] init];
-//    self.tableView.dataSource = [[LoadProgramDataSource alloc] init];
+    WeightExercise *exercise = [[WeightExercise alloc] init];
+    exercise.name = @"Dumbell Flys";
+    exercise.rest = @"20";
     
-//    self.tableView.delegate = self.tableDelegate;
-//    self.tableView.dataSource = self.tableDelegate;
+    Set *set = [[Set alloc] init];
+    set.weight = [NSNumber numberWithInt:10];
+    set.reps = [NSNumber numberWithInt:20];
+    set.rest = [NSNumber numberWithInt:30];
     
+    [exercise.sets addObject:set];
+    
+    [program addExercise:exercise];
+    
+    exercise = nil;
+    set = nil;
+    
+    return program;
 }
 
 - (IBAction)newProgramChosen:(id)sender {
-    
     Program *program = [[Program alloc] initWithName:[self currentDateString]];
     
-    //    Exercise *exercise;
-    //
-    //    exercise = [[WeightExercise alloc] init];
-    //    exercise.category = @"Super set";
-    //    exercise.name = @"Dumbell Flys";
-    //    exercise.rest = nil;
-    //    exercise.reps = [NSNumber numberWithInt:8];
-    //    exercise.weight = [NSNumber numberWithInt:24];
-    //    exercise.exerciseWeightOrTimeMode = ExerciseWeightMode;
-    //    [program addExercise:exercise];
-    //
-    //    exercise = [[WeightExercise alloc] init];
-    //    exercise.category = @"Set";
-    //    exercise.name = @"Bicep Curls";
-    //    exercise.rest = @"1min";
-    //    exercise.reps = [NSNumber numberWithInt:18];
-    //    exercise.weight = [NSNumber numberWithInt:40];
-    //    exercise.exerciseWeightOrTimeMode = ExerciseWeightMode;
-    //    [program addExercise:exercise];
-    //
     self.delegate.program = program;
     [self.delegate programLoadedWithProgram:program];
-    
-    //    CurrentViewController *currentViewController = (CurrentViewController *) self.presentingViewController;
-    //    currentViewController.program = program;
-    //    [self dismissModalViewControllerAnimated:YES];
-    //    [self.navigationController popViewControllerAnimated:YES];
-    //    [self performSegueWithIdentifier:@"chooseProgram" sender:self];
 }
 
 - (void)viewDidUnload {
@@ -86,23 +72,6 @@
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
     return [formatter stringFromDate:now];
 }
-
-
-//
-//- (id) initWithController: (id<LoadProgramObserver>) withLoadProgramViewObserver
-//{
-//    self = [super init];
-//    
-//    if (self) {
-//        Program *program = [[Program alloc] init];
-//        program.name = @"11 August 10:01pm";
-//        
-//        self.programs = [[NSMutableArray alloc] initWithObjects:program, nil];
-//        self.loadProgramObserver = withLoadProgramViewObserver;
-//    }
-//    
-//    return self;
-//}
 
 - (NSUInteger)countOfList {
     return [self.programs count];
@@ -122,16 +91,16 @@
     return [self countOfList];
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    Program *program = [self objectInListAtIndex:indexPath.row];
+    [(CurrentViewController *) self.presentingViewController programLoadedWithProgram:program];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
-
-
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    return @"title for header in section";
-//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -149,13 +118,16 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    Program *program = [self.dataSource objectInListAtIndex:indexPath.row];
-//    cell.textLabel.textColor = [UIColor whiteColor];
-//    cell.backgroundColor = [UIColor brownColor];
-        
-}
+@end
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    Program *program = (Program *)[self objectInListAtIndex:indexPath.row];
+    //    cell.textLabel.textColor = [UIColor whiteColor];
+    //    cell.backgroundColor = [UIColor brownColor];
+//    
+//}
+
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
@@ -207,10 +179,10 @@
 //    }
 //}
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return YES;
+//}
 
 //-(void) addExerciseWithExercise:(Exercise *)exercise
 //{
@@ -250,9 +222,8 @@
 //    NSLog(@"Move rows");
 //}
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    return UITableViewCellEditingStyleInsert;
-    return UITableViewCellEditingStyleDelete;
-}
-@end
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    //    return UITableViewCellEditingStyleInsert;
+//    return UITableViewCellEditingStyleDelete;
+//}

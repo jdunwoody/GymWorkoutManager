@@ -16,7 +16,7 @@
 #import "LoadProgramObserver.h"
 #import "ProgramChangedObserver.h"
 
-@interface CurrentViewController : UIViewController<TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol, LoadProgramObserver, ProgramChangedObserver>
+@interface CurrentViewController : UIViewController<TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol, LoadProgramObserver, ProgramChangedObserver, UITableViewDataSource, UITableViewDelegate>
 {
     ExerciseTimer *timer;
     ProgramTimer *programTimer;

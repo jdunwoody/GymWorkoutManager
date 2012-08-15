@@ -9,23 +9,28 @@
 #import "CurrentViewController.h"
 #import "GymAppDelegate.h"
 #import "LoadProgramViewController.h"
+#import "SummaryParentCell.h"
+#import "WeightExercise.h"
 
 @implementation CurrentViewController
-@synthesize currentView;
-@synthesize programTime;
+@synthesize currentView = _currentView;
+@synthesize programTime = _programTime;
 @synthesize timerStopButton;
 @synthesize timerPauseButton;
 @synthesize nextButton;
 @synthesize nextExerciseLabel;
 @synthesize repsView;
 @synthesize timerStartButton;
-@synthesize currentExerciseInTimer, currentWeightInTimer, currentRepsInTimer, currentTimeInTimer;
-@synthesize backgroundColor, timerAlertColour, timerWarningColour, program;
+@synthesize currentExerciseInTimer = _currentExerciseInTimer;
+@synthesize currentWeightInTimer = _currentWeightInTimer;
+@synthesize currentRepsInTimer = _currentRepsInTimer;
+@synthesize currentTimeInTimer = _currentTimeInTimer;
+@synthesize backgroundColor, timerAlertColour, timerWarningColour;
+@synthesize program = _program;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     //    self.repsView.hidden = false;
     
@@ -49,8 +54,10 @@
 {
     [super viewDidAppear:animated];
     
-    [self performSegueWithIdentifier: @"chooseProgram" sender: self];
-    //    [self showProgramChooser:self];
+    LoadProgramViewController *loadProgramViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoadProgramViewController"];
+    [self presentViewController:loadProgramViewController animated:YES completion:nil];
+    
+    loadProgramViewController = nil;
 }
 
 - (void)viewDidUnload
@@ -100,28 +107,24 @@
 - (void) programLoadedWithProgram: (Program *)withProgram
 {
     if (withProgram) {
-        //        int recipeCount = [recipesController countOfRecipes];
-        //        UITableView *tableView = [self tableView];
-        self.program = program;
+        self.program = withProgram;
         
         [self updateCurrentExerciseView];
-        //        [tableView reloadData];
     }
     
-    [self dismissViewControllerAnimated:YES completion: nil];
-    
-    if ([self.program empty]) {
-        [self performSegueWithIdentifier: @"showProgram" sender: self];
-        
-//        ProgramViewController *programViewController = [[ProgramViewController alloc] init];
-        
-//        [self presentViewController:programViewController animated:YES completion: nil];        
-    }
+    [self dismissModalViewControllerAnimated:YES];
 }
+
+//    [self dismissViewControllerAnimated:YES completion: nil];
+//    if ([self.program empty]) {
+//        [self performSegueWithIdentifier: @"showProgram" sender: self];
+//        ProgramViewController *programViewController = [[ProgramViewController alloc] init]
+//        [self presentViewController:programViewController animated:YES completion: nil];
+//    }
 
 - (void) programChanged
 {
-    [self dismissViewControllerAnimated:YES completion: nil];    
+    [self dismissViewControllerAnimated:YES completion: nil];
 }
 
 - (void) playSound
@@ -137,32 +140,19 @@
         return;
     }
     
-    if (currentExercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
-        self.repsView.hidden = false;
-        //        self.timeView.hidden = false;
+    if ([currentExercise isKindOfClass:[WeightExercise class]]) {
+        self.currentExerciseInTimer.text = self.program.currentExercise.name;
         
-        self.currentWeightInTimer.text = [NSString stringWithFormat:@"%@ kg", self.program.currentExercise.weight.stringValue];
-        self.currentRepsInTimer.text = [NSString stringWithFormat:@"%@ reps", self.program.currentExercise.reps.stringValue];
-        
-        Exercise *nextExercise = self.program.nextExercise;
-        if (nextExercise != nil) {
-            self.nextExerciseLabel.text = [NSString stringWithFormat:@"Coming up... %@ %@kg %@ reps", nextExercise.name, nextExercise.weight, nextExercise.reps];
-        } else {
-            self.nextExerciseLabel.text = @"nothing next";
-        }
-        //        self.currentWeightInTimer.hidden = false;
-        //        self.currentRepsInTimer.hidden = false;
+        //        self.currentWeightInTimer.text = [NSString stringWithFormat:@"%@ kg", self.program.currentExercise.weight.stringValue];
+        //        self.currentRepsInTimer.text = [NSString stringWithFormat:@"%@ reps", self.program.currentExercise.reps.stringValue];
         //
-    } else {
-        //        self.repsView.hidden = false;
-        //        self.timeView.hidden = true;
-        
-        //        self.currentWeightInTimer.hidden = false;
-        //        self.currentRepsInTimer.hidden = false;
+        //        Exercise *nextExercise = self.program.nextExercise;
+        //        if (nextExercise != nil) {
+        //            self.nextExerciseLabel.text = [NSString stringWithFormat:@"Coming up... %@ %@kg %@ reps", nextExercise.name, nextExercise.weight, nextExercise.reps];
+        //        } else {
+        //            self.nextExerciseLabel.text = @"nothing next";
+        //        }
     }
-    
-    
-    self.currentExerciseInTimer.text = self.program.currentExercise.name;
     
     currentExercise = nil;
 }
@@ -257,6 +247,252 @@
         loadProgramViewController.delegate = self;
         
     }
+}
+
+- (NSUInteger)countOfList {
+    return [self.program count];
+}
+
+- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex {
+    return [self.program exerciseAtIndex:theIndex];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self countOfList];
+}
+
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return @"title for header in section";
+//}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Exercise *exercise = [self.program exerciseAtIndex:indexPath.row];
+    NSString *cellIdentifier = @"SummaryExerciseCell";
+    
+    SummaryParentCell *cell = (SummaryParentCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[SummaryParentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.exercise = exercise;
+    
+    Exercise *current = self.program.currentExercise;
+    
+    if (exercise == current) {
+        cell.currentExerciseIndicator.hidden = NO;
+        //        cell.backgroundColor = [UIColor ]
+    } else {
+        cell.currentExerciseIndicator.hidden = YES;
+    }
+    
+    [[cell name] setText: exercise.name];
+    [[cell rest] setText: [exercise restAsDisplayValue]];
+    
+    //    if (exercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
+    //        WeightExercise *weightExercise = (WeightExercise *) exercise;
+    //        [[cell reps] setText: [weightExercise repsAsDisplayValue]];
+    //        [[cell weight] setText: [weightExercise weightAsDisplayValue]];
+    //        cell.weightImage.hidden = false;
+    //        cell.repsImage.hidden = true;
+    //    } else {
+    //        TimeExercise *timeExercise = (TimeExercise *) exercise;
+    //        [[cell time] setText: [timeExercise timeAsDisplayValue]];
+    //        cell.weightImage.hidden = true;
+    //        cell.repsImage.hidden = false;
+    //    }
+    current = nil;
+    cellIdentifier = nil;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    Exercise *exercise = [self objectInListAtIndex:indexPath.row];
+    
+    cell.backgroundColor = self.backgroundColor;
+    cell.textLabel.textColor = [UIColor whiteColor];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 92;
+}
+
+//        UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+//        gesture.direction = UISwipeGestureRecognizerDirectionRight;
+//        [cell.contentView addGestureRecognizer:gesture];
+
+//    UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+////    [gesture setDirection: (UISwipeGestureRecognizerDirectionLeft|UISwipeGestureRecognizerDirectionRight)];
+//    gesture.direction = UISwipeGestureRecognizerDirectionRight;
+//    [tableView addGestureRecognizer:gesture];
+//
+
+//-(void)didSwipe:(UISwipeGestureRecognizer *)recognizer {
+//
+//    //    if (recognizer.state == UIGestureRecognizerStateEnded) {
+//    //        CGPoint swipeLocation = [recognizer locationInView:self.tableView];
+//    //        NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+//    //
+//    //        //        ExerciseCell *cell = (ExerciseCell *)[self.tableView cellForRowAtIndexPath:swipedIndexPath];
+//    //
+//    //        Exercise *exercise = [self.dataController objectInListAtIndex:swipedIndexPath.row];
+//    //        exercise.superSet = YES;
+//    //    }
+//
+//    CGPoint swipeLocation = [recognizer locationInView:self.tableView];
+//    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+//
+//    Exercise *exercise = [self.dataController objectInListAtIndex:swipedIndexPath.row];
+//    ExerciseCell *cell = (ExerciseCell *)[self.tableView cellForRowAtIndexPath:swipedIndexPath];
+//
+//    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft) {
+//        [self makeSuperSetWithCell: cell withExercise: exercise];
+//    } else if (recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+//        [self makeNormalSetWithCell: cell withExercise: exercise];
+//    } else if (recognizer.direction == UISwipeGestureRecognizerDirectionDown) {
+//        NSLog(@"unknown direction down");
+//    } else if (recognizer.direction == UISwipeGestureRecognizerDirectionUp) {
+//        NSLog(@"unknown direction up");
+//    } else {
+//        NSLog(@"unknown direction");
+//    }
+//}
+
+//- (void) makeSuperSetWithCell: (ExerciseCell *)cell withExercise: (Exercise *)exercise
+//{
+//    cell.backgroundColor = [UIColor purpleColor];
+//    exercise.superSet = YES;
+//}
+//
+//- (void) makeNormalSetWithCell: (ExerciseCell *)cell withExercise: (Exercise *)exercise
+//{
+//    cell.backgroundColor = [UIColor whiteColor];
+//    exercise.superSet = NO;
+//}
+
+//        [[cell sets] setText: [NSString stringWithFormat:@"%d", exercise.sets]];
+//    [[cell category] setText: exercise.isSingle ? @"Single" : @"Super"];
+//        cell.indentationLevel = 50;
+//        cell.indentationWidth = 50;
+
+
+//    if (exercise.isAdd) {
+//        static NSString *CellIdentifier = @"AddExerciseCell";
+//        AddExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//
+//        [[cell exercisePicker] setDelegate:self];
+//        [[cell exercisePicker] setDataSource:self];
+//
+//        //        NSString *valueAtIndex = [self.dataController objectInListAtIndex:indexPath.row];
+//        //        [[cell category] setText: @"exercise category"];
+//        //        [[cell exerciseLabel] setText:@"exercise label"];
+//
+//        return cell;
+//
+//    } else {
+//        @property NSString *type;
+//        Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
+//        [[cell reps] setText: [NSString stringWithFormat:@"%d" exercise.reps]];
+//        [[cell bodyPart] setText: exercise.bodyPart];
+//        [cell sizeToFit];
+//        cell.backgroundColor = [UIColor redColor];
+//        cell.backgroundColor = [UIColor colorWithRed:172.0/255.0 green:173.0/255.0 blue:175.0/255.0 alpha:1.0];
+//        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop]
+//    NSIndexPath *selectedIndex = [tableView indexPathForSelectedRow];
+//    }
+//}
+
+//
+//-(void) addExerciseWithName:(NSString *)name withReps: (NSString *)reps withRest: (NSString *)rest withWeight: (NSString *)weight withBodyPart: (NSString *)selectedBodyPart withIntensity:(NSString *)selectedIntensity withCategory:(NSString *)selectedCategory
+//{
+//    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+//
+//    Exercise *exercise = [[Exercise alloc] init];
+//    exercise.name = name;
+//    exercise.reps = [numberFormatter numberFromString: reps];
+//    exercise.rest = rest;
+//    exercise.weight = [numberFormatter numberFromString:weight];
+//    exercise.bodyPart = selectedBodyPart;
+//    exercise.intensity = selectedIntensity;
+//
+//    exercise.category = selectedCategory;
+//    [self.dataController.exercises addObject:exercise];
+//}
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (editingStyle == UITableViewCellEditingStyleInsert) {
+//
+//
+//    } else if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [self.program removeExerciseAtIndex:indexPath.row];
+//        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [self.tableView reloadData];
+//
+//        //        NSLog(@"%d", [self.dataController.exercises count]);
+//        //        NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
+//        //        [self.tableView setEditing:FALSE animated:YES];
+//
+//        //        [self.tableView deleteRowsAtIndexPaths:indexPath withRowAnimation:YES];
+//        //        int row = indexPath.row;
+//        //        SimpleEditableListAppDelegate *controller = (SimpleEditableListAppDelegate *)[[UIApplication sharedApplication] delegate];
+//        //        [controller removeObjectFromListAtIndex:indexPath.row];
+//        //        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    }
+//}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(void) addExerciseWithExercise:(Exercise *)exercise
+{
+    [self.program addExercise:exercise];
+}
+
+-(void) deleteWithIndexPaths: (NSArray *)indexPaths
+{
+    for (NSIndexPath *path in indexPaths) {
+        [self.program removeExerciseAtIndex:path.row];
+    }
+}
+
+//-(void) updateRowWithExercise: (Exercise *) exercise withRow: (NSInteger) row
+//{
+//    [self.program updateExerciseAtIndex:row withObject:exercise];
+//    [self.tableView reloadData];
+//}
+
+//-(void) updateRowWithRow: (NSInteger)row withComponent: (NSInteger)component
+//{
+//    [self.tableView
+//}
+
+//- (void)insertRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+//{
+//    NSLog(@"Insert rows");
+//}
+//
+//- (void)deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+//{
+//    NSLog(@"Delete rows");
+//}
+//
+//- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
+//{
+//    NSLog(@"Move rows");
+//}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    return UITableViewCellEditingStyleInsert;
+    return UITableViewCellEditingStyleDelete;
 }
 
 @end

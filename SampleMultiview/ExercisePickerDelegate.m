@@ -10,7 +10,6 @@
 #import "Exercise.h"
 #import "ProgramViewController.h"
 #import "WeightExercise.h"
-#import "TimeExercise.h"
 
 @implementation ExercisePickerDelegate
 @synthesize categoryButton = _categoryButton;
@@ -22,7 +21,7 @@
     if (self = [super init]) {
         controller = newController;
         
-        nameValues = [[NSMutableArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];  
+        nameValues = [[NSMutableArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];
         [nameValues sortUsingSelector:@selector(compare:)];
         
         bodyPartValues = [[NSMutableArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
@@ -74,13 +73,13 @@
 
 -(Exercise *) selectedPickerExercise
 {
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    //    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     
     NSString *selectedName = [self selectedPickerValueForExercise];
     NSString *selectedBodyPart = [bodyPartValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:BODYPART]];
     NSString *selectedRest = [restValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REST]];
-    NSString *selectedIntensity = [intensityValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:INTENSITY]];
-    NSString *selectedCategory = [self.categoryButton titleForSegmentAtIndex:[self.categoryButton selectedSegmentIndex]];
+    //    NSString *selectedIntensity = [intensityValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:INTENSITY]];
+    //    NSString *selectedCategory = [self.categoryButton titleForSegmentAtIndex:[self.categoryButton selectedSegmentIndex]];
     
     NSString *selectedReps = nil;
     NSString *selectedWeight = nil;
@@ -97,21 +96,21 @@
     Exercise *exercise =nil;
     if (self.exerciseWeightOrTimeMode == ExerciseWeightMode) {
         exercise = [[WeightExercise alloc] init];
-        WeightExercise *weightExercise = (WeightExercise *) exercise;
+        //        WeightExercise *weightExercise = (WeightExercise *) exercise;
         
-        weightExercise.reps = [numberFormatter numberFromString: selectedReps];
-        weightExercise.weight = [numberFormatter numberFromString:selectedWeight];
+        //        weightExercise.reps = [numberFormatter numberFromString: selectedReps];
+        //        weightExercise.weight = [numberFormatter numberFromString:selectedWeight];
     } else {
-        exercise = [[TimeExercise alloc] init];
-        TimeExercise *timeExercise = (TimeExercise *) exercise;
-        timeExercise.time = [numberFormatter numberFromString: selectedTime];
+        //        exercise = [[TimeExercise alloc] init];
+        //        TimeExercise *timeExercise = (TimeExercise *) exercise;
+        //        timeExercise.time = [numberFormatter numberFromString: selectedTime];
     }
     exercise.name = selectedName;
     exercise.rest = selectedRest;
     exercise.bodyPart = selectedBodyPart;
-    exercise.intensity = selectedIntensity;
+    //    exercise.intensity = selectedIntensity;
     
-    exercise.category = selectedCategory;
+    //    exercise.category = selectedCategory;
     
     return exercise;
 }
@@ -127,12 +126,12 @@
         case BODYPART: return 130.0f;
         case INTENSITY: return 160.0f;
         case REST: return 88.0f;
-    }        
+    }
     if (self.exerciseWeightOrTimeMode == ExerciseWeightMode) {
         switch(component) {
             case SETS: return 80.0f;
             case REPS: return 80.0f;
-            case WEIGHT: return 88.0f; 
+            case WEIGHT: return 88.0f;
         }
     } else {
         switch(component) {
@@ -169,7 +168,7 @@
         switch (component) {
             case TIME:
                 return timeValues.count;
-        } 
+        }
     }
     return (NSInteger)0;
     
@@ -177,7 +176,7 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [self textForRow:row forComponent: component];   
+    return [self textForRow:row forComponent: component];
 }
 
 - (NSString *)textForRow: (NSInteger) row forComponent:(NSInteger) component
@@ -260,7 +259,7 @@
 
 -(void) randomisePickerComponentWithComponentId: (int) component withValues: (NSArray *)values
 {
-    int randomIndex = arc4random() % values.count;    
+    int randomIndex = arc4random() % values.count;
     [self.exerciseComponentPicker selectRow:randomIndex inComponent:component animated:YES];
     
     [controller updateSelectedRow];
@@ -277,7 +276,7 @@
 {
     [bodyPartValues addObject:[newBodyPart capitalizedString]];
     [bodyPartValues sortUsingSelector:@selector(compare:)];
-    [self.exerciseComponentPicker reloadComponent:BODYPART];    
+    [self.exerciseComponentPicker reloadComponent:BODYPART];
 }
 
 - (void) weightOrTimeChosen: (ExerciseWeightOrTimeMode) exerciseWeightOrTimeMode

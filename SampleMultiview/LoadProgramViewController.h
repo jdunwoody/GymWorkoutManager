@@ -10,7 +10,7 @@
 #import "CurrentViewController.h"
 #import "LoadProgramTableDelegate.h"
 
-@interface LoadProgramViewController : UIViewController
+@interface LoadProgramViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 - (IBAction)newProgramChosen:(id)sender;
 

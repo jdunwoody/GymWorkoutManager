@@ -10,10 +10,6 @@
 
 @interface WeightExercise : Exercise
 
-@property NSNumber *reps;
-@property NSNumber *sets;
-@property NSNumber *weight;
+@property NSMutableArray *sets;
 
-- (NSString *) repsAsDisplayValue;
-- (NSString *) weightAsDisplayValue;
 @end
