@@ -28,7 +28,7 @@
 - (Exercise *) currentExercise;
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex;
 - (void) next;
-- (Exercise *)nextExercise;
+- (Exercise *) nextExercise;
 
 - (void) addExercise:(Exercise *)exercise;
 - (void) removeExerciseAtIndex:(NSUInteger)theIndex;

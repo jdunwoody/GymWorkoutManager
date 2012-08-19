@@ -9,10 +9,12 @@
 #import "CurrentViewController.h"
 #import "GymAppDelegate.h"
 #import "LoadProgramViewController.h"
-#import "SummaryParentCell.h"
+#import "CurrentExerciseCell.h"
 #import "WeightExercise.h"
+#import "Set.h"
 
 @implementation CurrentViewController
+@synthesize tableView;
 @synthesize currentView = _currentView;
 @synthesize programTime = _programTime;
 @synthesize timerStopButton;
@@ -75,6 +77,7 @@
     
     [self setNextButton:nil];
     [self setNextExerciseLabel:nil];
+    [self setTableView:nil];
     [super viewDidUnload];
 }
 
@@ -106,11 +109,9 @@
 
 - (void) programLoadedWithProgram: (Program *)withProgram
 {
-    if (withProgram) {
-        self.program = withProgram;
-        
-        [self updateCurrentExerciseView];
-    }
+    self.program = withProgram;
+    //    dsfs
+    [self updateCurrentExerciseView];
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -154,6 +155,7 @@
         //        }
     }
     
+    [self.tableView reloadData];
     currentExercise = nil;
 }
 
@@ -194,6 +196,14 @@
 - (IBAction)nextButtonPressed:(id)sender {
     [self.program next];
     [self updateCurrentExerciseView];
+}
+
+- (IBAction)setCompletedPressed:(id)sender {
+    [self.program.currentExercise currentSetIsCompleted];
+    [self.tableView reloadData];
+    
+    NSIndexPath *path = [NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0];
+    [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (void) timerAlert
@@ -250,7 +260,8 @@
 }
 
 - (NSUInteger)countOfList {
-    return [self.program count];
+    NSLog(@"count of list %i", [self.program.currentExercise count]);
+    return [self.program.currentExercise count];
 }
 
 - (Exercise *)objectInListAtIndex:(NSUInteger)theIndex {
@@ -269,28 +280,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Exercise *exercise = [self.program exerciseAtIndex:indexPath.row];
-    NSString *cellIdentifier = @"SummaryExerciseCell";
-    
-    SummaryParentCell *cell = (SummaryParentCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[SummaryParentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    cell.exercise = exercise;
-    
     Exercise *current = self.program.currentExercise;
     
-    if (exercise == current) {
-        cell.currentExerciseIndicator.hidden = NO;
-        //        cell.backgroundColor = [UIColor ]
-    } else {
-        cell.currentExerciseIndicator.hidden = YES;
+    Set *set = (Set *) [current setAtIndex:indexPath.row];
+    NSString *cellIdentifier = @"CurrentExerciseCell";
+    
+    CurrentExerciseCell *cell = (CurrentExerciseCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[CurrentExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    [[cell name] setText: exercise.name];
-    [[cell rest] setText: [exercise restAsDisplayValue]];
+    cell.set = set;
+        
+    if (set == current.currentSet) {
+        cell.completeButton.hidden = false;
+    } else {
+        cell.completeButton.hidden = true;
+    }
+    
+    [[cell reps] setText: set.reps.stringValue];
+    [[cell weight] setText: [NSString stringWithFormat:@"%@kg", set.weight.stringValue]];
+    [[cell rest] setText: [NSString stringWithFormat:@"%@s",set.rest.stringValue]];
     
     //    if (exercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
     //        WeightExercise *weightExercise = (WeightExercise *) exercise;
@@ -311,9 +322,9 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    Exercise *exercise = [self objectInListAtIndex:indexPath.row];
+    //    Exercise *exercise = [self objectInListAtIndex:indexPath.row];
     
-    cell.backgroundColor = self.backgroundColor;
+    //    cell.backgroundColor = self.backgroundColor;
     cell.textLabel.textColor = [UIColor whiteColor];
 }
 

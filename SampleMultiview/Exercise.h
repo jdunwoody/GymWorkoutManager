@@ -8,14 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import "ExerciseWeightOrTimeMode.h"
+#import "Set.h"
 
 @interface Exercise : NSObject
+{
+    Set *_currentSet;
+}
 
 @property NSString *name;
 @property NSString *bodyPart;
 @property NSString *rest;
-@property BOOL completed;
+@property NSMutableArray *sets;
 
 - (NSString *) restAsDisplayValue;
+- (Set *) setAtIndex: (int) index;
+- (Set *) currentSet;
+- (int) count;
+- (void) currentSetIsCompleted;
+- (int) currentSetPosition;
 
 @end

@@ -29,6 +29,7 @@
 @property (strong, nonatomic) UIColor *timerWarningColour;
 @property (strong, nonatomic) UIColor *backgroundColor;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *currentView;
 //@property (weak, nonatomic) IBOutlet UIView *timeView;
 @property (weak, nonatomic) IBOutlet UIView *repsView;
@@ -49,6 +50,7 @@
 - (IBAction)stopButtonPressed:(id)sender;
 - (IBAction)nextButtonPressed:(id)sender;
 
+- (IBAction)setCompletedPressed:(id)sender;
 - (void) programNonEmpty;
 - (void) timerAlert;
 - (void) timerWarning;

@@ -38,6 +38,7 @@
 		1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54B1595F53A004C7EE1 /* Exercise.m */; };
 		1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */; };
 		1ABFF5531595F804004C7EE1 /* ExerciseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */; };
+		1AC215E515E0AE5700B4902A /* CurrentExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC215E415E0AE5700B4902A /* CurrentExerciseCell.m */; };
 		1AD7CE6F15D122B300651C52 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD7CE6E15D122B300651C52 /* CurrentViewController.m */; };
 		1AD8045E15DA78E60004F95A /* Actions-dialog-cancel-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD8045A15DA78E50004F95A /* Actions-dialog-cancel-icon.png */; };
 		1AD8045F15DA78E60004F95A /* Actions-dialog-close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD8045B15DA78E50004F95A /* Actions-dialog-close-icon.png */; };
@@ -149,6 +150,8 @@
 		1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
 		1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableDelegate.h; sourceTree = "<group>"; };
 		1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableDelegate.m; sourceTree = "<group>"; };
+		1AC215E315E0AE5700B4902A /* CurrentExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentExerciseCell.h; sourceTree = "<group>"; };
+		1AC215E415E0AE5700B4902A /* CurrentExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentExerciseCell.m; sourceTree = "<group>"; };
 		1AD7CE6D15D122B300651C52 /* CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentViewController.h; sourceTree = "<group>"; };
 		1AD7CE6E15D122B300651C52 /* CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentViewController.m; sourceTree = "<group>"; };
 		1AD8045A15DA78E50004F95A /* Actions-dialog-cancel-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Actions-dialog-cancel-icon.png"; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				1A1D25DD15D7D040002574F5 /* SummaryParentCell.m */,
 				1A94D92A15D7DBE90032228B /* SummaryChildCell.h */,
 				1A94D92B15D7DBE90032228B /* SummaryChildCell.m */,
+				1AC215E315E0AE5700B4902A /* CurrentExerciseCell.h */,
+				1AC215E415E0AE5700B4902A /* CurrentExerciseCell.m */,
 			);
 			name = "Summary View";
 			sourceTree = "<group>";
@@ -599,6 +604,7 @@
 				1A1D25DE15D7D040002574F5 /* SummaryParentCell.m in Sources */,
 				1A94D92C15D7DBE90032228B /* SummaryChildCell.m in Sources */,
 				1AA54EBC15DBDB7A002E6083 /* Set.m in Sources */,
+				1AC215E515E0AE5700B4902A /* CurrentExerciseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

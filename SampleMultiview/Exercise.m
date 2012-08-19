@@ -13,11 +13,56 @@
 @synthesize name = _name;
 @synthesize bodyPart = _bodyPart;
 @synthesize rest = _rest;
-@synthesize completed = _completed;
+
+- (id)init
+{
+    if (self = [super init]) {
+        self.sets = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 - (NSString *) restAsDisplayValue
 {
     return [NSString stringWithFormat:@"%@ min", [self rest]];
+}
+
+- (Set *) setAtIndex:(int) index
+{
+    return [self.sets objectAtIndex:index];
+}
+
+- (Set *) currentSet
+{
+    if (_currentSet == nil) {
+        if ([self.sets count] == 0) {
+            return nil;
+        }
+        _currentSet = [self.sets objectAtIndex:0];
+    }
+    
+    return _currentSet;
+}
+
+- (int) count
+{
+    return [self.sets count];
+}
+
+- (void) currentSetIsCompleted
+{
+    int currentIndex = [self currentSetPosition];
+    
+    if (currentIndex + 1 < [self.sets count]) {
+        _currentSet = [self.sets objectAtIndex:(currentIndex + 1)];
+    } else {
+        _currentSet = nil;
+    }
+}
+
+- (int) currentSetPosition
+{
+    return [self.sets indexOfObject:_currentSet];
 }
 
 @end

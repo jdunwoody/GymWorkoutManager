@@ -37,9 +37,44 @@
     exercise.rest = @"20";
     
     Set *set = [[Set alloc] init];
-    set.weight = [NSNumber numberWithInt:10];
-    set.reps = [NSNumber numberWithInt:20];
+    set.weight = [NSNumber numberWithInt:40];
+    set.reps = [NSNumber numberWithInt:14];
+    set.rest = [NSNumber numberWithInt:10];
+
+    [exercise.sets addObject:set];
+    
+    set = [[Set alloc] init];
+    set.weight = [NSNumber numberWithInt:40];
+    set.reps = [NSNumber numberWithInt:12];
+    set.rest = [NSNumber numberWithInt:15];
+    
+    [exercise.sets addObject:set];
+    
+    set = [[Set alloc] init];
+    set.weight = [NSNumber numberWithInt:40];
+    set.reps = [NSNumber numberWithInt:10];
+    set.rest = [NSNumber numberWithInt:20];
+    
+    [exercise.sets addObject:set];
+ 
+    set = [[Set alloc] init];
+    set.weight = [NSNumber numberWithInt:40];
+    set.reps = [NSNumber numberWithInt:8];
     set.rest = [NSNumber numberWithInt:30];
+    
+    [exercise.sets addObject:set];
+  
+    set = [[Set alloc] init];
+    set.weight = [NSNumber numberWithInt:40];
+    set.reps = [NSNumber numberWithInt:6];
+    set.rest = [NSNumber numberWithInt:40];
+    
+    [exercise.sets addObject:set];
+  
+    set = [[Set alloc] init];
+    set.weight = [NSNumber numberWithInt:30];
+    set.reps = [NSNumber numberWithInt:6];
+    set.rest = [NSNumber numberWithInt:60];
     
     [exercise.sets addObject:set];
     
@@ -52,10 +87,15 @@
 }
 
 - (IBAction)newProgramChosen:(id)sender {
-    Program *program = [[Program alloc] initWithName:[self currentDateString]];
+    //    Program *program = [[Program alloc] initWithName:[self currentDateString]];
+    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
+//    self.delegate.program = program;
     
-    self.delegate.program = program;
-    [self.delegate programLoadedWithProgram:program];
+//    CurrentViewController *currentViewController = (CurrentViewController *)self.presentingViewController;
+//    currentViewController.program = program;
+    [(CurrentViewController *) self.presentingViewController programLoadedWithProgram:program];
+    
+    //    [self.delegate programLoadedWithProgram:program];
 }
 
 - (void)viewDidUnload {
@@ -123,9 +163,9 @@
 //- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    Program *program = (Program *)[self objectInListAtIndex:indexPath.row];
-    //    cell.textLabel.textColor = [UIColor whiteColor];
-    //    cell.backgroundColor = [UIColor brownColor];
-//    
+//    cell.textLabel.textColor = [UIColor whiteColor];
+//    cell.backgroundColor = [UIColor brownColor];
+//
 //}
 
 

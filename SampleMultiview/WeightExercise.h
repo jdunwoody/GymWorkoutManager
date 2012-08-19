@@ -10,6 +10,5 @@
 
 @interface WeightExercise : Exercise
 
-@property NSMutableArray *sets;
 
 @end

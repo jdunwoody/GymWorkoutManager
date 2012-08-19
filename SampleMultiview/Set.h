@@ -17,5 +17,4 @@
 - (id) initWithReps: (NSNumber *) withReps;
 
 - (NSString *) weightAsDisplayValue;
-
 @end
