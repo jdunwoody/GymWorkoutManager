@@ -6,15 +6,16 @@
 //
 //
 
-#import "CurrentExerciseCell.h"
+#import "CurrentSetCell.h"
 
-@implementation CurrentExerciseCell
+@implementation CurrentSetCell
 
 @synthesize reps = _reps;
 @synthesize weight = _weight;
 @synthesize rest = _rest;
 @synthesize completeButton = _completeButton;
 @synthesize set = _set;
+@synthesize position = _position;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

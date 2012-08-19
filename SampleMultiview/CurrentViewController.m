@@ -9,7 +9,7 @@
 #import "CurrentViewController.h"
 #import "GymAppDelegate.h"
 #import "LoadProgramViewController.h"
-#import "CurrentExerciseCell.h"
+#import "CurrentSetCell.h"
 #import "WeightExercise.h"
 #import "Set.h"
 
@@ -110,7 +110,6 @@
 - (void) programLoadedWithProgram: (Program *)withProgram
 {
     self.program = withProgram;
-    //    dsfs
     [self updateCurrentExerciseView];
     
     [self dismissModalViewControllerAnimated:YES];
@@ -202,8 +201,8 @@
     [self.program.currentExercise currentSetIsCompleted];
     [self.tableView reloadData];
     
-    NSIndexPath *path = [NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0];
-    [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0]
+                          atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (void) timerAlert
@@ -283,22 +282,25 @@
     Exercise *current = self.program.currentExercise;
     
     Set *set = (Set *) [current setAtIndex:indexPath.row];
-    NSString *cellIdentifier = @"CurrentExerciseCell";
+    NSString *cellIdentifier = @"CurrentSetCell";
     
-    CurrentExerciseCell *cell = (CurrentExerciseCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CurrentSetCell *cell = (CurrentSetCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[CurrentExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[CurrentSetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     cell.set = set;
-        
+    
     if (set == current.currentSet) {
         cell.completeButton.hidden = false;
     } else {
         cell.completeButton.hidden = true;
+        cell.backgroundColor = [UIColor grayColor];
+        
     }
     
+    [[cell position] setText: [NSString stringWithFormat:@"%i", indexPath.row +1]];
     [[cell reps] setText: set.reps.stringValue];
     [[cell weight] setText: [NSString stringWithFormat:@"%@kg", set.weight.stringValue]];
     [[cell rest] setText: [NSString stringWithFormat:@"%@s",set.rest.stringValue]];

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Exercise.h"
 
-@interface CurrentExerciseCell : UITableViewCell
+@interface CurrentSetCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UILabel *reps;
 @property (weak, nonatomic) IBOutlet UILabel *weight;
 @property (weak, nonatomic) IBOutlet UILabel *rest;

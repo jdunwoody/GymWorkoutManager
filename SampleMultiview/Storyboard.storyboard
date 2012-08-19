@@ -160,12 +160,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="zK8-b6-PlJ" userLabel="Current Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="zK8-b6-PlJ" userLabel="Current Table View">
                                 <rect key="frame" x="304" y="7" width="464" height="444"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CurrentExerciseCell" rowHeight="95" id="b1i-5V-pul" customClass="CurrentExerciseCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CurrentSetCell" rowHeight="95" id="b1i-5V-pul" userLabel="Current Sets" customClass="CurrentSetCell">
                                         <rect key="frame" x="0.0" y="22" width="464" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -196,9 +196,16 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vF4-U0-JO8">
-                                                    <rect key="frame" x="290" y="15" width="64" height="64"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="smx-Bz-KCS" userLabel="Reps">
+                                                    <rect key="frame" x="0.0" y="15" width="64" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vF4-U0-JO8">
+                                                    <rect key="frame" x="290" y="15" width="64" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" image="Actions-dialog-ok-apply-icon.png">
                                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -214,8 +221,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="completeButton" destination="vF4-U0-JO8" id="IsJ-qL-6wv"/>
+                                            <outlet property="position" destination="smx-Bz-KCS" id="Ne9-yX-uIG"/>
                                             <outlet property="reps" destination="4f1-0V-Y3t" id="OpJ-EZ-6bG"/>
                                             <outlet property="rest" destination="RGh-YI-wwT" id="rOI-U4-nLh"/>
                                             <outlet property="weight" destination="qx5-gC-fl4" id="sEM-WL-GaE"/>
@@ -564,6 +573,125 @@
         <image name="clock44x44.png" width="44" height="44"/>
         <image name="weights44x44.png" width="44" height="44"/>
     </resources>
+    <classes>
+        <class className="CurrentSetCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentSetCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="completeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rest" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CurrentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextButtonPressed:"/>
+                <relationship kind="action" name="pauseButtonPressed:"/>
+                <relationship kind="action" name="setCompletedPressed:"/>
+                <relationship kind="action" name="startButtonPressed:"/>
+                <relationship kind="action" name="stopButtonPressed:"/>
+                <relationship kind="outlet" name="currentExerciseInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentRepsInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentTimeInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="currentWeightInTimer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nextExerciseLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="programTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="repsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="timerPauseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timerStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timerStopButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ExerciseCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="category" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentExerciseIndicator" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="time" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ExercisePickerDelegate" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisePickerDelegate.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="ExerciseTableDelegate" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseTableDelegate.h"/>
+        </class>
+        <class className="LoadProgramCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoadProgramViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newProgramChosen:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ProgramViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addExercise:"/>
+                <relationship kind="action" name="addNewBodyPart:"/>
+                <relationship kind="action" name="addNewExerciseType:"/>
+                <relationship kind="action" name="closeProgramModalPressed:"/>
+                <relationship kind="action" name="hideKeyboard:"/>
+                <relationship kind="action" name="randomiseBodyPart:"/>
+                <relationship kind="action" name="randomiseExercise:"/>
+                <relationship kind="action" name="randomiseIntensity:"/>
+                <relationship kind="action" name="randomiseReps:"/>
+                <relationship kind="action" name="randomiseRest:"/>
+                <relationship kind="action" name="randomiseSets:"/>
+                <relationship kind="action" name="randomiseWeight:"/>
+                <relationship kind="action" name="weightOrTimeChosen:"/>
+                <relationship kind="outlet" name="addNewBodyPart" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="addNewExerciseType" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="closeProgramModal" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="exerciseComponentPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="hideControlsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickerDelegate" candidateClass="ExercisePickerDelegate"/>
+                <relationship kind="outlet" name="programControlsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="programView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="showControlsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableDelegate" candidateClass="ExerciseTableDelegate"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="weightOrTime" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="SummaryChildCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryChildCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SummaryParentCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryParentCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="currentExerciseIndicator" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rest" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sets" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="time" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
