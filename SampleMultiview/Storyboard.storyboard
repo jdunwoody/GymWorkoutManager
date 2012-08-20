@@ -99,6 +99,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="exerciseCompletedPressed:" destination="ZI4-Ty-Ick" eventType="touchUpInside" id="DCo-Vw-Wkl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rq5-VR-JOU" userLabel="Button - Next">
                                 <rect key="frame" x="229" y="62" width="29" height="29"/>
@@ -160,10 +163,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="zK8-b6-PlJ" userLabel="Current Set Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="zK8-b6-PlJ" userLabel="Current Set Table View">
                                 <rect key="frame" x="304" y="7" width="464" height="444"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CurrentSetCell" rowHeight="95" id="b1i-5V-pul" userLabel="Current Sets" customClass="CurrentSetCell">
                                         <rect key="frame" x="0.0" y="22" width="464" height="95"/>
@@ -237,33 +241,36 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PreviousExerciseCell" id="Ayl-mz-e0q">
-                                        <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="OtherExerciseCell" rowHeight="53" id="Ayl-mz-e0q" userLabel="Other Exercise Cell" customClass="OtherExerciseCell">
+                                        <rect key="frame" x="0.0" y="22" width="768" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="g8T-cN-4aK">
-                                                    <rect key="frame" x="20" y="11" width="728" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="34" id="g8T-cN-4aK">
+                                                    <rect key="frame" x="20" y="0.0" width="728" height="52"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="name" destination="g8T-cN-4aK" id="BhU-gL-zj8"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="CurrentExerciseCell" rowHeight="170" id="2qb-4K-rkd" userLabel="Current Exercise" customClass="CurrentExerciseCell">
-                                        <rect key="frame" x="0.0" y="66" width="768" height="170"/>
+                                        <rect key="frame" x="0.0" y="75" width="768" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="80kg" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="q10-ET-EeC" userLabel="Rest">
-                                                    <rect key="frame" x="92" y="53" width="74" height="64"/>
+                                                    <rect key="frame" x="522" y="48" width="74" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.62745100259999997" green="0.74901962280000001" blue="0.89411771299999998" alpha="1" colorSpace="deviceRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -271,22 +278,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="60s" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="a0g-wG-aq3" userLabel="Weight">
-                                                    <rect key="frame" x="174" y="53" width="64" height="64"/>
+                                                    <rect key="frame" x="610" y="48" width="64" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.68055791440000002" green="0.01637291917" blue="0.0083494394269999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sets 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Yc5-yC-YUB" userLabel="Reps">
-                                                    <rect key="frame" x="526" y="11" width="64" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="34" id="Yc5-yC-YUB" userLabel="Reps">
+                                                    <rect key="frame" x="274" y="53" width="152" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AwI-tQ-xzb">
-                                                    <rect key="frame" x="707" y="53" width="61" height="64"/>
+                                                    <rect key="frame" x="687" y="48" width="61" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" image="Actions-dialog-ok-apply-icon.png">
@@ -300,18 +307,18 @@
                                                         <action selector="setCompletedPressed:" destination="ZI4-Ty-Ick" eventType="touchUpInside" id="JUE-XM-xig"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="oAa-ig-uSc" userLabel="Name">
-                                                    <rect key="frame" x="502" y="58" width="95" height="53"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="34" id="oAa-ig-uSc" userLabel="Name">
+                                                    <rect key="frame" x="20" y="53" width="238" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="d8l-YD-vDS" userLabel="Position">
-                                                    <rect key="frame" x="20" y="53" width="63" height="64"/>
+                                                    <rect key="frame" x="444" y="48" width="63" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -320,29 +327,10 @@
                                         <connections>
                                             <outlet property="name" destination="oAa-ig-uSc" id="6ve-Ey-7Kr"/>
                                             <outlet property="position" destination="d8l-YD-vDS" id="tag-Rt-B6H"/>
-                                            <outlet property="reps" destination="Yc5-yC-YUB" id="r4L-AC-78v"/>
-                                            <outlet property="rest" destination="q10-ET-EeC" id="62R-od-W13"/>
-                                            <outlet property="sets" destination="Yc5-yC-YUB" id="pwd-Xr-dae"/>
-                                            <outlet property="weight" destination="a0g-wG-aq3" id="i7P-co-WaN"/>
+                                            <outlet property="rest" destination="a0g-wG-aq3" id="ND7-oY-xqa"/>
+                                            <outlet property="sets" destination="Yc5-yC-YUB" id="c1V-aG-qGj"/>
+                                            <outlet property="weight" destination="q10-ET-EeC" id="c51-wt-YWA"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="NextExerciseCell" id="6F5-Gn-bh7" userLabel="Child Cell" customClass="SummaryChildCell">
-                                        <rect key="frame" x="0.0" y="236" width="768" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="N7v-IX-g4K">
-                                                    <rect key="frame" x="20" y="11" width="728" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -646,6 +634,7 @@
         <class className="CurrentViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentViewController.h"/>
             <relationships>
+                <relationship kind="action" name="exerciseCompletedPressed:"/>
                 <relationship kind="action" name="nextButtonPressed:"/>
                 <relationship kind="action" name="pauseButtonPressed:"/>
                 <relationship kind="action" name="setCompletedPressed:"/>
@@ -701,6 +690,12 @@
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
+        <class className="OtherExerciseCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OtherExerciseCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="ProgramViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramViewController.h"/>
             <relationships>
@@ -730,13 +725,6 @@
                 <relationship kind="outlet" name="tableDelegate" candidateClass="ExerciseTableDelegate"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="weightOrTime" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="SummaryChildCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryChildCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

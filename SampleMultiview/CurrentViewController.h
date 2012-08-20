@@ -51,6 +51,7 @@
 - (IBAction)pauseButtonPressed:(id)sender;
 - (IBAction)stopButtonPressed:(id)sender;
 - (IBAction)nextButtonPressed:(id)sender;
+- (IBAction)exerciseCompletedPressed:(id)sender;
 
 - (IBAction)setCompletedPressed:(id)sender;
 - (void) programNonEmpty;

@@ -13,7 +13,6 @@
 @interface Program : NSObject
 {
     Exercise *current;
-    int currentExerciseIndex;
     NSMutableArray *exercises;
     id<ProgramStatusProtocol> programStatus;
 }
@@ -27,11 +26,14 @@
 - (int) count;
 - (Exercise *) currentExercise;
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex;
+- (BOOL) isIndexOfCurrentExercise: (NSIndexPath *)path;
 - (void) next;
 - (Exercise *) nextExercise;
 
 - (void) addExercise:(Exercise *)exercise;
 - (void) removeExerciseAtIndex:(NSUInteger)theIndex;
 - (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise;
+
+- (void) currentExerciseIsCompleted;
 
 @end

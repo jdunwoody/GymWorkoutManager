@@ -13,6 +13,7 @@
 #import "WeightExercise.h"
 #import "CurrentExerciseCell.h"
 #import "CurrentExerciseTableDelegate.h"
+#import "OtherExerciseCell.h"
 
 @implementation CurrentViewController
 @synthesize programTableView;
@@ -203,10 +204,22 @@
     [self updateCurrentExerciseView];
 }
 
+- (IBAction)exerciseCompletedPressed:(id)sender {
+    [self.program currentExerciseIsCompleted];
+    
+    [self.programTableView reloadData];
+    [self.programTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0]
+                                 atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+
+    [self.currentExerciseTableView reloadData];
+    [self.currentExerciseTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0]
+                                         atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
+
 - (IBAction)setCompletedPressed:(id)sender {
     [self.program.currentExercise currentSetIsCompleted];
-    [self.currentExerciseTableView reloadData];
     
+    [self.currentExerciseTableView reloadData];
     [self.currentExerciseTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0]
                                          atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
@@ -264,7 +277,7 @@
 }
 
 - (NSUInteger)countOfList {
-    NSLog(@"count of list %i", [self.program.currentExercise count]);
+    NSLog(@"count of list %i", [self.program count]);
     return [self.program count];
 }
 
@@ -286,24 +299,33 @@
 {
     Exercise *exercise = [self.program exerciseAtIndex:indexPath.row];
     
-    NSString *cellIdentifier = @"CurrentExerciseCell";
-    
-    CurrentExerciseCell *cell = (CurrentExerciseCell *)[self.programTableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[CurrentExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    cell.exercise = exercise;
-    
     if (exercise == self.program.currentExercise) {
-        //        cell.completeButton.hidden = false;
+        NSString *cellIdentifier = @"CurrentExerciseCell";
+        
+        CurrentExerciseCell *currentExerciseCell = (CurrentExerciseCell *)[self.programTableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (currentExerciseCell == nil) {
+            currentExerciseCell = [[CurrentExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        [currentExerciseCell.position setText: [NSString stringWithFormat:@"%i", indexPath.row +1]];
+        [currentExerciseCell.name setText: [NSString stringWithFormat:@"%@", exercise.name]];
+        [currentExerciseCell.sets setText: [NSString stringWithFormat:@"%i sets", [exercise.sets count]]];
+        
+        return currentExerciseCell;
+        
     } else {
-        //        cell.completeButton.hidden = true;
-        cell.backgroundColor = [UIColor grayColor];
+        NSString *cellIdentifier = @"OtherExerciseCell";
+        
+        OtherExerciseCell *otherExerciseCell = (OtherExerciseCell *)[self.programTableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (otherExerciseCell == nil) {
+            otherExerciseCell = [[OtherExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        //        otherExerciseCell.backgroundColor = [UIColor grayColor];
+        
+        [otherExerciseCell.name setText: [NSString stringWithFormat:@"%@", exercise.name]];
+          
+        return otherExerciseCell;
     }
     
-    [cell.position setText: [NSString stringWithFormat:@"%i", indexPath.row +1]];
     //    [[cell reps] setText: exercise.reps.stringValue];
     //    [[cell weight] setText: [NSString stringWithFormat:@"%@kg", set.weight.stringValue]];
     //    [[cell rest] setText: [NSString stringWithFormat:@"%@s",set.rest.stringValue]];
@@ -320,9 +342,9 @@
     //        cell.weightImage.hidden = true;
     //        cell.repsImage.hidden = false;
     //    }
-    exercise = nil;
-    cellIdentifier = nil;
-    return cell;
+    //    exercise = nil;
+    //    cellIdentifier = nil;
+    //    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -335,7 +357,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 92;
+    if([self.program isIndexOfCurrentExercise: indexPath]) {
+        return 170;
+    } else {
+        return tableView.rowHeight;
+    }
 }
 
 //        UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];

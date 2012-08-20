@@ -22,77 +22,42 @@
 {
     [super viewDidLoad];
     
-    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
-    self.programs = [[NSMutableArray alloc] initWithObjects: program, nil];
+//    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
+//    self.programs = [[NSMutableArray alloc] initWithObjects: program, nil];
     
-    program = nil;
+//    program = nil;
 }
 
 - (Program *) makeExampleProgramWithName: (NSString *) name
 {
     Program *program = [[Program alloc] initWithName: name];
     
-    WeightExercise *exercise = [[WeightExercise alloc] init];
-    exercise.name = @"Dumbell Flys";
-    exercise.rest = @"20";
-    
-    Set *set = [[Set alloc] init];
-    set.weight = [NSNumber numberWithInt:40];
-    set.reps = [NSNumber numberWithInt:14];
-    set.rest = [NSNumber numberWithInt:10];
+    for (int e=0; e< 10; e++) {
+        WeightExercise *exercise = [[WeightExercise alloc] init];
+        exercise.name = [NSString stringWithFormat:@"Exercise %i", e];
+        exercise.rest = [NSString stringWithFormat:@"%is", e * 20];
+        
+        for (int s = 0; s < 6; s++) {
+            Set *set = [[Set alloc] init];
+            set.weight = [NSNumber numberWithInt:(10 - s) * 6];
+            set.reps = [NSNumber numberWithInt:14];
+            set.rest = [NSNumber numberWithInt:10];
+            
+            [exercise.sets addObject:set];
+        }
+        [program addExercise:exercise];
+    }
 
-    [exercise.sets addObject:set];
-    
-    set = [[Set alloc] init];
-    set.weight = [NSNumber numberWithInt:40];
-    set.reps = [NSNumber numberWithInt:12];
-    set.rest = [NSNumber numberWithInt:15];
-    
-    [exercise.sets addObject:set];
-    
-    set = [[Set alloc] init];
-    set.weight = [NSNumber numberWithInt:40];
-    set.reps = [NSNumber numberWithInt:10];
-    set.rest = [NSNumber numberWithInt:20];
-    
-    [exercise.sets addObject:set];
- 
-    set = [[Set alloc] init];
-    set.weight = [NSNumber numberWithInt:40];
-    set.reps = [NSNumber numberWithInt:8];
-    set.rest = [NSNumber numberWithInt:30];
-    
-    [exercise.sets addObject:set];
-  
-    set = [[Set alloc] init];
-    set.weight = [NSNumber numberWithInt:40];
-    set.reps = [NSNumber numberWithInt:6];
-    set.rest = [NSNumber numberWithInt:40];
-    
-    [exercise.sets addObject:set];
-  
-    set = [[Set alloc] init];
-    set.weight = [NSNumber numberWithInt:30];
-    set.reps = [NSNumber numberWithInt:6];
-    set.rest = [NSNumber numberWithInt:60];
-    
-    [exercise.sets addObject:set];
-    
-    [program addExercise:exercise];
-    
-    exercise = nil;
-    set = nil;
-    
     return program;
 }
 
 - (IBAction)newProgramChosen:(id)sender {
     //    Program *program = [[Program alloc] initWithName:[self currentDateString]];
     Program *program = [self makeExampleProgramWithName:[self currentDateString]];
-//    self.delegate.program = program;
+    //    self.delegate.program = program;
     
-//    CurrentViewController *currentViewController = (CurrentViewController *)self.presentingViewController;
-//    currentViewController.program = program;
+    //    CurrentViewController *currentViewController = (CurrentViewController *)self.presentingViewController;
+    //    currentViewController.program = program;
     [(CurrentViewController *) self.presentingViewController programLoadedWithProgram:program];
     
     //    [self.delegate programLoadedWithProgram:program];

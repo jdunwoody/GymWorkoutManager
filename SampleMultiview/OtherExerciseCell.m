@@ -6,11 +6,10 @@
 //
 //
 
-#import "SummaryChildCell.h"
+#import "OtherExerciseCell.h"
 
-@implementation SummaryChildCell
-@synthesize weight;
-@synthesize reps;
+@implementation OtherExerciseCell
+@synthesize name = _name;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

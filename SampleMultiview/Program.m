@@ -19,8 +19,7 @@
         exercises = [[NSMutableArray alloc] init];
         self.name = name;
         current = nil;
-        currentExerciseIndex = 0;
-    }
+      }
     return self;
 
 }
@@ -47,13 +46,11 @@
         if ([exercises count] == 0) {
             return nil;
         }
-        currentExerciseIndex = 0;
-    }
-    
-    if (currentExerciseIndex >= [exercises count]) {
+        current = [exercises objectAtIndex:0];
+    } else if (current == [exercises objectAtIndex:[exercises count] -1]) {
         current = nil;
     } else {
-        current = [exercises objectAtIndex:currentExerciseIndex];
+        current = [exercises objectAtIndex:[exercises indexOfObject:current]];
     }
     
     return current;
@@ -61,14 +58,17 @@
 
 - (void) next
 {
-    currentExerciseIndex++;
+    current = [exercises objectAtIndex:[exercises indexOfObject:current]];
 }
 
 - (Exercise *)nextExercise
 {
-    if (currentExerciseIndex < [exercises count] - 1) {
-        return [exercises objectAtIndex:currentExerciseIndex + 1];
+    if (current == [exercises objectAtIndex:[exercises count] -1]) {
+        current = nil;
+    } else {
+        current = [exercises objectAtIndex:[exercises indexOfObject:current] + 1];
     }
+    
     return nil;
 }
 
@@ -80,6 +80,11 @@
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex
 {
     return [exercises objectAtIndex:theIndex];
+}
+
+- (BOOL) isIndexOfCurrentExercise: (NSIndexPath *) index
+{
+    return [exercises indexOfObject:self.currentExercise] == index.row;
 }
 
 -(void) removeExerciseAtIndex:(NSUInteger)theIndex
@@ -98,5 +103,9 @@
     [exercises replaceObjectAtIndex:row withObject:exercise];
 }
 
+- (void) currentExerciseIsCompleted
+{
+    [self nextExercise];
+}
 
 @end
