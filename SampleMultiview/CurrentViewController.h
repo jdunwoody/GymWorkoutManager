@@ -15,6 +15,7 @@
 #import "Program.h"
 #import "LoadProgramObserver.h"
 #import "ProgramChangedObserver.h"
+#import "CurrentExerciseTableDelegate.h"
 
 @interface CurrentViewController : UIViewController<TimerAlertDelegate, ProgramTimerObserver, ProgramStatusProtocol, LoadProgramObserver, ProgramChangedObserver, UITableViewDataSource, UITableViewDelegate>
 {
@@ -24,12 +25,13 @@
 }
 
 @property (strong, nonatomic) Program *program;
-
+@property (strong, nonatomic) CurrentExerciseTableDelegate *currentExerciseTableDelegate;
 @property (strong, nonatomic) UIColor *timerAlertColour;
 @property (strong, nonatomic) UIColor *timerWarningColour;
 @property (strong, nonatomic) UIColor *backgroundColor;
+@property (weak, nonatomic) IBOutlet UITableView *programTableView;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *currentExerciseTableView;
 @property (weak, nonatomic) IBOutlet UIView *currentView;
 //@property (weak, nonatomic) IBOutlet UIView *timeView;
 @property (weak, nonatomic) IBOutlet UIView *repsView;

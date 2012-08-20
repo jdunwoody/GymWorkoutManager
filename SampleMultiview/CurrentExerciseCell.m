@@ -6,10 +6,16 @@
 //
 //
 
-#import "SummaryParentCell.h"
+#import "CurrentExerciseCell.h"
 
-@implementation SummaryParentCell
+@implementation CurrentExerciseCell
 @synthesize exercise = _exercise;
+@synthesize position = _position;
+@synthesize name = _name;
+@synthesize reps = _reps;
+@synthesize rest = _rest;
+@synthesize weight = _weight;
+@synthesize sets = _sets;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -355,11 +355,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/CurrentViewController.m"
-         timestampString = "367052277.675472"
+         timestampString = "367080445.467445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
+         startingLineNumber = "150"
+         endingLineNumber = "150"
          landmarkName = "-updateCurrentExerciseView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -381,11 +381,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/CurrentViewController.m"
-         timestampString = "367052277.675472"
+         timestampString = "367080445.467445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "137"
-         endingLineNumber = "137"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
          landmarkName = "-updateCurrentExerciseView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -407,11 +407,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/CurrentViewController.m"
-         timestampString = "367052277.675472"
+         timestampString = "367080445.467445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "284"
-         endingLineNumber = "284"
+         startingLineNumber = "289"
+         endingLineNumber = "289"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -459,11 +459,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/CurrentViewController.m"
-         timestampString = "367052277.675472"
+         timestampString = "367080445.467445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "263"
-         endingLineNumber = "263"
+         startingLineNumber = "268"
+         endingLineNumber = "268"
          landmarkName = "-countOfList"
          landmarkType = "5">
       </FileBreakpoint>
@@ -472,11 +472,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/CurrentViewController.m"
-         timestampString = "367052277.675472"
+         timestampString = "367080445.467445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "267"
-         endingLineNumber = "267"
+         startingLineNumber = "272"
+         endingLineNumber = "272"
          landmarkName = "-objectInListAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -485,11 +485,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/CurrentViewController.m"
-         timestampString = "367052277.675472"
+         timestampString = "367080445.467445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "272"
-         endingLineNumber = "272"
+         startingLineNumber = "277"
+         endingLineNumber = "277"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -498,11 +498,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/CurrentViewController.m"
-         timestampString = "367053055.308804"
+         timestampString = "367080445.467445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "335"
-         endingLineNumber = "335"
+         startingLineNumber = "338"
+         endingLineNumber = "338"
          landmarkName = "-tableView:heightForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -537,11 +537,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/CurrentViewController.m"
-         timestampString = "367052277.675472"
+         timestampString = "367080445.467445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "201"
-         endingLineNumber = "201"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
          landmarkName = "-setCompletedPressed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -556,6 +556,162 @@
          startingLineNumber = "56"
          endingLineNumber = "56"
          landmarkName = "-currentSetIsCompleted"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentViewController.m"
+         timestampString = "367080445.467445"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "287"
+         endingLineNumber = "287"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentViewController.m"
+         timestampString = "367080445.467445"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentExerciseTableDelegate.m"
+         timestampString = "367076190.558258"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
+         landmarkName = "-countOfList"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentExerciseTableDelegate.m"
+         timestampString = "367076190.558258"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-objectInListAtIndex:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentExerciseTableDelegate.m"
+         timestampString = "367076190.558258"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "-tableView:numberOfRowsInSection:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentExerciseTableDelegate.m"
+         timestampString = "367076190.558258"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentViewController.m"
+         timestampString = "367080445.467445"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
+         landmarkName = "-programLoadedWithProgram:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentExerciseTableDelegate.m"
+         timestampString = "367076344.885927"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "-initWithTableView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentExerciseTableDelegate.m"
+         timestampString = "367076349.914112"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "29"
+         endingLineNumber = "29"
+         landmarkName = "-countOfList"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentViewController.m"
+         timestampString = "367081277.744882"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "306"
+         endingLineNumber = "306"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentExerciseCell.m"
+         timestampString = "367126151.494808"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "21"
+         endingLineNumber = "21"
+         landmarkName = "-initWithStyle:reuseIdentifier:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentExerciseCell.m"
+         timestampString = "367126153.002677"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
+         landmarkName = "-initWithStyle:reuseIdentifier:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
