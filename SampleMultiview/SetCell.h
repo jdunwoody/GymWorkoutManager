@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Exercise.h"
 
-@interface CurrentSetCell : UITableViewCell
+@interface SetCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UILabel *reps;

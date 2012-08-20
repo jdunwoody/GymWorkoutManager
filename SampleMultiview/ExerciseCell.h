@@ -1,28 +1,18 @@
 //
-//  InactiveExercise.h
-//  Gym2000AndAwesome
+//  SummaryProgramViewCell.h
+//  GymApp
 //
-//  Created by James on 11/06/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by James Dunwoody on 12/08/12.
+//
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "Exercise.h"
 
 @interface ExerciseCell : UITableViewCell
 
+@property (strong, nonatomic) Exercise *exercise;
+
 @property (nonatomic, strong) IBOutlet UILabel *name;
-@property (nonatomic, strong) IBOutlet UILabel *reps;
-//@property (nonatomic, strong) IBOutlet UILabel *bodyPart;
-//@property (nonatomic, strong) IBOutlet UILabel *rest;
-@property (nonatomic, strong) IBOutlet UILabel *weight;
-@property (nonatomic, strong) IBOutlet UILabel *category;
-//@property (nonatomic, strong) IBOutlet UILabel *intensity;
-//@property (nonatomic, strong) IBOutlet UILabel *editingMode;
-@property (nonatomic, strong) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UIImageView *currentExerciseIndicator;
-@property (nonatomic, strong) Exercise *exercise;
-//@property (weak, nonatomic) IBOutlet UIImageView *weightImage;
-//@property (weak, nonatomic) IBOutlet UIImageView *repsImage;
 
 @end

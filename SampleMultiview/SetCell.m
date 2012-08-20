@@ -1,21 +1,21 @@
 //
-//  SummaryProgramViewCell.m
+//  CurrentExerciseCell.m
 //  GymApp
 //
-//  Created by James Dunwoody on 12/08/12.
+//  Created by James Dunwoody on 19/08/12.
 //
 //
 
-#import "CurrentExerciseCell.h"
+#import "SetCell.h"
 
-@implementation CurrentExerciseCell
-@synthesize exercise = _exercise;
-@synthesize position = _position;
-@synthesize name = _name;
+@implementation SetCell
+
 @synthesize reps = _reps;
-@synthesize rest = _rest;
 @synthesize weight = _weight;
-@synthesize sets = _sets;
+@synthesize rest = _rest;
+@synthesize completeButton = _completeButton;
+@synthesize set = _set;
+@synthesize position = _position;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -29,7 +29,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

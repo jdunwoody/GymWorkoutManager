@@ -34,14 +34,14 @@
     
     for (int e=0; e< 10; e++) {
         WeightExercise *exercise = [[WeightExercise alloc] init];
-        exercise.name = [NSString stringWithFormat:@"Exercise %i", e];
+        exercise.name = [NSString stringWithFormat:@"Exercise %i", e + 1];
         exercise.rest = [NSString stringWithFormat:@"%is", e * 20];
         
         for (int s = 0; s < 6; s++) {
             Set *set = [[Set alloc] init];
             set.weight = [NSNumber numberWithInt:(10 - s) * 6];
-            set.reps = [NSNumber numberWithInt:14];
-            set.rest = [NSNumber numberWithInt:10];
+            set.reps = [NSNumber numberWithInt:2 * s + 10];
+            set.rest = [NSNumber numberWithInt:20 - s];
             
             [exercise.sets addObject:set];
         }

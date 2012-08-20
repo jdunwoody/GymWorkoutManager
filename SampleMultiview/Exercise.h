@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ExerciseWeightOrTimeMode.h"
 #import "Set.h"
+#import "Item.h"
 
-@interface Exercise : NSObject
+@interface Exercise : Item
 {
     Set *_currentSet;
 }

@@ -8,7 +8,7 @@
 
 #import "CurrentExerciseTableDelegate.h"
 #import "Exercise.h"
-#import "CurrentSetCell.h"
+#import "SetCell.h"
 
 @implementation CurrentExerciseTableDelegate
 
@@ -43,49 +43,49 @@
 //    return @"title for header in section";
 //}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Exercise *current = self.program.currentExercise;
-    
-    Set *set = (Set *) [current setAtIndex:indexPath.row];
-    NSString *cellIdentifier = @"CurrentSetCell";
-    
-    CurrentSetCell *cell = (CurrentSetCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[CurrentSetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    cell.set = set;
-    
-    if (set == current.currentSet) {
-        cell.completeButton.hidden = false;
-    } else {
-        cell.completeButton.hidden = true;
-        cell.backgroundColor = [UIColor grayColor];
-    }
-    
-    [[cell position] setText: [NSString stringWithFormat:@"%i", indexPath.row +1]];
-    [[cell reps] setText: set.reps.stringValue];
-    [[cell weight] setText: [NSString stringWithFormat:@"%@kg", set.weight.stringValue]];
-    [[cell rest] setText: [NSString stringWithFormat:@"%@s",set.rest.stringValue]];
-    
-    //    if (exercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
-    //        WeightExercise *weightExercise = (WeightExercise *) exercise;
-    //        [[cell reps] setText: [weightExercise repsAsDisplayValue]];
-    //        [[cell weight] setText: [weightExercise weightAsDisplayValue]];
-    //        cell.weightImage.hidden = false;
-    //        cell.repsImage.hidden = true;
-    //    } else {
-    //        TimeExercise *timeExercise = (TimeExercise *) exercise;
-    //        [[cell time] setText: [timeExercise timeAsDisplayValue]];
-    //        cell.weightImage.hidden = true;
-    //        cell.repsImage.hidden = false;
-    //    }
-    current = nil;
-    cellIdentifier = nil;
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    Exercise *current = self.program.currentExercise;
+//    
+//    Set *set = (Set *) [current setAtIndex:indexPath.row];
+//    NSString *cellIdentifier = @"CurrentSetCell";
+//    
+//    CurrentSetCell *cell = (CurrentSetCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    
+//    if (cell == nil) {
+//        cell = [[CurrentSetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//    }
+//    
+//    cell.set = set;
+//    
+//    if (set == current.currentSet) {
+//        cell.completeButton.hidden = false;
+//    } else {
+//        cell.completeButton.hidden = true;
+//        cell.backgroundColor = [UIColor grayColor];
+//    }
+//    
+//    [[cell position] setText: [NSString stringWithFormat:@"%i", indexPath.row +1]];
+//    [[cell reps] setText: set.reps.stringValue];
+//    [[cell weight] setText: [NSString stringWithFormat:@"%@kg", set.weight.stringValue]];
+//    [[cell rest] setText: [NSString stringWithFormat:@"%@s",set.rest.stringValue]];
+//    
+//    //    if (exercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
+//    //        WeightExercise *weightExercise = (WeightExercise *) exercise;
+//    //        [[cell reps] setText: [weightExercise repsAsDisplayValue]];
+//    //        [[cell weight] setText: [weightExercise weightAsDisplayValue]];
+//    //        cell.weightImage.hidden = false;
+//    //        cell.repsImage.hidden = true;
+//    //    } else {
+//    //        TimeExercise *timeExercise = (TimeExercise *) exercise;
+//    //        [[cell time] setText: [timeExercise timeAsDisplayValue]];
+//    //        cell.weightImage.hidden = true;
+//    //        cell.repsImage.hidden = false;
+//    //    }
+//    current = nil;
+//    cellIdentifier = nil;
+//    return cell;
+//}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {

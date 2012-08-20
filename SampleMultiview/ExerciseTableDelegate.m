@@ -7,7 +7,7 @@
 //
 
 #import "ExerciseTableDelegate.h"
-#import "ExerciseCell.h"
+#import "ExerciseCellOld.h"
 #import "Exercise.h"
 #import "ExerciseWeightOrTimeMode.h"
 #import "WeightExercise.h"
@@ -45,13 +45,13 @@
     Exercise *exercise = [self.dataController.program exerciseAtIndex:indexPath.row];
     NSString *cellIdentifier = @"ExerciseCell";
     
-    ExerciseCell *cell = (ExerciseCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ExerciseCellOld *cell = (ExerciseCellOld *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[ExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[ExerciseCellOld alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.exercise = exercise;
+//    cell.exercise = exercise;
     
     Exercise *current = self.dataController.program.currentExercise;
     

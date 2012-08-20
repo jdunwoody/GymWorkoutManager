@@ -16,5 +16,6 @@
 
 - (id) initWithReps: (NSNumber *) withReps;
 
+- (int) position;
 - (NSString *) weightAsDisplayValue;
 @end

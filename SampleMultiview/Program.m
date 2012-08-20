@@ -11,6 +11,7 @@
 #import "ProgramStatusProtocol.h"
 
 @implementation Program
+
 @synthesize name = _name;
 
 - (id) initWithName: (NSString *) name
@@ -19,26 +20,14 @@
         exercises = [[NSMutableArray alloc] init];
         self.name = name;
         current = nil;
-      }
+    }
     return self;
-
 }
 
 - (BOOL) empty
 {
     return [exercises count] == 0;
 }
-
-//- (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus
-//{
-//    if (self = [super init]) {
-//        exercises = [[NSMutableArray alloc] init];
-//        programStatus = withProgramStatus;
-//        current = nil;
-//        currentExerciseIndex = 0;
-//    }
-//    return self;
-//}
 
 - (Exercise *)currentExercise
 {
@@ -80,6 +69,42 @@
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex
 {
     return [exercises objectAtIndex:theIndex];
+}
+
+- (Item *) itemAtIndex: (NSIndexPath *)path
+{
+    int i = 0;
+    for (int e = 0; e < [exercises count]; e++) {
+        Exercise *exercise = [exercises objectAtIndex:e];
+        
+        int setSize = [exercise.sets count];
+        
+        if (path.row == i) {
+            return exercise;
+        }
+        
+        int setIndex = path.row - i - 1;
+        
+        if (path.row < i + setSize + 1) {
+            return [exercise.sets objectAtIndex:setIndex];
+        }
+        
+        i += setSize + 1;
+    }
+    return nil;
+}
+
+- (int) itemCount
+{
+    int i = 0;
+    
+    for (int e = 0; e < [exercises count]; e++) {
+        Exercise *exercise = [exercises objectAtIndex:e];
+        
+        i += [exercise.sets count] + 1;
+    }
+    
+    return i;
 }
 
 - (BOOL) isIndexOfCurrentExercise: (NSIndexPath *) index

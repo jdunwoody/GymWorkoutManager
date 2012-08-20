@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Exercise.h"
 #import "ProgramStatusProtocol.h"
+#import "Item.h"
 
 @interface Program : NSObject
 {
@@ -26,6 +27,8 @@
 - (int) count;
 - (Exercise *) currentExercise;
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex;
+- (Item *) itemAtIndex: (NSIndexPath *)path;
+- (int) itemCount;
 - (BOOL) isIndexOfCurrentExercise: (NSIndexPath *)path;
 - (void) next;
 - (Exercise *) nextExercise;

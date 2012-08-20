@@ -10,12 +10,13 @@
 		1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B08A515C0293C00567BBD /* WeightExercise.m */; };
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
+		1A594AFA15E263F300D6AF1B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A594AF915E263F300D6AF1B /* Item.m */; };
+		1A594AFE15E2659000D6AF1B /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A594AFD15E2659000D6AF1B /* ExerciseCell.m */; };
 		1A60FCB615CE0EF70093380B /* ProgramTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A60FCB515CE0EF70093380B /* ProgramTimer.m */; };
 		1A95729415D5FE890051E864 /* LoadProgramTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95729315D5FE890051E864 /* LoadProgramTableDelegate.m */; };
 		1A95729E15D603FA0051E864 /* LoadProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95729D15D603FA0051E864 /* LoadProgramCell.m */; };
 		1A9B127F15E106C40001BDA4 /* CurrentExerciseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B127E15E106C40001BDA4 /* CurrentExerciseTableDelegate.m */; };
 		1A9B128615E128E00001BDA4 /* OtherExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B128315E128E00001BDA4 /* OtherExerciseCell.m */; };
-		1A9B128715E128E00001BDA4 /* CurrentExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B128515E128E00001BDA4 /* CurrentExerciseCell.m */; };
 		1A9E40E615A45FAC001A189C /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E515A45FAC001A189C /* 72x72.png */; };
 		1A9E40E815A45FC4001A189C /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E715A45FC4001A189C /* 144x144.png */; };
 		1AA54EBC15DBDB7A002E6083 /* Set.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA54EBB15DBDB7A002E6083 /* Set.m */; };
@@ -37,9 +38,9 @@
 		1ABFF53B1595E634004C7EE1 /* ProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF53A1595E634004C7EE1 /* ProgramViewController.m */; };
 		1ABFF5461595F427004C7EE1 /* ExerciseDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */; };
 		1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54B1595F53A004C7EE1 /* Exercise.m */; };
-		1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */; };
+		1ABFF5501595F53A004C7EE1 /* ExerciseCellOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF54D1595F53A004C7EE1 /* ExerciseCellOld.m */; };
 		1ABFF5531595F804004C7EE1 /* ExerciseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */; };
-		1AC215E515E0AE5700B4902A /* CurrentSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC215E415E0AE5700B4902A /* CurrentSetCell.m */; };
+		1AC215E515E0AE5700B4902A /* SetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC215E415E0AE5700B4902A /* SetCell.m */; };
 		1AD7CE6F15D122B300651C52 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD7CE6E15D122B300651C52 /* CurrentViewController.m */; };
 		1AD8045E15DA78E60004F95A /* Actions-dialog-cancel-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD8045A15DA78E50004F95A /* Actions-dialog-cancel-icon.png */; };
 		1AD8045F15DA78E60004F95A /* Actions-dialog-close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD8045B15DA78E50004F95A /* Actions-dialog-close-icon.png */; };
@@ -100,6 +101,10 @@
 		1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExercisePickerControllerProtocol.h; sourceTree = "<group>"; };
 		1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramStatusProtocol.h; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		1A594AF815E263F300D6AF1B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		1A594AF915E263F300D6AF1B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		1A594AFC15E2659000D6AF1B /* ExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseCell.h; sourceTree = "<group>"; };
+		1A594AFD15E2659000D6AF1B /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
 		1A60FCB415CE0EF70093380B /* ProgramTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramTimer.h; sourceTree = "<group>"; };
 		1A60FCB515CE0EF70093380B /* ProgramTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramTimer.m; sourceTree = "<group>"; };
 		1A60FCB715CE10770093380B /* ProgramTimerObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramTimerObserver.h; sourceTree = "<group>"; };
@@ -112,8 +117,6 @@
 		1A9B127E15E106C40001BDA4 /* CurrentExerciseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentExerciseTableDelegate.m; sourceTree = "<group>"; };
 		1A9B128215E128E00001BDA4 /* OtherExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherExerciseCell.h; sourceTree = "<group>"; };
 		1A9B128315E128E00001BDA4 /* OtherExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherExerciseCell.m; sourceTree = "<group>"; };
-		1A9B128415E128E00001BDA4 /* CurrentExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentExerciseCell.h; sourceTree = "<group>"; };
-		1A9B128515E128E00001BDA4 /* CurrentExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentExerciseCell.m; sourceTree = "<group>"; };
 		1A9E40E515A45FAC001A189C /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72x72.png; sourceTree = "<group>"; };
 		1A9E40E715A45FC4001A189C /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
 		1A9E40E915A45FE4001A189C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -149,12 +152,12 @@
 		1ABFF5451595F427004C7EE1 /* ExerciseDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseDataController.m; sourceTree = "<group>"; };
 		1ABFF54A1595F53A004C7EE1 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
 		1ABFF54B1595F53A004C7EE1 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
-		1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseCell.h; sourceTree = "<group>"; };
-		1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCell.m; sourceTree = "<group>"; };
+		1ABFF54C1595F53A004C7EE1 /* ExerciseCellOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseCellOld.h; sourceTree = "<group>"; };
+		1ABFF54D1595F53A004C7EE1 /* ExerciseCellOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCellOld.m; sourceTree = "<group>"; };
 		1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableDelegate.h; sourceTree = "<group>"; };
 		1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableDelegate.m; sourceTree = "<group>"; };
-		1AC215E315E0AE5700B4902A /* CurrentSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentSetCell.h; sourceTree = "<group>"; };
-		1AC215E415E0AE5700B4902A /* CurrentSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentSetCell.m; sourceTree = "<group>"; };
+		1AC215E315E0AE5700B4902A /* SetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCell.h; sourceTree = "<group>"; };
+		1AC215E415E0AE5700B4902A /* SetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCell.m; sourceTree = "<group>"; };
 		1AD7CE6D15D122B300651C52 /* CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentViewController.h; sourceTree = "<group>"; };
 		1AD7CE6E15D122B300651C52 /* CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentViewController.m; sourceTree = "<group>"; };
 		1AD8045A15DA78E50004F95A /* Actions-dialog-cancel-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Actions-dialog-cancel-icon.png"; sourceTree = "<group>"; };
@@ -229,12 +232,12 @@
 		1A1D25DB15D7D027002574F5 /* Summary View */ = {
 			isa = PBXGroup;
 			children = (
+				1A594AFC15E2659000D6AF1B /* ExerciseCell.h */,
+				1A594AFD15E2659000D6AF1B /* ExerciseCell.m */,
 				1A9B128215E128E00001BDA4 /* OtherExerciseCell.h */,
 				1A9B128315E128E00001BDA4 /* OtherExerciseCell.m */,
-				1A9B128415E128E00001BDA4 /* CurrentExerciseCell.h */,
-				1A9B128515E128E00001BDA4 /* CurrentExerciseCell.m */,
-				1AC215E315E0AE5700B4902A /* CurrentSetCell.h */,
-				1AC215E415E0AE5700B4902A /* CurrentSetCell.m */,
+				1AC215E315E0AE5700B4902A /* SetCell.h */,
+				1AC215E415E0AE5700B4902A /* SetCell.m */,
 			);
 			name = "Summary View";
 			sourceTree = "<group>";
@@ -272,6 +275,8 @@
 				1AA54EBA15DBDB7A002E6083 /* Set.h */,
 				1AA54EBB15DBDB7A002E6083 /* Set.m */,
 				1AA54EBE15DBDCEB002E6083 /* Intensity.h */,
+				1A594AF815E263F300D6AF1B /* Item.h */,
+				1A594AF915E263F300D6AF1B /* Item.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -280,8 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */,
-				1ABFF54C1595F53A004C7EE1 /* ExerciseCell.h */,
-				1ABFF54D1595F53A004C7EE1 /* ExerciseCell.m */,
+				1ABFF54C1595F53A004C7EE1 /* ExerciseCellOld.h */,
+				1ABFF54D1595F53A004C7EE1 /* ExerciseCellOld.m */,
 				1ABFF5511595F804004C7EE1 /* ExerciseTableDelegate.h */,
 				1ABFF5521595F804004C7EE1 /* ExerciseTableDelegate.m */,
 				1ABFF5441595F427004C7EE1 /* ExerciseDataController.h */,
@@ -595,7 +600,7 @@
 				1ABFF53B1595E634004C7EE1 /* ProgramViewController.m in Sources */,
 				1ABFF5461595F427004C7EE1 /* ExerciseDataController.m in Sources */,
 				1ABFF54F1595F53A004C7EE1 /* Exercise.m in Sources */,
-				1ABFF5501595F53A004C7EE1 /* ExerciseCell.m in Sources */,
+				1ABFF5501595F53A004C7EE1 /* ExerciseCellOld.m in Sources */,
 				1ABFF5531595F804004C7EE1 /* ExerciseTableDelegate.m in Sources */,
 				1AF76B401599F16600417F1D /* ExerciseTimer.m in Sources */,
 				1AA6360715A049EB00938C5F /* ExercisePickerDelegate.m in Sources */,
@@ -607,10 +612,11 @@
 				1A95729415D5FE890051E864 /* LoadProgramTableDelegate.m in Sources */,
 				1A95729E15D603FA0051E864 /* LoadProgramCell.m in Sources */,
 				1AA54EBC15DBDB7A002E6083 /* Set.m in Sources */,
-				1AC215E515E0AE5700B4902A /* CurrentSetCell.m in Sources */,
+				1AC215E515E0AE5700B4902A /* SetCell.m in Sources */,
 				1A9B127F15E106C40001BDA4 /* CurrentExerciseTableDelegate.m in Sources */,
 				1A9B128615E128E00001BDA4 /* OtherExerciseCell.m in Sources */,
-				1A9B128715E128E00001BDA4 /* CurrentExerciseCell.m in Sources */,
+				1A594AFA15E263F300D6AF1B /* Item.m in Sources */,
+				1A594AFE15E2659000D6AF1B /* ExerciseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
