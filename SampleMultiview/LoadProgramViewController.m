@@ -28,6 +28,15 @@
 //    program = nil;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    //        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    //    } else {
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    //    }
+}
+
 - (Program *) makeExampleProgramWithName: (NSString *) name
 {
     Program *program = [[Program alloc] initWithName: name];

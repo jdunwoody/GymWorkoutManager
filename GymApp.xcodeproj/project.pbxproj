@@ -88,6 +88,9 @@
 		1AE8420715CBF6F600EE9724 /* button_black_repeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE841FD15CBF6F600EE9724 /* button_black_repeat.png */; };
 		1AE8420815CBF6F600EE9724 /* button_black_rew.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE841FE15CBF6F600EE9724 /* button_black_rew.png */; };
 		1AE8420915CBF6F600EE9724 /* button_black_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE841FF15CBF6F600EE9724 /* button_black_stop.png */; };
+		1AF54B0115E3AB4B00044B5F /* 2569675-465129-arrow-left-icon-golden-isolated-on-black-background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1AF54B0015E3AB4B00044B5F /* 2569675-465129-arrow-left-icon-golden-isolated-on-black-background.jpeg */; };
+		1AF54B0415E3ABB100044B5F /* Red_Arrow_Left.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1AF54B0315E3ABB100044B5F /* Red_Arrow_Left.svg */; };
+		1AF54B0615E3AC2300044B5F /* tango_left_arrow_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF54B0515E3AC2300044B5F /* tango_left_arrow_red.png */; };
 		1AF76B401599F16600417F1D /* ExerciseTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF76B3F1599F16600417F1D /* ExerciseTimer.m */; };
 		1AFADC6615BEDD9E006B03BC /* sound.aif in Resources */ = {isa = PBXBuildFile; fileRef = 1AFADC6515BEDD9E006B03BC /* sound.aif */; };
 		1AFADC6815BEDED6006B03BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */; };
@@ -207,6 +210,9 @@
 		1AE841FD15CBF6F600EE9724 /* button_black_repeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_black_repeat.png; path = "../../../../../Pictures/icons/Primo Icons-png/PNG/button_black_repeat.png"; sourceTree = "<group>"; };
 		1AE841FE15CBF6F600EE9724 /* button_black_rew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_black_rew.png; path = "../../../../../Pictures/icons/Primo Icons-png/PNG/button_black_rew.png"; sourceTree = "<group>"; };
 		1AE841FF15CBF6F600EE9724 /* button_black_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_black_stop.png; path = "../../../../../Pictures/icons/Primo Icons-png/PNG/button_black_stop.png"; sourceTree = "<group>"; };
+		1AF54B0015E3AB4B00044B5F /* 2569675-465129-arrow-left-icon-golden-isolated-on-black-background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2569675-465129-arrow-left-icon-golden-isolated-on-black-background.jpeg"; sourceTree = "<group>"; };
+		1AF54B0315E3ABB100044B5F /* Red_Arrow_Left.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Red_Arrow_Left.svg; sourceTree = "<group>"; };
+		1AF54B0515E3AC2300044B5F /* tango_left_arrow_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tango_left_arrow_red.png; sourceTree = "<group>"; };
 		1AF76B3E1599F16600417F1D /* ExerciseTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTimer.h; sourceTree = "<group>"; };
 		1AF76B3F1599F16600417F1D /* ExerciseTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTimer.m; sourceTree = "<group>"; };
 		1AFADC5E15BEC890006B03BC /* TimerAlertDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimerAlertDelegate.h; path = ../TimerAlertDelegate.h; sourceTree = "<group>"; };
@@ -309,6 +315,9 @@
 		1ABD3F0D15C00414002E9520 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				1AF54B0515E3AC2300044B5F /* tango_left_arrow_red.png */,
+				1AF54B0315E3ABB100044B5F /* Red_Arrow_Left.svg */,
+				1AF54B0015E3AB4B00044B5F /* 2569675-465129-arrow-left-icon-golden-isolated-on-black-background.jpeg */,
 				1AD8046315DA792E0004F95A /* Actions-chronometer-icon.png */,
 				1AD8046415DA792F0004F95A /* Actions-document-edit-icon.png */,
 				1AD8045A15DA78E50004F95A /* Actions-dialog-cancel-icon.png */,
@@ -585,6 +594,9 @@
 				1AD8046115DA78E60004F95A /* Actions-dialog-ok-icon.png in Resources */,
 				1AD8046515DA792F0004F95A /* Actions-chronometer-icon.png in Resources */,
 				1AD8046615DA792F0004F95A /* Actions-document-edit-icon.png in Resources */,
+				1AF54B0115E3AB4B00044B5F /* 2569675-465129-arrow-left-icon-golden-isolated-on-black-background.jpeg in Resources */,
+				1AF54B0415E3ABB100044B5F /* Red_Arrow_Left.svg in Resources */,
+				1AF54B0615E3AC2300044B5F /* tango_left_arrow_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

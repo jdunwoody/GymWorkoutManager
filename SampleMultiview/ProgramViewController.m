@@ -40,7 +40,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController: self];
     self.tableDelegate = [[ExerciseTableDelegate alloc] init];
     
@@ -65,7 +65,7 @@
     self.view.backgroundColor = self.backgroundColor;
     self.tableView.backgroundColor = self.backgroundColor;
     self.tableDelegate.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"brushed_alu.png"]];
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -112,14 +112,14 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    //    return YES;
+    return YES;
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        //        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-        return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    }
+    //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    //        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    //    } else {
+    //        //        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    //        return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -141,9 +141,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showProgram"]) {
-//        ProgramViewController *destination = (ProgramViewController *)segue.destinationViewController;
+        //        ProgramViewController *destination = (ProgramViewController *)segue.destinationViewController;
         
-//        destination.addExerciseViewControllerDelegate = self;
+        //        destination.addExerciseViewControllerDelegate = self;
         
         
         //    ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
@@ -153,7 +153,7 @@
         //    tableDelegate.dataController = dataController;
         //    exerciseViewController.tableDelegate = tableDelegate;
         //    exerciseViewController.pickerDelegate = pickerDelegate;
-
+        
         
         //        //        PickerTestViewController *asker = (PickerTestViewController *) segue.destinationViewController;
         //        //        asker.delegate = self;

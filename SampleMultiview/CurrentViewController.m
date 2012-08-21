@@ -44,10 +44,19 @@
 {
     [super viewDidAppear:animated];
     
-    LoadProgramViewController *loadProgramViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoadProgramViewController"];
-    [self presentViewController:loadProgramViewController animated:YES completion:nil];
+    //    if (self.program == nil) {
+    //        [self performSegueWithIdentifier: @"chooseProgram" sender: self];
+    //    }
     
-    loadProgramViewController = nil;
+    
+    LoadProgramViewController *loadProgramViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoadProgramViewController"];
+    //    [self presentViewController:loadProgramViewController animated:YES completion:nil];
+    
+    loadProgramViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    loadProgramViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:loadProgramViewController animated:YES];
+    
+    //    loadProgramViewController = nil;
 }
 
 - (void)viewDidUnload
@@ -57,11 +66,11 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    }
+    //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    //        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    //    } else {
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    //    }
 }
 
 - (void)showProgramChooser:(id)sender
@@ -156,46 +165,69 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self countOfList];
+    return [self.program.currentExercise.sets count];
+    
+    //    return [self countOfList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Item *item = [self.program itemAtIndex:indexPath];
+    //    Item *item = [self.program itemAtIndex:indexPath];
     
-    if ([item isKindOfClass:Exercise.class]) {
-        Exercise *exercise = (Exercise *) item;
-        NSString *cellIdentifier = @"ExerciseCell";
-        
-        ExerciseCell *exerciseCell = (ExerciseCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (exerciseCell == nil) {
-            exerciseCell = [[ExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        
-        [exerciseCell.name setText: [NSString stringWithFormat:@"%@", exercise.name]];
-        
-        exercise = nil;
-        return exerciseCell;
-        
-    } else if ([item isKindOfClass:Set.class]) {
-        Set *set = (Set *) item;
-        NSString *cellIdentifier = @"SetCell";
-        
-        SetCell *setCell = (SetCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (setCell == nil) {
-            setCell = [[SetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        
-        [setCell.position setText: [NSString stringWithFormat:@"%i", set.position]];
-        [setCell.weight setText:[NSString stringWithFormat:@"%@kg", set.weight]];
-        [setCell.reps setText:[NSString stringWithFormat:@"%@", set.reps]];
-        [setCell.rest setText:[NSString stringWithFormat:@"%@s", set.rest]];
-        
-        set = nil;
-        return setCell;
+    //    if ([item isKindOfClass:Exercise.class]) {
+    //        Exercise *exercise = (Exercise *) item;
+    //        NSString *cellIdentifier = @"ExerciseCell";
+    //
+    //        ExerciseCell *exerciseCell = (ExerciseCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    //        if (exerciseCell == nil) {
+    //            exerciseCell = [[ExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    //        }
+    //
+    //        [exerciseCell.name setText: [NSString stringWithFormat:@"%@", exercise.name]];
+    //
+    //        exercise = nil;
+    //        return exerciseCell;
+    //
+    //    } else
+    //    Item *item = [self.program itemAtIndex:indexPath];
+    //    if ([item isKindOfClass:Set.class]) {
+    //    }
+    //    return nil;
+    
+    Exercise *exercise = self.program.currentExercise;
+    Set *set = (Set *) [exercise setAtIndex:indexPath.row];
+    NSString *cellIdentifier = @"SetCell";
+    
+    SetCell *setCell = (SetCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (setCell == nil) {
+        setCell = [[SetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    return nil;
+    
+    [setCell.position setText: [NSString stringWithFormat:@"%i", set.position]];
+    [setCell.weight setText:[NSString stringWithFormat:@"%@kg", set.weight]];
+    [setCell.reps setText:[NSString stringWithFormat:@"%@", set.reps]];
+    [setCell.rest setText:[NSString stringWithFormat:@"%@s", set.rest]];
+    
+    if (exercise.currentSet == set) {
+        setCell.completeButton.hidden = false;
+ 
+        setCell.position.backgroundColor = [UIColor clearColor];
+        setCell.weight.backgroundColor = [UIColor blueColor];
+        setCell.reps.backgroundColor = [UIColor greenColor];
+        setCell.rest.backgroundColor = [UIColor redColor];
+        
+    } else {
+        setCell.completeButton.hidden = true;
+        
+        setCell.position.backgroundColor = [UIColor clearColor];
+        setCell.weight.backgroundColor = [UIColor clearColor];
+        setCell.reps.backgroundColor = [UIColor clearColor];
+        setCell.rest.backgroundColor = [UIColor clearColor];
+    }
+    
+    set = nil;
+    return setCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
