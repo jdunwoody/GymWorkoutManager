@@ -9,6 +9,7 @@
 #import "CurrentExerciseTableDelegate.h"
 #import "Exercise.h"
 #import "SetCell.h"
+#import "ExerciseCell.h"
 
 @implementation CurrentExerciseTableDelegate
 
@@ -25,8 +26,8 @@
 }
 
 - (NSUInteger)countOfList {
-    NSLog(@"count of list %i", [self.program.currentExercise count]);
-    return [self.program.currentExercise count];
+    NSLog(@"count of list %i", [self.program exerciseCount]);
+    return [self.program exerciseCount];
 }
 
 - (Exercise *)objectInListAtIndex:(NSUInteger)theIndex {
@@ -38,67 +39,140 @@
     return [self countOfList];
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Exercise *exercise = [self.program exerciseAtIndex:indexPath.row];
+    
+    NSString *cellIdentifier = @"ExerciseCell";
+    
+    ExerciseCell *cell = (ExerciseCell*)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[ExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.name.text = exercise.name;
+    
+    int lastX = cell.uiviewSet.frame.origin.x;
+    int lastY = cell.uiviewSet.frame.origin.y;
+    int xSpacing = 10;
+    int ySpacing = 10;
+    
+    for (int i=0; i< [exercise setCount]; i++) {
+        BOOL isCurrentExercise = exercise == [self.program currentExercise];
+        Set *set = [exercise setAtIndex:i];
+        
+        ExerciseView *containerView = [[ExerciseView alloc] initWithFrame: cell.uiviewSet.frame];
+        
+        containerView.backgroundColor = cell.uiviewSet.backgroundColor;
+        
+        UILabel *position = [[UILabel alloc] initWithFrame:cell.uiviewSet.position.frame];
+        UILabel *reps = [[UILabel alloc] initWithFrame:cell.uiviewSet.reps.frame];
+        UILabel *weight = [[UILabel alloc] initWithFrame:cell.uiviewSet.weight.frame];
+        UILabel *rest = [[UILabel alloc] initWithFrame:cell.uiviewSet.rest.frame];
+        
+        position.text = [NSString stringWithFormat:@"%i", i+1];
+        position.backgroundColor = cell.uiviewSet.position.backgroundColor;
+        position.alpha = cell.uiviewSet.position.alpha;
+        
+        reps.text = set.reps.stringValue;
+        reps.backgroundColor = cell.uiviewSet.reps.backgroundColor;
+        
+        weight.text = set.weight.stringValue;
+        weight.backgroundColor = cell.uiviewSet.weight.backgroundColor;
+        
+        rest.text = set.rest.stringValue;
+        rest.backgroundColor = cell.uiviewSet.rest.backgroundColor;
+        
+        if (isCurrentExercise) {
+            position.backgroundColor = cell.uiviewSet.position.backgroundColor;
+            reps.backgroundColor = cell.uiviewSet.reps.backgroundColor;
+            weight.backgroundColor = cell.uiviewSet.weight.backgroundColor;
+            rest.backgroundColor = cell.uiviewSet.rest.backgroundColor;
+            
+        } else {
+            position.backgroundColor = [UIColor grayColor];
+            reps.backgroundColor = [UIColor grayColor];
+            weight.backgroundColor = [UIColor grayColor];
+            rest.backgroundColor = [UIColor grayColor];
+            
+        }
+            
+        [containerView addSubview:position];
+        [containerView addSubview:reps];
+        [containerView addSubview:weight];
+        [containerView addSubview:rest];
+        
+        int x;
+        int y;
+        if (i % 3 == 0) {
+            x = cell.uiviewSet.frame.origin.x;
+            y = lastY + i / 3 * (containerView.frame.size.height + ySpacing);
+        } else {
+            x = lastX + containerView.frame.size.width + xSpacing;
+            y = lastY;
+        }
+        
+        containerView.frame = CGRectMake(x,
+                                         y,
+                                         containerView.frame.size.width,
+                                         containerView.frame.size.height);
+        
+        lastX = x;
+        lastY = y;
+        [cell addSubview:containerView];
+    }
+    
+    if (exercise == [self.program currentExercise]) {
+        cell.currentExerciseIndicator.hidden = false;
+    } else {
+        cell.currentExerciseIndicator.hidden = true;
+        cell.backgroundColor = [UIColor grayColor];
+    }
+    
+    return cell;
+    
+    
+    //    [[cell position] setText: [NSString stringWithFormat:@"%i", indexPath.row +1]];
+    //    [[cell reps] setText: set.reps.stringValue];
+    //    [[cell weight] setText: [NSString stringWithFormat:@"%@kg", set.weight.stringValue]];
+    //    [[cell rest] setText: [NSString stringWithFormat:@"%@s",set.rest.stringValue]];
+    
+    //    if (exercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
+    //        WeightExercise *weightExercise = (WeightExercise *) exercise;
+    //        [[cell reps] setText: [weightExercise repsAsDisplayValue]];
+    //        [[cell weight] setText: [weightExercise weightAsDisplayValue]];
+    //        cell.weightImage.hidden = false;
+    //        cell.repsImage.hidden = true;
+    //    } else {
+    //        TimeExercise *timeExercise = (TimeExercise *) exercise;
+    //        [[cell time] setText: [timeExercise timeAsDisplayValue]];
+    //        cell.weightImage.hidden = true;
+    //        cell.repsImage.hidden = false;
+    //    }
+    //    current = nil;
+    //    cellIdentifier = nil;
+    //    return cell;
+}
+
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 //{
 //    return @"title for header in section";
 //}
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 //{
-//    Exercise *current = self.program.currentExercise;
-//    
-//    Set *set = (Set *) [current setAtIndex:indexPath.row];
-//    NSString *cellIdentifier = @"CurrentSetCell";
-//    
-//    CurrentSetCell *cell = (CurrentSetCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    
-//    if (cell == nil) {
-//        cell = [[CurrentSetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
-//    
-//    cell.set = set;
-//    
-//    if (set == current.currentSet) {
-//        cell.completeButton.hidden = false;
-//    } else {
-//        cell.completeButton.hidden = true;
-//        cell.backgroundColor = [UIColor grayColor];
-//    }
-//    
-//    [[cell position] setText: [NSString stringWithFormat:@"%i", indexPath.row +1]];
-//    [[cell reps] setText: set.reps.stringValue];
-//    [[cell weight] setText: [NSString stringWithFormat:@"%@kg", set.weight.stringValue]];
-//    [[cell rest] setText: [NSString stringWithFormat:@"%@s",set.rest.stringValue]];
-//    
-//    //    if (exercise.exerciseWeightOrTimeMode == ExerciseWeightMode) {
-//    //        WeightExercise *weightExercise = (WeightExercise *) exercise;
-//    //        [[cell reps] setText: [weightExercise repsAsDisplayValue]];
-//    //        [[cell weight] setText: [weightExercise weightAsDisplayValue]];
-//    //        cell.weightImage.hidden = false;
-//    //        cell.repsImage.hidden = true;
-//    //    } else {
-//    //        TimeExercise *timeExercise = (TimeExercise *) exercise;
-//    //        [[cell time] setText: [timeExercise timeAsDisplayValue]];
-//    //        cell.weightImage.hidden = true;
-//    //        cell.repsImage.hidden = false;
-//    //    }
-//    current = nil;
-//    cellIdentifier = nil;
-//    return cell;
+//    Exercise *exercise = [self objectInListAtIndex:indexPath.row];
+//
+//    cell.backgroundColor = self.backgroundColor;
+//    cell.textLabel.textColor = [UIColor whiteColor];
 //}
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    Exercise *exercise = [self objectInListAtIndex:indexPath.row];
-    
-    //    cell.backgroundColor = self.backgroundColor;
-    cell.textLabel.textColor = [UIColor whiteColor];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 92;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 92;
+//}
 
 //        UISwipeGestureRecognizer *gesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
 //        gesture.direction = UISwipeGestureRecognizerDirectionRight;

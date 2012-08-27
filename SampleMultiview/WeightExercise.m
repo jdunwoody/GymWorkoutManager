@@ -10,7 +10,6 @@
 
 
 @implementation WeightExercise
-@synthesize sets = _sets;
 
 - (id)init 
 {

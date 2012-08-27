@@ -44,7 +44,7 @@
     return _currentSet;
 }
 
-- (int) count
+- (int) setCount
 {
     return [self.sets count];
 }

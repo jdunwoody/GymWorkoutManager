@@ -24,12 +24,17 @@
 
 @property (strong, nonatomic) Program *program;
 @property (strong, nonatomic) UIColor *backgroundColor;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) CurrentExerciseTableDelegate *programTableDelegate;
+
+@property (weak, nonatomic) IBOutlet UILabel *exerciseName;
+@property (weak, nonatomic) IBOutlet UITableView *exerciseTableView;
+@property (weak, nonatomic) IBOutlet UITableView *programTableView;
 
 - (IBAction)exerciseCompletedPressed:(id)sender;
 - (IBAction)setCompletedPressed:(id)sender;
 
 - (void) programLoadedWithProgram: (Program *)withProgram;
+@property (weak, nonatomic) IBOutlet UIView *exerciseHeaderContainer;
 
 @end
 
@@ -42,10 +47,8 @@
 //}
 
 
-//@property (strong, nonatomic) CurrentExerciseTableDelegate *currentExerciseTableDelegate;
 //@property (strong, nonatomic) UIColor *timerAlertColour;
 //@property (strong, nonatomic) UIColor *timerWarningColour;
-//@property (weak, nonatomic) IBOutlet UITableView *currentExerciseTableView;
 //@property (weak, nonatomic) IBOutlet UIView *currentView;
 //@property (weak, nonatomic) IBOutlet UIView *timeView;
 //@property (weak, nonatomic) IBOutlet UIView *repsView;

@@ -22,7 +22,7 @@
 
 
 - (NSUInteger)countOfList {
-    return [self.program count];
+    return [self.program exerciseCount];
 }
 
 - (Exercise *)objectInListAtIndex:(NSUInteger)theIndex {

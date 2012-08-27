@@ -24,11 +24,6 @@
     return self;
 }
 
-- (int) position
-{
-    return -1;
-}
-
 - (NSString *) weightAsDisplayValue
 {
     return [NSString stringWithFormat:@"%@ kg", [self.weight stringValue]];

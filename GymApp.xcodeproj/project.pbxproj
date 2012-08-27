@@ -9,10 +9,19 @@
 /* Begin PBXBuildFile section */
 		1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B08A515C0293C00567BBD /* WeightExercise.m */; };
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
+		1A4B1B0515E9871600A5CBEC /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B1B0415E9871600A5CBEC /* BackgroundLayer.m */; };
+		1A4B1B0615E9872200A5CBEC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */; };
+		1A4B1B0C15E9953500A5CBEC /* b10metals009.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B0815E9953500A5CBEC /* b10metals009.jpeg */; };
+		1A4B1B0D15E9953500A5CBEC /* metal_texture_2_by_wojtar_stock.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B0915E9953500A5CBEC /* metal_texture_2_by_wojtar_stock.jpeg */; };
+		1A4B1B0E15E9953500A5CBEC /* metal_texture_13_by_wojtar_stock.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B0A15E9953500A5CBEC /* metal_texture_13_by_wojtar_stock.jpeg */; };
+		1A4B1B0F15E9953500A5CBEC /* metal_texture_15_by_wojtar_stock.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B0B15E9953500A5CBEC /* metal_texture_15_by_wojtar_stock.jpeg */; };
+		1A4B1B1415E9A3B800A5CBEC /* exercise_cutout.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */; };
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
 		1A594AFA15E263F300D6AF1B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A594AF915E263F300D6AF1B /* Item.m */; };
 		1A594AFE15E2659000D6AF1B /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A594AFD15E2659000D6AF1B /* ExerciseCell.m */; };
 		1A60FCB615CE0EF70093380B /* ProgramTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A60FCB515CE0EF70093380B /* ProgramTimer.m */; };
+		1A83719315E9FC30009251CD /* InnerShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A83719215E9FC30009251CD /* InnerShadowView.m */; };
+		1A8FF4E015E4EC5C00E076CA /* ExerciseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8FF4DF15E4EC5C00E076CA /* ExerciseView.m */; };
 		1A95729415D5FE890051E864 /* LoadProgramTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95729315D5FE890051E864 /* LoadProgramTableDelegate.m */; };
 		1A95729E15D603FA0051E864 /* LoadProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95729D15D603FA0051E864 /* LoadProgramCell.m */; };
 		1A9B127F15E106C40001BDA4 /* CurrentExerciseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9B127E15E106C40001BDA4 /* CurrentExerciseTableDelegate.m */; };
@@ -102,6 +111,14 @@
 		1A0B08A815C02C8300567BBD /* ExerciseWeightOrTimeMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExerciseWeightOrTimeMode.h; sourceTree = "<group>"; };
 		1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1A3EC3C815A1D8F900282EA4 /* ExercisePickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExercisePickerControllerProtocol.h; sourceTree = "<group>"; };
+		1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1A4B1B0315E9871600A5CBEC /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
+		1A4B1B0415E9871600A5CBEC /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
+		1A4B1B0815E9953500A5CBEC /* b10metals009.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = b10metals009.jpeg; path = ../../../../../Pictures/Textures/Metal/b10metals009.jpeg; sourceTree = "<group>"; };
+		1A4B1B0915E9953500A5CBEC /* metal_texture_2_by_wojtar_stock.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = metal_texture_2_by_wojtar_stock.jpeg; path = ../../../../../Pictures/Textures/Metal/metal_texture_2_by_wojtar_stock.jpeg; sourceTree = "<group>"; };
+		1A4B1B0A15E9953500A5CBEC /* metal_texture_13_by_wojtar_stock.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = metal_texture_13_by_wojtar_stock.jpeg; path = ../../../../../Pictures/Textures/Metal/metal_texture_13_by_wojtar_stock.jpeg; sourceTree = "<group>"; };
+		1A4B1B0B15E9953500A5CBEC /* metal_texture_15_by_wojtar_stock.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = metal_texture_15_by_wojtar_stock.jpeg; path = ../../../../../Pictures/Textures/Metal/metal_texture_15_by_wojtar_stock.jpeg; sourceTree = "<group>"; };
+		1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exercise_cutout.png; path = image_elements/exercise_cutout.png; sourceTree = "<group>"; };
 		1A51BA9915CD2A2E001A0BD4 /* ProgramStatusProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramStatusProtocol.h; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		1A594AF815E263F300D6AF1B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -112,6 +129,10 @@
 		1A60FCB515CE0EF70093380B /* ProgramTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramTimer.m; sourceTree = "<group>"; };
 		1A60FCB715CE10770093380B /* ProgramTimerObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramTimerObserver.h; sourceTree = "<group>"; };
 		1A79A40C15D67ECC00DF09C2 /* ProgramChangedObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramChangedObserver.h; sourceTree = "<group>"; };
+		1A83719115E9FC30009251CD /* InnerShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerShadowView.h; sourceTree = "<group>"; };
+		1A83719215E9FC30009251CD /* InnerShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerShadowView.m; sourceTree = "<group>"; };
+		1A8FF4DE15E4EC5C00E076CA /* ExerciseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseView.h; sourceTree = "<group>"; };
+		1A8FF4DF15E4EC5C00E076CA /* ExerciseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseView.m; sourceTree = "<group>"; };
 		1A95729215D5FE890051E864 /* LoadProgramTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramTableDelegate.h; sourceTree = "<group>"; };
 		1A95729315D5FE890051E864 /* LoadProgramTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgramTableDelegate.m; sourceTree = "<group>"; };
 		1A95729C15D603FA0051E864 /* LoadProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramCell.h; sourceTree = "<group>"; };
@@ -225,6 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4B1B0615E9872200A5CBEC /* QuartzCore.framework in Frameworks */,
 				1AFADC6815BEDED6006B03BC /* AudioToolbox.framework in Frameworks */,
 				1ABFF5211595A63E004C7EE1 /* UIKit.framework in Frameworks */,
 				1ABFF5231595A63F004C7EE1 /* Foundation.framework in Frameworks */,
@@ -244,8 +266,29 @@
 				1A9B128315E128E00001BDA4 /* OtherExerciseCell.m */,
 				1AC215E315E0AE5700B4902A /* SetCell.h */,
 				1AC215E415E0AE5700B4902A /* SetCell.m */,
+				1A8FF4DE15E4EC5C00E076CA /* ExerciseView.h */,
+				1A8FF4DF15E4EC5C00E076CA /* ExerciseView.m */,
 			);
 			name = "Summary View";
+			sourceTree = "<group>";
+		};
+		1A4B1B0715E9873000A5CBEC /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B1B0315E9871600A5CBEC /* BackgroundLayer.h */,
+				1A4B1B0415E9871600A5CBEC /* BackgroundLayer.m */,
+				1A83719115E9FC30009251CD /* InnerShadowView.h */,
+				1A83719215E9FC30009251CD /* InnerShadowView.m */,
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
+		1A4B1B1215E9A32900A5CBEC /* image cutouts */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */,
+			);
+			name = "image cutouts";
 			sourceTree = "<group>";
 		};
 		1A60FCB215CE0EA30093380B /* time */ = {
@@ -371,6 +414,7 @@
 		1ABFF5111595A63E004C7EE1 = {
 			isa = PBXGroup;
 			children = (
+				1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */,
 				1ABD3F0D15C00414002E9520 /* icons */,
 				1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */,
 				1ADF8D7B15BE6C8100356568 /* backgrounds */,
@@ -406,6 +450,8 @@
 		1ABFF5261595A63F004C7EE1 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
+				1A4B1B1215E9A32900A5CBEC /* image cutouts */,
+				1A4B1B0715E9873000A5CBEC /* Background */,
 				1ABFF5371595A65A004C7EE1 /* Storyboard.storyboard */,
 				1ABFF52F1595A63F004C7EE1 /* GymAppDelegate.h */,
 				1ABFF5301595A63F004C7EE1 /* GymAppDelegate.m */,
@@ -460,6 +506,10 @@
 		1ADF8D7B15BE6C8100356568 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				1A4B1B0815E9953500A5CBEC /* b10metals009.jpeg */,
+				1A4B1B0915E9953500A5CBEC /* metal_texture_2_by_wojtar_stock.jpeg */,
+				1A4B1B0A15E9953500A5CBEC /* metal_texture_13_by_wojtar_stock.jpeg */,
+				1A4B1B0B15E9953500A5CBEC /* metal_texture_15_by_wojtar_stock.jpeg */,
 				1ADF8D7C15BE6C8100356568 /* batthern.png */,
 				1ADF8D7D15BE6C8100356568 /* black_linen_v2.png */,
 				1ADF8D7E15BE6C8100356568 /* bo_play_pattern.png */,
@@ -597,6 +647,11 @@
 				1AF54B0115E3AB4B00044B5F /* 2569675-465129-arrow-left-icon-golden-isolated-on-black-background.jpeg in Resources */,
 				1AF54B0415E3ABB100044B5F /* Red_Arrow_Left.svg in Resources */,
 				1AF54B0615E3AC2300044B5F /* tango_left_arrow_red.png in Resources */,
+				1A4B1B0C15E9953500A5CBEC /* b10metals009.jpeg in Resources */,
+				1A4B1B0D15E9953500A5CBEC /* metal_texture_2_by_wojtar_stock.jpeg in Resources */,
+				1A4B1B0E15E9953500A5CBEC /* metal_texture_13_by_wojtar_stock.jpeg in Resources */,
+				1A4B1B0F15E9953500A5CBEC /* metal_texture_15_by_wojtar_stock.jpeg in Resources */,
+				1A4B1B1415E9A3B800A5CBEC /* exercise_cutout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +684,9 @@
 				1A9B128615E128E00001BDA4 /* OtherExerciseCell.m in Sources */,
 				1A594AFA15E263F300D6AF1B /* Item.m in Sources */,
 				1A594AFE15E2659000D6AF1B /* ExerciseCell.m in Sources */,
+				1A8FF4E015E4EC5C00E076CA /* ExerciseView.m in Sources */,
+				1A4B1B0515E9871600A5CBEC /* BackgroundLayer.m in Sources */,
+				1A83719315E9FC30009251CD /* InnerShadowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

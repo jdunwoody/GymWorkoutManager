@@ -9,6 +9,8 @@
 #import "ExerciseCell.h"
 
 @implementation ExerciseCell
+@synthesize currentExerciseIndicator;
+@synthesize uiviewSet;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

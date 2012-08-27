@@ -36,8 +36,6 @@
             return nil;
         }
         current = [exercises objectAtIndex:0];
-    } else if (current == [exercises objectAtIndex:[exercises count] -1]) {
-        current = nil;
     } else {
         current = [exercises objectAtIndex:[exercises indexOfObject:current]];
     }
@@ -47,21 +45,14 @@
 
 - (void) next
 {
-    current = [exercises objectAtIndex:[exercises indexOfObject:current]];
-}
-
-- (Exercise *)nextExercise
-{
     if (current == [exercises objectAtIndex:[exercises count] -1]) {
         current = nil;
     } else {
         current = [exercises objectAtIndex:[exercises indexOfObject:current] + 1];
     }
-    
-    return nil;
 }
 
-- (int) count
+- (int) exerciseCount
 {
     return [exercises count];
 }
@@ -130,7 +121,13 @@
 
 - (void) currentExerciseIsCompleted
 {
-    [self nextExercise];
+    [self next];
 }
+
+- (int) currentExercisePosition
+{
+    return [exercises indexOfObject:current];
+}
+
 
 @end

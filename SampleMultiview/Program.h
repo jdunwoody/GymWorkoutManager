@@ -24,19 +24,19 @@
 - (id) initWithName: (NSString *) name;
 
 - (BOOL) empty;
-- (int) count;
-- (Exercise *) currentExercise;
+- (int) exerciseCount;
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex;
 - (Item *) itemAtIndex: (NSIndexPath *)path;
 - (int) itemCount;
 - (BOOL) isIndexOfCurrentExercise: (NSIndexPath *)path;
 - (void) next;
-- (Exercise *) nextExercise;
 
 - (void) addExercise:(Exercise *)exercise;
 - (void) removeExerciseAtIndex:(NSUInteger)theIndex;
 - (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise;
 
+- (Exercise *) currentExercise;
+- (int) currentExercisePosition;
 - (void) currentExerciseIsCompleted;
 
 @end

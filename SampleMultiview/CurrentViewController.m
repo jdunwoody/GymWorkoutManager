@@ -13,32 +13,46 @@
 #import "ExerciseCell.h"
 #import "CurrentExerciseTableDelegate.h"
 #import "SetCell.h"
+#import <QuartzCore/QuartzCore.h>
+#import "BackgroundLayer.h"
 
 @implementation CurrentViewController
+@synthesize exerciseHeaderContainer = _exerciseHeaderContainer;
 
 @synthesize backgroundColor = _backgroundColor;
 @synthesize program = _program;
-@synthesize tableView = _tableView;
+@synthesize exerciseTableView = _tableView;
+@synthesize programTableDelegate = _currentExerciseTableDelegate;
+@synthesize exerciseName = _exerciseName;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.title = @"Current View";
-    self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
-    self.view.backgroundColor = self.backgroundColor;
+    //    self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
+    //    self.view.backgroundColor = self.backgroundColor;
     
+    self.programTableDelegate = [[CurrentExerciseTableDelegate alloc] initWithTableView:self.programTableView];
+    self.programTableView.dataSource = self.programTableDelegate;
+    self.programTableView.delegate = self.programTableDelegate;
 }
 
-//    self.currentExerciseTableDelegate = [[CurrentExerciseTableDelegate alloc] initWithTableView:self.currentExerciseTableView];
-//    self.currentExerciseTableView.dataSource = self.currentExerciseTableDelegate;
-//    self.currentExerciseTableView.delegate = self.currentExerciseTableDelegate;
 //    self.timerAlertColour = [UIColor redColor];
 //    self.timerWarningColour = [UIColor orangeColor];
 //    programTimer = [[ProgramTimer alloc] initWithElapsedTimeObserver:(id<ProgramTimerObserver>)self];
 //    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"sound.aif" withExtension:nil];
 //    AudioServicesCreateSystemSoundID((__bridge CFURLRef) fileURL, &systemSoundID);
 //    [self updateCurrentExerciseView];
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    CAGradientLayer *bgLayer = [BackgroundLayer greyGradient];
+    bgLayer.frame = self.exerciseHeaderContainer.bounds;
+    [self.exerciseHeaderContainer.layer insertSublayer:bgLayer atIndex:0];
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -47,7 +61,6 @@
     //    if (self.program == nil) {
     //        [self performSegueWithIdentifier: @"chooseProgram" sender: self];
     //    }
-    
     
     LoadProgramViewController *loadProgramViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoadProgramViewController"];
     //    [self presentViewController:loadProgramViewController animated:YES completion:nil];
@@ -61,6 +74,8 @@
 
 - (void)viewDidUnload
 {
+    [self setExerciseName:nil];
+    [self setExerciseHeaderContainer:nil];
     [super viewDidUnload];
 }
 
@@ -93,10 +108,12 @@
 - (void) programLoadedWithProgram: (Program *) withProgram
 {
     self.program = withProgram;
-    //    self.currentExerciseTableDelegate.program = withProgram;
-    //    [self updateCurrentExerciseView];
+    self.programTableDelegate.program = withProgram;
+    
+    [self updateCurrentExerciseView];
     [self dismissModalViewControllerAnimated:YES];
-    [self.tableView reloadData];
+    [self.exerciseTableView reloadData];
+    [self.programTableView reloadData];
 }
 
 - (void) programChanged
@@ -107,20 +124,19 @@
 - (IBAction)exerciseCompletedPressed:(id)sender {
     [self.program currentExerciseIsCompleted];
     
-    [self.tableView reloadData];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0]
-                          atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-    
+    [self updateCurrentExerciseView];
+    [self.programTableView reloadData];
+    [self.programTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program currentExercisePosition] inSection:0]
+                                 atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (IBAction)setCompletedPressed:(id)sender {
     [self.program.currentExercise currentSetIsCompleted];
     
-    [self.tableView reloadData];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0]
-                          atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    [self updateCurrentExerciseView];
+    [self.exerciseTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0]
+                                  atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
-
 
 -(void) addExerciseWithExercise:(Exercise *)exercise
 {
@@ -198,20 +214,20 @@
     Set *set = (Set *) [exercise setAtIndex:indexPath.row];
     NSString *cellIdentifier = @"SetCell";
     
-    SetCell *setCell = (SetCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SetCell *setCell = (SetCell *)[self.exerciseTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (setCell == nil) {
         setCell = [[SetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     
-    [setCell.position setText: [NSString stringWithFormat:@"%i", set.position]];
+    [setCell.position setText: [NSString stringWithFormat:@"%i", indexPath.row + 1]];
     [setCell.weight setText:[NSString stringWithFormat:@"%@kg", set.weight]];
     [setCell.reps setText:[NSString stringWithFormat:@"%@", set.reps]];
     [setCell.rest setText:[NSString stringWithFormat:@"%@s", set.rest]];
     
     if (exercise.currentSet == set) {
         setCell.completeButton.hidden = false;
- 
+        
         setCell.position.backgroundColor = [UIColor clearColor];
         setCell.weight.backgroundColor = [UIColor blueColor];
         setCell.reps.backgroundColor = [UIColor greenColor];
@@ -221,10 +237,16 @@
         setCell.completeButton.hidden = true;
         
         setCell.position.backgroundColor = [UIColor clearColor];
-        setCell.weight.backgroundColor = [UIColor clearColor];
-        setCell.reps.backgroundColor = [UIColor clearColor];
-        setCell.rest.backgroundColor = [UIColor clearColor];
+        setCell.weight.backgroundColor = [UIColor lightGrayColor];
+        setCell.reps.backgroundColor = [UIColor lightGrayColor];
+        setCell.rest.backgroundColor = [UIColor lightGrayColor];
     }
+    
+    
+    [setCell.position.layer setCornerRadius:10];
+    [setCell.reps.layer setCornerRadius:10];
+    [setCell.weight.layer setCornerRadius:10];
+    [setCell.rest.layer setCornerRadius:10];
     
     set = nil;
     return setCell;
@@ -232,13 +254,39 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 178;
     //    if([self.program isIndexOfCurrentExercise: indexPath]) {
     //        return 170;
     //    } else {
     //        return tableView.rowHeight;
     //    }
 }
+
+- (void) updateCurrentExerciseView
+{
+    Exercise *currentExercise = self.program.currentExercise;
+    
+    if (currentExercise == nil) {
+        return;
+    }
+    
+    self.exerciseName.text = self.program.currentExercise.name;
+    [self.exerciseTableView reloadData];
+    
+    currentExercise = nil;
+}
+
+//        self.currentWeightInTimer.text = [NSString stringWithFormat:@"%@ kg", self.program.currentExercise.weight.stringValue];
+//        self.currentRepsInTimer.text = [NSString stringWithFormat:@"%@ reps", self.program.currentExercise.reps.stringValue];
+//
+//        Exercise *nextExercise = self.program.nextExercise;
+//        if (nextExercise != nil) {
+//            self.nextExerciseLabel.text = [NSString stringWithFormat:@"Coming up... %@ %@kg %@ reps", nextExercise.name, nextExercise.weight, nextExercise.reps];
+//        } else {
+//            self.nextExerciseLabel.text = @"nothing next";
+//        }
+//    [self.programTableView reloadData];
+//    [self.currentExerciseTableView reloadData];
 
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -306,31 +354,7 @@
 //    AudioServicesPlaySystemSound(systemSoundID);
 //}
 
-//- (void) updateCurrentExerciseView
-//{
-//    Exercise *currentExercise = self.program.currentExercise;
-//
-//    if (currentExercise == nil) {
-//        return;
-//    }
-//
-//    if ([currentExercise isKindOfClass:[WeightExercise class]]) {
-//        self.currentExerciseInTimer.text = self.program.currentExercise.name;
-//
-//        //        self.currentWeightInTimer.text = [NSString stringWithFormat:@"%@ kg", self.program.currentExercise.weight.stringValue];
-//        //        self.currentRepsInTimer.text = [NSString stringWithFormat:@"%@ reps", self.program.currentExercise.reps.stringValue];
-//        //
-//        //        Exercise *nextExercise = self.program.nextExercise;
-//        //        if (nextExercise != nil) {
-//        //            self.nextExerciseLabel.text = [NSString stringWithFormat:@"Coming up... %@ %@kg %@ reps", nextExercise.name, nextExercise.weight, nextExercise.reps];
-//        //        } else {
-//        //            self.nextExerciseLabel.text = @"nothing next";
-//        //        }
-//    }
-//    [self.programTableView reloadData];
-//    [self.currentExerciseTableView reloadData];
-//    currentExercise = nil;
-//}
+
 
 //- (IBAction)startButtonPressed:(id)sender
 //{

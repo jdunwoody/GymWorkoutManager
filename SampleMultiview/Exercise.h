@@ -24,7 +24,7 @@
 - (NSString *) restAsDisplayValue;
 - (Set *) setAtIndex: (int) index;
 - (Set *) currentSet;
-- (int) count;
+- (int) setCount;
 - (void) currentSetIsCompleted;
 - (int) currentSetPosition;
 
