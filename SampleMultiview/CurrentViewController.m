@@ -15,6 +15,7 @@
 #import "SetCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "BackgroundLayer.h"
+#import "SummaryProgramViewController.h"
 
 @implementation CurrentViewController
 @synthesize exerciseHeaderContainer = _exerciseHeaderContainer;
@@ -147,7 +148,7 @@
 {
     if ([segue.identifier isEqualToString:@"showProgram"]) {
         
-        ProgramViewController *destination = segue.destinationViewController;
+        OldProgramViewController *destination = segue.destinationViewController;
         destination.program = self.program;
         
         destination.programChangeObserver = self;

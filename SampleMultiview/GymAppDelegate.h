@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ProgramViewController.h"
+#import "OldProgramViewController.h"
 
 @interface GymAppDelegate : UIResponder <UIApplicationDelegate>
 

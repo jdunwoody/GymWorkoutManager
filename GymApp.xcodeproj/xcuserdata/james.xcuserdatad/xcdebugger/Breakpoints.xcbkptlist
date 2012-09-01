@@ -116,9 +116,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "143"
-         endingLineNumber = "143"
-         landmarkName = "-prepareForSegue:sender:"
-         landmarkType = "5">
+         endingLineNumber = "143">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -142,9 +140,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "168"
-         endingLineNumber = "168"
-         landmarkName = "-addExercise:"
-         landmarkType = "5">
+         endingLineNumber = "168">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -155,9 +151,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "51"
-         endingLineNumber = "51"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         endingLineNumber = "51">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -181,9 +175,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "169"
-         endingLineNumber = "169"
-         landmarkName = "-addExercise:"
-         landmarkType = "5">
+         endingLineNumber = "169">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -195,8 +187,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "43"
          endingLineNumber = "43"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         landmarkName = "@implementation ProgramViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -207,9 +199,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "44"
-         endingLineNumber = "44"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         endingLineNumber = "44">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -233,9 +223,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "261"
-         endingLineNumber = "261"
-         landmarkName = "-closeProgramModalPressed:"
-         landmarkType = "5">
+         endingLineNumber = "261">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"

@@ -7,10 +7,10 @@
 //
 
 #import "GymAppDelegate.h"
-#import "ProgramViewController.h"
-#import "ExerciseTableDelegate.h"
-#import "ExercisePickerDelegate.h"
-#import "CurrentViewController.h"
+#import "CurrentUIViewController.h"
+#import "SummaryProgramViewController.h"
+#import "SlidingPanelContainerVIewController.h"
+#import "FullProgramViewController.h"
 
 @implementation GymAppDelegate
 
@@ -18,17 +18,44 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    CurrentViewController *currentViewController = (CurrentViewController *)self.window.rootViewController;
-
+    SlidingPanelContainerViewController *slidingPanel = (SlidingPanelContainerViewController *)self.window.rootViewController;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    
+    CurrentUIViewController *currentUIViewController = (CurrentUIViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentView"];
+    
+    SummaryProgramViewController *programViewController = (SummaryProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"summaryProgramView"];
+   
+    FullProgramViewController *fullProgramViewController = (FullProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"fullProgramView"];
+    
+    slidingPanel.mainViewController = currentUIViewController;
+    slidingPanel.collapsedSlidingViewController = programViewController;
+    slidingPanel.expandedSlidingViewController = fullProgramViewController;
+    
+    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    
+    //    SlidingPanelContainerViewController *slidingPanelContainerViewController = (SlidingPanelContainerViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentViewController"];
+    
+    //    CurrentUIViewController *currentUIViewController = (CurrentUIViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentViewController"];
+    //
+    //    ProgramViewController *programViewController = (ProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"programViewController"];
+    //
+    ////    SlidingPanelContainerViewController *slidingPanelContainerViewController = [[SlidingPanelContainerViewController alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //    slidingPanelContainerViewController = [[SlidingPanelContainerViewController alloc] init];
+    //    [slidingPanelContainerViewController makeKeyAndVisible];
+    //
+    
+    //    CurrentViewController *currentViewController = (CurrentViewController *)self.window.rootViewController;
+    
     //ProgramViewController *exerciseViewController = (ProgramViewController *)self.window.rootViewController;
-
-//    self.tableDelegate = [[ExerciseTableDelegate alloc] init];
-//    self.dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
-//    self.pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
-//    
-//    tableDelegate.dataController = dataController;
-//    exerciseViewController.tableDelegate = tableDelegate;
-//    exerciseViewController.pickerDelegate = pickerDelegate;
+    
+    //    self.tableDelegate = [[ExerciseTableDelegate alloc] init];
+    //    self.dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
+    //    self.pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
+    //
+    //    tableDelegate.dataController = dataController;
+    //    exerciseViewController.tableDelegate = tableDelegate;
+    //    exerciseViewController.pickerDelegate = pickerDelegate;
     
     return YES;
 }
@@ -57,7 +84,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     // store the program
@@ -82,9 +109,9 @@
 //- (void)applicationDidFinishLaunching:(UIApplication *)application
 //{
 //    self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
-//    
+//
 //    self.exerciseViewController.backgroundColor = self.backgroundColor;
-//    
+//
 ////    [window addSubview:tabBarController.view];
 ////    [window makeKeyAndVisible];
 //}

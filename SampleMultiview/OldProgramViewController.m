@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "ProgramViewController.h"
+#import "OldProgramViewController.h"
 #import "ExerciseCell.h"
 #import "Exercise.h"
 #import "ExerciseTimer.h"
@@ -15,11 +15,11 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface ProgramViewController ()
+@interface OldProgramViewController ()
 
 @end
 
-@implementation ProgramViewController
+@implementation OldProgramViewController
 
 // or this way
 //@synthesize addNewExerciseType;

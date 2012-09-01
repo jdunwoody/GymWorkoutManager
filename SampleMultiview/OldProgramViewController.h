@@ -18,7 +18,7 @@
 #import "ProgramTimer.h"
 #import "ProgramChangedObserver.h"
 
-@interface ProgramViewController : UIViewController <ExercisePickerControllerProtocol>
+@interface OldProgramViewController : UIViewController <ExercisePickerControllerProtocol>
 {
     UIPickerView *exercisePicker;
 }
