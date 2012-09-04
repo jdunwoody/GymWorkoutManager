@@ -327,7 +327,7 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remember your form and posture" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" id="vg5-wK-2Rd">
-                                <rect key="frame" x="70" y="347" width="779" height="271"/>
+                                <rect key="frame" x="70" y="294" width="779" height="271"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="79"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -351,10 +351,18 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.30000000000000016" contentMode="scaleToFill" image="rating_star_with_css.jpeg" id="vFe-WG-JOg">
-                                <rect key="frame" x="39" y="626" width="145" height="64"/>
+                                <rect key="frame" x="39" y="579" width="145" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="bnZ-PN-yPy">
+                                <rect key="frame" x="0.0" y="709" width="1024" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Load program" id="3cl-wm-eI3"/>
+                                    <barButtonItem title="Reporting" id="8KN-Kf-fL0"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
