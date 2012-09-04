@@ -29,7 +29,7 @@
     FullProgramViewController *fullProgramViewController = (FullProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"fullProgramView"];
     
     slidingPanel.mainViewController = currentUIViewController;
-    slidingPanel.collapsedSlidingViewController = programViewController;
+    slidingPanel.summarySlidingViewController = programViewController;
     slidingPanel.expandedSlidingViewController = fullProgramViewController;
     
     //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];

@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) UIViewController *mainViewController;
 @property (strong, nonatomic) UIViewController *expandedSlidingViewController;
-@property (strong, nonatomic) UIViewController *collapsedSlidingViewController;
+@property (strong, nonatomic) UIViewController *summarySlidingViewController;
 
 @property (weak, nonatomic) IBOutlet UIView *mainPanel;
 @property (weak, nonatomic) IBOutlet UIView *slideBar;

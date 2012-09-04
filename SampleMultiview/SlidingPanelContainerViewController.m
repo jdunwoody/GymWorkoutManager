@@ -25,7 +25,7 @@
 
 @synthesize mainViewController = _mainViewController;
 @synthesize expandedSlidingViewController = _expandedSlidingViewController;
-@synthesize collapsedSlidingViewController = _collapsedSlidingViewController;
+@synthesize summarySlidingViewController = _collapsedSlidingViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,28 +44,19 @@
     
     [self addChildViewController: self.mainViewController];
     [self.mainPanel addSubview: self.mainViewController.view];
-    //    self.mainViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + statusBarFrame.size.height);
-    [self didMoveToParentViewController: self.mainViewController];
+    self.mainViewController.view.frame = CGRectMake(0, 0, [self windowWidth], [self windowHeight]);
+    [self.mainViewController didMoveToParentViewController: self];
     
-    [self addChildViewController: self.collapsedSlidingViewController];
-    [self.slidingPanel addSubview: self.collapsedSlidingViewController.view];
-    [self didMoveToParentViewController: self.collapsedSlidingViewController];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-    
-    //    int x = self.view.frame.size.width - 59;
-    //    int y = 0;
-    //    int width = 59;
-    //    int height = self.view.frame.size.height;
+    //    [self addChildViewController: self.collapsedSlidingViewController];
+    //    [self.slidingPanel addSubview: self.collapsedSlidingViewController.view];
+    //    [self didMoveToParentViewController: self.collapsedSlidingViewController];
     //
+    //    [self setPanelPosition: 0];
     
-    //    int width = 247;
-    //    self.slidingViewController.view.frame = CGRectMake(self.view.frame.size.height - width + statusBarFrame.size.height, 0, width, self.view.frame.size.height);
-    
+    self.hideMenuSwipeGesture.enabled = false;
+    self.hideMenuTapGesture.enabled = false;
+    self.showMenuSwipeGesture.enabled = true;
+    self.showMenuTapGesture.enabled = true;
 }
 
 - (void)viewDidUnload
@@ -86,6 +77,34 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
+- (void) setPanelPosition: (int) position
+{
+    int tabWidth = self.slideBar.frame.size.width;
+    
+    self.slidingPanelContainer.frame = CGRectMake([self windowWidth] - tabWidth - position, 0, [self windowHeight] + [self statusBarHeight], position);
+}
+
+- (int) windowWidth
+{
+    return [self isLandscape] ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height;
+}
+
+- (int) windowHeight
+{
+    return [self isLandscape] ? [[UIScreen mainScreen] bounds].size.height + [self statusBarHeight]: [[UIScreen mainScreen] bounds].size.width;
+}
+
+- (BOOL) isLandscape
+{
+    return UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
+}
+
+- (int) statusBarHeight
+{
+    UIApplication *application = [UIApplication sharedApplication];
+    return MIN(application.statusBarFrame.size.width, application.statusBarFrame.size.height);
+}
+
 - (IBAction)showMenu:(id)sender {
     self.hideMenuSwipeGesture.enabled = true;
     self.hideMenuTapGesture.enabled = true;
@@ -93,19 +112,23 @@
     self.showMenuTapGesture.enabled = false;
     
     NSLog(@"Show menu");
-    NSLog(@"hideMenuSwipe %d, hideMenuTap %d, showMenuSwipe %d, showMenuTap %d", (int)self.hideMenuSwipeGesture.enabled, (int)self.hideMenuTapGesture.enabled, (int)self.showMenuSwipeGesture.enabled, (int)self.showMenuTapGesture.enabled);
-
-    [[self.slidingPanel.subviews objectAtIndex:0] removeFromSuperview];
-    [self.collapsedSlidingViewController willMoveToParentViewController: nil];
-    [self.collapsedSlidingViewController removeFromParentViewController];
+    //    NSLog(@"hideMenuSwipe %d, hideMenuTap %d, showMenuSwipe %d, showMenuTap %d", (int)self.hideMenuSwipeGesture.enabled, (int)self.hideMenuTapGesture.enabled, (int)self.showMenuSwipeGesture.enabled, (int)self.showMenuTapGesture.enabled);
+    //
+    //    [[self.slidingPanel.subviews objectAtIndex:0] removeFromSuperview];
+    //    [self.collapsedSlidingViewController willMoveToParentViewController: nil];
+    //    [self.collapsedSlidingViewController removeFromParentViewController];
     
-    [self addChildViewController: self.expandedSlidingViewController];
-    [self.slidingPanel addSubview: self.expandedSlidingViewController.view];
-    [self didMoveToParentViewController: self.expandedSlidingViewController];
-
+        [self addChildViewController: self.summarySlidingViewController];
+        [self.slidingPanel addSubview: self.summarySlidingViewController.view];
+        [self didMoveToParentViewController: self.summarySlidingViewController];
+    
+    
+    //    self.summarySlidingViewController.view.frame = CGRectMake(0,0, 40,40);
+    
     [UIView animateWithDuration:0.5  animations:^{
-        CGRect frame = self.slidingPanelContainer.frame;
-        self.slidingPanelContainer.frame = CGRectMake(frame.origin.x - 200 , frame.origin.y, frame.size.width, frame.size.height);
+        [self setPanelPosition: 200];
+        //            CGRect frame = self.slidingPanelContainer.frame;
+        //            self.slidingPanelContainer.frame = CGRectMake(frame.origin.x - 200 , frame.origin.y, frame.size.width, frame.size.height);
     }];
 }
 
@@ -115,12 +138,26 @@
     self.showMenuSwipeGesture.enabled = true;
     self.showMenuTapGesture.enabled = true;
     
-    NSLog(@"Hide menu");
-    NSLog(@"hideMenuSwipe %d, hideMenuTap %d, showMenuSwipe %d, showMenuTap %d", (int)self.hideMenuSwipeGesture.enabled, (int)self.hideMenuTapGesture.enabled, (int)self.showMenuSwipeGesture.enabled, (int)self.showMenuTapGesture.enabled);
+    //    NSLog(@"Hide menu");
+    //    NSLog(@"hideMenuSwipe %d, hideMenuTap %d, showMenuSwipe %d, showMenuTap %d", (int)self.hideMenuSwipeGesture.enabled, (int)self.hideMenuTapGesture.enabled, (int)self.showMenuSwipeGesture.enabled, (int)self.showMenuTapGesture.enabled);
+    //
+    //    [[self.slidingPanel.subviews objectAtIndex:0] removeFromSuperview];
+    //    [self.expandedSlidingViewController willMoveToParentViewController: nil];
+    //    [self.expandedSlidingViewController removeFromParentViewController];
+    //
+    //    [self addChildViewController: self.summarySlidingViewController];
+    //    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
+    //    [self didMoveToParentViewController: self.summarySlidingViewController];
     
     [UIView animateWithDuration:0.5  animations:^{
-        self.slidingPanelContainer.frame = CGRectMake(500, 0, 300, self.slidingPanelContainer.bounds.size.height);
+        [self setPanelPosition: 0];
+        
+        //           CGRect frame = self.slidingPanelContainer.frame;
+        //            self.slidingPanelContainer.frame = CGRectMake(frame.origin.x + 200 , frame.origin.y, frame.size.width, frame.size.height);
+        
+        //        self.slidingPanelContainer.frame = CGRectMake(500, 0, 300, self.slidingPanelContainer.bounds.size.height);
     }];
+    
 }
 
 @end

@@ -12,7 +12,7 @@
 #import "ExerciseTimer.h"
 #import "ExercisePickerDelegate.h"
 #import "ExercisePickerControllerProtocol.h"
-#import "TimerAlertDelegate.h"
+//#import "TimerAlertDelegate.h"
 #import "Program.h"
 #import "ProgramStatusProtocol.h"
 #import "ProgramTimer.h"

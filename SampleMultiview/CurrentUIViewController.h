@@ -10,4 +10,6 @@
 
 @interface CurrentUIViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *comment;
+
 @end
