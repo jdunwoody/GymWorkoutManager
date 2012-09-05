@@ -11,8 +11,11 @@
 #import "Program.h"
 #import "LoadProgramViewController.h"
 #import "LoadProgramObserver.h"
+#import "LoadProgramTableDataSource.h"
 
 @interface LoadProgramTableDelegate : NSObject<UITableViewDelegate, UITableViewDataSource>
+- (id) initWithDataSource: (LoadProgramTableDataSource *) dataSource withViewObserver: (id<LoadProgramObserver>)observer;
+
 //
 //- (id) initWithController: (id<LoadProgramObserver>) withLoadProgramObserver;
 //- (NSUInteger) countOfList;
@@ -20,5 +23,9 @@
 //
 //@property (strong, nonatomic) NSMutableArray *programs;
 //@property (strong, nonatomic) id<LoadProgramObserver> loadProgramObserver;
+
+@property (strong, nonatomic) LoadProgramTableDataSource *dataSource;
+@property (strong, nonatomic) id<LoadProgramObserver> observer;
+
 
 @end

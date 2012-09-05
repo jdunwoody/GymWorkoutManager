@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CurrentUIViewController : UIViewController
+#import "LoadProgramObserver.h"
+
+@class Program;
+
+@interface CurrentUIViewController : UIViewController<LoadProgramObserver>
+
+- (void) programLoadedWithProgram:(Program *) withProgram;
 
 @property (weak, nonatomic) IBOutlet UILabel *comment;
 

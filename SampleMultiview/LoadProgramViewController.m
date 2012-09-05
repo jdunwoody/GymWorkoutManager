@@ -8,24 +8,35 @@
 
 #import "LoadProgramViewController.h"
 #import "Program.h"
-#import "CurrentViewController.h"
 #import "WeightExercise.h"
 #import "LoadProgramCell.h"
 #import "Set.h"
+#import "LoadProgramTableDataSource.h"
+#import "LoadProgramTableDelegate.h"
+#import "CurrentUIViewController.h"
 
 @implementation LoadProgramViewController
 
 @synthesize tableView = _tableView;
-@synthesize delegate = _delegate;
+//@synthesize delegate = _delegate;
+@synthesize tableDelegate = _tableDelegate;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-//    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
-//    self.programs = [[NSMutableArray alloc] initWithObjects: program, nil];
+    self.tableDataSource = [[LoadProgramTableDataSource alloc] init];
+    self.tableView.dataSource = self.tableDataSource;
     
-//    program = nil;
+    self.tableDelegate = [[LoadProgramTableDelegate alloc] initWithDataSource:self.tableDataSource withViewObserver: self];
+    self.tableView.delegate = self.tableDelegate;
+    
+    //    program = nil;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.view.superview.frame = CGRectMake(0,0,350,400);    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -37,106 +48,25 @@
     //    }
 }
 
-- (Program *) makeExampleProgramWithName: (NSString *) name
+- (void) programLoadedWithProgram:(Program *) withProgram
 {
-    Program *program = [[Program alloc] initWithName: name];
-    
-    int numExercises = 3 + arc4random() % 7;
-    NSArray *exerciseNames = [NSArray arrayWithObjects:
-                              @"Barbell Curls", @"Dumbell Curls", @"Push ups", @"Squats", @"Running on the spot",
-                              @"Burpees", @"Sit ups", @"Tricep dips", @"Pull ups", nil];
-    
-    for (int e=0; e< numExercises; e++) {
-        WeightExercise *exercise = [[WeightExercise alloc] init];
-        exercise.name = [exerciseNames objectAtIndex: (arc4random() % [exerciseNames count])];
-        exercise.rest = [NSString stringWithFormat:@"%is", e * 20];
-        
-        int numSets = 1 + arc4random() % 5;
-        
-        for (int s = 0; s < numSets; s++) {
-            Set *set = [[Set alloc] init];
-            set.weight = [NSNumber numberWithInt:(10 - s) * 6];
-            set.reps = [NSNumber numberWithInt:2 * s + 10];
-            set.rest = [NSNumber numberWithInt:20 - s];
-            
-            [exercise.sets addObject:set];
-        }
-        [program addExercise:exercise];
-    }
-    exerciseNames = nil;
-    return program;
+    [((id<LoadProgramObserver>) self.presentingViewController) programLoadedWithProgram: withProgram];
 }
 
 - (IBAction)newProgramChosen:(id)sender {
-    //    Program *program = [[Program alloc] initWithName:[self currentDateString]];
-    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
-    //    self.delegate.program = program;
-    
-    //    CurrentViewController *currentViewController = (CurrentViewController *)self.presentingViewController;
-    //    currentViewController.program = program;
-    [(CurrentViewController *) self.presentingViewController programLoadedWithProgram:program];
-    
-    //    [self.delegate programLoadedWithProgram:program];
+    //    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
+    //    [(CurrentViewController *) self.presentingViewController programLoadedWithProgram:program];
 }
+
+//    Program *program = [[Program alloc] initWithName:[self currentDateString]];
+//    self.delegate.program = program;
+//    CurrentViewController *currentViewController = (CurrentViewController *)self.presentingViewController;
+//    currentViewController.program = program;
+//    [self.delegate programLoadedWithProgram:program];
 
 - (void)viewDidUnload {
     [self setTableView:nil];
     [super viewDidUnload];
-}
-
-- (NSString *) currentDateString
-{
-    NSDate *now = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
-    return [formatter stringFromDate:now];
-}
-
-- (NSUInteger)countOfList {
-    return [self.programs count];
-}
-
-- (Program *)objectInListAtIndex:(NSUInteger)theIndex {
-    return [self.programs objectAtIndex:theIndex];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self countOfList];
-}
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    Program *program = [self objectInListAtIndex:indexPath.row];
-    [(CurrentViewController *) self.presentingViewController programLoadedWithProgram:program];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Program *program = [self objectInListAtIndex:indexPath.row];
-    NSString *cellIdentifier = @"programCell";
-    
-    LoadProgramCell *cell = (LoadProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[LoadProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    [[cell title] setText: program.name];
-    cellIdentifier = nil;
-    return cell;
 }
 
 @end

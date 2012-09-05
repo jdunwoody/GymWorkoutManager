@@ -7,16 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CurrentViewController.h"
-#import "LoadProgramTableDelegate.h"
+//#import "LoadProgramTableDelegate.h"
+//#import "LoadProgramTableDataSource.h"
+#import "Program.h"
+#import "LoadProgramObserver.h"
 
-@interface LoadProgramViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@class LoadProgramTableDelegate;
+@class LoadProgramTableDataSource;
+
+@interface LoadProgramViewController : UIViewController <LoadProgramObserver>
 
 - (IBAction)newProgramChosen:(id)sender;
+- (void) programLoadedWithProgram:(Program *) withProgram;
 
-@property (strong, nonatomic) CurrentViewController *delegate;
+//@property (strong, nonatomic) CurrentViewController *delegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NSMutableArray *programs;
+@property (strong, nonatomic) LoadProgramTableDelegate *tableDelegate;
+@property (strong, nonatomic) LoadProgramTableDataSource *tableDataSource;
 
 @end

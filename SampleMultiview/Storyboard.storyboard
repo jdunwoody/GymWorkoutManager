@@ -276,6 +276,55 @@
             </objects>
             <point key="canvasLocation" x="-5886" y="443"/>
         </scene>
+        <!--Load Program View Controller-->
+        <scene sceneID="3Od-6C-ZFT">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8U9-gh-8dY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController modalPresentationStyle="currentContext" id="UZM-sj-Eu2" customClass="LoadProgramViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="center" id="BRY-Xy-7PJ">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="7Vo-AE-q0s">
+                                <rect key="frame" x="20" y="20" width="500" height="580"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="loadProgramCell" rowHeight="53" id="oRC-I3-3XJ" customClass="LoadProgramCell">
+                                        <rect key="frame" x="0.0" y="22" width="500" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="467" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="uUF-49-aqJ">
+                                                    <rect key="frame" x="38" y="15" width="410" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="title" destination="uUF-49-aqJ" id="wPf-Ka-gBt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="tableView" destination="7Vo-AE-q0s" id="WLL-8W-j0f"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-3427" y="-474"/>
+        </scene>
         <!--CurrentUI View Controller-->
         <scene sceneID="0fD-Mb-NOy">
             <objects>
@@ -359,7 +408,11 @@
                                 <rect key="frame" x="0.0" y="709" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Load program" id="3cl-wm-eI3"/>
+                                    <barButtonItem title="Load program" id="3cl-wm-eI3">
+                                        <connections>
+                                            <segue destination="UZM-sj-Eu2" kind="modal" identifier="loadProgram" modalPresentationStyle="formSheet" id="sc8-gp-wse"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Reporting" id="8KN-Kf-fL0"/>
                                 </items>
                             </toolbar>
@@ -404,6 +457,19 @@
                 <relationship kind="outlet" name="reps" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="rest" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="weight" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoadProgramCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoadProgramViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newProgramChosen:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="SlidingPanelContainerViewController" superclassName="UIViewController">

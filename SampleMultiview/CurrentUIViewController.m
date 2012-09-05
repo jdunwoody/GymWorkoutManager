@@ -92,4 +92,10 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
+- (void) programLoadedWithProgram:(Program *) withProgram
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
 @end

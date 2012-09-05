@@ -10,21 +10,76 @@
 #import "LoadProgramCell.h"
 #import "Program.h"
 #import "LoadProgramObserver.h"
+#import "LoadProgramViewController.h"
 
 @implementation LoadProgramTableDelegate
+
+- (id) initWithDataSource: (LoadProgramTableDataSource *) dataSource withViewObserver: (id<LoadProgramObserver>)observer;
+
+{
+    self = [super init];
+    if (self) {
+        self.dataSource = [[LoadProgramTableDataSource alloc] init];
+        self.observer = observer;
+    }
+    return self;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSUInteger)countOfList {
+    return [self.dataSource numberOfPrograms];
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self.observer programLoadedWithProgram: [self.dataSource programAtIndex:indexPath.row]];
+}
+//[self.viewController programSelected: [self.presentingViewController programLoadedWithProgram:program]];
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Program *program = [self.dataSource programAtIndex:indexPath.row];
+    NSString *cellIdentifier = @"loadProgramCell";
+    
+    LoadProgramCell *cell = (LoadProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[LoadProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    [[cell title] setText: program.name];
+    cellIdentifier = nil;
+    return cell;
+}
+
+
+
+
+
+
+
 //
 //- (id) initWithController: (id<LoadProgramObserver>) withLoadProgramViewObserver
 //{
 //    self = [super init];
-//    
+//
 //    if (self) {
 //        Program *program = [[Program alloc] init];
 //        program.name = @"11 August 10:01pm";
-//        
+//
 //        self.programs = [[NSMutableArray alloc] initWithObjects:program, nil];
 //        self.loadProgramObserver = withLoadProgramViewObserver;
 //    }
-//    
+//
 //    return self;
 //}
 //
@@ -48,7 +103,7 @@
 //
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 //{
-//    
+//
 //}
 //
 //
@@ -61,13 +116,13 @@
 //{
 //    Program *program = [self objectInListAtIndex:indexPath.row];
 //    NSString *cellIdentifier = @"programCell";
-//    
+//
 //    LoadProgramCell *cell = (LoadProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    
+//
 //    if (cell == nil) {
 //        cell = [[LoadProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
 //    }
-//    
+//
 //    [[cell title] setText: program.name];
 //    cellIdentifier = nil;
 //    return cell;
@@ -78,7 +133,7 @@
 ////    Program *program = [self.dataSource objectInListAtIndex:indexPath.row];
 //    cell.textLabel.textColor = [UIColor whiteColor];
 //    cell.backgroundColor = [UIColor brownColor];
-//    
+//
 //    //    if (exercise.isAdd) {
 //    //
 //    //    } else {
@@ -87,13 +142,13 @@
 //    //}
 //    //        [cell textColor];
 //    //    cell.backgroundColor = [UIColor lightGrayColor];
-//    
+//
 //}
 //
 ////- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 ////{
 ////    Exercise *exercise = [self.dataController objectInListAtIndex:indexPath.row];
-////    
+////
 ////    if (exercise.isAdd) {
 ////        return tableView.rowHeight;
 ////    } else {
@@ -121,17 +176,17 @@
 ////- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 ////{
 ////    if (editingStyle == UITableViewCellEditingStyleInsert) {
-////        
-////        
+////
+////
 ////    } else if (editingStyle == UITableViewCellEditingStyleDelete) {
 ////        [self.dataController.program removeExerciseAtIndex:indexPath.row];
 ////        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 ////        [self.tableView reloadData];
-////        
+////
 ////        //        NSLog(@"%d", [self.dataController.exercises count]);
 ////        //        NSLog(@"%d", [self.tableView numberOfRowsInSection:0]);
 ////        //        [self.tableView setEditing:FALSE animated:YES];
-////        
+////
 ////        //        [self.tableView deleteRowsAtIndexPaths:indexPath withRowAnimation:YES];
 ////        //        int row = indexPath.row;
 ////        //        SimpleEditableListAppDelegate *controller = (SimpleEditableListAppDelegate *)[[UIApplication sharedApplication] delegate];
