@@ -7,6 +7,7 @@
 //
 
 #import "CurrentUIViewController.h"
+#import "LoadProgramViewController.h"
 
 @interface CurrentUIViewController ()
 
@@ -92,10 +93,19 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
-- (void) programLoadedWithProgram:(Program *) withProgram
+- (void)programLoadedWithProgram:(Program *)withProgram
 {
-    [self dismissModalViewControllerAnimated:YES];
+    NSLog(@"program loaded");
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"loadProgram"])
+    {
+        LoadProgramViewController *vc = [segue destinationViewController];
+        
+        vc.observer = self;
+    }
+}
 
 @end

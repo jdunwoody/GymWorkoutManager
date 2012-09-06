@@ -22,6 +22,7 @@
 
 //@property (strong, nonatomic) CurrentViewController *delegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) id<LoadProgramObserver> observer;
 
 @property (strong, nonatomic) LoadProgramTableDelegate *tableDelegate;
 @property (strong, nonatomic) LoadProgramTableDataSource *tableDataSource;

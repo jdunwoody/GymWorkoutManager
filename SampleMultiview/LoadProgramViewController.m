@@ -50,7 +50,10 @@
 
 - (void) programLoadedWithProgram:(Program *) withProgram
 {
-    [((id<LoadProgramObserver>) self.presentingViewController) programLoadedWithProgram: withProgram];
+    [self dismissModalViewControllerAnimated:YES];
+    
+    [self.observer programLoadedWithProgram: withProgram];
+    
 }
 
 - (IBAction)newProgramChosen:(id)sender {
