@@ -223,23 +223,29 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Lup-rz-HK8" userLabel="mainPanel">
-                                <rect key="frame" x="0.0" y="0.0" width="799" height="748"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" id="5UH-AA-J7K" userLabel="slidingPanelContainer">
-                                <rect key="frame" x="799" y="0.0" width="225" height="748"/>
+                                <rect key="frame" x="941" y="0.0" width="75" height="748"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="right" id="1b3-f9-J7a" userLabel="slidingPanel">
-                                        <rect key="frame" x="45" y="0.0" width="180" height="748"/>
+                                    <view opaque="NO" contentMode="right" id="1b3-f9-J7a" userLabel="slidingPanel">
+                                        <rect key="frame" x="40" y="0.0" width="160" height="748"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view autoresizesSubviews="NO" contentMode="scaleToFill" id="3US-dq-c7F" userLabel="slidebar">
-                                        <rect key="frame" x="0.0" y="-177" width="46" height="1122"/>
+                                    <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="3US-dq-c7F" userLabel="slidebar">
+                                        <rect key="frame" x="-8" y="-1" width="49" height="748"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="touchableSurface.png" id="3hx-ln-v0Z">
+                                                <rect key="frame" x="0.0" y="332" width="48" height="93"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="NeN-BM-SD6" appends="YES" id="Wx8-UG-FN3"/>
@@ -323,7 +329,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-3427" y="-474"/>
+            <point key="canvasLocation" x="-3395" y="-349"/>
         </scene>
         <!--CurrentUI View Controller-->
         <scene sceneID="0fD-Mb-NOy">
@@ -439,6 +445,7 @@
         <image name="MB_0024_YT2.png" width="256" height="256"/>
         <image name="cartographer.png" width="500" height="499"/>
         <image name="rating_star_with_css.jpeg" width="651" height="281"/>
+        <image name="touchableSurface.png" width="120" height="500"/>
     </resources>
     <classes>
         <class className="CurrentUIViewController" superclassName="UIViewController">

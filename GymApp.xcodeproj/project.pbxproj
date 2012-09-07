@@ -22,6 +22,7 @@
 		1A7F131C15F3819E00A1C365 /* FullProgramViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F131B15F3819E00A1C365 /* FullProgramViewCell.m */; };
 		1A7F132015F382C700A1C365 /* FullProgramTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F131F15F382C700A1C365 /* FullProgramTableDelegate.m */; };
 		1A7F132315F38B2600A1C365 /* FullProgramDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F132215F38B2500A1C365 /* FullProgramDataSource.m */; };
+		1A82594C15F8D86E00616088 /* touchableSurface.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82594B15F8D86E00616088 /* touchableSurface.png */; };
 		1A83719315E9FC30009251CD /* InnerShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A83719215E9FC30009251CD /* InnerShadowView.m */; };
 		1A84054915EB847400E8F071 /* rating_star_with_css.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1A84054815EB847400E8F071 /* rating_star_with_css.jpeg */; };
 		1A84054D15EB865800E8F071 /* CurrentUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A84054C15EB865800E8F071 /* CurrentUIViewController.m */; };
@@ -128,6 +129,7 @@
 		1A7F131F15F382C700A1C365 /* FullProgramTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullProgramTableDelegate.m; sourceTree = "<group>"; };
 		1A7F132115F38B2500A1C365 /* FullProgramDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullProgramDataSource.h; sourceTree = "<group>"; };
 		1A7F132215F38B2500A1C365 /* FullProgramDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullProgramDataSource.m; sourceTree = "<group>"; };
+		1A82594B15F8D86E00616088 /* touchableSurface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = touchableSurface.png; path = SampleMultiview/image_elements/touchableSurface.png; sourceTree = "<group>"; };
 		1A83719115E9FC30009251CD /* InnerShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerShadowView.h; sourceTree = "<group>"; };
 		1A83719215E9FC30009251CD /* InnerShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerShadowView.m; sourceTree = "<group>"; };
 		1A84054815EB847400E8F071 /* rating_star_with_css.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rating_star_with_css.jpeg; sourceTree = "<group>"; };
@@ -299,6 +301,14 @@
 			name = models;
 			sourceTree = "<group>";
 		};
+		1A82594915F8D84000616088 /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				1A82594B15F8D86E00616088 /* touchableSurface.png */,
+			);
+			name = textures;
+			sourceTree = "<group>";
+		};
 		1A84054A15EB863800E8F071 /* Current */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +369,7 @@
 				1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */,
 				1ADF8D7B15BE6C8100356568 /* backgrounds */,
 				1A582F3F15AC49CA004C1A9B /* iTunesArtwork */,
+				1A82594915F8D84000616088 /* textures */,
 				1A9E40EB15A45FF4001A189C /* Default-Landscape@2x~ipad.png */,
 				1A9E40E915A45FE4001A189C /* Default-Landscape~ipad.png */,
 				1A9E40E715A45FC4001A189C /* 144x144.png */,
@@ -612,6 +623,7 @@
 				1A84055115EB8FE300E8F071 /* a5fe27f89b81aa6784169d7eba.jpg in Resources */,
 				1A84055315EB8FF400E8F071 /* a37b704e14f062a520eabd2e22.jpg in Resources */,
 				1A84055515EB900200E8F071 /* golden_bubbles-2012-08-27-1120.jpg in Resources */,
+				1A82594C15F8D86E00616088 /* touchableSurface.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

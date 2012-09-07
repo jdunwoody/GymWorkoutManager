@@ -80,8 +80,13 @@
 - (void) setPanelPosition: (int) position
 {
     int tabWidth = self.slideBar.frame.size.width;
+    int x = [self windowWidth] - tabWidth - position;
+    int y = 0;
+    int width = self.slidingPanelContainer.frame.size.width; //[self windowHeight] + [self statusBarHeight];
+    int height = self.slidingPanelContainer.frame.size.height; //position;
     
-    self.slidingPanelContainer.frame = CGRectMake([self windowWidth] - tabWidth - position, 0, [self windowHeight] + [self statusBarHeight], position);
+    self.slidingPanelContainer.frame = CGRectMake(x, y, width, height);
+//    self.slideBar.frame = CGRectMake(0, 0, tabWidth, 300);
 }
 
 - (int) windowWidth
@@ -118,18 +123,17 @@
     //    [self.collapsedSlidingViewController willMoveToParentViewController: nil];
     //    [self.collapsedSlidingViewController removeFromParentViewController];
     
-        [self addChildViewController: self.summarySlidingViewController];
-        [self.slidingPanel addSubview: self.summarySlidingViewController.view];
-        [self didMoveToParentViewController: self.summarySlidingViewController];
-    
+    [self addChildViewController: self.summarySlidingViewController];
+    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
+    [self didMoveToParentViewController: self.summarySlidingViewController];
     
     //    self.summarySlidingViewController.view.frame = CGRectMake(0,0, 40,40);
     
-    [UIView animateWithDuration:0.5  animations:^{
-        [self setPanelPosition: 200];
-        //            CGRect frame = self.slidingPanelContainer.frame;
-        //            self.slidingPanelContainer.frame = CGRectMake(frame.origin.x - 200 , frame.origin.y, frame.size.width, frame.size.height);
-    }];
+    //    [UIView animateWithDuration:0.5  animations:^{
+    [self setPanelPosition: 60];
+    //            CGRect frame = self.slidingPanelContainer.frame;
+    //            self.slidingPanelContainer.frame = CGRectMake(frame.origin.x - 200 , frame.origin.y, frame.size.width, frame.size.height);
+    //    }];
 }
 
 - (IBAction)hideMenu:(id)sender {
@@ -149,14 +153,14 @@
     //    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
     //    [self didMoveToParentViewController: self.summarySlidingViewController];
     
-    [UIView animateWithDuration:0.5  animations:^{
-        [self setPanelPosition: 0];
-        
-        //           CGRect frame = self.slidingPanelContainer.frame;
-        //            self.slidingPanelContainer.frame = CGRectMake(frame.origin.x + 200 , frame.origin.y, frame.size.width, frame.size.height);
-        
-        //        self.slidingPanelContainer.frame = CGRectMake(500, 0, 300, self.slidingPanelContainer.bounds.size.height);
-    }];
+    //    [UIView animateWithDuration:0.5  animations:^{
+    [self setPanelPosition: 0];
+    
+    //           CGRect frame = self.slidingPanelContainer.frame;
+    //            self.slidingPanelContainer.frame = CGRectMake(frame.origin.x + 200 , frame.origin.y, frame.size.width, frame.size.height);
+    
+    //        self.slidingPanelContainer.frame = CGRectMake(500, 0, 300, self.slidingPanelContainer.bounds.size.height);
+    //    }];
     
 }
 

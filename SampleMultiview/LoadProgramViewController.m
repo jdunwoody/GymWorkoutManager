@@ -53,7 +53,6 @@
     [self dismissModalViewControllerAnimated:YES];
     
     [self.observer programLoadedWithProgram: withProgram];
-    
 }
 
 - (IBAction)newProgramChosen:(id)sender {
