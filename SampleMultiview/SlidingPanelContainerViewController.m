@@ -47,12 +47,11 @@
     self.mainViewController.view.frame = CGRectMake(0, 0, [self windowWidth], [self windowHeight]);
     [self.mainViewController didMoveToParentViewController: self];
     
-    
-    [self addChildViewController: self.summarySlidingViewController];
-    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
-    [self.summarySlidingViewController didMoveToParentViewController: self];
-    
-    [self setPanelPosition: 700];
+//    [self addChildViewController: self.summarySlidingViewController];
+//    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
+//    [self.summarySlidingViewController didMoveToParentViewController: self];
+//    
+//    [self setPanelPosition: 700];
     
     //    [self addChildViewController: self.summarySlidingViewController];
     //    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
