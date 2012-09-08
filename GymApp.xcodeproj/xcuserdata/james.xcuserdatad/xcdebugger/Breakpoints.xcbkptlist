@@ -473,11 +473,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/SlidingPanelContainerViewController.m"
-         timestampString = "368787088.74813"
+         timestampString = "368799407.854022"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
+         startingLineNumber = "79"
+         endingLineNumber = "79"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -486,11 +486,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/SlidingPanelContainerViewController.m"
-         timestampString = "368787088.74813"
+         timestampString = "368799407.854022"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
+         landmarkName = "@implementation SlidingPanelContainerViewController"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/SlidingPanelContainerViewController.m"
+         timestampString = "368799407.854022"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
          landmarkName = "-showMenu:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -499,24 +512,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/SlidingPanelContainerViewController.m"
-         timestampString = "368787088.74813"
+         timestampString = "368799407.854022"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "123"
-         endingLineNumber = "123"
-         landmarkName = "-showMenu:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SampleMultiview/SlidingPanelContainerViewController.m"
-         timestampString = "368789063.465496"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "160"
-         endingLineNumber = "160"
+         startingLineNumber = "184"
+         endingLineNumber = "184"
          landmarkName = "-hideMenu:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -525,11 +525,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/SlidingPanelContainerViewController.m"
-         timestampString = "368789063.465496"
+         timestampString = "368799407.854022"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "159"
-         endingLineNumber = "159"
+         startingLineNumber = "183"
+         endingLineNumber = "183"
          landmarkName = "-hideMenu:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -655,11 +655,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/SlidingPanelContainerViewController.m"
-         timestampString = "368789063.465496"
+         timestampString = "368799407.854022"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "177"
-         endingLineNumber = "177"
+         startingLineNumber = "201"
+         endingLineNumber = "201"
          landmarkName = "-hideMenu:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -768,15 +768,15 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/SummaryProgramViewController.m"
-         timestampString = "368768590.876153"
+         timestampString = "368798346.907743"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-tableView:didDeselectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -785,12 +785,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SampleMultiview/SummaryProgramViewController.m"
-         timestampString = "368776098.303824"
+         timestampString = "368798346.907743"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "129"
-         endingLineNumber = "129"
+         startingLineNumber = "132"
+         endingLineNumber = "132"
          landmarkName = "-menuPlusButton:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/CurrentUIViewController.m"
+         timestampString = "368799296.342166"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
+         landmarkName = "-somethingButtonPressed:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/SummaryProgramViewController.m"
+         timestampString = "368798346.907743"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "142"
+         endingLineNumber = "142"
+         landmarkName = "-bottomButtonPressed:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SampleMultiview/SummaryProgramViewController.m"
+         timestampString = "368798343.781022"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
+         landmarkName = "-didMoveToParentViewController:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

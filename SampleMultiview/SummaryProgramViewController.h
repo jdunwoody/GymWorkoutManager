@@ -12,4 +12,5 @@
 @property (strong, nonatomic) Program *program;
 @property (strong, nonatomic) id<CurrentProgramObserver> programObserver;
 - (IBAction)menuPlusButton:(id)sender;
+- (IBAction)bottomButtonPressed:(id)sender;
 @end

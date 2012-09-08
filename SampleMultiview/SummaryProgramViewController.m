@@ -78,7 +78,10 @@
     return interfaceOrientation == UIInterfaceOrientationLandscapeRight;
 }
 
-
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    NSLog(@"Did move to parent view controller");
+}
 
 // TABLE View stuff
 
@@ -132,6 +135,11 @@
     
     [exercise addSet: set];
     [self.program addExercise:exercise];
+}
+
+- (IBAction)bottomButtonPressed:(id)sender
+{
+    NSLog(@"bottom button pressed");
 }
 
 @end
