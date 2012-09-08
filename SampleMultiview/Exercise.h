@@ -20,6 +20,7 @@
 @property NSString *bodyPart;
 @property NSString *rest;
 @property NSMutableArray *sets;
+@property NSString *comment;
 
 - (NSString *) restAsDisplayValue;
 - (Set *) setAtIndex: (int) index;
@@ -27,5 +28,6 @@
 - (int) setCount;
 - (void) currentSetIsCompleted;
 - (int) currentSetPosition;
+- (void) addSet: (Set *)set;
 
 @end

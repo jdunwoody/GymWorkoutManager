@@ -14,11 +14,12 @@
 @interface Program : NSObject
 {
     Exercise *current;
-    NSMutableArray *exercises;
+//    NSMutableArray *exercises;
     id<ProgramStatusProtocol> programStatus;
 }
 
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSMutableArray * exercises;
 
 //- (id) initWithProgramStatus: (id<ProgramStatusProtocol>)withProgramStatus;
 - (id) initWithName: (NSString *) name;
@@ -38,5 +39,8 @@
 - (Exercise *) currentExercise;
 - (int) currentExercisePosition;
 - (void) currentExerciseIsCompleted;
+
+- (void) setCurrent: (Exercise *)current;
+- (void) setCurrentExerciseIsAtIndex: (int) index;
 
 @end

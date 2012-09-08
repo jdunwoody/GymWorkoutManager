@@ -13,11 +13,12 @@
 @implementation Program
 
 @synthesize name = _name;
+@synthesize exercises = _exercises;
 
 - (id) initWithName: (NSString *) name
 {
     if (self = [super init]) {
-        exercises = [[NSMutableArray alloc] init];
+        self.exercises = [[NSMutableArray alloc] init];
         self.name = name;
         current = nil;
     }
@@ -26,18 +27,18 @@
 
 - (BOOL) empty
 {
-    return [exercises count] == 0;
+    return [self.exercises count] == 0;
 }
 
 - (Exercise *)currentExercise
 {
     if (current == nil) {
-        if ([exercises count] == 0) {
+        if ([self.exercises count] == 0) {
             return nil;
         }
-        current = [exercises objectAtIndex:0];
+        current = [self.exercises objectAtIndex:0];
     } else {
-        current = [exercises objectAtIndex:[exercises indexOfObject:current]];
+        current = [self.exercises objectAtIndex:[self.exercises indexOfObject:current]];
     }
     
     return current;
@@ -45,28 +46,38 @@
 
 - (void) next
 {
-    if (current == [exercises objectAtIndex:[exercises count] -1]) {
+    if (current == [self.exercises objectAtIndex:[self.exercises count] -1]) {
         current = nil;
     } else {
-        current = [exercises objectAtIndex:[exercises indexOfObject:current] + 1];
+        current = [self.exercises objectAtIndex:[self.exercises indexOfObject:current] + 1];
     }
+}
+
+- (void) setCurrent: (Exercise *)withCurrent
+{
+    self.current = withCurrent;
+}
+
+- (void) setCurrentExerciseIsAtIndex: (int) index
+{
+    self.current = [self exerciseAtIndex:index];;
 }
 
 - (int) exerciseCount
 {
-    return [exercises count];
+    return [self.exercises count];
 }
 
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex
 {
-    return [exercises objectAtIndex:theIndex];
+    return [self.exercises objectAtIndex:theIndex];
 }
 
 - (Item *) itemAtIndex: (NSIndexPath *)path
 {
     int i = 0;
-    for (int e = 0; e < [exercises count]; e++) {
-        Exercise *exercise = [exercises objectAtIndex:e];
+    for (int e = 0; e < [self.exercises count]; e++) {
+        Exercise *exercise = [self.exercises objectAtIndex:e];
         
         int setSize = [exercise.sets count];
         
@@ -89,8 +100,8 @@
 {
     int i = 0;
     
-    for (int e = 0; e < [exercises count]; e++) {
-        Exercise *exercise = [exercises objectAtIndex:e];
+    for (int e = 0; e < [self.exercises count]; e++) {
+        Exercise *exercise = [self.exercises objectAtIndex:e];
         
         i += [exercise.sets count] + 1;
     }
@@ -100,23 +111,23 @@
 
 - (BOOL) isIndexOfCurrentExercise: (NSIndexPath *) index
 {
-    return [exercises indexOfObject:self.currentExercise] == index.row;
+    return [self.exercises indexOfObject:self.currentExercise] == index.row;
 }
 
 -(void) removeExerciseAtIndex:(NSUInteger)theIndex
 {
-    [exercises removeObjectAtIndex:theIndex];
+    [self.exercises removeObjectAtIndex:theIndex];
 }
 
 - (void) addExercise:(Exercise *)exercise
 {
-    [exercises addObject:exercise];
+    [self.exercises addObject:exercise];
     [programStatus programNonEmpty];
 }
 
 - (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise
 {
-    [exercises replaceObjectAtIndex:row withObject:exercise];
+    [self.exercises replaceObjectAtIndex:row withObject:exercise];
 }
 
 - (void) currentExerciseIsCompleted
@@ -126,8 +137,7 @@
 
 - (int) currentExercisePosition
 {
-    return [exercises indexOfObject:current];
+    return [self.exercises indexOfObject:current];
 }
-
 
 @end

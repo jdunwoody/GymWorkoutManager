@@ -13,6 +13,7 @@
 @synthesize name = _name;
 @synthesize bodyPart = _bodyPart;
 @synthesize rest = _rest;
+@synthesize comment = _comment;
 
 - (id)init
 {
@@ -63,6 +64,11 @@
 - (int) currentSetPosition
 {
     return [self.sets indexOfObject:_currentSet];
+}
+
+- (void) addSet: (Set *)set
+{
+    [self.sets addObject:set];
 }
 
 @end

@@ -8,12 +8,20 @@
 
 #import "CurrentUIViewController.h"
 #import "LoadProgramViewController.h"
+#import "ReportingViewController.h"
+#import "WeightExercise.h"
+#import "Set.h"
 
 @interface CurrentUIViewController ()
 
 @end
 
 @implementation CurrentUIViewController
+@synthesize programNameLabel;
+@synthesize exerciseNameLabel;
+@synthesize exerciseWeightLabel;
+@synthesize exerciseRestLabel;
+
 @synthesize comment;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -85,6 +93,10 @@
 - (void)viewDidUnload
 {
     [self setComment:nil];
+    [self setProgramNameLabel:nil];
+    [self setExerciseNameLabel:nil];
+    [self setExerciseWeightLabel:nil];
+    [self setExerciseRestLabel:nil];
     [super viewDidUnload];
 }
 
@@ -95,7 +107,19 @@
 
 - (void)programLoadedWithProgram:(Program *)withProgram
 {
-    NSLog(@"program loaded");
+    self.program = withProgram;
+}
+
+- (void)exerciseIsSelected: (Exercise *)withExercise
+{
+    [self.program setCurrent: withExercise];
+    
+    WeightExercise *exercise = (WeightExercise *)withExercise;
+    Set *set =[exercise.sets objectAtIndex:0];
+    
+    self.comment.text = exercise.comment;
+    self.exerciseNameLabel.text = exercise.name;
+    self.exerciseWeightLabel.text = set.weightAsDisplayValue;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -106,6 +130,18 @@
         
         vc.observer = self;
     }
+    //    else if ([[segue identifier] isEqualToString:@"showReporting"]) {
+    //        UINavigationController *navController = [segue destinationViewController];
+    //        ReportingViewController *reportingController = (ReportingViewController *)[navController topViewController];
+    //        [reportingController makeKeyAndVisible];
+    //        UINavigationController *nc =reportingViewController.navigationController;
+    //        nc. navigationBar.hidden = NO;
+    //
+    //    }
 }
 
+
+- (IBAction)somethingButtonPressed:(id)sender {
+    NSLog(@"Something button pressed");
+}
 @end

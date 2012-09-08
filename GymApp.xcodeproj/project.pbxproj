@@ -18,6 +18,7 @@
 		1A4B1B0F15E9953500A5CBEC /* metal_texture_15_by_wojtar_stock.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B0B15E9953500A5CBEC /* metal_texture_15_by_wojtar_stock.jpeg */; };
 		1A4B1B1415E9A3B800A5CBEC /* exercise_cutout.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */; };
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
+		1A590EA615FA2E76001EA03E /* ReportingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A590EA515FA2E76001EA03E /* ReportingViewController.m */; };
 		1A594AFA15E263F300D6AF1B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A594AF915E263F300D6AF1B /* Item.m */; };
 		1A7F131C15F3819E00A1C365 /* FullProgramViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F131B15F3819E00A1C365 /* FullProgramViewCell.m */; };
 		1A7F132015F382C700A1C365 /* FullProgramTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7F131F15F382C700A1C365 /* FullProgramTableDelegate.m */; };
@@ -121,6 +122,8 @@
 		1A4B1B0B15E9953500A5CBEC /* metal_texture_15_by_wojtar_stock.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = metal_texture_15_by_wojtar_stock.jpeg; path = ../../../../../Pictures/Textures/Metal/metal_texture_15_by_wojtar_stock.jpeg; sourceTree = "<group>"; };
 		1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exercise_cutout.png; path = image_elements/exercise_cutout.png; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		1A590EA415FA2E76001EA03E /* ReportingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportingViewController.h; sourceTree = "<group>"; };
+		1A590EA515FA2E76001EA03E /* ReportingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportingViewController.m; sourceTree = "<group>"; };
 		1A594AF815E263F300D6AF1B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		1A594AF915E263F300D6AF1B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		1A7F131A15F3819E00A1C365 /* FullProgramViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullProgramViewCell.h; sourceTree = "<group>"; };
@@ -193,6 +196,7 @@
 		1ADF8D8D15BE6C8100356568 /* tactile_noise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tactile_noise.png; sourceTree = "<group>"; };
 		1ADF8D8E15BE6C8100356568 /* tex2res4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tex2res4.png; sourceTree = "<group>"; };
 		1ADF8D8F15BE6C8100356568 /* triangles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangles.png; sourceTree = "<group>"; };
+		1AE3904115FAE094004777A0 /* CurrentProgramObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentProgramObserver.h; sourceTree = "<group>"; };
 		1AE3D8B715F0AD5300ACBFB0 /* SummaryProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryProgramViewController.h; sourceTree = "<group>"; };
 		1AE3D8B815F0AD5300ACBFB0 /* SummaryProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryProgramViewController.m; sourceTree = "<group>"; };
 		1AE3D8BB15F0B61700ACBFB0 /* SlidingPanelContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingPanelContainerViewController.h; sourceTree = "<group>"; };
@@ -283,6 +287,15 @@
 			name = "image cutouts";
 			sourceTree = "<group>";
 		};
+		1A590EA215FA2E5F001EA03E /* Reporting */ = {
+			isa = PBXGroup;
+			children = (
+				1A590EA415FA2E76001EA03E /* ReportingViewController.h */,
+				1A590EA515FA2E76001EA03E /* ReportingViewController.m */,
+			);
+			name = Reporting;
+			sourceTree = "<group>";
+		};
 		1A60FCB915CE9F540093380B /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +327,7 @@
 			children = (
 				1A84054B15EB865800E8F071 /* CurrentUIViewController.h */,
 				1A84054C15EB865800E8F071 /* CurrentUIViewController.m */,
+				1AE3904115FAE094004777A0 /* CurrentProgramObserver.h */,
 			);
 			name = Current;
 			sourceTree = "<group>";
@@ -364,9 +378,7 @@
 		1ABFF5111595A63E004C7EE1 = {
 			isa = PBXGroup;
 			children = (
-				1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */,
 				1ABD3F0D15C00414002E9520 /* icons */,
-				1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */,
 				1ADF8D7B15BE6C8100356568 /* backgrounds */,
 				1A582F3F15AC49CA004C1A9B /* iTunesArtwork */,
 				1A82594915F8D84000616088 /* textures */,
@@ -391,6 +403,8 @@
 		1ABFF51F1595A63E004C7EE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */,
+				1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */,
 				1ABFF5201595A63E004C7EE1 /* UIKit.framework */,
 				1ABFF5221595A63E004C7EE1 /* Foundation.framework */,
 				1ABFF5241595A63F004C7EE1 /* CoreGraphics.framework */,
@@ -408,6 +422,7 @@
 				1AE3D8BA15F0B5D500ACBFB0 /* SlidingPanel */,
 				1A44373715F1D56000EC3318 /* Full Program */,
 				1AE3D8B615F0ACB300ACBFB0 /* Summary Program */,
+				1A590EA215FA2E5F001EA03E /* Reporting */,
 				1A84054A15EB863800E8F071 /* Current */,
 				1A4B1B1215E9A32900A5CBEC /* image cutouts */,
 				1A4B1B0715E9873000A5CBEC /* Background */,
@@ -655,6 +670,7 @@
 				1AEC1D3E15F75DDA001E9273 /* LoadProgramTableDelegate.m in Sources */,
 				1AEC1D3F15F75DDA001E9273 /* LoadProgramViewController.m in Sources */,
 				1AEC1D4215F761DB001E9273 /* LoadProgramTableDataSource.m in Sources */,
+				1A590EA615FA2E76001EA03E /* ReportingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

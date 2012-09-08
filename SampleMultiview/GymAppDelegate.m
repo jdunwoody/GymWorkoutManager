@@ -18,7 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    SlidingPanelContainerViewController *slidingPanel = (SlidingPanelContainerViewController *)self.window.rootViewController;
+//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+//    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[navigationController topViewController];
+    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)self.window.rootViewController;
+
+//    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[storyboard instantiateViewControllerWithIdentifier: @"slidingPanelView"];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
     
