@@ -10,19 +10,30 @@
 
 #import "LoadProgramObserver.h"
 #import "CurrentProgramObserver.h"
+#import "ProgramLoadObserver.h"
 
+@class ProgramDataSource;
 @class Program;
 
-@interface CurrentUIViewController : UIViewController<LoadProgramObserver, CurrentProgramObserver>
+@interface CurrentUIViewController : UIViewController<LoadProgramObserver, CurrentProgramObserver, UITextFieldDelegate, ProgramLoadObserver>
+//, UIPopoverControllerDelegate>
+{
+    BOOL keyboardShown;
+    BOOL viewMoved;
+    UITextField *activeField;
+
+}
 
 - (void) programLoadedWithProgram:(Program *) withProgram;
 
-@property (weak, nonatomic) IBOutlet UILabel *comment;
-@property (strong, nonatomic) Program *program;
+@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *programNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *exerciseNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *exerciseWeightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *exerciseRestLabel;
+@property (strong, nonatomic) ProgramDataSource *programDataSource;
+
+
 - (IBAction)somethingButtonPressed:(id)sender;
 
 @end

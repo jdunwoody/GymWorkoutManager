@@ -17,7 +17,7 @@
 
 @interface LoadProgramViewController : UIViewController <LoadProgramObserver>
 
-- (IBAction)newProgramChosen:(id)sender;
+//- (IBAction)newProgramChosen:(id)sender;
 - (void) programLoadedWithProgram:(Program *) withProgram;
 
 //@property (strong, nonatomic) CurrentViewController *delegate;

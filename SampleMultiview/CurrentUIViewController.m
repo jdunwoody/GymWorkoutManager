@@ -11,6 +11,8 @@
 #import "ReportingViewController.h"
 #import "WeightExercise.h"
 #import "Set.h"
+#import "SlidingPanelContainerViewController.h"
+#import "ProgramDataSource.h"
 
 @interface CurrentUIViewController ()
 
@@ -21,8 +23,7 @@
 @synthesize exerciseNameLabel;
 @synthesize exerciseWeightLabel;
 @synthesize exerciseRestLabel;
-
-@synthesize comment;
+@synthesize commentLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,11 +38,93 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
     [self animateComments];
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    if ([self.programDataSource.program exerciseCount] == 0) {
+        [self performSegueWithIdentifier:@"loadProgram" sender:self];
+    }
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+}
+
+- (void)keyboardWasShown:(NSNotification *)aNotification {
+    if ( keyboardShown )
+        return;
+    
+    //    if ( ( activeField != inputAmount ) && ( activeField != inputAge ) ) {
+    NSDictionary *info = [aNotification userInfo];
+    NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
+    CGSize keyboardSize = [aValue CGRectValue].size;
+    
+    NSTimeInterval animationDuration = 0.300000011920929;
+    CGRect frame = self.view.frame;
+    frame.origin.y -= keyboardSize.height-44;
+    frame.size.height += keyboardSize.height-44;
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    self.view.frame = frame;
+    [UIView commitAnimations];
+    
+    viewMoved = YES;
+    //    }
+    
+    keyboardShown = YES;
+}
+
+- (void)keyboardWasHidden:(NSNotification *)aNotification {
+    if ( viewMoved ) {
+        NSDictionary *info = [aNotification userInfo];
+        NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
+        CGSize keyboardSize = [aValue CGRectValue].size;
+        
+        NSTimeInterval animationDuration = 0.300000011920929;
+        CGRect frame = self.view.frame;
+        frame.origin.y += keyboardSize.height-44;
+        frame.size.height -= keyboardSize.height-44;
+        [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+        [UIView setAnimationDuration:animationDuration];
+        self.view.frame = frame;
+        [UIView commitAnimations];
+        
+        viewMoved = NO;
+    }
+    
+    keyboardShown = NO;
 }
 
 - (void) animateComments
 {
+    [UIView animateWithDuration:1.0 delay: 0
+                        options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+                            
+                            self.commentLabel.alpha = 0.0;
+                        }
+                     completion:nil];
+    
+    
+    //                         self.comment.text = [words objectAtIndex:i];
+    //                         i = i + 1;
+    //                         i = i % [words count];
+    
     //    NSArray *words = [self.comment.text componentsSeparatedByString:@" "];
     //    int i =0;
     //
@@ -61,20 +144,6 @@
     
     //    int i =0;
     
-    [UIView animateWithDuration:1.0
-                          delay: 0
-                        options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat
-                     animations:^{
-                         
-                         NSLog(@"i is");
-                         self.comment.alpha = 0.0;
-                         //                         self.comment.text = [words objectAtIndex:i];
-                         //                         i = i + 1;
-                         //                         i = i % [words count];
-                     }
-                     completion:nil];
-    
-    
     //
     //    [UIView animateWithDuration:1.0 delay:0 options: UIViewAnimation<#(UIViewAnimationOptions)#> animations:animations:^{
     //
@@ -92,7 +161,7 @@
 
 - (void)viewDidUnload
 {
-    [self setComment:nil];
+    [self setCommentLabel:nil];
     [self setProgramNameLabel:nil];
     [self setExerciseNameLabel:nil];
     [self setExerciseWeightLabel:nil];
@@ -107,19 +176,14 @@
 
 - (void)programLoadedWithProgram:(Program *)withProgram
 {
-    self.program = withProgram;
+    [self.presentedViewController dismissModalViewControllerAnimated:YES];
+    self.programDataSource.program = withProgram;
+    [self.programDataSource notifyNewProgramObservers];
 }
 
 - (void)exerciseIsSelected: (Exercise *)withExercise
 {
-    [self.program setCurrent: withExercise];
-    
-    WeightExercise *exercise = (WeightExercise *)withExercise;
-    Set *set =[exercise.sets objectAtIndex:0];
-    
-    self.comment.text = exercise.comment;
-    self.exerciseNameLabel.text = exercise.name;
-    self.exerciseWeightLabel.text = set.weightAsDisplayValue;
+    [self.programDataSource.program setCurrent: withExercise];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -143,5 +207,25 @@
 - (IBAction)somethingButtonPressed:(id)sender {
     NSLog(@"Something button pressed");
 }
+
+- (void) programLoaded
+{
+    [self updateView];
+}
+
+- (void) updateView
+{
+    WeightExercise *weightExercise = (WeightExercise *) self.programDataSource.program.currentExercise;
+    
+    self.commentLabel.text = weightExercise.name;
+    self.exerciseNameLabel.text = weightExercise.name;
+    self.exerciseWeightLabel.text = [weightExercise currentSet].weightAsDisplayValue;
+    self.exerciseRestLabel.text = [[weightExercise currentSet].rest stringValue];
+}
+
+//- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+//{
+//
+//}
 
 @end

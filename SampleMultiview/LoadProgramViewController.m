@@ -50,15 +50,13 @@
 
 - (void) programLoadedWithProgram:(Program *) withProgram
 {
-    [self dismissModalViewControllerAnimated:YES];
-    
     [self.observer programLoadedWithProgram: withProgram];
 }
 
-- (IBAction)newProgramChosen:(id)sender {
-    //    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
-    //    [(CurrentViewController *) self.presentingViewController programLoadedWithProgram:program];
-}
+//- (IBAction)newProgramChosen:(id)sender {
+//    //    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
+//    //    [(CurrentViewController *) self.presentingViewController programLoadedWithProgram:program];
+//}
 
 //    Program *program = [[Program alloc] initWithName:[self currentDateString]];
 //    self.delegate.program = program;

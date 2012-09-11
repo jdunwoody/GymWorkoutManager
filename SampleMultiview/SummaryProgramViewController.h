@@ -1,16 +1,18 @@
 #import <UIKit/UIKit.h>
 #import "CurrentProgramObserver.h"
+#import "ProgramLoadObserver.h"
 
 @class Program;
+@class ProgramDataSource;
 
-@interface SummaryProgramViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SummaryProgramViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ProgramLoadObserver>
 
-@property (weak, nonatomic) IBOutlet UIImageView *overlayImage;
-@property (weak, nonatomic) IBOutlet UIScrollView *exerciseList;
+//@property (weak, nonatomic) IBOutlet UIView *overlayImage;
+//@property (weak, nonatomic) IBOutlet UIScrollView *exerciseList;
 
 //@property (strong, nonatomic) NSArray *exercises;
-@property (strong, nonatomic) Program *program;
 @property (strong, nonatomic) id<CurrentProgramObserver> programObserver;
-- (IBAction)menuPlusButton:(id)sender;
-- (IBAction)bottomButtonPressed:(id)sender;
+@property (strong, nonatomic) ProgramDataSource *programDataSource;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end

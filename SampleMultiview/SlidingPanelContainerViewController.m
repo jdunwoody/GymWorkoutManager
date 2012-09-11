@@ -47,11 +47,11 @@
     self.mainViewController.view.frame = CGRectMake(0, 0, [self windowWidth], [self windowHeight]);
     [self.mainViewController didMoveToParentViewController: self];
     
-//    [self addChildViewController: self.summarySlidingViewController];
-//    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
-//    [self.summarySlidingViewController didMoveToParentViewController: self];
-//    
-//    [self setPanelPosition: 700];
+    [self addChildViewController: self.summarySlidingViewController];
+    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
+    [self.summarySlidingViewController didMoveToParentViewController: self];
+    
+    [self setPanelPosition: 0];
     
     //    [self addChildViewController: self.summarySlidingViewController];
     //    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
@@ -98,7 +98,7 @@
 
 - (void) setPanelPosition: (int) position
 {
-    int tabWidth = 49; //self.slideBar.frame.size.width;
+    int tabWidth = self.slideBar.frame.size.width;
     int windowWidth = 1024; //[self windowWidth];
     int x =  windowWidth - tabWidth - position;
     int y = 0;
@@ -142,11 +142,12 @@
     
     NSLog(@"Show menu");
     
-    [self addChildViewController: self.summarySlidingViewController];
-    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
-    [self.summarySlidingViewController didMoveToParentViewController: self];
+//    [self addChildViewController: self.summarySlidingViewController];
+//    [self.slidingPanel addSubview: self.summarySlidingViewController.view];
+//    [self.summarySlidingViewController didMoveToParentViewController: self];
     
-    [self setPanelPosition: 700];
+    [self setPanelPosition: 188 + 28];
+//    [self setPanelPosition: 700];
     
     //    [self addChildViewController: self.mainViewController];
     //    [self.mainPanel addSubview: self.mainViewController.view];

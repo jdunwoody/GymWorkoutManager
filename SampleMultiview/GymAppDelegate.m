@@ -11,6 +11,7 @@
 #import "SummaryProgramViewController.h"
 #import "SlidingPanelContainerVIewController.h"
 #import "FullProgramViewController.h"
+#import "ProgramDataSource.h"
 
 @implementation GymAppDelegate
 
@@ -18,23 +19,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-//    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[navigationController topViewController];
+    //    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    //    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[navigationController topViewController];
     SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)self.window.rootViewController;
-
-//    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[storyboard instantiateViewControllerWithIdentifier: @"slidingPanelView"];
+    
+    //    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[storyboard instantiateViewControllerWithIdentifier: @"slidingPanelView"];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    
     
     CurrentUIViewController *currentUIViewController = (CurrentUIViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentView"];
     
     SummaryProgramViewController *programViewController = (SummaryProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"summaryProgramView"];
+    
+    ProgramDataSource *programDataSource = [[ProgramDataSource alloc]initWithObservers:programViewController, currentUIViewController, nil];
    
-    FullProgramViewController *fullProgramViewController = (FullProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"fullProgramView"];
+    programViewController.programDataSource = programDataSource;
+    currentUIViewController.programDataSource = programDataSource;
     
     slidingPanel.mainViewController = currentUIViewController;
     slidingPanel.summarySlidingViewController = programViewController;
-    slidingPanel.expandedSlidingViewController = fullProgramViewController;
+    
+    
+    
+    //    FullProgramViewController *fullProgramViewController = (FullProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"fullProgramView"];
+    //
+    //    slidingPanel.expandedSlidingViewController = fullProgramViewController;
     
     //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
     
