@@ -37,13 +37,13 @@
 {
     [self.tableView reloadData];
     
-//    for( int i = 0; i < [self.programDataSource.program exerciseCount]; i++) {
-//        //    for (Exercise *exercise in self.program.exercises) {
-//        UILabel *exerciseLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,i*100,184,92)];
-//        exerciseLabel.text = [self.programDataSource.program exerciseAtIndex:i].name;
-//        [exe addSubview: exerciseLabel];
-//    }
-//    [self.exerciseList setContentSize:CGSizeMake(self.exerciseList.frame.size.width, [self.programDataSource.program exerciseCount] * 200)];
+    //    for( int i = 0; i < [self.programDataSource.program exerciseCount]; i++) {
+    //        //    for (Exercise *exercise in self.program.exercises) {
+    //        UILabel *exerciseLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,i*100,184,92)];
+    //        exerciseLabel.text = [self.programDataSource.program exerciseAtIndex:i].name;
+    //        [exe addSubview: exerciseLabel];
+    //    }
+    //    [self.exerciseList setContentSize:CGSizeMake(self.exerciseList.frame.size.width, [self.programDataSource.program exerciseCount] * 200)];
 }
 
 //- (Program *) tempMakeExampleProgramWithName: (NSString *) name
@@ -78,8 +78,8 @@
 
 - (void)viewDidUnload
 {
-//    [self setOverlayImage:nil];
-//    [self setExerciseList:nil];
+    //    [self setOverlayImage:nil];
+    //    [self setExerciseList:nil];
     [self setTableView:nil];
     [super viewDidUnload];
 }
@@ -96,10 +96,20 @@
 
 // TABLE View stuff
 
+//-scrollscrollViewWillBeginDragging
+//-scrollViewDidScroll
+// unused
+- (void) shouldDisableScrolling
+{
+    if (self.tableView.contentSize.height < self.tableView.frame.size.height) {
+        self.tableView.scrollEnabled = NO;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"showExerciseDetails" sender: self];
-//    [self.programDataSource.program setCurrentExerciseIsAtIndex:indexPath.row];
+    //    [self.programDataSource.program setCurrentExerciseIsAtIndex:indexPath.row];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

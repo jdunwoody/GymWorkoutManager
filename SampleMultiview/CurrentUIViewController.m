@@ -221,6 +221,7 @@
     self.exerciseNameLabel.text = weightExercise.name;
     self.exerciseWeightLabel.text = [weightExercise currentSet].weightAsDisplayValue;
     self.exerciseRestLabel.text = [[weightExercise currentSet].rest stringValue];
+    self.programNameLabel.text = self.programDataSource.program.name;
 }
 
 //- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController

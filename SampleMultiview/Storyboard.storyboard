@@ -5,16 +5,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
-        <!--Summary Program View Controller-->
+        <!--Summary Detail With Child View Controller-->
         <scene sceneID="FyL-Op-b7r">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVj-j9-F2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="summaryProgramView" autoresizesArchivedViewToFullSize="NO" id="PMK-i9-AbV" customClass="SummaryProgramViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="summaryProgramView" autoresizesArchivedViewToFullSize="NO" id="PMK-i9-AbV" customClass="SummaryDetailWithChildViewController" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="ePY-Hs-2pI">
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" id="mBf-pZ-0kv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" id="mBf-pZ-0kv">
                                 <rect key="frame" x="0.0" y="0.0" width="192" height="748"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
@@ -63,18 +63,43 @@
                                     <outlet property="delegate" destination="PMK-i9-AbV" id="mP5-nS-Zz4"/>
                                 </connections>
                             </tableView>
-                            <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="sz6-8T-Jsk" userLabel="Overlay">
+                            <view opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000013" contentMode="scaleToFill" id="sz6-8T-Jsk" userLabel="Overlay">
                                 <rect key="frame" x="0.0" y="335" width="192" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.20248522229726554" green="0.24394529041973678" blue="0.54669563137755106" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.43627825403990006" green="0.54669563137755106" blue="0.046167314951031636" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="first" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="9JP-cT-FqJ">
+                                <rect key="frame" x="191" y="302" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="middle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cly-8O-FEv">
+                                <rect key="frame" x="191" y="359" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="last" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="O2m-Mz-Ngx">
+                                <rect key="frame" x="191" y="424" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="tableView" destination="mBf-pZ-0kv" id="cye-gC-p1J"/>
+                        <outlet property="firstChildLabel" destination="9JP-cT-FqJ" id="Gzt-YV-BHl"/>
+                        <outlet property="lastChildLabel" destination="O2m-Mz-Ngx" id="RRH-tQ-Hbe"/>
+                        <outlet property="middleChildLabel" destination="cly-8O-FEv" id="4K4-xs-go3"/>
+                        <outlet property="overlay" destination="sz6-8T-Jsk" id="zaC-WG-vmp"/>
+                        <outlet property="tableView" destination="mBf-pZ-0kv" id="UwT-Tw-8Xi"/>
                         <segue destination="BfP-Uf-2cQ" kind="popover" identifier="showExerciseDetails" popoverAnchorView="sz6-8T-Jsk" id="6jJ-la-WVq">
                             <popoverArrowDirection key="popoverArrowDirection" right="YES"/>
                         </segue>
@@ -288,7 +313,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No name brand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="JWV-HY-KO9">
-                                <rect key="frame" x="757" y="20" width="237" height="76"/>
+                                <rect key="frame" x="207" y="564" width="134" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
@@ -296,8 +321,8 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mega Weights Program" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="L23-Tm-2SA">
-                                <rect key="frame" x="495" y="104" width="359" height="76"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Program Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="L23-Tm-2SA">
+                                <rect key="frame" x="293" y="18" width="359" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.66000000000000003" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
@@ -305,8 +330,8 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="James Dunwoody" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="sTP-BZ-io5">
-                                <rect key="frame" x="38" y="20" width="412" height="76"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="sTP-BZ-io5">
+                                <rect key="frame" x="20" y="18" width="260" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.72999999999999998" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="41"/>
@@ -314,8 +339,8 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1:32" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="KYB-0G-r5D">
-                                <rect key="frame" x="44" y="132" width="140" height="76"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="KYB-0G-r5D">
+                                <rect key="frame" x="547" y="102" width="140" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.66000000000000003" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
@@ -323,8 +348,8 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Push ups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="t0N-fP-lQa">
-                                <rect key="frame" x="192" y="132" width="143" height="76"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ExName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="t0N-fP-lQa">
+                                <rect key="frame" x="695" y="102" width="143" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.67000000000000004" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
@@ -332,8 +357,8 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="50kg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nS9-o3-Q06">
-                                <rect key="frame" x="44" y="216" width="140" height="60"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nS9-o3-Q06">
+                                <rect key="frame" x="547" y="186" width="140" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
@@ -341,8 +366,8 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Remember your form and posture" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" id="vg5-wK-2Rd">
-                                <rect key="frame" x="70" y="294" width="509" height="178"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Comments" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" id="vg5-wK-2Rd">
+                                <rect key="frame" x="20" y="102" width="509" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="79"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -350,7 +375,7 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.30000000000000016" contentMode="scaleToFill" image="rating_star_with_css.jpeg" id="vFe-WG-JOg">
-                                <rect key="frame" x="39" y="579" width="145" height="64"/>
+                                <rect key="frame" x="26" y="541" width="145" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -366,7 +391,7 @@
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Type some comments here. See what the keyboard does" id="TX8-EJ-xU1">
-                                <rect key="frame" x="308" y="492" width="461" height="128"/>
+                                <rect key="frame" x="20" y="315" width="461" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.60999999999999999" colorSpace="calibratedWhite"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -396,58 +421,6 @@
         <image name="rating_star_with_css.jpeg" width="651" height="281"/>
         <image name="touchableSurface.png" width="120" height="500"/>
     </resources>
-    <classes>
-        <class className="CurrentUIViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentUIViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="somethingButtonPressed:"/>
-                <relationship kind="outlet" name="commentLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="exerciseNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="exerciseRestLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="exerciseWeightLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="programNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LoadProgramCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LoadProgramViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SlidingPanelContainerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SlidingPanelContainerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="hideMenu:"/>
-                <relationship kind="action" name="showMenu:"/>
-                <relationship kind="outlet" name="hideMenuSwipeGesture" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="outlet" name="hideMenuTapGesture" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="mainPanel" candidateClass="UIView"/>
-                <relationship kind="outlet" name="showMenuSwipeGesture" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="outlet" name="showMenuTapGesture" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="slideBar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="slidingPanel" candidateClass="UIView"/>
-                <relationship kind="outlet" name="slidingPanelContainer" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SummaryProgramCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryProgramCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SummaryProgramViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SummaryProgramViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
