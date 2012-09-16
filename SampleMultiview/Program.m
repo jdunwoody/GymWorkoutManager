@@ -9,6 +9,7 @@
 #import "Program.h"
 #import "Exercise.h"
 #import "ProgramStatusProtocol.h"
+#import "WeightExercise.h"
 
 @implementation Program
 
@@ -119,10 +120,17 @@
     [self.exercises removeObjectAtIndex:theIndex];
 }
 
+- (void) addExercise
+{
+    [self.exercises addObject:[[WeightExercise alloc] init]];
+    //    [programStatus programNonEmpty];
+}
+
+
 - (void) addExercise:(Exercise *)exercise
 {
     [self.exercises addObject:exercise];
-    [programStatus programNonEmpty];
+    //    [programStatus programNonEmpty];
 }
 
 - (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise

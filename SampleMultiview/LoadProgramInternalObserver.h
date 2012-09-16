@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LoadProgramObserver.h"
 #import "Program.h"
 
-@protocol LoadProgramObserver <NSObject>
+@protocol LoadProgramInternalObserver <NSObject>
 
 - (void) programLoadedWithProgram: (Program *)withProgram;
 

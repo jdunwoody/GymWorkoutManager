@@ -2,24 +2,24 @@
 //  ProgramDataSource.m
 //  GymApp
 //
-//  Created by James Dunwoody on 10/09/12.
+//  Created by James Dunwoody on 16/09/12.
 //
 //
 
 #import "ProgramDataSource.h"
-#import "ProgramLoadObserver.h"
 
 @implementation ProgramDataSource
+
 @synthesize program = _program;
 
-- (id) initWithObservers: (id<ProgramLoadObserver>) firstArg, ...
+- (id) initWithObservers: (id<ProgramChangeObserver>) firstArg, ...
 {
     if (self = [super init]) {
         observers = [[NSMutableArray alloc] init];
         va_list args;
         va_start(args, firstArg);
         
-        for (id<ProgramLoadObserver> arg = firstArg; arg != nil; arg = va_arg(args, id<ProgramLoadObserver>)) {
+        for (id<ProgramChangeObserver> arg = firstArg; arg != nil; arg = va_arg(args, id<ProgramChangeObserver>)) {
             [observers addObject:arg];
         }
         va_end(args);
@@ -29,9 +29,14 @@
 
 - (void) notifyNewProgramObservers
 {
-    for (id<ProgramLoadObserver> observer in observers) {
-        [observer programLoaded];
+    for (id<ProgramChangeObserver> observer in observers) {
+        [observer programChanged];
     }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.program exerciseCount] + 1;
 }
 
 @end

@@ -13,14 +13,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ProgramTimer.h"
 #import "Program.h"
-#import "LoadProgramObserver.h"
+#import "LoadProgramInternalObserver.h"
 #import "ProgramChangedObserver.h"
 #import "CurrentExerciseTableDelegate.h"
 #import "Item.h"
-#import "ExerciseCell.h"
+#import "OldExerciseCell.h"
 #import "SetCell.h"
 
-@interface CurrentViewController : UIViewController<ProgramChangedObserver, UITableViewDataSource, UITableViewDelegate>
+@interface CurrentViewController : UIViewController<ProgramChangeObserver, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) Program *program;
 @property (strong, nonatomic) UIColor *backgroundColor;

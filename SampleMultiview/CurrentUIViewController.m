@@ -51,9 +51,9 @@
 }
 - (void)viewDidAppear:(BOOL)animated
 {
-    if ([self.programDataSource.program exerciseCount] == 0) {
-        [self performSegueWithIdentifier:@"loadProgram" sender:self];
-    }
+//    if ([self.programDataSource.program exerciseCount] == 0) {
+//        [self performSegueWithIdentifier:@"loadProgram" sender:self];
+//    }
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -66,50 +66,50 @@
     
 }
 
-- (void)keyboardWasShown:(NSNotification *)aNotification {
-    if ( keyboardShown )
-        return;
-    
-    //    if ( ( activeField != inputAmount ) && ( activeField != inputAge ) ) {
-    NSDictionary *info = [aNotification userInfo];
-    NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
-    CGSize keyboardSize = [aValue CGRectValue].size;
-    
-    NSTimeInterval animationDuration = 0.300000011920929;
-    CGRect frame = self.view.frame;
-    frame.origin.y -= keyboardSize.height-44;
-    frame.size.height += keyboardSize.height-44;
-    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    self.view.frame = frame;
-    [UIView commitAnimations];
-    
-    viewMoved = YES;
-    //    }
-    
-    keyboardShown = YES;
-}
-
-- (void)keyboardWasHidden:(NSNotification *)aNotification {
-    if ( viewMoved ) {
-        NSDictionary *info = [aNotification userInfo];
-        NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
-        CGSize keyboardSize = [aValue CGRectValue].size;
-        
-        NSTimeInterval animationDuration = 0.300000011920929;
-        CGRect frame = self.view.frame;
-        frame.origin.y += keyboardSize.height-44;
-        frame.size.height -= keyboardSize.height-44;
-        [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-        [UIView setAnimationDuration:animationDuration];
-        self.view.frame = frame;
-        [UIView commitAnimations];
-        
-        viewMoved = NO;
-    }
-    
-    keyboardShown = NO;
-}
+//- (void)keyboardWasShown:(NSNotification *)aNotification {
+//    if ( keyboardShown )
+//        return;
+//    
+//    //    if ( ( activeField != inputAmount ) && ( activeField != inputAge ) ) {
+//    NSDictionary *info = [aNotification userInfo];
+//    NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
+//    CGSize keyboardSize = [aValue CGRectValue].size;
+//    
+//    NSTimeInterval animationDuration = 0.300000011920929;
+//    CGRect frame = self.view.frame;
+//    frame.origin.y -= keyboardSize.height-44;
+//    frame.size.height += keyboardSize.height-44;
+//    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+//    [UIView setAnimationDuration:animationDuration];
+//    self.view.frame = frame;
+//    [UIView commitAnimations];
+//    
+//    viewMoved = YES;
+//    //    }
+//    
+//    keyboardShown = YES;
+//}
+//
+//- (void)keyboardWasHidden:(NSNotification *)aNotification {
+//    if ( viewMoved ) {
+//        NSDictionary *info = [aNotification userInfo];
+//        NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
+//        CGSize keyboardSize = [aValue CGRectValue].size;
+//        
+//        NSTimeInterval animationDuration = 0.300000011920929;
+//        CGRect frame = self.view.frame;
+//        frame.origin.y += keyboardSize.height-44;
+//        frame.size.height -= keyboardSize.height-44;
+//        [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+//        [UIView setAnimationDuration:animationDuration];
+//        self.view.frame = frame;
+//        [UIView commitAnimations];
+//        
+//        viewMoved = NO;
+//    }
+//    
+//    keyboardShown = NO;
+//}
 
 - (void) animateComments
 {
@@ -177,22 +177,22 @@
 - (void)programLoadedWithProgram:(Program *)withProgram
 {
     [self.presentedViewController dismissModalViewControllerAnimated:YES];
-    self.programDataSource.program = withProgram;
-    [self.programDataSource notifyNewProgramObservers];
+//    self.programDataSource.program = withProgram;
+//    [self.programDataSource notifyNewProgramObservers];
 }
 
 - (void)exerciseIsSelected: (Exercise *)withExercise
 {
-    [self.programDataSource.program setCurrent: withExercise];
+//    [self.programDataSource.program setCurrent: withExercise];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"loadProgram"])
     {
-        LoadProgramViewController *vc = [segue destinationViewController];
+//        LoadProgramViewController *vc = [segue destinationViewController];
         
-        vc.observer = self;
+//        vc.observer = self;
     }
     //    else if ([[segue identifier] isEqualToString:@"showReporting"]) {
     //        UINavigationController *navController = [segue destinationViewController];
@@ -215,13 +215,13 @@
 
 - (void) updateView
 {
-    WeightExercise *weightExercise = (WeightExercise *) self.programDataSource.program.currentExercise;
-    
-    self.commentLabel.text = weightExercise.name;
-    self.exerciseNameLabel.text = weightExercise.name;
-    self.exerciseWeightLabel.text = [weightExercise currentSet].weightAsDisplayValue;
-    self.exerciseRestLabel.text = [[weightExercise currentSet].rest stringValue];
-    self.programNameLabel.text = self.programDataSource.program.name;
+//    WeightExercise *weightExercise = (WeightExercise *) self.programDataSource.program.currentExercise;
+//    
+//    self.commentLabel.text = weightExercise.name;
+//    self.exerciseNameLabel.text = weightExercise.name;
+//    self.exerciseWeightLabel.text = [weightExercise currentSet].weightAsDisplayValue;
+//    self.exerciseRestLabel.text = [[weightExercise currentSet].rest stringValue];
+//    self.programNameLabel.text = self.programDataSource.program.name;
 }
 
 //- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController

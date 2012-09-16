@@ -17,6 +17,7 @@
 
 @implementation LoadProgramViewController
 
+@synthesize programDataSource = _programDataSource;
 @synthesize tableView = _tableView;
 //@synthesize delegate = _delegate;
 @synthesize tableDelegate = _tableDelegate;
@@ -36,21 +37,23 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.view.superview.frame = CGRectMake(0,0,350,400);    
+    self.view.superview.frame = CGRectMake(0,0,350,400);
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    //        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    //    } else {
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-    //    }
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+//    } else {
+//    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+//    }
+//}
 
 - (void) programLoadedWithProgram:(Program *) withProgram
 {
-    [self.observer programLoadedWithProgram: withProgram];
+    [self dismissViewControllerAnimated:YES completion: nil];
+    self.programDataSource.program = withProgram;
+    [self.observer programChanged];
 }
 
 //- (IBAction)newProgramChosen:(id)sender {

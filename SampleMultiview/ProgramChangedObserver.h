@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ProgramChangedObserver <NSObject>
+@protocol ProgramChangeObserver <NSObject>
 
 - (void) programChanged;
 

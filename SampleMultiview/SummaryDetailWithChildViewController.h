@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "CurrentProgramObserver.h"
 #import "ProgramLoadObserver.h"
+#import "CurrentSummaryObserver.h"
 
 @class ProgramDataSource;
 
 @interface SummaryDetailWithChildViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, ProgramLoadObserver>
 
+@property (strong, nonatomic) id<CurrentSummaryObserver> currentSummaryObserver;
 @property (strong, nonatomic) id<CurrentProgramObserver> programObserver;
+
 @property (strong, nonatomic) ProgramDataSource *programDataSource;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *overlay;

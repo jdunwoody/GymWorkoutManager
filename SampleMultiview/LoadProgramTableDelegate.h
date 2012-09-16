@@ -10,11 +10,11 @@
 #import "LoadProgramTableDelegate.h"
 #import "Program.h"
 #import "LoadProgramViewController.h"
-#import "LoadProgramObserver.h"
+#import "LoadProgramInternalObserver.h"
 #import "LoadProgramTableDataSource.h"
 
 @interface LoadProgramTableDelegate : NSObject<UITableViewDelegate, UITableViewDataSource>
-- (id) initWithDataSource: (LoadProgramTableDataSource *) dataSource withViewObserver: (id<LoadProgramObserver>)observer;
+- (id) initWithDataSource: (LoadProgramTableDataSource *) dataSource withViewObserver: (id<LoadProgramInternalObserver>)observer;
 
 //
 //- (id) initWithController: (id<LoadProgramObserver>) withLoadProgramObserver;
@@ -25,7 +25,7 @@
 //@property (strong, nonatomic) id<LoadProgramObserver> loadProgramObserver;
 
 @property (strong, nonatomic) LoadProgramTableDataSource *dataSource;
-@property (strong, nonatomic) id<LoadProgramObserver> observer;
+@property (strong, nonatomic) id<LoadProgramInternalObserver> observer;
 
 
 @end

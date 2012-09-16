@@ -2,19 +2,20 @@
 //  FullProgramViewController.h
 //  GymApp
 //
-//  Created by James Dunwoody on 1/09/12.
+//  Created by James Dunwoody on 16/09/12.
 //
 //
 
 #import <UIKit/UIKit.h>
+#import "ProgramDelegate.h"
+#import "ProgramDataSource.h"
+#import "ProgramChangedObserver.h"
 
-@interface FullProgramViewController : UIViewController
+@interface FullProgramViewController : UIViewController<ProgramChangeObserver>
 
-//@property (strong, nonatomic) IBOutlet UITableView *tableView;
-
-@property (weak, nonatomic) IBOutlet UILabel *exercise;
-@property (weak, nonatomic) IBOutlet UILabel *reps;
-@property (weak, nonatomic) IBOutlet UILabel *rest;
-@property (weak, nonatomic) IBOutlet UILabel *weight;
+@property (strong, nonatomic) ProgramDelegate *programDelegate;
+@property (strong, nonatomic) ProgramDataSource *programDatasource;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)addExercise:(id)sender;
 
 @end

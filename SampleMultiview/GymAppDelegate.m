@@ -7,11 +7,9 @@
 //
 
 #import "GymAppDelegate.h"
-#import "CurrentUIViewController.h"
-#import "SummaryProgramViewController.h"
-#import "SlidingPanelContainerVIewController.h"
 #import "FullProgramViewController.h"
 #import "ProgramDataSource.h"
+#import "ProgramDelegate.h"
 
 @implementation GymAppDelegate
 
@@ -19,60 +17,76 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    //    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[navigationController topViewController];
-    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)self.window.rootViewController;
+    FullProgramViewController *fullProgram = (FullProgramViewController *) self.window.rootViewController;
     
-    //    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[storyboard instantiateViewControllerWithIdentifier: @"slidingPanelView"];
+    ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers:fullProgram, nil];
+    ProgramDelegate *programDelegate = [[ProgramDelegate alloc] init];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    programDelegate.programDataSource = programDataSource;
     
+    fullProgram.programDatasource = programDataSource;
+    fullProgram.programDelegate = programDelegate;
     
-    CurrentUIViewController *currentUIViewController = (CurrentUIViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentView"];
-    
-    SummaryProgramViewController *programViewController = (SummaryProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"summaryProgramView"];
-    
-    ProgramDataSource *programDataSource = [[ProgramDataSource alloc]initWithObservers:programViewController, currentUIViewController, nil];
-   
-    programViewController.programDataSource = programDataSource;
-    currentUIViewController.programDataSource = programDataSource;
-    
-    slidingPanel.mainViewController = currentUIViewController;
-    slidingPanel.summarySlidingViewController = programViewController;
-    
-    
-    
-    //    FullProgramViewController *fullProgramViewController = (FullProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"fullProgramView"];
-    //
-    //    slidingPanel.expandedSlidingViewController = fullProgramViewController;
-    
-    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
-    
-    //    SlidingPanelContainerViewController *slidingPanelContainerViewController = (SlidingPanelContainerViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentViewController"];
-    
-    //    CurrentUIViewController *currentUIViewController = (CurrentUIViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentViewController"];
-    //
-    //    ProgramViewController *programViewController = (ProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"programViewController"];
-    //
-    ////    SlidingPanelContainerViewController *slidingPanelContainerViewController = [[SlidingPanelContainerViewController alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    //    slidingPanelContainerViewController = [[SlidingPanelContainerViewController alloc] init];
-    //    [slidingPanelContainerViewController makeKeyAndVisible];
-    //
-    
-    //    CurrentViewController *currentViewController = (CurrentViewController *)self.window.rootViewController;
-    
-    //ProgramViewController *exerciseViewController = (ProgramViewController *)self.window.rootViewController;
-    
-    //    self.tableDelegate = [[ExerciseTableDelegate alloc] init];
-    //    self.dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
-    //    self.pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
-    //
-    //    tableDelegate.dataController = dataController;
-    //    exerciseViewController.tableDelegate = tableDelegate;
-    //    exerciseViewController.pickerDelegate = pickerDelegate;
     
     return YES;
 }
+
+//{
+//    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)self.window.rootViewController;
+//
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+//
+//    CurrentUIViewController *currentUIViewController = (CurrentUIViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentView"];
+//    SummaryDetailWithChildViewController *programViewController = (SummaryDetailWithChildViewController*)[storyboard instantiateViewControllerWithIdentifier: @"summaryProgramView"];
+//    MainPanelOverlayViewController *mainPanelOverlayViewController = (MainPanelOverlayViewController*)[storyboard instantiateViewControllerWithIdentifier: @"mainPanelOverlayView"];
+//
+////    ProgramDataSource *programDataSource = [[ProgramDataSource alloc]initWithObservers:programViewController, currentUIViewController, nil];
+//
+////    programViewController.programDataSource = programDataSource;
+////    currentUIViewController.programDataSource = programDataSource;
+//
+//    slidingPanel.mainViewController = currentUIViewController;
+//    slidingPanel.summarySlidingViewController = programViewController;
+//    slidingPanel.mainPanelOverlayViewController = mainPanelOverlayViewController;
+//
+//    programViewController.currentSummaryObserver = mainPanelOverlayViewController;
+//    return YES;
+//}
+
+//    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[storyboard instantiateViewControllerWithIdentifier: @"slidingPanelView"];
+
+//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+//    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)[navigationController topViewController];
+
+//    FullProgramViewController *fullProgramViewController = (FullProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"fullProgramView"];
+//
+//    slidingPanel.expandedSlidingViewController = fullProgramViewController;
+
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+
+//    SlidingPanelContainerViewController *slidingPanelContainerViewController = (SlidingPanelContainerViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentViewController"];
+
+//    CurrentUIViewController *currentUIViewController = (CurrentUIViewController*)[storyboard instantiateViewControllerWithIdentifier: @"currentViewController"];
+//
+//    ProgramViewController *programViewController = (ProgramViewController*)[storyboard instantiateViewControllerWithIdentifier: @"programViewController"];
+//
+////    SlidingPanelContainerViewController *slidingPanelContainerViewController = [[SlidingPanelContainerViewController alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    slidingPanelContainerViewController = [[SlidingPanelContainerViewController alloc] init];
+//    [slidingPanelContainerViewController makeKeyAndVisible];
+//
+
+//    CurrentViewController *currentViewController = (CurrentViewController *)self.window.rootViewController;
+
+//ProgramViewController *exerciseViewController = (ProgramViewController *)self.window.rootViewController;
+
+//    self.tableDelegate = [[ExerciseTableDelegate alloc] init];
+//    self.dataController = [[ExerciseDataController alloc] initWithProgramStatus:exerciseViewController];
+//    self.pickerDelegate = [[ExercisePickerDelegate alloc] initWithWithController:exerciseViewController];
+//
+//    tableDelegate.dataController = dataController;
+//    exerciseViewController.tableDelegate = tableDelegate;
+//    exerciseViewController.pickerDelegate = pickerDelegate;
+
 
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    // Override point for customization after application launch.

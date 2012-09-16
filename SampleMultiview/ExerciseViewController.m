@@ -1,18 +1,18 @@
 //
-//  SummaryDetailsViewController.m
+//  ExerciseViewController.m
 //  GymApp
 //
-//  Created by James Dunwoody on 10/09/12.
+//  Created by James Dunwoody on 16/09/12.
 //
 //
 
-#import "SummaryDetailsViewController.h"
+#import "ExerciseViewController.h"
 
-@interface SummaryDetailsViewController ()
+@interface ExerciseViewController ()
 
 @end
 
-@implementation SummaryDetailsViewController
+@implementation ExerciseViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

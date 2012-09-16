@@ -37,7 +37,7 @@
 @property (weak, nonatomic) IBOutlet UIView *programControlsView;
 @property (weak, nonatomic) IBOutlet UIView *programView;
 @property (strong, nonatomic) Program *program;
-@property (strong, nonatomic) id<ProgramChangedObserver> programChangeObserver;
+@property (strong, nonatomic) id<ProgramChangeObserver> programChangeObserver;
 
 - (IBAction) addNewBodyPart:(id)sender;
 - (IBAction) addNewExerciseType:(id)sender;

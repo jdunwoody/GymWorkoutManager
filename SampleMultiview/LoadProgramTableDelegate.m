@@ -9,12 +9,12 @@
 #import "LoadProgramTableDelegate.h"
 #import "LoadProgramCell.h"
 #import "Program.h"
-#import "LoadProgramObserver.h"
+#import "LoadProgramInternalObserver.h"
 #import "LoadProgramViewController.h"
 
 @implementation LoadProgramTableDelegate
 
-- (id) initWithDataSource: (LoadProgramTableDataSource *) dataSource withViewObserver: (id<LoadProgramObserver>)observer;
+- (id) initWithDataSource: (LoadProgramTableDataSource *) dataSource withViewObserver: (id<LoadProgramInternalObserver>)observer;
 
 {
     self = [super init];

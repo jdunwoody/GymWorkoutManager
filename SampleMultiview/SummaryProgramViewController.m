@@ -117,36 +117,36 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.programDataSource.program exerciseCount];
-}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return [self.programDataSource.program exerciseCount];
+//}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Exercise *exercise = [self.programDataSource.program exerciseAtIndex:indexPath.row];
-    NSString *cellIdentifier = @"SummaryViewCell";
-    
-    SummaryProgramCell *cell = (SummaryProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[SummaryProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    cell.name.text = exercise.name;
-    
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    Exercise *exercise = [self.programDataSource.program exerciseAtIndex:indexPath.row];
+//    NSString *cellIdentifier = @"SummaryViewCell";
+//    
+//    SummaryProgramCell *cell = (SummaryProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    
+//    if (cell == nil) {
+//        cell = [[SummaryProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//    }
+//    
+//    cell.name.text = exercise.name;
+//    
+//    return cell;
+//}
 
-- (NSUInteger)countOfList
-{
-    return [self.programDataSource.program exerciseCount];
-}
+//- (NSUInteger)countOfList
+//{
+//    return [self.programDataSource.program exerciseCount];
+//}
 
-- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex
-{
-    return [self.programDataSource.program  exerciseAtIndex:theIndex];
-}
+//- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex
+//{
+//    return [self.programDataSource.program  exerciseAtIndex:theIndex];
+//}
 
 - (IBAction)menuPlusButton:(id)sender
 {
@@ -155,7 +155,7 @@
     Set *set = [[Set alloc] initWithReps: [NSNumber numberWithInt:2]];
     
     [exercise addSet: set];
-    [self.programDataSource.program addExercise:exercise];
+//    [self.programDataSource.program addExercise:exercise];
 }
 
 - (void) programLoaded

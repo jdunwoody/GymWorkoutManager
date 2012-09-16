@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         self.programs = [[NSMutableArray alloc] initWithObjects:
-                         [self makeExampleProgramWithName:[self currentDateString]],
+                         [[Program alloc] initWithName: @"New"],
                          [self makeExampleProgramWithName:@"Last weeks"],
                          [self makeExampleProgramWithName:@"High intensity"],
                          [self makeExampleProgramWithName:@"Low intensity"],

@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-#import "LoadProgramObserver.h"
+#import "LoadProgramInternalObserver.h"
 #import "CurrentProgramObserver.h"
 #import "ProgramLoadObserver.h"
 
 @class ProgramDataSource;
 @class Program;
 
-@interface CurrentUIViewController : UIViewController<LoadProgramObserver, CurrentProgramObserver, UITextFieldDelegate, ProgramLoadObserver>
+@interface CurrentUIViewController : UIViewController<LoadProgramInternalObserver, CurrentProgramObserver, UITextFieldDelegate, ProgramLoadObserver>
 //, UIPopoverControllerDelegate>
 {
     BOOL keyboardShown;

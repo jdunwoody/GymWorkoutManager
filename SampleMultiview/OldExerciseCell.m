@@ -6,7 +6,7 @@
 //
 //
 
-#import "ExerciseCell.h"
+#import "OldExerciseCell.h"
 
 @implementation ExerciseCell
 @synthesize currentExerciseIndicator;

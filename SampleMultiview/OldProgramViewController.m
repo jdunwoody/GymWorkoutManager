@@ -7,7 +7,7 @@
 //
 
 #import "OldProgramViewController.h"
-#import "ExerciseCell.h"
+#import "OldExerciseCell.h"
 #import "Exercise.h"
 #import "ExerciseTimer.h"
 #import "ProgramTimer.h"

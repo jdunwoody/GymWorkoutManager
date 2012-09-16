@@ -2,23 +2,22 @@
 //  ProgramDataSource.h
 //  GymApp
 //
-//  Created by James Dunwoody on 10/09/12.
+//  Created by James Dunwoody on 16/09/12.
 //
 //
 
 #import <Foundation/Foundation.h>
-#import "ProgramLoadObserver.h"
+#import "Program.h"
+#import "ProgramChangedObserver.h"
 
-@class Program;
-
-@interface ProgramDataSource : NSObject
+@interface ProgramDataSource : NSObject<UITableViewDataSource>
 {
     NSMutableArray *observers;
 }
 
 @property (strong, nonatomic) Program *program;
 
-- (id) initWithObservers: (id<ProgramLoadObserver>) withObservers, ...;
+- (id) initWithObservers: (id<ProgramChangeObserver>) withObservers, ...;
 - (void) notifyNewProgramObservers;
 
 @end

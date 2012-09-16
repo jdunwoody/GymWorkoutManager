@@ -10,7 +10,7 @@
 #import "GymAppDelegate.h"
 #import "LoadProgramViewController.h"
 #import "WeightExercise.h"
-#import "ExerciseCell.h"
+#import "OldExerciseCell.h"
 #import "CurrentExerciseTableDelegate.h"
 #import "SetCell.h"
 #import <QuartzCore/QuartzCore.h>
@@ -164,8 +164,8 @@
         //        destination.pickerDelegate = pickerDelegate;
         //
     } else if([segue.identifier isEqualToString:@"chooseProgram"]) {
-        LoadProgramViewController *loadProgramViewController = (LoadProgramViewController *) segue.destinationViewController;
-        loadProgramViewController.delegate = self;
+//        LoadProgramViewController *loadProgramViewController = (LoadProgramViewController *) segue.destinationViewController;
+//        loadProgramViewController.delegate = self;
     }
 }
 

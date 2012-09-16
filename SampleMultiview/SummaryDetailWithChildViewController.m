@@ -13,6 +13,7 @@
 #import "SummaryProgramCell.h"
 #import "WeightExercise.h"
 #import "Exercise.h"
+#import "CurrentSummaryObserver.h"
 
 @interface SummaryDetailWithChildViewController ()
 
@@ -23,6 +24,59 @@
 @synthesize middleChildLabel = _middleChildLabel;
 @synthesize lastChildLabel = _lastChildLabel;
 @synthesize tableView = _tableView;
+@synthesize currentSummaryObserver = _currentSummaryObserver;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self reloadExercises];
+    
+    //    self.program = [self tempMakeExampleProgramWithName: @"Sample Program"];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSLog(@"overlay frame %f %f %f %i",
+          self.tableView.frame.origin.x,
+          self.tableView.frame.size.height / 2,
+          self.tableView.frame.size.width,
+          78);
+    
+    self.overlay.frame = CGRectMake(self.tableView.frame.origin.x,
+                                    self.tableView.frame.size.height / 2,
+                                    self.tableView.frame.size.width,
+                                    78);
+}
+
+- (void) reloadExercises
+{
+    [self.tableView reloadData];
+}
+
+- (void)viewDidUnload
+{
+    //    [self setOverlayImage:nil];
+    //    [self setExerciseList:nil];
+    [self setTableView:nil];
+    [self setFirstChildLabel:nil];
+    [self setMiddleChildLabel:nil];
+    [self setLastChildLabel:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return interfaceOrientation == UIInterfaceOrientationLandscapeRight;
+}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    NSLog(@"Did move to parent view controller");
+}
+
 
 //
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -77,43 +131,15 @@
 //@synthesize childView = _childView;
 //@synthesize overlay = _overlay;
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    [self reloadExercises];
-    
-    //    self.program = [self tempMakeExampleProgramWithName: @"Sample Program"];
-}
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    NSLog(@"overlay frame %f %f %f %i",
-          self.tableView.frame.origin.x,
-          self.tableView.frame.size.height / 2,
-          self.tableView.frame.size.width,
-          78);
-    
-    self.overlay.frame = CGRectMake(self.tableView.frame.origin.x,
-                                    self.tableView.frame.size.height / 2,
-                                    self.tableView.frame.size.width,
-                                    78);
-}
+//    for( int i = 0; i < [self.programDataSource.program exerciseCount]; i++) {
+//        //    for (Exercise *exercise in self.program.exercises) {
+//        UILabel *exerciseLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,i*100,184,92)];
+//        exerciseLabel.text = [self.programDataSource.program exerciseAtIndex:i].name;
+//        [exe addSubview: exerciseLabel];
+//    }
+//    [self.exerciseList setContentSize:CGSizeMake(self.exerciseList.frame.size.width, [self.programDataSource.program exerciseCount] * 200)];
 
-- (void) reloadExercises
-{
-    [self.tableView reloadData];
-    
-    //    for( int i = 0; i < [self.programDataSource.program exerciseCount]; i++) {
-    //        //    for (Exercise *exercise in self.program.exercises) {
-    //        UILabel *exerciseLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,i*100,184,92)];
-    //        exerciseLabel.text = [self.programDataSource.program exerciseAtIndex:i].name;
-    //        [exe addSubview: exerciseLabel];
-    //    }
-    //    [self.exerciseList setContentSize:CGSizeMake(self.exerciseList.frame.size.width, [self.programDataSource.program exerciseCount] * 200)];
-}
 
 //- (Program *) tempMakeExampleProgramWithName: (NSString *) name
 //{
@@ -145,26 +171,6 @@
 //    return program;
 //}
 
-- (void)viewDidUnload
-{
-    //    [self setOverlayImage:nil];
-    //    [self setExerciseList:nil];
-    [self setTableView:nil];
-    [self setFirstChildLabel:nil];
-    [self setMiddleChildLabel:nil];
-    [self setLastChildLabel:nil];
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return interfaceOrientation == UIInterfaceOrientationLandscapeRight;
-}
-
-- (void)didMoveToParentViewController:(UIViewController *)parent
-{
-    NSLog(@"Did move to parent view controller");
-}
 
 // TABLE View stuff
 
@@ -188,10 +194,10 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.programDataSource.program exerciseCount];
-}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return [self.programDataSource.program exerciseCount];
+//}
 
 //- (Exercise *) exerciseAtIndex: (NSInteger) index
 //{
@@ -204,31 +210,31 @@
 //    return exercise;
 //}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    Exercise *exercise = [self.programDataSource.program exerciseAtIndex:indexPath.row];
-    NSString *cellIdentifier = @"SummaryViewCell";
-    
-    SummaryProgramCell *cell = (SummaryProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[SummaryProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    cell.name.text = exercise.name;
-    
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    Exercise *exercise = [self.programDataSource.program exerciseAtIndex:indexPath.row];
+//    NSString *cellIdentifier = @"SummaryViewCell";
+//    
+//    SummaryProgramCell *cell = (SummaryProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    
+//    if (cell == nil) {
+//        cell = [[SummaryProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//    }
+//    
+//    cell.name.text = exercise.name;
+//    
+//    return cell;
+//}
 
-- (NSUInteger)countOfList
-{
-    return [self.programDataSource.program exerciseCount];
-}
-
-- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex
-{
-    return [self.programDataSource.program exerciseAtIndex:theIndex];
-}
+//- (NSUInteger)countOfList
+//{
+//    return [self.programDataSource.program exerciseCount];
+//}
+//
+//- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex
+//{
+//    return [self.programDataSource.program exerciseAtIndex:theIndex];
+//}
 
 - (IBAction)menuPlusButton:(id)sender
 {
@@ -237,7 +243,7 @@
     Set *set = [[Set alloc] initWithReps: [NSNumber numberWithInt:2]];
     
     [exercise addSet: set];
-    [self.programDataSource.program addExercise:exercise];
+//    [self.programDataSource.program addExercise:exercise];
 }
 
 - (void) programLoaded
@@ -271,6 +277,8 @@
     self.middleChildLabel.text = middleCell.name.text;
     //    middleCell.label.minimumFontSize = 80;
     NSLog(@"Middle %f %f %i", scrollView.frame.size.height, scrollView.contentOffset.y, middleCellIndex);
+    
+    [self.currentSummaryObserver currentSummaryChanged:middleCell.name.text];
     
     int lastCellIndex   = (scrollView.frame.size.height + scrollView.contentOffset.y + 23) / 45;
     indexes[0] = 0;

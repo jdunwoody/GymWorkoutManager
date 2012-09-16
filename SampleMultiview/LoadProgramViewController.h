@@ -10,21 +10,25 @@
 //#import "LoadProgramTableDelegate.h"
 //#import "LoadProgramTableDataSource.h"
 #import "Program.h"
-#import "LoadProgramObserver.h"
+#import "LoadProgramInternalObserver.h"
+#import "ProgramChangedObserver.h"
+#import "ProgramDataSource.h"
 
 @class LoadProgramTableDelegate;
 @class LoadProgramTableDataSource;
 
-@interface LoadProgramViewController : UIViewController <LoadProgramObserver>
+@interface LoadProgramViewController : UIViewController <LoadProgramInternalObserver>
 
 //- (IBAction)newProgramChosen:(id)sender;
 - (void) programLoadedWithProgram:(Program *) withProgram;
 
 //@property (strong, nonatomic) CurrentViewController *delegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) id<LoadProgramObserver> observer;
+@property (strong, nonatomic) id<ProgramChangeObserver> observer;
 
 @property (strong, nonatomic) LoadProgramTableDelegate *tableDelegate;
 @property (strong, nonatomic) LoadProgramTableDataSource *tableDataSource;
+
+@property (strong, nonatomic) ProgramDataSource *programDataSource;
 
 @end

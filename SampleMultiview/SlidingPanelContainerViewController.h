@@ -13,11 +13,13 @@
 @property (strong, nonatomic) UIViewController *mainViewController;
 @property (strong, nonatomic) UIViewController *expandedSlidingViewController;
 @property (strong, nonatomic) UIViewController *summarySlidingViewController;
+@property (strong, nonatomic) UIViewController *mainPanelOverlayViewController;
 
 @property (weak, nonatomic) IBOutlet UIView *mainPanel;
 @property (weak, nonatomic) IBOutlet UIView *slideBar;
 @property (weak, nonatomic) IBOutlet UIView *slidingPanelContainer;
 @property (weak, nonatomic) IBOutlet UIView *slidingPanel;
+@property (weak, nonatomic) IBOutlet UIView *mainPanelOverlay;
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)hideMenu:(id)sender;

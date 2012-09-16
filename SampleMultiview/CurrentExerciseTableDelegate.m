@@ -9,7 +9,7 @@
 #import "CurrentExerciseTableDelegate.h"
 #import "Exercise.h"
 #import "SetCell.h"
-#import "ExerciseCell.h"
+#import "OldExerciseCell.h"
 
 @implementation CurrentExerciseTableDelegate
 
