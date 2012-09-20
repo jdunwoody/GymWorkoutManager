@@ -176,7 +176,7 @@
 
 - (void)programLoadedWithProgram:(Program *)withProgram
 {
-    [self.presentedViewController dismissModalViewControllerAnimated:YES];
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 //    self.programDataSource.program = withProgram;
 //    [self.programDataSource notifyNewProgramObservers];
 }

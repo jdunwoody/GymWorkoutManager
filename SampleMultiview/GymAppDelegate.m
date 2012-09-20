@@ -10,6 +10,7 @@
 #import "FullProgramViewController.h"
 #import "ProgramDataSource.h"
 #import "ProgramDelegate.h"
+#import "NavigationViewController.h"
 
 @implementation GymAppDelegate
 
@@ -17,16 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    FullProgramViewController *fullProgram = (FullProgramViewController *) self.window.rootViewController;
+    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    
+    NavigationViewController *navigationController = (NavigationViewController *) self.window.rootViewController;
+    
+    FullProgramViewController *fullProgram = (FullProgramViewController *) [navigationController.childViewControllers objectAtIndex: 0];
     
     ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers:fullProgram, nil];
-    ProgramDelegate *programDelegate = [[ProgramDelegate alloc] init];
+    ProgramDelegate *programDelegate = [[ProgramDelegate alloc] initWithProgramDetailNotifier: fullProgram];
     
     programDelegate.programDataSource = programDataSource;
     
     fullProgram.programDatasource = programDataSource;
     fullProgram.programDelegate = programDelegate;
-    
     
     return YES;
 }

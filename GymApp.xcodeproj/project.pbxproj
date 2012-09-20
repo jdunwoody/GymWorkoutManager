@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		1A0B08A615C0293C00567BBD /* WeightExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B08A515C0293C00567BBD /* WeightExercise.m */; };
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
+		1A1C01D31608811800DC2DAB /* repititionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1C01D21608811800DC2DAB /* repititionView.xib */; };
+		1A1C01D716089AAA00DC2DAB /* SetElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C01D616089AAA00DC2DAB /* SetElement.m */; };
 		1A4B1B0615E9872200A5CBEC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */; };
 		1A4B1B1415E9A3B800A5CBEC /* exercise_cutout.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */; };
+		1A4BD92B160745CF0082EB1E /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4BD92A160745CF0082EB1E /* NavigationViewController.m */; };
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
 		1A594AFA15E263F300D6AF1B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A594AF915E263F300D6AF1B /* Item.m */; };
 		1A5B6B471604871F00D3F4C6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5B6B461604871F00D3F4C6 /* Utils.m */; };
@@ -21,6 +24,9 @@
 		1A8D936515FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D936315FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg */; };
 		1A9E40E615A45FAC001A189C /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E515A45FAC001A189C /* 72x72.png */; };
 		1A9E40E815A45FC4001A189C /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E715A45FC4001A189C /* 144x144.png */; };
+		1A9FA582160B556A00A24883 /* JustAnIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9FA581160B556A00A24883 /* JustAnIcon.xib */; };
+		1A9FA585160B5AD400A24883 /* JustAnIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9FA584160B5AD400A24883 /* JustAnIconView.m */; };
+		1A9FA587160B5F8F00A24883 /* SetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9FA586160B5F8F00A24883 /* SetView.xib */; };
 		1AA277371605735100A3CD64 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA277361605735100A3CD64 /* Storyboard.storyboard */; };
 		1AA2774016057C3A00A3CD64 /* ProgramDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA2773F16057C3A00A3CD64 /* ProgramDataSource.m */; };
 		1AA2774416057C8A00A3CD64 /* ProgramDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA2774316057C8A00A3CD64 /* ProgramDelegate.m */; };
@@ -80,12 +86,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A003720160738EF003932EF /* ProgramDetailNotifiable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProgramDetailNotifiable.h; path = SampleMultiview/ProgramDetailNotifiable.h; sourceTree = "<group>"; };
 		1A0B08A415C0293C00567BBD /* WeightExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightExercise.h; sourceTree = "<group>"; };
 		1A0B08A515C0293C00567BBD /* WeightExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightExercise.m; sourceTree = "<group>"; };
 		1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		1A1C01D21608811800DC2DAB /* repititionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = repititionView.xib; sourceTree = "<group>"; };
+		1A1C01D516089AAA00DC2DAB /* SetElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetElement.h; path = SampleMultiview/SetElement.h; sourceTree = "<group>"; };
+		1A1C01D616089AAA00DC2DAB /* SetElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetElement.m; path = SampleMultiview/SetElement.m; sourceTree = "<group>"; };
 		1A3BD5F415FF3E060052BD96 /* ProgramLoadObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramLoadObserver.h; sourceTree = "<group>"; };
 		1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exercise_cutout.png; path = image_elements/exercise_cutout.png; sourceTree = "<group>"; };
+		1A4BD929160745CF0082EB1E /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		1A4BD92A160745CF0082EB1E /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		1A594AF815E263F300D6AF1B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		1A594AF915E263F300D6AF1B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
@@ -100,6 +112,10 @@
 		1A9E40E715A45FC4001A189C /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
 		1A9E40E915A45FE4001A189C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		1A9E40EB15A45FF4001A189C /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		1A9FA581160B556A00A24883 /* JustAnIcon.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JustAnIcon.xib; sourceTree = "<group>"; };
+		1A9FA583160B5AD400A24883 /* JustAnIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JustAnIconView.h; sourceTree = "<group>"; };
+		1A9FA584160B5AD400A24883 /* JustAnIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JustAnIconView.m; sourceTree = "<group>"; };
+		1A9FA586160B5F8F00A24883 /* SetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetView.xib; sourceTree = "<group>"; };
 		1AA277361605735100A3CD64 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		1AA2773E16057C3A00A3CD64 /* ProgramDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramDataSource.h; sourceTree = "<group>"; };
 		1AA2773F16057C3A00A3CD64 /* ProgramDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramDataSource.m; sourceTree = "<group>"; };
@@ -236,6 +252,15 @@
 			path = SampleMultiview;
 			sourceTree = "<group>";
 		};
+		1A4BD928160745B30082EB1E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1A4BD929160745CF0082EB1E /* NavigationViewController.h */,
+				1A4BD92A160745CF0082EB1E /* NavigationViewController.m */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
 		1A60FCB915CE9F540093380B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,12 +290,14 @@
 		1AA277321605716C00A3CD64 /* Full Program View */ = {
 			isa = PBXGroup;
 			children = (
+				1AA2774116057C4000A3CD64 /* Table View Helpers */,
 				1AD113611605863D00002528 /* FullProgramViewController.h */,
 				1AD113621605863D00002528 /* FullProgramViewController.m */,
 				1AD113CF160594E500002528 /* FullExerciseCell.h */,
 				1AD113D0160594E500002528 /* FullExerciseCell.m */,
 				1AD113D21605A02900002528 /* AddExerciseCell.h */,
 				1AD113D31605A02900002528 /* AddExerciseCell.m */,
+				1A003720160738EF003932EF /* ProgramDetailNotifiable.h */,
 			);
 			name = "Full Program View";
 			path = ..;
@@ -281,6 +308,10 @@
 			children = (
 				1AD1135D1605862000002528 /* ExerciseViewController.h */,
 				1AD1135E1605862000002528 /* ExerciseViewController.m */,
+				1A1C01D516089AAA00DC2DAB /* SetElement.h */,
+				1A1C01D616089AAA00DC2DAB /* SetElement.m */,
+				1A9FA583160B5AD400A24883 /* JustAnIconView.h */,
+				1A9FA584160B5AD400A24883 /* JustAnIconView.m */,
 			);
 			name = "Normal View";
 			path = ..;
@@ -295,7 +326,7 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		1AA2774116057C4000A3CD64 /* ExerciseTableViewHelpers */ = {
+		1AA2774116057C4000A3CD64 /* Table View Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				1AA2773E16057C3A00A3CD64 /* ProgramDataSource.h */,
@@ -303,7 +334,8 @@
 				1AA2774216057C8A00A3CD64 /* ProgramDelegate.h */,
 				1AA2774316057C8A00A3CD64 /* ProgramDelegate.m */,
 			);
-			name = ExerciseTableViewHelpers;
+			name = "Table View Helpers";
+			path = SampleMultiview;
 			sourceTree = "<group>";
 		};
 		1ABD3F0D15C00414002E9520 /* icons */ = {
@@ -364,9 +396,12 @@
 			children = (
 				1AD113641605871300002528 /* Unused */,
 				1AA277361605735100A3CD64 /* Storyboard.storyboard */,
+				1A1C01D21608811800DC2DAB /* repititionView.xib */,
+				1A9FA581160B556A00A24883 /* JustAnIcon.xib */,
+				1A9FA586160B5F8F00A24883 /* SetView.xib */,
 				1ABFF52F1595A63F004C7EE1 /* GymAppDelegate.h */,
 				1ABFF5301595A63F004C7EE1 /* GymAppDelegate.m */,
-				1AA2774116057C4000A3CD64 /* ExerciseTableViewHelpers */,
+				1A4BD928160745B30082EB1E /* Navigation */,
 				1AA277341605717400A3CD64 /* Normal View */,
 				1AA277321605716C00A3CD64 /* Full Program View */,
 				1AE3D8BA15F0B5D500ACBFB0 /* Sliding Panel Container */,
@@ -567,6 +602,9 @@
 				1A8D936515FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg in Resources */,
 				1AA277371605735100A3CD64 /* Storyboard.storyboard in Resources */,
 				1AD113AD1605873A00002528 /* _Storyboard.storyboard in Resources */,
+				1A1C01D31608811800DC2DAB /* repititionView.xib in Resources */,
+				1A9FA582160B556A00A24883 /* JustAnIcon.xib in Resources */,
+				1A9FA587160B5F8F00A24883 /* SetView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +660,9 @@
 				1AD113CB1605873A00002528 /* SummaryProgramViewController.m in Sources */,
 				1AD113D1160594E500002528 /* FullExerciseCell.m in Sources */,
 				1AD113D41605A02900002528 /* AddExerciseCell.m in Sources */,
+				1A4BD92B160745CF0082EB1E /* NavigationViewController.m in Sources */,
+				1A1C01D716089AAA00DC2DAB /* SetElement.m in Sources */,
+				1A9FA585160B5AD400A24883 /* JustAnIconView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +734,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleMultiview/GymApp-Prefix.pch";
 				INFOPLIST_FILE = "SampleMultiview/GymApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = GymApp;
 				WRAPPER_EXTENSION = app;
 			};
@@ -705,6 +747,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleMultiview/GymApp-Prefix.pch";
 				INFOPLIST_FILE = "SampleMultiview/GymApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = GymApp;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FBAC21B6-CC9E-4035-BA3C-8F76456811F1";
 				WRAPPER_EXTENSION = app;

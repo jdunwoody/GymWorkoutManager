@@ -8,6 +8,8 @@
 
 #import "FullProgramViewController.h"
 #import "LoadProgramViewController.h"
+#import "FullExerciseCell.h"
+#import "ExerciseViewController.h"
 
 @interface FullProgramViewController ()
 
@@ -50,7 +52,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 - (void) programChanged
@@ -61,10 +63,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"loadProgram"]) {
-        
         LoadProgramViewController *destination = segue.destinationViewController;
         destination.programDataSource = self.programDatasource;
         destination.observer = self;
+        
+    } else if ([segue.identifier isEqualToString:@"showProgramDetail"]) {
+        ExerciseViewController *destination = segue.destinationViewController;
+        destination.exercise = self.programDatasource.program.currentExercise;
     }
 }
 
@@ -72,6 +77,29 @@
 {
     [self.programDatasource.program addExercise];
     [self programChanged];
+}
+
+- (IBAction)addSet:(id)sender
+{
+    UITableViewCell *cell=(UITableViewCell*)[[sender superview] superview];
+	
+	UITableView *table=(UITableView*)[cell superview];
+	NSIndexPath *path=[table indexPathForCell:cell];
+    
+    Exercise *exercise = [self.programDatasource.program exerciseAtIndex:path.row];
+    
+    [exercise addSet:[[Set alloc] initWithReps:[NSNumber numberWithInt:5]]];
+    [self programChanged];
+}
+
+- (void) showProgramDetailWithExericise:(Exercise *)exercise
+{
+    //    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+    
+    //    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    //    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(deviceOrientationDidChange:) name: UIDeviceOrientationDidChangeNotification object: nil];
+    
+    [self performSegueWithIdentifier:@"showProgramDetail" sender:self];
 }
 
 @end

@@ -68,7 +68,7 @@
     
     loadProgramViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     loadProgramViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentModalViewController:loadProgramViewController animated:YES];
+    [self presentViewController:loadProgramViewController animated:YES completion:nil];
     
     //    loadProgramViewController = nil;
 }
@@ -112,7 +112,7 @@
     self.programTableDelegate.program = withProgram;
     
     [self updateCurrentExerciseView];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self.exerciseTableView reloadData];
     [self.programTableView reloadData];
 }
@@ -164,8 +164,8 @@
         //        destination.pickerDelegate = pickerDelegate;
         //
     } else if([segue.identifier isEqualToString:@"chooseProgram"]) {
-//        LoadProgramViewController *loadProgramViewController = (LoadProgramViewController *) segue.destinationViewController;
-//        loadProgramViewController.delegate = self;
+        //        LoadProgramViewController *loadProgramViewController = (LoadProgramViewController *) segue.destinationViewController;
+        //        loadProgramViewController.delegate = self;
     }
 }
 

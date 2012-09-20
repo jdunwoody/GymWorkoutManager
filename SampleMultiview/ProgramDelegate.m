@@ -15,6 +15,15 @@
 
 @synthesize programDataSource = _programDataSource;
 
+- (id) initWithProgramDetailNotifier: (id<ProgramDetailNotifiable>) withProgramDetailNotifiable
+{
+    self = [super init];
+    if (self) {
+        self.programDetailNotifiable = withProgramDetailNotifiable;
+    }
+    return self;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == [self.programDataSource.program exerciseCount]) {
@@ -36,7 +45,22 @@
         if (cell == nil) {
             cell = [[FullExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
-                
+        
+        UILabel *setLabel;
+        UILabel *lastLabel = nil;
+        for (Set *set in exercise.sets) {
+            setLabel = [[UILabel alloc] init];
+            setLabel.text = set.reps.stringValue;
+            setLabel.frame = CGRectMake(lastLabel.frame.origin.x + lastLabel.frame.size.width + 20,
+                                        lastLabel.frame.origin.y,
+                                        48, //lastLabel.frame.size.width,
+                                        48); //lastLabel.frame.size.height);
+            [cell.setsScrollView addSubview:setLabel];
+            
+            lastLabel = setLabel;
+        }
+        
+        cell.exercise = exercise;
         [[cell name] setText: exercise.name];
         
         return cell;
@@ -46,6 +70,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 78;
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self.programDetailNotifiable showProgramDetailWithExericise:[self.programDataSource.program exerciseAtIndex:indexPath.row]];
 }
 
 @end

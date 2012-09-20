@@ -54,7 +54,7 @@
 {
     Program *program = [[Program alloc] initWithName: name];
     
-    int numExercises = 20; //3 + arc4random() % 7;
+    int numExercises = 5; //3 + arc4random() % 7;
     NSArray *exerciseNames = [NSArray arrayWithObjects:
                               @"Barbell Curls", @"Dumbell Curls", @"Push ups", @"Squats", @"Running on the spot",
                               @"Burpees", @"Sit ups", @"Tricep dips", @"Pull ups", nil];
@@ -64,7 +64,7 @@
         exercise.name = [exerciseNames objectAtIndex: (arc4random() % [exerciseNames count])];
         exercise.rest = [NSString stringWithFormat:@"%is", e * 20];
         
-        int numSets = 10; // 1 + arc4random() % 5;
+        int numSets = 3; // 1 + arc4random() % 5;
         
         for (int s = 0; s < numSets; s++) {
             Set *set = [[Set alloc] init];

@@ -9,8 +9,10 @@
 #import "FullExerciseCell.h"
 
 @implementation FullExerciseCell
-@synthesize name = _name;
 
+@synthesize name = _name;
+@synthesize exercise = _exercise;
+@synthesize setsScrollView = _setsScrollView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
