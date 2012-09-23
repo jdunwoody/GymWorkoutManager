@@ -10,7 +10,6 @@
 #import "ExerciseCellOld.h"
 #import "Exercise.h"
 #import "ExerciseWeightOrTimeMode.h"
-#import "WeightExercise.h"
 #import "Exercise.h"
 
 @implementation ExerciseTableDelegate

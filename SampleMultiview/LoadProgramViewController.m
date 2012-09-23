@@ -8,7 +8,6 @@
 
 #import "LoadProgramViewController.h"
 #import "Program.h"
-#import "WeightExercise.h"
 #import "LoadProgramCell.h"
 #import "Set.h"
 #import "LoadProgramTableDataSource.h"
@@ -19,7 +18,6 @@
 
 @synthesize programDataSource = _programDataSource;
 @synthesize tableView = _tableView;
-//@synthesize delegate = _delegate;
 @synthesize tableDelegate = _tableDelegate;
 
 - (void)viewDidLoad
@@ -31,8 +29,6 @@
     
     self.tableDelegate = [[LoadProgramTableDelegate alloc] initWithDataSource:self.tableDataSource withViewObserver: self];
     self.tableView.delegate = self.tableDelegate;
-    
-    //    program = nil;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -40,21 +36,24 @@
     self.view.superview.frame = CGRectMake(0,0,350,400);
 }
 
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-//{
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-//        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-//    } else {
-//    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-//    }
-//}
-
 - (void) programLoadedWithProgram:(Program *) withProgram
 {
     [self dismissViewControllerAnimated:YES completion: nil];
     self.programDataSource.program = withProgram;
     [self.observer programChanged];
 }
+
+- (void)viewDidUnload {
+    [self setTableView:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
+}
+
+@end
 
 //- (IBAction)newProgramChosen:(id)sender {
 //    //    Program *program = [self makeExampleProgramWithName:[self currentDateString]];
@@ -67,16 +66,15 @@
 //    currentViewController.program = program;
 //    [self.delegate programLoadedWithProgram:program];
 
-- (void)viewDidUnload {
-    [self setTableView:nil];
-    [super viewDidUnload];
-}
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
-}
-@end
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+//    } else {
+//    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+//    }
+//}
 
 //- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 //{

@@ -10,7 +10,6 @@
 #import "SummaryProgramCell.h"
 #import "Exercise.h"
 #import "Program.h"
-#import "WeightExercise.h"
 #import "ProgramDataSource.h"
 
 @interface SummaryProgramViewController ()
@@ -150,7 +149,7 @@
 
 - (IBAction)menuPlusButton:(id)sender
 {
-    Exercise *exercise = [[WeightExercise alloc] init];
+    Exercise *exercise = [[Exercise alloc] init];
     exercise.name = @"newExercise";
     Set *set = [[Set alloc] initWithReps: [NSNumber numberWithInt:2]];
     

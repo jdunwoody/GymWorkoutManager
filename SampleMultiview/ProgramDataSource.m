@@ -36,7 +36,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.program exerciseCount] + 1;
+    return [self.program exerciseCount];
 }
 
 @end

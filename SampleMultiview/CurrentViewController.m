@@ -9,7 +9,6 @@
 #import "CurrentViewController.h"
 #import "GymAppDelegate.h"
 #import "LoadProgramViewController.h"
-#import "WeightExercise.h"
 #import "OldExerciseCell.h"
 #import "CurrentExerciseTableDelegate.h"
 #import "SetCell.h"

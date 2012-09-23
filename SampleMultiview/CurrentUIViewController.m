@@ -9,7 +9,6 @@
 #import "CurrentUIViewController.h"
 #import "LoadProgramViewController.h"
 #import "ReportingViewController.h"
-#import "WeightExercise.h"
 #import "Set.h"
 #import "SlidingPanelContainerViewController.h"
 #import "ProgramDataSource.h"

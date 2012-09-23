@@ -6,15 +6,15 @@
 //
 //
 
-#import "JustAnIconView.h"
+#import "RepititionView.h"
 
-@implementation JustAnIconView
+@implementation RepititionView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview: [[[NSBundle mainBundle] loadNibNamed:@"JustAnIcon" owner:self options:nil] objectAtIndex:0]];
+        [self addSubview: [[[NSBundle mainBundle] loadNibNamed:@"Repitition" owner:self options:nil] objectAtIndex:0]];
     }
     return self;
 }

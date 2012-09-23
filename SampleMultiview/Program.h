@@ -42,6 +42,7 @@
 - (int) currentExercisePosition;
 - (void) currentExerciseIsCompleted;
 - (void) setCurrent: (Exercise *)current;
+
 - (void) setCurrentExerciseIsAtIndex: (int) index;
 
 @end

@@ -9,7 +9,6 @@
 #import "Program.h"
 #import "Exercise.h"
 #import "ProgramStatusProtocol.h"
-#import "WeightExercise.h"
 
 @implementation Program
 
@@ -56,12 +55,12 @@
 
 - (void) setCurrent: (Exercise *)withCurrent
 {
-    self.current = withCurrent;
+    current = withCurrent;
 }
 
 - (void) setCurrentExerciseIsAtIndex: (int) index
 {
-    self.current = [self exerciseAtIndex:index];;
+    current = [self exerciseAtIndex:index];
 }
 
 - (int) exerciseCount
@@ -69,7 +68,7 @@
     return [self.exercises count];
 }
 
-- (Exercise *) exerciseAtIndex:(NSUInteger)theIndex
+- (Exercise *) exerciseAtIndex:(NSUInteger) theIndex
 {
     return [self.exercises objectAtIndex:theIndex];
 }
@@ -122,15 +121,16 @@
 
 - (void) addExercise
 {
-    [self.exercises addObject:[[WeightExercise alloc] init]];
-    //    [programStatus programNonEmpty];
+    Exercise *exercise = [[Exercise alloc] init];
+    exercise.name = @"New";
+    exercise.rest = @"30";
+    
+    [self.exercises addObject:exercise];
 }
-
 
 - (void) addExercise:(Exercise *)exercise
 {
     [self.exercises addObject:exercise];
-    //    [programStatus programNonEmpty];
 }
 
 - (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise

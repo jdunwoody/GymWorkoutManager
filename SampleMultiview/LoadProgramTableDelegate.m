@@ -4,7 +4,6 @@
 //
 //  Created by James Dunwoody on 11/08/12.
 //
-//
 
 #import "LoadProgramTableDelegate.h"
 #import "LoadProgramCell.h"
@@ -36,13 +35,17 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    [self.observer programLoadedWithProgram: [self.dataSource programAtIndex:indexPath.row]];
+    [self selectedWithIndex: indexPath.row];
 }
-//[self.viewController programSelected: [self.presentingViewController programLoadedWithProgram:program]];
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self selectedWithIndex: indexPath.row];
+}
+
+- (void) selectedWithIndex: (int) index
+{
+    [self.observer programLoadedWithProgram: [self.dataSource programAtIndex:index]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

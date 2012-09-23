@@ -7,7 +7,7 @@
 //
 
 #import "GymAppDelegate.h"
-#import "FullProgramViewController.h"
+#import "ExerciseViewController.h"
 #import "ProgramDataSource.h"
 #import "ProgramDelegate.h"
 #import "NavigationViewController.h"
@@ -22,15 +22,15 @@
     
     NavigationViewController *navigationController = (NavigationViewController *) self.window.rootViewController;
     
-    FullProgramViewController *fullProgram = (FullProgramViewController *) [navigationController.childViewControllers objectAtIndex: 0];
+    ExerciseViewController *viewController = (ExerciseViewController *) [navigationController.childViewControllers objectAtIndex: 0];
     
-    ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers:fullProgram, nil];
-    ProgramDelegate *programDelegate = [[ProgramDelegate alloc] initWithProgramDetailNotifier: fullProgram];
+    ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers: viewController, nil];
+    ProgramDelegate *programDelegate = [[ProgramDelegate alloc] init];
     
     programDelegate.programDataSource = programDataSource;
     
-    fullProgram.programDatasource = programDataSource;
-    fullProgram.programDelegate = programDelegate;
+    viewController.programDatasource = programDataSource;
+    viewController.programDelegate = programDelegate;
     
     return YES;
 }

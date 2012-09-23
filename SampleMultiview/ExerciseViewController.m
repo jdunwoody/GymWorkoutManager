@@ -7,19 +7,23 @@
 //
 
 #import "ExerciseViewController.h"
-#import "SetElement.h"
 #import "Set.h"
 #import "Exercise.h"
-#import "JustAnIconView.h"
+#import "RepititionView.h"
+#import "ProgramDelegate.h"
+#import "LoadProgramViewController.h"
 
 @interface ExerciseViewController ()
 
 @end
 
 @implementation ExerciseViewController
+
 @synthesize weightLabel = _weightLabel;
 @synthesize setContainer = _setContainer;
 @synthesize exercise = _exercise;
+@synthesize programDatasource = _programDatasource;
+@synthesize programDelegate = _programDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +37,8 @@
 {
     [super viewDidLoad];
     self.weightLabel.text = [self.exercise currentSet].weight.stringValue;
+    self.tableView.dataSource = self.programDatasource;
+    self.tableView.delegate = self.programDelegate;
 }
 
 - (void)viewDidUnload
@@ -42,6 +48,44 @@
     [super viewDidUnload];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if ([self.programDatasource.program exerciseCount] == 0) {
+        [self performSegueWithIdentifier:@"loadProgram" sender:self];
+    }
+}
+
+- (void) programChanged
+{
+    [self.tableView reloadData];
+    [self reloadCurrentExercise];
+}
+
+- (void) reloadCurrentExercise
+{
+    self.name.text = self.programDatasource.program.currentExercise.name;
+    self.weightLabel.text = self.programDatasource.program.currentExercise.currentSet.weight.stringValue;
+    
+    for (UIView *view in [self.setContainer subviews]) {
+        [view removeFromSuperview];
+    }
+        
+    for (Set *set in self.programDatasource.program.currentExercise.sets) {
+        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 105, 0, 105, 38)];
+      
+        just.reps.text = set.reps.stringValue;
+        just.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
+        
+        [self.setContainer addSubview: just];
+    }
+}
+
+- (IBAction)addExercise:(id)sender
+{
+    [self.programDatasource.program addExercise];
+    [self programChanged];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
@@ -49,33 +93,51 @@
 
 - (IBAction)addSet:(id)sender
 {
-    JustAnIconView *just = [[JustAnIconView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count]*65, 0, 65, 65)];
+    RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 92, 0, 92, 38)];
+    Set *currentSet = [self.programDatasource.program.currentExercise currentSet];
+    
+    if (currentSet == NULL) {
+        currentSet = [self.programDatasource.program.currentExercise currentSet];
+    }
+    
+    just.reps.text = currentSet.reps.stringValue;
+    just.rest.text = [NSString stringWithFormat: @"%@ sec", currentSet.rest];
+    
     [self.setContainer addSubview: just];
-    
-    //    SetElement *setElement = [[SetElement alloc] initWithFrame:CGRectMake([self.setContainer.subviews count]*40, 0, 40, 40)];
-    //    [self.setContainer addSubview: setElement];
-    //    setElement.backgroundColor = [UIColor redColor];
-    
-    //    NSLog(@"Number of child elements %i", [self.setContainer.subviews count]);
-    
-    //    setElement.set = [[Set alloc] initWithReps:[NSNumber numberWithInt:1]];
-    //    setElement.frame = CGRectMake([self.setContainer.subviews count]*40, 0, 40, 40);
-    //    setElement.reps.text = [self.exercise currentSet].reps.stringValue;
-    //    setElement.rest.text = [self.exercise currentSet].rest.stringValue;
-    //    setElement.backgroundColor = [UIColor redColor];
-    
-    //    [self.setContainer addSubview: setElement];
-    
-    //    for(SetElement *view in self.setContainer.subviews) {
-    //        NSLog(@"dimensions %f %f %f %f %@ %@",
-    //              view.frame.origin.x,
-    //              view.frame.origin.y,
-    //              view.frame.size.width,
-    //              view.frame.size.height,
-    //              view.reps.text,
-    //              view.rest.text);
-    //    }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"loadProgram"]) {
+        LoadProgramViewController *destination = segue.destinationViewController;
+        destination.programDataSource = self.programDatasource;
+        destination.observer = self;
+    }
+}
+
+//    SetElement *setElement = [[SetElement alloc] initWithFrame:CGRectMake([self.setContainer.subviews count]*40, 0, 40, 40)];
+//    [self.setContainer addSubview: setElement];
+//    setElement.backgroundColor = [UIColor redColor];
+
+//    NSLog(@"Number of child elements %i", [self.setContainer.subviews count]);
+
+//    setElement.set = [[Set alloc] initWithReps:[NSNumber numberWithInt:1]];
+//    setElement.frame = CGRectMake([self.setContainer.subviews count]*40, 0, 40, 40);
+//    setElement.reps.text = [self.exercise currentSet].reps.stringValue;
+//    setElement.rest.text = [self.exercise currentSet].rest.stringValue;
+//    setElement.backgroundColor = [UIColor redColor];
+
+//    [self.setContainer addSubview: setElement];
+
+//    for(SetElement *view in self.setContainer.subviews) {
+//        NSLog(@"dimensions %f %f %f %f %@ %@",
+//              view.frame.origin.x,
+//              view.frame.origin.y,
+//              view.frame.size.width,
+//              view.frame.size.height,
+//              view.reps.text,
+//              view.rest.text);
+//    }
 
 //- (IBAction)addSet:(id)sender
 //{

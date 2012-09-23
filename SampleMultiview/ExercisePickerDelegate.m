@@ -9,7 +9,6 @@
 #import "ExercisePickerDelegate.h"
 #import "Exercise.h"
 #import "OldProgramViewController.h"
-#import "WeightExercise.h"
 
 @implementation ExercisePickerDelegate
 @synthesize categoryButton = _categoryButton;
@@ -95,7 +94,7 @@
     
     Exercise *exercise =nil;
     if (self.exerciseWeightOrTimeMode == ExerciseWeightMode) {
-        exercise = [[WeightExercise alloc] init];
+        exercise = [[Exercise alloc] init];
         //        WeightExercise *weightExercise = (WeightExercise *) exercise;
         
         //        weightExercise.reps = [numberFormatter numberFromString: selectedReps];

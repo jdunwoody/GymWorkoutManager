@@ -8,7 +8,6 @@
 
 #import "LoadProgramTableDataSource.h"
 #import "Program.h"
-#import "WeightExercise.h"
 
 @implementation LoadProgramTableDataSource
 @synthesize programs = _programs;
@@ -54,23 +53,23 @@
 {
     Program *program = [[Program alloc] initWithName: name];
     
-    int numExercises = 5; //3 + arc4random() % 7;
+    int numExercises = 5;
     NSArray *exerciseNames = [NSArray arrayWithObjects:
                               @"Barbell Curls", @"Dumbell Curls", @"Push ups", @"Squats", @"Running on the spot",
                               @"Burpees", @"Sit ups", @"Tricep dips", @"Pull ups", nil];
     
     for (int e=0; e< numExercises; e++) {
-        WeightExercise *exercise = [[WeightExercise alloc] init];
+        Exercise *exercise = [[Exercise alloc] init];
         exercise.name = [exerciseNames objectAtIndex: (arc4random() % [exerciseNames count])];
         exercise.rest = [NSString stringWithFormat:@"%is", e * 20];
         
-        int numSets = 3; // 1 + arc4random() % 5;
+        int numSets = 3;
         
         for (int s = 0; s < numSets; s++) {
             Set *set = [[Set alloc] init];
-            set.weight = [NSNumber numberWithInt:(10 - s) * 6];
-            set.reps = [NSNumber numberWithInt:2 * s + 10];
-            set.rest = [NSNumber numberWithInt:20 - s];
+            set.weight = [NSNumber numberWithInt: 10 + arc4random_uniform(6) + 3];
+            set.reps =   [NSNumber numberWithInt: 10 + arc4random_uniform(6) + 3];
+            set.rest =   [NSNumber numberWithInt: 10 + arc4random_uniform(4) + 2];
             
             [exercise.sets addObject:set];
         }

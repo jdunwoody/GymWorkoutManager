@@ -7,16 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProgramDataSource.h"
+#import "ProgramDelegate.h"
 
 @class WeightExercise;
 @class Exercise;
 
-@interface ExerciseViewController : UIViewController
+@interface ExerciseViewController : UIViewController<ProgramChangeObserver>
 
 @property (strong, nonatomic) IBOutlet UIView *setContainer;
-- (IBAction)addSet:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *weightLabel;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) ProgramDataSource *programDatasource;
+@property (strong, nonatomic) ProgramDelegate *programDelegate;
 @property (strong, nonatomic) Exercise *exercise;
+
+- (IBAction)addSet:(id)sender;
+- (IBAction)addExercise:(id)sender;
 
 @end
