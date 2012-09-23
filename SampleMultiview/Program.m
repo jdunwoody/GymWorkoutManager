@@ -125,6 +125,15 @@
     exercise.name = @"New";
     exercise.rest = @"30";
     
+    for (int i=0; i<3; i++) {
+        Set *set = [[Set alloc] init];
+        set.reps = [NSNumber numberWithInt: 8];
+        set.rest = [NSNumber numberWithInt: 30];
+        set.weight = [NSNumber numberWithInt: 50];
+        
+        [exercise addSet:set];
+    }
+    
     [self.exercises addObject:exercise];
 }
 

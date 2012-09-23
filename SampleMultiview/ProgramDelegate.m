@@ -47,30 +47,16 @@
         cell = [[NormalExerciseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    UILabel *setLabel;
-    UILabel *lastLabel = nil;
-    
     for (UIView *view in [cell.setsScrollView subviews]) {
         [view removeFromSuperview];
     }
+    
     for (Set *set in exercise.sets) {
-        //        setLabel = [[UILabel alloc] init];
-        //        setLabel.text = set.reps.stringValue;
-        //        setLabel.frame = CGRectMake(lastLabel.frame.origin.x + lastLabel.frame.size.width + 20,
-        //                                    lastLabel.frame.origin.y,
-        //                                    48, //lastLabel.frame.size.width,
-        //                                    48); //lastLabel.frame.size.height);
-        //
-        
-        
         RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 48, 0, 48, 30)];
         just.reps.text = set.reps.stringValue;
         just.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
         
-        
         [cell.setsScrollView addSubview: just];
-        
-        //        lastLabel = setLabel;
     }
     
     cell.exercise = exercise;
@@ -78,6 +64,15 @@
     
     return cell;
 }
+//        UILabel *setLabel;
+//        UILabel *lastLabel = nil;
+//        setLabel = [[UILabel alloc] init];
+//        setLabel.text = set.reps.stringValue;
+//        setLabel.frame = CGRectMake(lastLabel.frame.origin.x + lastLabel.frame.size.width + 20,
+//                                    lastLabel.frame.origin.y,
+//                                    48, //lastLabel.frame.size.width,
+//                                    48); //lastLabel.frame.size.height);
+//
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
