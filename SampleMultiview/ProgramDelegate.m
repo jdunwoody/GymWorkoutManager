@@ -83,7 +83,7 @@
 {
     [self.programDataSource.program setCurrentExerciseIsAtIndex: indexPath.row];
     NSLog(@"Current exercise %@", self.programDataSource.program.currentExercise.name);
-    [self.programDataSource notifyNewProgramObservers];
+    [self.programDataSource notifyProgramChangeObservers];
 }
 
 //- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath

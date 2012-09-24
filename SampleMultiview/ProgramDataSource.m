@@ -27,7 +27,7 @@
     return self;
 }
 
-- (void) notifyNewProgramObservers
+- (void) notifyProgramChangeObservers
 {
     for (id<ProgramChangeObserver> observer in observers) {
         [observer programChanged];

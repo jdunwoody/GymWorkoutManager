@@ -24,6 +24,8 @@
 @property (strong, nonatomic) ProgramDelegate *programDelegate;
 @property (strong, nonatomic) Exercise *exercise;
 
+@property (weak, nonatomic) IBOutlet UIPickerView *weightPicker;
+
 - (IBAction)addSet:(id)sender;
 - (IBAction)addExercise:(id)sender;
 

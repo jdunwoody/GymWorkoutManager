@@ -19,20 +19,20 @@
 {
     if (self = [super init]) {
         controller = newController;
-        
+
         nameValues = [[NSMutableArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];
         [nameValues sortUsingSelector:@selector(compare:)];
-        
+
         bodyPartValues = [[NSMutableArray alloc] initWithObjects:@"Full body",@"Legs",@"Arms",@"Core",@"Bicep", @"Tricep", @"Shoulder", @"Abs", @"Thigh", @"Hamstring", @"Calf", nil];
         [bodyPartValues sortUsingSelector:@selector(compare:)];
-        
+
         intensityValues = [[NSMutableArray alloc] initWithObjects:@"Aerobic Light", @"Aerobic Medium", @"Aerobic Intense", @"Anaerobic Light", @"Anaerobic Medium", @"Anaerobic Intense", nil];
-        
+
         setValues = [[NSMutableArray alloc] init];
         for (NSUInteger i = 1; i < 20; i++) {
             [setValues addObject:[NSString stringWithFormat:@"%d", i]];
         }
-        
+
         repValues = [[NSMutableArray alloc] init];
         for (NSUInteger i = 1; i < 20; i++) {
             [repValues addObject:[NSString stringWithFormat:@"%d", i]];
@@ -40,12 +40,12 @@
         for (NSUInteger i = 25; i <= 50; i+=5) {
             [repValues addObject:[NSString stringWithFormat:@"%d", i]];
         }
-        
+
         restValues = [NSMutableArray arrayWithObjects:@"10", @"20", @"30", nil];
         for (NSUInteger i = 1; i <= 20; i++) {
             [restValues addObject:[NSString stringWithFormat:@"%d", i]];
         }
-        
+
         weightValues = [[NSMutableArray alloc]init ];
         for (NSUInteger i = 1; i <= 20; i++) {
             [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
@@ -56,7 +56,7 @@
         for (NSUInteger i = 50; i <= 150; i+=10) {
             [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
         }
-        
+
         timeValues = [[NSMutableArray alloc] init];
         for (NSUInteger i = 1; i <= 20; i++) {
             [timeValues addObject: [NSString stringWithFormat:@"%d", i]];
@@ -73,30 +73,30 @@
 -(Exercise *) selectedPickerExercise
 {
     //    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    
+
     NSString *selectedName = [self selectedPickerValueForExercise];
     NSString *selectedBodyPart = [bodyPartValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:BODYPART]];
     NSString *selectedRest = [restValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REST]];
     //    NSString *selectedIntensity = [intensityValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:INTENSITY]];
     //    NSString *selectedCategory = [self.categoryButton titleForSegmentAtIndex:[self.categoryButton selectedSegmentIndex]];
-    
+
     NSString *selectedReps = nil;
     NSString *selectedWeight = nil;
     NSString *selectedTime = nil;
-    
+
     if (self.exerciseWeightOrTimeMode == ExerciseWeightMode) {
         selectedReps = [repValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:REPS]];
         selectedWeight = [weightValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:WEIGHT]];
-        
+
     } else {
         selectedTime = [timeValues objectAtIndex:[self.exerciseComponentPicker selectedRowInComponent:TIME]];
     }
-    
+
     Exercise *exercise =nil;
     if (self.exerciseWeightOrTimeMode == ExerciseWeightMode) {
         exercise = [[Exercise alloc] init];
         //        WeightExercise *weightExercise = (WeightExercise *) exercise;
-        
+
         //        weightExercise.reps = [numberFormatter numberFromString: selectedReps];
         //        weightExercise.weight = [numberFormatter numberFromString:selectedWeight];
     } else {
@@ -108,9 +108,9 @@
     exercise.rest = selectedRest;
     exercise.bodyPart = selectedBodyPart;
     //    exercise.intensity = selectedIntensity;
-    
+
     //    exercise.category = selectedCategory;
-    
+
     return exercise;
 }
 
@@ -152,7 +152,7 @@
         case REST:
             return restValues.count;
     }
-    
+
     if (self.exerciseWeightOrTimeMode == ExerciseWeightMode) {
         switch (component) {
             case SETS:
@@ -162,7 +162,7 @@
             case WEIGHT:
                 return weightValues.count;
         }
-        
+
     } else {
         switch (component) {
             case TIME:
@@ -170,7 +170,7 @@
         }
     }
     return (NSInteger)0;
-    
+
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -190,7 +190,7 @@
         case REST:
             return [NSString stringWithFormat:@"%@ min", [restValues objectAtIndex:row]];
     }
-    
+
     if (self.exerciseWeightOrTimeMode == ExerciseWeightMode) {
         switch (component) {
             case SETS:
@@ -200,14 +200,14 @@
             case WEIGHT:
                 return [NSString stringWithFormat:@"%@ kg", [weightValues objectAtIndex:row]];
         }
-        
+
     } else {
         switch (component) {
             case TIME:
                 return [NSString stringWithFormat:@"%@ min", [timeValues objectAtIndex:row]];
         }
     }
-    
+
     return nil;
 }
 
@@ -260,7 +260,7 @@
 {
     int randomIndex = arc4random() % values.count;
     [self.exerciseComponentPicker selectRow:randomIndex inComponent:component animated:YES];
-    
+
     [controller updateSelectedRow];
 }
 

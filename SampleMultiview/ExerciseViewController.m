@@ -12,6 +12,8 @@
 #import "RepititionView.h"
 #import "ProgramDelegate.h"
 #import "LoadProgramViewController.h"
+#import "EditWeightController.h"
+#import "EditNameViewController.h"
 
 @interface ExerciseViewController ()
 
@@ -29,6 +31,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
     }
     return self;
 }
@@ -36,6 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.weightLabel.text = [self.exercise currentSet].weight.stringValue;
     self.tableView.dataSource = self.programDatasource;
     self.tableView.delegate = self.programDelegate;
@@ -64,15 +68,15 @@
 - (void) reloadCurrentExercise
 {
     self.name.text = self.programDatasource.program.currentExercise.name;
-    self.weightLabel.text = self.programDatasource.program.currentExercise.currentSet.weight.stringValue;
+    self.weightLabel.text = [NSString stringWithFormat:@"%@kg", self.programDatasource.program.currentExercise.currentSet.weight];
     
     for (UIView *view in [self.setContainer subviews]) {
         [view removeFromSuperview];
     }
-        
+    
     for (Set *set in self.programDatasource.program.currentExercise.sets) {
         RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 105, 0, 105, 38)];
-      
+        
         just.reps.text = set.reps.stringValue;
         just.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
         
@@ -85,6 +89,7 @@
     [self.programDatasource.program addExercise];
     [self programChanged];
 }
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -112,8 +117,31 @@
         LoadProgramViewController *destination = segue.destinationViewController;
         destination.programDataSource = self.programDatasource;
         destination.observer = self;
+        
+    } else if ([segue.identifier isEqualToString:@"editName"]) {
+        EditNameViewController *destination = segue.destinationViewController;
+        destination.programDataSource = self.programDatasource;
+        
+    } else if ([segue.identifier isEqualToString:@"editWeight"]) {
+        EditWeightController *destination = segue.destinationViewController;
+        destination.programDataSource = self.programDatasource;
+        
     }
 }
+
+//- (IBAction)weightTapGesture:(id)sender
+//{
+//    self.weightPicker.hidden = NO;
+//
+//    //    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(self.weightLabel.frame.origin.y,
+//    //                                                                              self.weightLabel.frame.origin.x,
+//    //                                                                              200,
+//    //                                                                              40)];
+//    //    pickerView.delegate = self.weightPickerDelegate;
+//    //    pickerView.dataSource = self.weightPickerDelegate;
+//    //    pickerView.showsSelectionIndicator = YES;
+//    //    [self.view addSubview:pickerView];
+//}
 
 //    SetElement *setElement = [[SetElement alloc] initWithFrame:CGRectMake([self.setContainer.subviews count]*40, 0, 40, 40)];
 //    [self.setContainer addSubview: setElement];

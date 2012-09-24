@@ -121,15 +121,18 @@
 
 - (void) addExercise
 {
+    Exercise *last = (Exercise *) self.exercises.lastObject;
+    
     Exercise *exercise = [[Exercise alloc] init];
-    exercise.name = @"New";
-    exercise.rest = @"30";
+    
+    exercise.name = last.name;
     
     for (int i=0; i<3; i++) {
+        Set *lastSet = [last.sets objectAtIndex: i];
         Set *set = [[Set alloc] init];
-        set.reps = [NSNumber numberWithInt: 8];
-        set.rest = [NSNumber numberWithInt: 30];
-        set.weight = [NSNumber numberWithInt: 50];
+        set.reps = lastSet.reps;
+        set.rest = lastSet.rest;
+        set.weight = lastSet.weight;
         
         [exercise addSet:set];
     }

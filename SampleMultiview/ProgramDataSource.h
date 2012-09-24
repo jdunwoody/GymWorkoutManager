@@ -18,6 +18,6 @@
 @property (strong, nonatomic) Program *program;
 
 - (id) initWithObservers: (id<ProgramChangeObserver>) withObservers, ...;
-- (void) notifyNewProgramObservers;
+- (void) notifyProgramChangeObservers;
 
 @end
