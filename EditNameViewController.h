@@ -15,5 +15,6 @@
 }
 
 @property(strong, nonatomic) ProgramDataSource *programDataSource;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end

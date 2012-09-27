@@ -45,6 +45,12 @@
     [super viewDidLoad];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+//    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:0] inComponent:0 animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -1,18 +1,18 @@
 //
-//  EditWeightController.m
+//  EditRepViewController.m
 //  GymApp
 //
-//  Created by James Dunwoody on 24/09/12.
+//  Created by James Dunwoody on 27/09/12.
 //
 //
 
-#import "EditWeightController.h"
+#import "EditRepViewController.h"
 
-@interface EditWeightController ()
+@interface EditRepViewController ()
 
 @end
 
-@implementation EditWeightController
+@implementation EditRepViewController
 
 @synthesize programDataSource = _programDataSource;
 
@@ -43,22 +43,16 @@
 
 - (void) initListValues
 {
-    weightValues = [[NSMutableArray alloc] init];
+    repValues = [[NSMutableArray alloc] init];
     for (NSUInteger i = 1; i <= 20; i++) {
-        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    for (NSUInteger i = 25; i < 50; i+=5) {
-        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    for (NSUInteger i = 50; i <= 150; i+=10) {
-        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
+        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:0] inComponent:0 animated:YES];
+    //    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:0] inComponent:0 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +62,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [weightValues count];
+    return [repValues count];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -78,12 +72,12 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [NSString stringWithFormat: @"%@ kg", [weightValues objectAtIndex:row]];
+    return [repValues objectAtIndex:row];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.programDataSource.program.currentExercise.currentSet.weight = [weightValues objectAtIndex: row];
+    self.programDataSource.program.currentExercise.currentSet.weight = [repValues objectAtIndex: row];
     [self.programDataSource notifyProgramChangeObservers];
 }
 

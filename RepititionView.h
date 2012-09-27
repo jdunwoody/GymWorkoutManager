@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopoverPresentable.h"
 
-@interface RepititionView : UIView
+@interface RepititionView : UIView<UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *rest;
-
 @property (weak, nonatomic) IBOutlet UILabel *reps;
+
+@property (strong, nonatomic) id<PopoverPresentable> delegate;
+
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *repTapGesture;
+- (IBAction)repTapped:(id)sender;
+
+
 @end
+ 

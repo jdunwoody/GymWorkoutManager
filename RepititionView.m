@@ -10,6 +10,8 @@
 
 @implementation RepititionView
 
+@synthesize delegate = _delegate;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -27,5 +29,13 @@
  // Drawing code
  }
  */
+
+
+- (IBAction)repTapped:(id)sender {
+    NSLog(@"Rep tapped");
+    
+//    UIView *aView = [[UIView alloc] init];
+    [self.delegate showPopover];
+   }
 
 @end

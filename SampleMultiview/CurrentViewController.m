@@ -28,11 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.title = @"Current View";
     //    self.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"carbon_fibre.png"]];
     //    self.view.backgroundColor = self.backgroundColor;
-    
+
     self.programTableDelegate = [[CurrentExerciseTableDelegate alloc] initWithTableView:self.programTableView];
     self.programTableView.dataSource = self.programTableDelegate;
     self.programTableView.delegate = self.programTableDelegate;
@@ -48,7 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     CAGradientLayer *bgLayer = [BackgroundLayer greyGradient];
     bgLayer.frame = self.exerciseHeaderContainer.bounds;
     [self.exerciseHeaderContainer.layer insertSublayer:bgLayer atIndex:0];
@@ -57,18 +57,18 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+
     //    if (self.program == nil) {
     //        [self performSegueWithIdentifier: @"chooseProgram" sender: self];
     //    }
-    
+
     LoadProgramViewController *loadProgramViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoadProgramViewController"];
     //    [self presentViewController:loadProgramViewController animated:YES completion:nil];
-    
+
     loadProgramViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     loadProgramViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:loadProgramViewController animated:YES completion:nil];
-    
+
     //    loadProgramViewController = nil;
 }
 
@@ -94,11 +94,11 @@
     // The new view controller configures a Cancel and Done button for the
     // navigation bar.
     LoadProgramViewController *addController = [[LoadProgramViewController alloc] init];
-    
+
     // Configure the RecipeAddViewController. In this case, it reports any
     // changes to a custom delegate object.
     //    addController.delegate = self;
-    
+
     //    // Create the navigation controller and present it.
     //    UINavigationController *navigationController = [[UINavigationController alloc]
     //                                                    initWithRootViewController:addController];
@@ -109,7 +109,7 @@
 {
     self.program = withProgram;
     self.programTableDelegate.program = withProgram;
-    
+
     [self updateCurrentExerciseView];
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.exerciseTableView reloadData];
@@ -123,7 +123,7 @@
 
 - (IBAction)exerciseCompletedPressed:(id)sender {
     [self.program currentExerciseIsCompleted];
-    
+
     [self updateCurrentExerciseView];
     [self.programTableView reloadData];
     [self.programTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program currentExercisePosition] inSection:0]
@@ -132,7 +132,7 @@
 
 - (IBAction)setCompletedPressed:(id)sender {
     [self.program.currentExercise currentSetIsCompleted];
-    
+
     [self updateCurrentExerciseView];
     [self.exerciseTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.program.currentExercise currentSetPosition] inSection:0]
                                   atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
@@ -146,12 +146,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showProgram"]) {
-        
+
         OldProgramViewController *destination = segue.destinationViewController;
         destination.program = self.program;
-        
+
         destination.programChangeObserver = self;
-        
+
         //        GymAppDelegate *appDelegate = (GymAppDelegate *)[[UIApplication sharedApplication] delegate];
         //        ExerciseTableDelegate *tableDelegate = [[ExerciseTableDelegate alloc] init];
         //        destination.tableDelegate = tableDelegate;
@@ -170,7 +170,7 @@
 
 - (NSUInteger)countOfList {
     int size = [self.program itemCount];
-    
+
     NSLog(@"count of list %i", size);
     return size;
 }
@@ -182,14 +182,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.program.currentExercise.sets count];
-    
+
     //    return [self countOfList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //    Item *item = [self.program itemAtIndex:indexPath];
-    
+
     //    if ([item isKindOfClass:Exercise.class]) {
     //        Exercise *exercise = (Exercise *) item;
     //        NSString *cellIdentifier = @"ExerciseCell";
@@ -209,45 +209,45 @@
     //    if ([item isKindOfClass:Set.class]) {
     //    }
     //    return nil;
-    
+
     Exercise *exercise = self.program.currentExercise;
     Set *set = (Set *) [exercise setAtIndex:indexPath.row];
     NSString *cellIdentifier = @"SetCell";
-    
+
     SetCell *setCell = (SetCell *)[self.exerciseTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (setCell == nil) {
         setCell = [[SetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
-    
+
+
     [setCell.position setText: [NSString stringWithFormat:@"%i", indexPath.row + 1]];
     [setCell.weight setText:[NSString stringWithFormat:@"%@kg", set.weight]];
     [setCell.reps setText:[NSString stringWithFormat:@"%@", set.reps]];
     [setCell.rest setText:[NSString stringWithFormat:@"%@s", set.rest]];
-    
+
     if (exercise.currentSet == set) {
         setCell.completeButton.hidden = false;
-        
+
         setCell.position.backgroundColor = [UIColor clearColor];
         setCell.weight.backgroundColor = [UIColor blueColor];
         setCell.reps.backgroundColor = [UIColor greenColor];
         setCell.rest.backgroundColor = [UIColor redColor];
-        
+
     } else {
         setCell.completeButton.hidden = true;
-        
+
         setCell.position.backgroundColor = [UIColor clearColor];
         setCell.weight.backgroundColor = [UIColor lightGrayColor];
         setCell.reps.backgroundColor = [UIColor lightGrayColor];
         setCell.rest.backgroundColor = [UIColor lightGrayColor];
     }
-    
-    
+
+
     [setCell.position.layer setCornerRadius:10];
     [setCell.reps.layer setCornerRadius:10];
     [setCell.weight.layer setCornerRadius:10];
     [setCell.rest.layer setCornerRadius:10];
-    
+
     set = nil;
     return setCell;
 }
@@ -265,14 +265,14 @@
 - (void) updateCurrentExerciseView
 {
     Exercise *currentExercise = self.program.currentExercise;
-    
+
     if (currentExercise == nil) {
         return;
     }
-    
+
     self.exerciseName.text = self.program.currentExercise.name;
     [self.exerciseTableView reloadData];
-    
+
     currentExercise = nil;
 }
 

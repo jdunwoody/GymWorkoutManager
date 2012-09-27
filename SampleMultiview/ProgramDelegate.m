@@ -52,7 +52,7 @@
     }
     
     for (Set *set in exercise.sets) {
-        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 48, 0, 48, 30)];
+        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 100, 0, 100, 38)];
         just.reps.text = set.reps.stringValue;
         just.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
         
@@ -76,7 +76,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 78;
+    return 151;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

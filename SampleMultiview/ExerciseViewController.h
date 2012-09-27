@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ProgramDataSource.h"
 #import "ProgramDelegate.h"
+#import "PopoverPresentable.h"
 
 @class WeightExercise;
 @class Exercise;
 
-@interface ExerciseViewController : UIViewController<ProgramChangeObserver>
+@interface ExerciseViewController : UIViewController<ProgramChangeObserver, PopoverPresentable>
 
 @property (strong, nonatomic) IBOutlet UIView *setContainer;
 @property (weak, nonatomic) IBOutlet UILabel *weightLabel;

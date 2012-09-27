@@ -24,6 +24,7 @@
 		1A8D936015FDF04E0023248F /* Spacious_Gym_Floor.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D935F15FDF04E0023248F /* Spacious_Gym_Floor.jpeg */; };
 		1A8D936415FDF07A0023248F /* a5fe27f89b81aa6784169d7eba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D936215FDF07A0023248F /* a5fe27f89b81aa6784169d7eba.jpg */; };
 		1A8D936515FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D936315FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg */; };
+		1A9BF8101613A8C20065BEA0 /* EditRepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9BF80F1613A8C20065BEA0 /* EditRepViewController.m */; };
 		1A9E40E615A45FAC001A189C /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E515A45FAC001A189C /* 72x72.png */; };
 		1A9E40E815A45FC4001A189C /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9E40E715A45FC4001A189C /* 144x144.png */; };
 		1A9FA582160B556A00A24883 /* Repitition.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9FA581160B556A00A24883 /* Repitition.xib */; };
@@ -75,6 +76,7 @@
 		1AD113D1160594E500002528 /* FullExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113D0160594E500002528 /* FullExerciseCell.m */; };
 		1AD113D41605A02900002528 /* AddExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113D31605A02900002528 /* AddExerciseCell.m */; };
 		1AE3D8BD15F0B61700ACBFB0 /* SlidingPanelContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3D8BC15F0B61700ACBFB0 /* SlidingPanelContainerViewController.m */; };
+		1AE734EA1611DF99000C01E6 /* RepititionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE734E91611DF99000C01E6 /* RepititionViewController.m */; };
 		1AE841DB15CBC43500EE9724 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE841DA15CBC43500EE9724 /* Program.m */; };
 		1AE841E915CBF64E00EE9724 /* MB_0018_viewer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE841E815CBF64E00EE9724 /* MB_0018_viewer.png */; };
 		1AE841EB15CBF65C00EE9724 /* MB_0024_YT2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE841EA15CBF65C00EE9724 /* MB_0024_YT2.png */; };
@@ -113,6 +115,9 @@
 		1A8D935F15FDF04E0023248F /* Spacious_Gym_Floor.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Spacious_Gym_Floor.jpeg; sourceTree = "<group>"; };
 		1A8D936215FDF07A0023248F /* a5fe27f89b81aa6784169d7eba.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a5fe27f89b81aa6784169d7eba.jpg; sourceTree = "<group>"; };
 		1A8D936315FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a37b704e14f062a520eabd2e22.jpg; sourceTree = "<group>"; };
+		1A9BF8041613417B0065BEA0 /* PopoverPresentable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverPresentable.h; sourceTree = "<group>"; };
+		1A9BF80E1613A8C20065BEA0 /* EditRepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRepViewController.h; sourceTree = "<group>"; };
+		1A9BF80F1613A8C20065BEA0 /* EditRepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRepViewController.m; sourceTree = "<group>"; };
 		1A9E40E515A45FAC001A189C /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72x72.png; sourceTree = "<group>"; };
 		1A9E40E715A45FC4001A189C /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144x144.png; sourceTree = "<group>"; };
 		1A9E40E915A45FE4001A189C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -220,6 +225,8 @@
 		1AD113D31605A02900002528 /* AddExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExerciseCell.m; sourceTree = "<group>"; };
 		1AE3D8BB15F0B61700ACBFB0 /* SlidingPanelContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingPanelContainerViewController.h; sourceTree = "<group>"; };
 		1AE3D8BC15F0B61700ACBFB0 /* SlidingPanelContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingPanelContainerViewController.m; sourceTree = "<group>"; };
+		1AE734E81611DF99000C01E6 /* RepititionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepititionViewController.h; sourceTree = "<group>"; };
+		1AE734E91611DF99000C01E6 /* RepititionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepititionViewController.m; sourceTree = "<group>"; };
 		1AE841D915CBC43500EE9724 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		1AE841DA15CBC43500EE9724 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		1AE841E815CBF64E00EE9724 /* MB_0018_viewer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MB_0018_viewer.png; path = "../../../../../Pictures/icons/MetroStation-PNG/PNG/Media/Black/MB_0018_viewer.png"; sourceTree = "<group>"; };
@@ -255,6 +262,8 @@
 				1A3FF13316106D6A003CC260 /* EditWeightController.m */,
 				1A3FF13516107B13003CC260 /* EditNameViewController.h */,
 				1A3FF13616107B14003CC260 /* EditNameViewController.m */,
+				1A9BF80E1613A8C20065BEA0 /* EditRepViewController.h */,
+				1A9BF80F1613A8C20065BEA0 /* EditRepViewController.m */,
 			);
 			name = Edit;
 			sourceTree = "<group>";
@@ -265,6 +274,9 @@
 				1A9FA581160B556A00A24883 /* Repitition.xib */,
 				1A9FA583160B5AD400A24883 /* RepititionView.h */,
 				1A9FA584160B5AD400A24883 /* RepititionView.m */,
+				1AE734E81611DF99000C01E6 /* RepititionViewController.h */,
+				1AE734E91611DF99000C01E6 /* RepititionViewController.m */,
+				1A9BF8041613417B0065BEA0 /* PopoverPresentable.h */,
 			);
 			name = Repitition;
 			sourceTree = "<group>";
@@ -697,6 +709,8 @@
 				1A48D892160C9540003FB08B /* NormalExerciseCell.m in Sources */,
 				1A3FF13416106D6A003CC260 /* EditWeightController.m in Sources */,
 				1A3FF13716107B14003CC260 /* EditNameViewController.m in Sources */,
+				1AE734EA1611DF99000C01E6 /* RepititionViewController.m in Sources */,
+				1A9BF8101613A8C20065BEA0 /* EditRepViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

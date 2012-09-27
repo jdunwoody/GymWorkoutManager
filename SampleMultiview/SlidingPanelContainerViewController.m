@@ -41,24 +41,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //    CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
-    
+
     [self addChildViewController: self.mainViewController];
     [self.mainPanel addSubview: self.mainViewController.view];
     self.mainViewController.view.frame = CGRectMake(0, 0, [Utils windowWidth], [Utils windowHeight]);
     [self.mainViewController didMoveToParentViewController: self];
-    
+
     [self addChildViewController: self.summarySlidingViewController];
     [self.slidingPanel addSubview: self.summarySlidingViewController.view];
     [self.summarySlidingViewController didMoveToParentViewController: self];
-    
+
     [self addChildViewController: self.mainPanelOverlayViewController];
     [self.mainPanelOverlay addSubview: self.mainPanelOverlayViewController.view];
     [self.mainPanelOverlayViewController didMoveToParentViewController: self];
-    
+
     [self setPanelPosition: 0];
-    
+
     self.hideMenuSwipeGesture.enabled = false;
     self.hideMenuTapGesture.enabled = false;
     self.showMenuSwipeGesture.enabled = true;
@@ -111,9 +111,9 @@
     int y = 0;
     int width = self.slidingPanelContainer.frame.size.width; //[self windowHeight] + [self statusBarHeight];
     int height = self.slidingPanelContainer.frame.size.height; //position;
-    
+
     self.slidingPanelContainer.frame = CGRectMake(x, y, width, height);
-    
+
     if (position == 0) {
         self.mainPanelOverlay.hidden = YES;
     } else {
@@ -131,9 +131,9 @@
     self.hideMenuTapGesture.enabled = true;
     self.showMenuSwipeGesture.enabled = false;
     self.showMenuTapGesture.enabled = false;
-    
+
     NSLog(@"Show menu");
-    
+
     [self setPanelPosition: 188 + 28];
 }
 
@@ -142,7 +142,7 @@
     self.hideMenuTapGesture.enabled = false;
     self.showMenuSwipeGesture.enabled = true;
     self.showMenuTapGesture.enabled = true;
-    
+
     [self setPanelPosition: 0];
 }
 

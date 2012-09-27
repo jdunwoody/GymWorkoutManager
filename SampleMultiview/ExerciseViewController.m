@@ -9,11 +9,13 @@
 #import "ExerciseViewController.h"
 #import "Set.h"
 #import "Exercise.h"
-#import "RepititionView.h"
 #import "ProgramDelegate.h"
 #import "LoadProgramViewController.h"
 #import "EditWeightController.h"
 #import "EditNameViewController.h"
+#import "RepititionViewController.h"
+#import "RepititionView.h"
+#import "EditRepViewController.h"
 
 @interface ExerciseViewController ()
 
@@ -77,6 +79,7 @@
     for (Set *set in self.programDatasource.program.currentExercise.sets) {
         RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 105, 0, 105, 38)];
         
+        just.delegate = self;
         just.reps.text = set.reps.stringValue;
         just.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
         
@@ -88,8 +91,12 @@
 {
     [self.programDatasource.program addExercise];
     [self programChanged];
+    NSUInteger indexes[2];
+    indexes[0] = 0;
+    indexes[1] = [self.tableView numberOfRowsInSection:0] - 1;
+    
+    [self.tableView scrollToRowAtIndexPath: [[NSIndexPath alloc] initWithIndexes: indexes length:2] atScrollPosition: UITableViewScrollPositionMiddle animated: YES];
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -98,17 +105,22 @@
 
 - (IBAction)addSet:(id)sender
 {
-    RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 92, 0, 92, 38)];
+    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    //    RepititionViewController *repititionViewController = [storyboard instantiateViewControllerWithIdentifier: @"repititionViewController"];
+    
+    RepititionView *repitition = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 92, 0, 92, 38)];
     Set *currentSet = [self.programDatasource.program.currentExercise currentSet];
+    
+    repitition.delegate = self;
     
     if (currentSet == NULL) {
         currentSet = [self.programDatasource.program.currentExercise currentSet];
     }
     
-    just.reps.text = currentSet.reps.stringValue;
-    just.rest.text = [NSString stringWithFormat: @"%@ sec", currentSet.rest];
+    repitition.reps.text = currentSet.reps.stringValue;
+    repitition.rest.text = [NSString stringWithFormat: @"%@ sec", currentSet.rest];
     
-    [self.setContainer addSubview: just];
+    [self.setContainer addSubview: repitition];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -126,8 +138,24 @@
         EditWeightController *destination = segue.destinationViewController;
         destination.programDataSource = self.programDatasource;
         
+    } else if ([segue.identifier isEqualToString:@"editRep"]) {
+        EditRepViewController *destination = segue.destinationViewController;
+        destination.programDataSource = self.programDatasource;
+        
     }
 }
+
+- (void) showPopover
+{
+    [self performSegueWithIdentifier:@"editRep" sender:self];
+//    UIView *aView = [UIView alloc];
+//    
+//    RepititionViewController *repViewController = [[RepititionViewController alloc] init];
+//    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: repViewController];
+//    popover.popoverContentSize = CGSizeMake(320, 416);
+//    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: aView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];    
+}
+
 
 //- (IBAction)weightTapGesture:(id)sender
 //{
