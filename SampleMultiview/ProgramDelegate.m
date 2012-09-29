@@ -53,7 +53,7 @@
     
     for (Set *set in exercise.sets) {
         RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 100, 0, 100, 38)];
-        just.reps.text = set.reps.stringValue;
+        just.reps.text = [NSString stringWithFormat: @"%@", set.reps];
         just.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
         
         [cell.setsScrollView addSubview: just];

@@ -9,11 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "ProgramDataSource.h"
 
-@interface EditRepViewController : UIViewController
+@class ExerciseViewController;
+@class RepititionView;
+
+@interface EditRepViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 {
     NSMutableArray *repValues;
 }
 
 @property(strong, nonatomic) ProgramDataSource *programDataSource;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+
+@property (strong, nonatomic) ExerciseViewController *exerciseViewController;
+@property (strong, nonatomic) RepititionView *repititionView;
+
 @end

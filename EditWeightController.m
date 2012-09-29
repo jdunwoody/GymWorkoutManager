@@ -7,6 +7,7 @@
 //
 
 #import "EditWeightController.h"
+#import "ExerciseViewController.h"
 
 @interface EditWeightController ()
 
@@ -15,6 +16,7 @@
 @implementation EditWeightController
 
 @synthesize programDataSource = _programDataSource;
+@synthesize exerciseViewController = _exerciseViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,7 +60,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:0] inComponent:0 animated:YES];
+    
+    [self.pickerView selectRow:[weightValues indexOfObject:self.exerciseViewController.weightLabel.text] inComponent:0 animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +81,7 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [NSString stringWithFormat: @"%@ kg", [weightValues objectAtIndex:row]];
+    return [NSString stringWithFormat: @"%@", [weightValues objectAtIndex:row]];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

@@ -239,7 +239,7 @@
 {
     Exercise *exercise = [[Exercise alloc] init];
     exercise.name = @"newExercise";
-    Set *set = [[Set alloc] initWithReps: [NSNumber numberWithInt:2]];
+    Set *set = [[Set alloc] init];
     
     [exercise addSet: set];
 //    [self.programDataSource.program addExercise:exercise];

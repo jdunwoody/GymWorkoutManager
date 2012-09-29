@@ -7,6 +7,7 @@
 //
 
 #import "EditNameViewController.h"
+#import "ExerciseViewController.h"
 
 @interface EditNameViewController ()
 
@@ -15,6 +16,7 @@
 @implementation EditNameViewController
 
 @synthesize programDataSource = _programDataSource;
+@synthesize exerciseViewController = _exerciseViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,12 +45,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.pickerView selectRow: [nameValues indexOfObject: self.exerciseViewController.name.text] inComponent:0 animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-//    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:0] inComponent:0 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,7 +61,7 @@
 
 - (void) initListValues
 {
-    nameValues = [[NSMutableArray alloc] initWithObjects:@"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];
+    nameValues = [NSMutableArray arrayWithArray: Exercise.nameValues];
     [nameValues sortUsingSelector:@selector(compare:)];
 }
 

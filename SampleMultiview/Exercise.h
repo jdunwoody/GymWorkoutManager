@@ -15,6 +15,9 @@
 {
     Set *_currentSet;
 }
+extern const int DEFAULT_REST;
+extern const int DEFAULT_REPS;
+extern const int DEFAULT_WEIGHT;
 
 @property NSString *name;
 @property NSString *bodyPart;
@@ -30,4 +33,6 @@
 - (int) currentSetPosition;
 - (void) addSet: (Set *)set;
 
++ (NSArray *) nameValues;
++ (NSArray *) restValues;
 @end

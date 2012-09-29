@@ -10,10 +10,29 @@
 
 @implementation Exercise
 
+const int DEFAULT_REST = 10;
+const int DEFAULT_REPS = 12;
+const int DEFAULT_WEIGHT = 40;
+
 @synthesize name = _name;
 @synthesize bodyPart = _bodyPart;
 @synthesize rest = _rest;
 @synthesize comment = _comment;
+
++ (NSArray *) nameValues
+{
+    return [NSArray arrayWithObjects: @"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];
+}
+
++ (NSArray *) restValues
+{
+    NSMutableArray *restValues = [[NSMutableArray alloc] init];
+    
+    for (int s = 0; s < 3; s++) {
+        [restValues addObject: [NSNumber numberWithInt: 10 * (s+1)]];
+    }
+    return restValues;
+}
 
 - (id)init
 {

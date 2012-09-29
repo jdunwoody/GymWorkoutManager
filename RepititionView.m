@@ -30,12 +30,11 @@
  }
  */
 
-
 - (IBAction)repTapped:(id)sender {
     NSLog(@"Rep tapped");
     
 //    UIView *aView = [[UIView alloc] init];
-    [self.delegate showPopover];
+    [self.delegate showPopoverWithView: self];
    }
 
 @end

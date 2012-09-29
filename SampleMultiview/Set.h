@@ -10,11 +10,11 @@
 
 @interface Set : NSObject
 
+extern const int DEFAULT_NUM_SETS;
+
 @property NSNumber *weight;
 @property NSNumber *reps;
 @property NSNumber *rest;
-
-- (id) initWithReps: (NSNumber *) withReps;
 
 - (NSString *) weightAsDisplayValue;
 @end

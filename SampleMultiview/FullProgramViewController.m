@@ -88,7 +88,7 @@
     
     Exercise *exercise = [self.programDatasource.program exerciseAtIndex:path.row];
     
-    [exercise addSet:[[Set alloc] initWithReps:[NSNumber numberWithInt:5]]];
+    [exercise addSet:[[Set alloc] init]];
     [self programChanged];
 }
 

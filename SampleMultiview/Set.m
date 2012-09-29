@@ -11,16 +11,20 @@
 
 @implementation Set
 
+const int DEFAULT_NUM_SETS = 3;
+
 @synthesize weight = _weight;
 @synthesize reps = _reps;
 @synthesize rest = _rest;
 
-- (id) initWithReps: (NSNumber *) withReps;
+- (id) init
 {
     if (self = [super init])
     {
-        self.reps = withReps;
-    }
+        self.weight = [NSNumber numberWithInt:DEFAULT_WEIGHT];
+        self.reps =   [NSNumber numberWithInt:DEFAULT_REPS];
+        self.rest =   [NSNumber numberWithInt:DEFAULT_REST];
+   }
     return self;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "EditRepViewController.h"
+#import "RepititionView.h"
 
 @interface EditRepViewController ()
 
@@ -15,6 +16,8 @@
 @implementation EditRepViewController
 
 @synthesize programDataSource = _programDataSource;
+@synthesize exerciseViewController = _exerciseViewController;
+@synthesize repititionView = _repititionView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,7 +55,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:0] inComponent:0 animated:YES];
+    //    [self.pickerView selectRow: 4 inComponent:0 animated:NO];
+    
+    [self.pickerView selectRow:[repValues indexOfObject:self.repititionView.reps.text] inComponent:0 animated:NO];
+    
+    //    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:5] inComponent:0 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,7 +84,7 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.programDataSource.program.currentExercise.currentSet.weight = [repValues objectAtIndex: row];
+    self.programDataSource.program.currentExercise.currentSet.reps = [NSNumber numberWithInteger:[[repValues objectAtIndex: row] integerValue]];
     [self.programDataSource notifyProgramChangeObservers];
 }
 

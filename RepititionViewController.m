@@ -45,13 +45,13 @@
     NSLog(@"rest tapped in controller");
 }
 
-- (void) showPopover
+- (void) showPopoverWithView: (RepititionView *)view
 {
-    UIView *aView = [UIView alloc];
+//    UIView *aView = [UIView alloc];
     
     UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: self];
     popover.popoverContentSize = CGSizeMake(320, 416);
-    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: aView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: (UIView *)view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
 }
 @end

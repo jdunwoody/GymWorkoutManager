@@ -29,6 +29,9 @@
 @synthesize programDatasource = _programDatasource;
 @synthesize programDelegate = _programDelegate;
 
+//@synthesize rest = _rest;
+//@synthesize reps = _reps;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -70,20 +73,29 @@
 - (void) reloadCurrentExercise
 {
     self.name.text = self.programDatasource.program.currentExercise.name;
-    self.weightLabel.text = [NSString stringWithFormat:@"%@kg", self.programDatasource.program.currentExercise.currentSet.weight];
+    self.weightLabel.text = [NSString stringWithFormat:@"%@", self.programDatasource.program.currentExercise.currentSet.weight];
     
     for (UIView *view in [self.setContainer subviews]) {
         [view removeFromSuperview];
     }
     
     for (Set *set in self.programDatasource.program.currentExercise.sets) {
-        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 105, 0, 105, 38)];
+        //        [self.setContainer addSubview: [[[NSBundle mainBundle] loadNibNamed:@"Repitition" owner:self options:nil] objectAtIndex:0]];
+        //
+        //        self.reps.text = set.reps.stringValue;
+        //        self.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
         
-        just.delegate = self;
-        just.reps.text = set.reps.stringValue;
-        just.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
+        RepititionView *repView;
         
-        [self.setContainer addSubview: just];
+//        if ([self.setContainer.subviews count] == 0) {
+            repView = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 100, 0, 100, 98)];
+            [self.setContainer addSubview: repView];
+//        } else {
+//            repView = [self.setContainer.subviews objectAtIndex:0];
+//        }
+        repView.delegate = self;
+        repView.reps.text = [set.reps stringValue];
+        repView.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
     }
 }
 
@@ -133,28 +145,55 @@
     } else if ([segue.identifier isEqualToString:@"editName"]) {
         EditNameViewController *destination = segue.destinationViewController;
         destination.programDataSource = self.programDatasource;
+        destination.exerciseViewController = self;
         
     } else if ([segue.identifier isEqualToString:@"editWeight"]) {
         EditWeightController *destination = segue.destinationViewController;
         destination.programDataSource = self.programDatasource;
-        
-    } else if ([segue.identifier isEqualToString:@"editRep"]) {
-        EditRepViewController *destination = segue.destinationViewController;
-        destination.programDataSource = self.programDatasource;
+        destination.exerciseViewController = self;
         
     }
+//    else if ([segue.identifier isEqualToString:@"editRep"]) {
+//        EditRepViewController *destination = segue.destinationViewController;
+//        destination.programDataSource = self.programDatasource;
+//        destination.exerciseViewController = self;
+//    }
 }
 
-- (void) showPopover
+- (void) showPopoverWithView: (RepititionView *) targetView
 {
-    [self performSegueWithIdentifier:@"editRep" sender:self];
-//    UIView *aView = [UIView alloc];
-//    
-//    RepititionViewController *repViewController = [[RepititionViewController alloc] init];
-//    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: repViewController];
-//    popover.popoverContentSize = CGSizeMake(320, 416);
-//    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: aView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];    
+    if (!editRepViewController)
+    {
+        editRepViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRepViewController"];
+    }
+    editRepViewController.repititionView = targetView;
+    editRepViewController.programDataSource = self.programDatasource;
+    
+    if (!editRepPopoverViewController) {
+        editRepPopoverViewController = [[UIPopoverController alloc] initWithContentViewController:editRepViewController];
+    }
+//    editRepViewController.pickerView = editRepPopoverViewController.contentViewController.view;
+    [editRepPopoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    
+    //    [self performSegueWithIdentifier:@"editRep" sender:targetView];
+    //    UIView *aView = [UIView alloc];
+    //
+    //    RepititionViewController *repViewController = [[RepititionViewController alloc] init];
+    //    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: repViewController];
+    //    popover.popoverContentSize = CGSizeMake(320, 416);
+    //    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: aView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
+
+//
+//- (IBAction)repTapped:(id)sender {
+//    NSLog(@"Rep tapped");
+//
+//    //    UIView *aView = [[UIView alloc] init];
+//    [self showPopover];
+//}
+
+
 
 
 //- (IBAction)weightTapGesture:(id)sender

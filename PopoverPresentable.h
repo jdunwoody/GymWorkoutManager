@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class RepititionView;
+
 @protocol PopoverPresentable <NSObject>
-- (void) showPopover;
+- (void) showPopoverWithView: (RepititionView *)view;
 
 @end

@@ -13,8 +13,14 @@
 
 @class WeightExercise;
 @class Exercise;
+@class EditRepViewController;
 
-@interface ExerciseViewController : UIViewController<ProgramChangeObserver, PopoverPresentable>
+@interface ExerciseViewController : UIViewController<ProgramChangeObserver, PopoverPresentable, UIGestureRecognizerDelegate>
+{
+    UIPopoverController *editRepPopoverViewController;
+    EditRepViewController *editRepViewController;
+
+}
 
 @property (strong, nonatomic) IBOutlet UIView *setContainer;
 @property (weak, nonatomic) IBOutlet UILabel *weightLabel;
@@ -29,5 +35,12 @@
 
 - (IBAction)addSet:(id)sender;
 - (IBAction)addExercise:(id)sender;
+
+
+
+
+//@property (weak, nonatomic) IBOutlet UILabel *rest;
+//@property (weak, nonatomic) IBOutlet UILabel *reps;
+//@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *repTapGesture;
 
 @end

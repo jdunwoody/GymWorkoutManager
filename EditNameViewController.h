@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ProgramDataSource.h"
+@class ExerciseViewController;
 
 @interface EditNameViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 {
@@ -16,5 +17,6 @@
 
 @property(strong, nonatomic) ProgramDataSource *programDataSource;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (strong, nonatomic) ExerciseViewController *exerciseViewController;
 
 @end
