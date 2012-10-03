@@ -62,8 +62,7 @@
 - (void) initListValues
 {
     nameValues = [NSMutableArray arrayWithArray: Exercise.nameValues];
-    [nameValues sortUsingSelector:@selector(compare:)];
-}
+ }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {

@@ -11,16 +11,23 @@
 
 @class ExerciseViewController;
 @class RepititionView;
+@class EditRepDelegate;
+@class EditRestDelegate;
+@class EditWeightDelegate;
 
-@interface EditRepViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface EditRepViewController : UIViewController
 {
-    NSMutableArray *repValues;
+    EditRepDelegate *editRepDelegate;
+    EditRestDelegate *editRestDelegate;
+    EditWeightDelegate *editWeightDelegate;
 }
 
-@property(strong, nonatomic) ProgramDataSource *programDataSource;
-@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *repPickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *restPickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *weightPickerView;
 
 @property (strong, nonatomic) ExerciseViewController *exerciseViewController;
 @property (strong, nonatomic) RepititionView *repititionView;
+@property (strong, nonatomic) ProgramDataSource *programDatasource;
 
 @end

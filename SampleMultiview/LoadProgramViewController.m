@@ -43,7 +43,8 @@
     [self.observer programChanged];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     [self setTableView:nil];
     [super viewDidUnload];
 }

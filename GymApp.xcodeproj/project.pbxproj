@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
-		1A3FF13416106D6A003CC260 /* EditWeightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FF13316106D6A003CC260 /* EditWeightController.m */; };
+		1A0FAF55161B0B0100BA20B7 /* EditWeightDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */; };
+		1A0FAF59161B0B0E00BA20B7 /* EditRestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */; };
+		1A37AA85161888A5001FD544 /* EditRepDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A37AA84161888A5001FD544 /* EditRepDelegate.m */; };
 		1A3FF13716107B14003CC260 /* EditNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FF13616107B14003CC260 /* EditNameViewController.m */; };
 		1A48D88A160C6D96003FB08B /* Set.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A48D889160C6D96003FB08B /* Set.xib */; };
 		1A48D88F160C6E28003FB08B /* SetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A48D88E160C6E28003FB08B /* SetView.m */; };
@@ -91,9 +93,13 @@
 /* Begin PBXFileReference section */
 		1A003720160738EF003932EF /* ProgramDetailNotifiable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProgramDetailNotifiable.h; path = SampleMultiview/ProgramDetailNotifiable.h; sourceTree = "<group>"; };
 		1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		1A0FAF53161B0B0100BA20B7 /* EditWeightDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWeightDelegate.h; sourceTree = "<group>"; };
+		1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWeightDelegate.m; sourceTree = "<group>"; };
+		1A0FAF57161B0B0E00BA20B7 /* EditRestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRestDelegate.h; sourceTree = "<group>"; };
+		1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRestDelegate.m; sourceTree = "<group>"; };
+		1A37AA83161888A5001FD544 /* EditRepDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRepDelegate.h; sourceTree = "<group>"; };
+		1A37AA84161888A5001FD544 /* EditRepDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRepDelegate.m; sourceTree = "<group>"; };
 		1A3BD5F415FF3E060052BD96 /* ProgramLoadObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramLoadObserver.h; sourceTree = "<group>"; };
-		1A3FF13216106D6A003CC260 /* EditWeightController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWeightController.h; sourceTree = "<group>"; };
-		1A3FF13316106D6A003CC260 /* EditWeightController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWeightController.m; sourceTree = "<group>"; };
 		1A3FF13516107B13003CC260 /* EditNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNameViewController.h; sourceTree = "<group>"; };
 		1A3FF13616107B14003CC260 /* EditNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNameViewController.m; sourceTree = "<group>"; };
 		1A48D889160C6D96003FB08B /* Set.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Set.xib; path = SampleMultiview/Set.xib; sourceTree = "<group>"; };
@@ -255,15 +261,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A37AA821618887C001FD544 /* EditRep */ = {
+			isa = PBXGroup;
+			children = (
+				1A9BF80E1613A8C20065BEA0 /* EditRepViewController.h */,
+				1A9BF80F1613A8C20065BEA0 /* EditRepViewController.m */,
+				1A37AA83161888A5001FD544 /* EditRepDelegate.h */,
+				1A37AA84161888A5001FD544 /* EditRepDelegate.m */,
+				1A0FAF53161B0B0100BA20B7 /* EditWeightDelegate.h */,
+				1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */,
+				1A0FAF57161B0B0E00BA20B7 /* EditRestDelegate.h */,
+				1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */,
+			);
+			name = EditRep;
+			sourceTree = "<group>";
+		};
 		1A3FF13816108AFF003CC260 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				1A3FF13216106D6A003CC260 /* EditWeightController.h */,
-				1A3FF13316106D6A003CC260 /* EditWeightController.m */,
+				1A37AA821618887C001FD544 /* EditRep */,
 				1A3FF13516107B13003CC260 /* EditNameViewController.h */,
 				1A3FF13616107B14003CC260 /* EditNameViewController.m */,
-				1A9BF80E1613A8C20065BEA0 /* EditRepViewController.h */,
-				1A9BF80F1613A8C20065BEA0 /* EditRepViewController.m */,
 			);
 			name = Edit;
 			sourceTree = "<group>";
@@ -707,10 +725,12 @@
 				1A9FA585160B5AD400A24883 /* RepititionView.m in Sources */,
 				1A48D88F160C6E28003FB08B /* SetView.m in Sources */,
 				1A48D892160C9540003FB08B /* NormalExerciseCell.m in Sources */,
-				1A3FF13416106D6A003CC260 /* EditWeightController.m in Sources */,
 				1A3FF13716107B14003CC260 /* EditNameViewController.m in Sources */,
 				1AE734EA1611DF99000C01E6 /* RepititionViewController.m in Sources */,
 				1A9BF8101613A8C20065BEA0 /* EditRepViewController.m in Sources */,
+				1A37AA85161888A5001FD544 /* EditRepDelegate.m in Sources */,
+				1A0FAF55161B0B0100BA20B7 /* EditWeightDelegate.m in Sources */,
+				1A0FAF59161B0B0E00BA20B7 /* EditRestDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 const int DEFAULT_REST = 10;
 const int DEFAULT_REPS = 12;
 const int DEFAULT_WEIGHT = 40;
+const NSString *DEFAULT_EXERCISE = @"Fly";
 
 @synthesize name = _name;
 @synthesize bodyPart = _bodyPart;
@@ -21,7 +22,9 @@ const int DEFAULT_WEIGHT = 40;
 
 + (NSArray *) nameValues
 {
-    return [NSArray arrayWithObjects: @"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];
+    NSMutableArray *values = [NSMutableArray arrayWithObjects: @"O/H", @"Fly", @"Press up", @"Sit up", @"Burpee", @"Star jump", @"Bicup curls", @"Squats", @"Other", nil];
+    [values sortUsingSelector:@selector(compare:)];
+    return values;
 }
 
 + (NSArray *) restValues
@@ -37,6 +40,7 @@ const int DEFAULT_WEIGHT = 40;
 - (id)init
 {
     if (self = [super init]) {
+        self.name = @"None";
         self.sets = [[NSMutableArray alloc] init];
     }
     return self;

@@ -18,6 +18,7 @@
 extern const int DEFAULT_REST;
 extern const int DEFAULT_REPS;
 extern const int DEFAULT_WEIGHT;
+extern const NSString *DEFAULT_EXERCISE;
 
 @property NSString *name;
 @property NSString *bodyPart;

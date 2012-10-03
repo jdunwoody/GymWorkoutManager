@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSMutableArray * exercises;
 
 - (id) initWithName: (NSString *) name;
+- (id) initWithDefaultAndName: (NSString *) name;
 
 - (BOOL) empty;
 - (int) exerciseCount;
@@ -44,5 +45,6 @@
 - (void) setCurrent: (Exercise *)current;
 
 - (void) setCurrentExerciseIsAtIndex: (int) index;
+- (void) setCurrentExerciseToLast;
 
 @end

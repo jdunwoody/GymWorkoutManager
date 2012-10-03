@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *rest;
 @property (weak, nonatomic) IBOutlet UILabel *reps;
+@property (weak, nonatomic) IBOutlet UILabel *weight;
 
 @property (strong, nonatomic) id<PopoverPresentable> delegate;
 

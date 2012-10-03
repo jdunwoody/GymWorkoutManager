@@ -25,6 +25,19 @@
     return self;
 }
 
+- (id) initWithDefaultAndName:(NSString *)name
+{
+    self = [self initWithName:name];
+    
+    Exercise *exercise = [[Exercise alloc] init];
+    exercise.name = [Exercise.nameValues objectAtIndex:0];
+    
+    [exercise.sets addObject:[[Set alloc] init]];
+    
+    [self.exercises addObject:exercise];
+    return self;
+}
+
 - (BOOL) empty
 {
     return [self.exercises count] == 0;
@@ -61,6 +74,11 @@
 - (void) setCurrentExerciseIsAtIndex: (int) index
 {
     current = [self exerciseAtIndex:index];
+}
+
+- (void) setCurrentExerciseToLast
+{
+    [self setCurrentExerciseIsAtIndex: [self.exercises count] -1];
 }
 
 - (int) exerciseCount
@@ -125,15 +143,23 @@
     
     Exercise *exercise = [[Exercise alloc] init];
     
-    exercise.name = last.name;
+    if (last) {
+        exercise.name = last.name;
+    } else {
+        exercise.name = @"Fly";
+    }
     
-    for (int i=0; i<3; i++) {
-        Set *lastSet = [last.sets objectAtIndex: i];
+    int numSets = last ? [last.sets count] : DEFAULT_NUM_SETS;
+    
+    for (int i=0; i<numSets; i++) {
         Set *set = [[Set alloc] init];
-        set.reps = lastSet.reps;
-        set.rest = lastSet.rest;
-        set.weight = lastSet.weight;
         
+        if (last) {
+            Set *lastSet = [last.sets objectAtIndex: i];
+            set.reps = lastSet.reps;
+            set.rest = lastSet.rest;
+            set.weight = lastSet.weight;
+        }
         [exercise addSet:set];
     }
     

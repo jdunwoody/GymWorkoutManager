@@ -13,12 +13,11 @@
 
 @implementation LoadProgramTableDelegate
 
-- (id) initWithDataSource: (LoadProgramTableDataSource *) dataSource withViewObserver: (id<LoadProgramInternalObserver>)observer;
-
+- (id) initWithDataSource: (LoadProgramTableDataSource *) dataSource withViewObserver: (id<LoadProgramInternalObserver>) observer
 {
     self = [super init];
     if (self) {
-        self.dataSource = [[LoadProgramTableDataSource alloc] init];
+        self.dataSource = dataSource;
         self.observer = observer;
     }
     return self;
@@ -63,12 +62,6 @@
     cellIdentifier = nil;
     return cell;
 }
-
-
-
-
-
-
 
 //
 //- (id) initWithController: (id<LoadProgramObserver>) withLoadProgramViewObserver

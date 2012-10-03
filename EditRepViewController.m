@@ -8,6 +8,10 @@
 
 #import "EditRepViewController.h"
 #import "RepititionView.h"
+#import "EditRepDelegate.h"
+#import "EditRestDelegate.h"
+#import "EditWeightDelegate.h"
+#import "ProgramDataSource.h"
 
 @interface EditRepViewController ()
 
@@ -15,15 +19,17 @@
 
 @implementation EditRepViewController
 
-@synthesize programDataSource = _programDataSource;
 @synthesize exerciseViewController = _exerciseViewController;
 @synthesize repititionView = _repititionView;
-
+@synthesize repPickerView = _repPickerView;
+@synthesize restPickerView = _restPickerView;
+@synthesize weightPickerView = _weightPickerView;
+@synthesize programDatasource = _programDatasource;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self initListValues];
+//        [self setup];
     }
     return self;
 }
@@ -31,7 +37,7 @@
 - (id) init
 {
     if (self = [super init]) {
-        [self initListValues];
+//        [self setup];
     }
     return self;
 }
@@ -39,53 +45,38 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        [self initListValues];
+//        [self setup];
     }
     return self;
 }
 
-- (void) initListValues
+- (void) setup
 {
-    repValues = [[NSMutableArray alloc] init];
-    for (NSUInteger i = 1; i <= 20; i++) {
-        [repValues addObject:[NSString stringWithFormat:@"%d", i]];
-    }
+    editRepDelegate = [[EditRepDelegate alloc] init];
+    self.repPickerView.dataSource = editRepDelegate;
+    self.repPickerView.delegate = editRepDelegate;
+    editRepDelegate.programDataSource = self.programDatasource;
+    
+    editRestDelegate = [[EditRestDelegate alloc] init];
+    self.restPickerView.dataSource = editRestDelegate;
+    self.restPickerView.delegate = editRestDelegate;
+    editRestDelegate.programDataSource = self.programDatasource;
+    
+    editWeightDelegate = [[EditWeightDelegate alloc] init];
+    self.weightPickerView.dataSource = editWeightDelegate;
+    self.weightPickerView.delegate = editWeightDelegate;
+    editWeightDelegate.programDataSource = self.programDatasource;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setup];
+
     //    [self.pickerView selectRow: 4 inComponent:0 animated:NO];
     
-    [self.pickerView selectRow:[repValues indexOfObject:self.repititionView.reps.text] inComponent:0 animated:NO];
+//    [self.pickerView selectRow:[repValues indexOfObject:self.repititionView.reps.text] inComponent:0 animated:NO];
     
-    //    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:5] inComponent:0 animated:YES];
+//    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:5] inComponent:0 animated:YES];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    return [repValues count];
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    return [repValues objectAtIndex:row];
-}
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    self.programDataSource.program.currentExercise.currentSet.reps = [NSNumber numberWithInteger:[[repValues objectAtIndex: row] integerValue]];
-    [self.programDataSource notifyProgramChangeObservers];
-}
-
 @end

@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UIView *setsScrollView;
+@property (weak, nonatomic) IBOutlet UIView *container;
 
 @property (strong, nonatomic) Exercise *exercise;
 

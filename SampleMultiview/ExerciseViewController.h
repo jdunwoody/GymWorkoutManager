@@ -15,23 +15,22 @@
 @class Exercise;
 @class EditRepViewController;
 
-@interface ExerciseViewController : UIViewController<ProgramChangeObserver, PopoverPresentable, UIGestureRecognizerDelegate>
+@interface ExerciseViewController : UIViewController<ProgramChangeObserver, PopoverPresentable, UIGestureRecognizerDelegate, UITextFieldDelegate>
 {
     UIPopoverController *editRepPopoverViewController;
     EditRepViewController *editRepViewController;
-
 }
 
 @property (strong, nonatomic) IBOutlet UIView *setContainer;
-@property (weak, nonatomic) IBOutlet UILabel *weightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *programName;
 
 @property (strong, nonatomic) ProgramDataSource *programDatasource;
 @property (strong, nonatomic) ProgramDelegate *programDelegate;
 @property (strong, nonatomic) Exercise *exercise;
 
-@property (weak, nonatomic) IBOutlet UIPickerView *weightPicker;
+//@property (weak, nonatomic) IBOutlet UIPickerView *weightPicker;
 
 - (IBAction)addSet:(id)sender;
 - (IBAction)addExercise:(id)sender;

@@ -193,56 +193,12 @@
     return 1;
 }
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return [self.programDataSource.program exerciseCount];
-//}
-
-//- (Exercise *) exerciseAtIndex: (NSInteger) index
-//{
-//    if (index < 8 || index > [self.programDataSource.program exerciseCount]) {
-//        return [[Exercise alloc] init];
-//    }
-//
-//    Exercise *exercise = [self.programDataSource.program exerciseAtIndex:index];
-//
-//    return exercise;
-//}
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    Exercise *exercise = [self.programDataSource.program exerciseAtIndex:indexPath.row];
-//    NSString *cellIdentifier = @"SummaryViewCell";
-//    
-//    SummaryProgramCell *cell = (SummaryProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    
-//    if (cell == nil) {
-//        cell = [[SummaryProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
-//    
-//    cell.name.text = exercise.name;
-//    
-//    return cell;
-//}
-
-//- (NSUInteger)countOfList
-//{
-//    return [self.programDataSource.program exerciseCount];
-//}
-//
-//- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex
-//{
-//    return [self.programDataSource.program exerciseAtIndex:theIndex];
-//}
-
 - (IBAction)menuPlusButton:(id)sender
 {
     Exercise *exercise = [[Exercise alloc] init];
     exercise.name = @"newExercise";
-    Set *set = [[Set alloc] init];
     
-    [exercise addSet: set];
-//    [self.programDataSource.program addExercise:exercise];
+    [exercise addSet: [[Set alloc] init]];
 }
 
 - (void) programLoaded
@@ -295,6 +251,48 @@
 
 
 
+
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return [self.programDataSource.program exerciseCount];
+//}
+
+//- (Exercise *) exerciseAtIndex: (NSInteger) index
+//{
+//    if (index < 8 || index > [self.programDataSource.program exerciseCount]) {
+//        return [[Exercise alloc] init];
+//    }
+//
+//    Exercise *exercise = [self.programDataSource.program exerciseAtIndex:index];
+//
+//    return exercise;
+//}
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    Exercise *exercise = [self.programDataSource.program exerciseAtIndex:indexPath.row];
+//    NSString *cellIdentifier = @"SummaryViewCell";
+//
+//    SummaryProgramCell *cell = (SummaryProgramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//
+//    if (cell == nil) {
+//        cell = [[SummaryProgramCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//    }
+//
+//    cell.name.text = exercise.name;
+//
+//    return cell;
+//}
+
+//- (NSUInteger)countOfList
+//{
+//    return [self.programDataSource.program exerciseCount];
+//}
+//
+//- (Exercise *)objectInListAtIndex:(NSUInteger)theIndex
+//{
+//    return [self.programDataSource.program exerciseAtIndex:theIndex];
+//}
 
 
 //- (void)viewDidLoad

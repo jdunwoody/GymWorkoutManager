@@ -12,12 +12,13 @@
 
 @synthesize exercise = _exercise;
 @synthesize setsScrollView = _setsScrollView;
+@synthesize container = _container;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        
     }
     return self;
 }

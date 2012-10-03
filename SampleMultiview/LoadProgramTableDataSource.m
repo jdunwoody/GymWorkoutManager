@@ -17,18 +17,18 @@
     self = [super init];
     if (self) {
         self.programs = [[NSMutableArray alloc] initWithObjects:
-                         [[Program alloc] initWithName: @"New"],
+                         [[Program alloc] initWithDefaultAndName: @"New"],
                          [self makeExampleProgramWithName:@"Last weeks"],
                          [self makeExampleProgramWithName:@"High intensity"],
                          [self makeExampleProgramWithName:@"Low intensity"],
                          [self makeExampleProgramWithName:@"1/1/2012"],
                          [self makeExampleProgramWithName:@"2/1/2012"],
-                         [self makeExampleProgramWithName:@"Monday morning program"],
-                         [self makeExampleProgramWithName:@"Low intensity"],
-                         [self makeExampleProgramWithName:@"Recovery"],
-                         [self makeExampleProgramWithName:@"High intensity aerobic"],
-                         [self makeExampleProgramWithName:@"Very difficult"],
-                         [self makeExampleProgramWithName:@"Friday program"],
+                         //                         [self makeExampleProgramWithName:@"Monday morning program"],
+                         //                         [self makeExampleProgramWithName:@"Low intensity"],
+                         //                         [self makeExampleProgramWithName:@"Recovery"],
+                         //                         [self makeExampleProgramWithName:@"High intensity aerobic"],
+                         //                         [self makeExampleProgramWithName:@"Very difficult"],
+                         //                         [self makeExampleProgramWithName:@"Friday program"],
                          nil];
     }
     return self;

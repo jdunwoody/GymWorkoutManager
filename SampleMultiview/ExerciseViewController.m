@@ -11,7 +11,6 @@
 #import "Exercise.h"
 #import "ProgramDelegate.h"
 #import "LoadProgramViewController.h"
-#import "EditWeightController.h"
 #import "EditNameViewController.h"
 #import "RepititionViewController.h"
 #import "RepititionView.h"
@@ -23,14 +22,10 @@
 
 @implementation ExerciseViewController
 
-@synthesize weightLabel = _weightLabel;
 @synthesize setContainer = _setContainer;
 @synthesize exercise = _exercise;
 @synthesize programDatasource = _programDatasource;
 @synthesize programDelegate = _programDelegate;
-
-//@synthesize rest = _rest;
-//@synthesize reps = _reps;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,16 +40,27 @@
 {
     [super viewDidLoad];
     
-    self.weightLabel.text = [self.exercise currentSet].weight.stringValue;
     self.tableView.dataSource = self.programDatasource;
     self.tableView.delegate = self.programDelegate;
+    
+    //    [[NSNotificationCenter defaultCenter] addObserver:self
+    //                                             selector:@selector(keyboardWasShown:)
+    //                                                 name:UIKeyboardWillShowNotification
+    //                                               object:nil];
+    //    [[NSNotificationCenter defaultCenter] addObserver:self
+    //                                             selector:@selector(keyboardWasHidden:)
+    //                                                 name:UIKeyboardWillHideNotification
+    //                                               object:nil];
 }
 
-- (void)viewDidUnload
-{
-    [self setSetContainer:nil];
-    [self setWeightLabel:nil];
-    [super viewDidUnload];
+//- (void)textFieldDidBeginEditing:(UITextField *)textField
+//{
+//
+//}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -67,45 +73,61 @@
 - (void) programChanged
 {
     [self.tableView reloadData];
+    self.programName.text = self.programDatasource.program.name;
     [self reloadCurrentExercise];
 }
 
 - (void) reloadCurrentExercise
 {
-    self.name.text = self.programDatasource.program.currentExercise.name;
-    self.weightLabel.text = [NSString stringWithFormat:@"%@", self.programDatasource.program.currentExercise.currentSet.weight];
-    
-    for (UIView *view in [self.setContainer subviews]) {
-        [view removeFromSuperview];
-    }
-    
-    for (Set *set in self.programDatasource.program.currentExercise.sets) {
-        //        [self.setContainer addSubview: [[[NSBundle mainBundle] loadNibNamed:@"Repitition" owner:self options:nil] objectAtIndex:0]];
-        //
-        //        self.reps.text = set.reps.stringValue;
-        //        self.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
+    if (self.programDatasource.program.exerciseCount > 0) {
+        self.name.text = self.programDatasource.program.currentExercise.name;
         
-        RepititionView *repView;
+        for (UIView *view in [self.setContainer subviews]) {
+            [view removeFromSuperview];
+        }
         
-//        if ([self.setContainer.subviews count] == 0) {
-            repView = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 100, 0, 100, 98)];
+        for (Set *set in self.programDatasource.program.currentExercise.sets) {
+            RepititionView *repView = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 100, 0, 100, 98)];
             [self.setContainer addSubview: repView];
-//        } else {
-//            repView = [self.setContainer.subviews objectAtIndex:0];
-//        }
-        repView.delegate = self;
-        repView.reps.text = [set.reps stringValue];
-        repView.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
+            repView.delegate = self;
+            repView.reps.text = [set.reps stringValue];
+            repView.rest.text = [set.rest stringValue];
+            repView.weight.text = [set.weight stringValue];
+        }
     }
 }
 
 - (IBAction)addExercise:(id)sender
 {
     [self.programDatasource.program addExercise];
+    [self.programDatasource.program setCurrentExerciseToLast];
+    
     [self programChanged];
+    
+    [self scrollToCurrent];
+}
+
+- (IBAction)addSet:(id)sender
+{
+    [self.programDatasource.program.currentExercise addSet:[[Set alloc] init]];
+    [self programChanged];
+}
+
+- (void) scrollToLast
+{
+    [self scrollToIndex:[self.tableView numberOfRowsInSection:0] - 1];
+}
+
+- (void) scrollToCurrent
+{
+    [self scrollToIndex:self.programDatasource.program.currentExercisePosition];
+}
+
+- (void) scrollToIndex: (int) index
+{
     NSUInteger indexes[2];
     indexes[0] = 0;
-    indexes[1] = [self.tableView numberOfRowsInSection:0] - 1;
+    indexes[1] = index;
     
     [self.tableView scrollToRowAtIndexPath: [[NSIndexPath alloc] initWithIndexes: indexes length:2] atScrollPosition: UITableViewScrollPositionMiddle animated: YES];
 }
@@ -115,25 +137,31 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
-- (IBAction)addSet:(id)sender
-{
-    //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
-    //    RepititionViewController *repititionViewController = [storyboard instantiateViewControllerWithIdentifier: @"repititionViewController"];
-    
-    RepititionView *repitition = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 92, 0, 92, 38)];
-    Set *currentSet = [self.programDatasource.program.currentExercise currentSet];
-    
-    repitition.delegate = self;
-    
-    if (currentSet == NULL) {
-        currentSet = [self.programDatasource.program.currentExercise currentSet];
-    }
-    
-    repitition.reps.text = currentSet.reps.stringValue;
-    repitition.rest.text = [NSString stringWithFormat: @"%@ sec", currentSet.rest];
-    
-    [self.setContainer addSubview: repitition];
-}
+//        } else {
+//            repView = [self.setContainer.subviews objectAtIndex:0];
+//        }
+
+//        [self.setContainer addSubview: [[[NSBundle mainBundle] loadNibNamed:@"Repitition" owner:self options:nil] objectAtIndex:0]];
+//
+//        self.reps.text = set.reps.stringValue;
+//        self.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
+
+//        if ([self.setContainer.subviews count] == 0) {
+
+//    RepititionView *repitition = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 92, 0, 92, 38)];
+//    repitition.delegate = self;
+
+
+//    Set *currentSet = [self.programDatasource.program.currentExercise currentSet];
+//    if (currentSet == NULL) {
+//        currentSet = [self.programDatasource.program.currentExercise currentSet];
+//    }
+
+//    repitition.reps.text = newSet.reps.stringValue;
+//    repitition.rest.text = [NSString stringWithFormat: @"%@ sec", newSet.rest];
+//
+//    [self.setContainer addSubview: repitition];
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -147,17 +175,12 @@
         destination.programDataSource = self.programDatasource;
         destination.exerciseViewController = self;
         
-    } else if ([segue.identifier isEqualToString:@"editWeight"]) {
-        EditWeightController *destination = segue.destinationViewController;
-        destination.programDataSource = self.programDatasource;
-        destination.exerciseViewController = self;
-        
-    }
-//    else if ([segue.identifier isEqualToString:@"editRep"]) {
-//        EditRepViewController *destination = segue.destinationViewController;
-//        destination.programDataSource = self.programDatasource;
-//        destination.exerciseViewController = self;
-//    }
+    } 
+    //    else if ([segue.identifier isEqualToString:@"editRep"]) {
+    //        EditRepViewController *destination = segue.destinationViewController;
+    //        destination.programDataSource = self.programDatasource;
+    //        destination.exerciseViewController = self;
+    //    }
 }
 
 - (void) showPopoverWithView: (RepititionView *) targetView
@@ -167,12 +190,12 @@
         editRepViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRepViewController"];
     }
     editRepViewController.repititionView = targetView;
-    editRepViewController.programDataSource = self.programDatasource;
+    editRepViewController.programDatasource = self.programDatasource;
     
     if (!editRepPopoverViewController) {
         editRepPopoverViewController = [[UIPopoverController alloc] initWithContentViewController:editRepViewController];
     }
-//    editRepViewController.pickerView = editRepPopoverViewController.contentViewController.view;
+    //    editRepViewController.pickerView = editRepPopoverViewController.contentViewController.view;
     [editRepPopoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
     

@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardWillShowNotification
@@ -45,7 +45,7 @@
                                              selector:@selector(keyboardWasHidden:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    
+
     [self animateComments];
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -57,23 +57,23 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    
+
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+
 }
 
 //- (void)keyboardWasShown:(NSNotification *)aNotification {
 //    if ( keyboardShown )
 //        return;
-//    
+//
 //    //    if ( ( activeField != inputAmount ) && ( activeField != inputAge ) ) {
 //    NSDictionary *info = [aNotification userInfo];
 //    NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
 //    CGSize keyboardSize = [aValue CGRectValue].size;
-//    
+//
 //    NSTimeInterval animationDuration = 0.300000011920929;
 //    CGRect frame = self.view.frame;
 //    frame.origin.y -= keyboardSize.height-44;
@@ -82,10 +82,10 @@
 //    [UIView setAnimationDuration:animationDuration];
 //    self.view.frame = frame;
 //    [UIView commitAnimations];
-//    
+//
 //    viewMoved = YES;
 //    //    }
-//    
+//
 //    keyboardShown = YES;
 //}
 //
@@ -94,7 +94,7 @@
 //        NSDictionary *info = [aNotification userInfo];
 //        NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
 //        CGSize keyboardSize = [aValue CGRectValue].size;
-//        
+//
 //        NSTimeInterval animationDuration = 0.300000011920929;
 //        CGRect frame = self.view.frame;
 //        frame.origin.y += keyboardSize.height-44;
@@ -103,10 +103,10 @@
 //        [UIView setAnimationDuration:animationDuration];
 //        self.view.frame = frame;
 //        [UIView commitAnimations];
-//        
+//
 //        viewMoved = NO;
 //    }
-//    
+//
 //    keyboardShown = NO;
 //}
 
@@ -114,16 +114,16 @@
 {
     [UIView animateWithDuration:1.0 delay: 0
                         options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
-                            
+
                             self.commentLabel.alpha = 0.0;
                         }
                      completion:nil];
-    
-    
+
+
     //                         self.comment.text = [words objectAtIndex:i];
     //                         i = i + 1;
     //                         i = i % [words count];
-    
+
     //    NSArray *words = [self.comment.text componentsSeparatedByString:@" "];
     //    int i =0;
     //
@@ -140,9 +140,9 @@
     //    NSLog(@"i %i", i);
     //    [UIView commitAnimations];
     //
-    
+
     //    int i =0;
-    
+
     //
     //    [UIView animateWithDuration:1.0 delay:0 options: UIViewAnimation<#(UIViewAnimationOptions)#> animations:animations:^{
     //
@@ -190,7 +190,7 @@
     if ([[segue identifier] isEqualToString:@"loadProgram"])
     {
 //        LoadProgramViewController *vc = [segue destinationViewController];
-        
+
 //        vc.observer = self;
     }
     //    else if ([[segue identifier] isEqualToString:@"showReporting"]) {
@@ -215,7 +215,7 @@
 - (void) updateView
 {
 //    WeightExercise *weightExercise = (WeightExercise *) self.programDataSource.program.currentExercise;
-//    
+//
 //    self.commentLabel.text = weightExercise.name;
 //    self.exerciseNameLabel.text = weightExercise.name;
 //    self.exerciseWeightLabel.text = [weightExercise currentSet].weightAsDisplayValue;
