@@ -45,7 +45,7 @@
     }
     
     for (Set *set in exercise.sets) {
-        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 100, 0, 100, 98)];
+        SmallRepititionView *just = [[SmallRepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 50, 0, 50, 50)];
         just.reps.text = [set.reps stringValue];
         just.rest.text = [set.rest stringValue];
         just.weight.text = [set.weight stringValue];

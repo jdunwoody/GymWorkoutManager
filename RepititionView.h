@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PopoverPresentable.h"
+#import "Set.h"
+
+@class ExerciseViewController;
 
 @interface RepititionView : UIView<UIGestureRecognizerDelegate>
 
@@ -16,10 +19,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *weight;
 
 @property (strong, nonatomic) id<PopoverPresentable> delegate;
+@property (strong, nonatomic) ExerciseViewController *viewController;
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *repTapGesture;
 - (IBAction)repTapped:(id)sender;
 
+@property (strong, nonatomic) Set *set;
 
 @end
  

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Set.h"
 
 @class ProgramDataSource;
 
@@ -16,5 +17,6 @@
 }
 
 @property(strong, nonatomic) ProgramDataSource *programDataSource;
+@property(strong, nonatomic) Set *set;
 
 @end

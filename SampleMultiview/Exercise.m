@@ -94,4 +94,19 @@ const NSString *DEFAULT_EXERCISE = @"Fly";
     [self.sets addObject:set];
 }
 
+- (void) addSet
+{
+    if ([self.sets count] ==0) {
+        return [self.sets addObject:[[Set alloc] init]];
+    }
+                
+    Set *lastSet = [self.sets lastObject];
+    Set *set = [[Set alloc] init];
+    
+    set.reps = lastSet.reps;
+    set.rest = lastSet.rest;
+    set.weight = lastSet.weight;
+    [self.sets addObject:set];
+}
+
 @end

@@ -8,9 +8,11 @@
 
 #import "EditWeightDelegate.h"
 #import "ProgramDataSource.h"
+#import "Set.h"
 
 @implementation EditWeightDelegate
 @synthesize programDataSource = _programDataSource;
+@synthesize set = _set;
 
 - (id) init
 {
@@ -24,6 +26,9 @@
 {
     weightValues = [[NSMutableArray alloc] init];
     for (NSUInteger i = 1; i <= 20; i++) {
+        [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    for (NSUInteger i = 30; i <= 100; i+=10) {
         [weightValues addObject:[NSString stringWithFormat:@"%d", i]];
     }
 }
@@ -45,9 +50,8 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.programDataSource.program.currentExercise.currentSet.weight = [NSNumber numberWithInteger:[[weightValues objectAtIndex: row] integerValue]];
+    self.set.weight = [NSNumber numberWithInteger:[[weightValues objectAtIndex: row] integerValue]];
     [self.programDataSource notifyProgramChangeObservers];
 }
-
 
 @end

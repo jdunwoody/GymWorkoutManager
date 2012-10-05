@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
+@class Set;
 @class ProgramDataSource;
+
 
 @interface EditWeightDelegate : NSObject <UIPickerViewDataSource, UIPickerViewDelegate>
 {
@@ -15,5 +18,6 @@
 }
 
 @property(strong, nonatomic) ProgramDataSource *programDataSource;
+@property(strong, nonatomic) Set *set;
 
 @end

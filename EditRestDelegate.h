@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ProgramDataSource;
+@class Set;
 
 @interface EditRestDelegate : NSObject <UIPickerViewDataSource, UIPickerViewDelegate>
 {
@@ -17,5 +18,5 @@
 }
 
 @property(strong, nonatomic) ProgramDataSource *programDataSource;
-
+@property(strong, nonatomic) Set *set;
 @end

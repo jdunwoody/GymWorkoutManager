@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *weightPickerView;
 
 @property (strong, nonatomic) ExerciseViewController *exerciseViewController;
-@property (strong, nonatomic) RepititionView *repititionView;
+@property (strong, nonatomic) Set *set;
 @property (strong, nonatomic) ProgramDataSource *programDatasource;
 
 @end

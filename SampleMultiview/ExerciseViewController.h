@@ -15,13 +15,15 @@
 @class Exercise;
 @class EditRepViewController;
 
-@interface ExerciseViewController : UIViewController<ProgramChangeObserver, PopoverPresentable, UIGestureRecognizerDelegate, UITextFieldDelegate>
+@interface ExerciseViewController : UIViewController<ProgramChangeObserver, UIGestureRecognizerDelegate, UITextFieldDelegate>
 {
     UIPopoverController *editRepPopoverViewController;
     EditRepViewController *editRepViewController;
 }
 
-@property (strong, nonatomic) IBOutlet UIView *setContainer;
+@property (strong, nonatomic) IBOutlet UIScrollView *repScrollView;
+@property (weak, nonatomic) IBOutlet UIView *repContainer;
+
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *programName;

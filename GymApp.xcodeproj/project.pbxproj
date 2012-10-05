@@ -18,6 +18,7 @@
 		1A4B1B0615E9872200A5CBEC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */; };
 		1A4B1B1415E9A3B800A5CBEC /* exercise_cutout.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */; };
 		1A4BD92B160745CF0082EB1E /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4BD92A160745CF0082EB1E /* NavigationViewController.m */; };
+		1A51E5D4161F0B5800AD97CF /* SmallRepition.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A51E5D3161F0B5800AD97CF /* SmallRepition.xib */; };
 		1A582F4015AC49CA004C1A9B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 1A582F3F15AC49CA004C1A9B /* iTunesArtwork */; };
 		1A594AFA15E263F300D6AF1B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A594AF915E263F300D6AF1B /* Item.m */; };
 		1A5B6B471604871F00D3F4C6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5B6B461604871F00D3F4C6 /* Utils.m */; };
@@ -111,6 +112,7 @@
 		1A4B1B1315E9A3B800A5CBEC /* exercise_cutout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exercise_cutout.png; path = image_elements/exercise_cutout.png; sourceTree = "<group>"; };
 		1A4BD929160745CF0082EB1E /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		1A4BD92A160745CF0082EB1E /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		1A51E5D3161F0B5800AD97CF /* SmallRepition.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SmallRepition.xib; path = SampleMultiview/SmallRepition.xib; sourceTree = "<group>"; };
 		1A582F3F15AC49CA004C1A9B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		1A594AF815E263F300D6AF1B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		1A594AF915E263F300D6AF1B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		1A48D88B160C6DBE003FB08B /* Repitition */ = {
 			isa = PBXGroup;
 			children = (
+				1A51E5D3161F0B5800AD97CF /* SmallRepition.xib */,
 				1A9FA581160B556A00A24883 /* Repitition.xib */,
 				1A9FA583160B5AD400A24883 /* RepititionView.h */,
 				1A9FA584160B5AD400A24883 /* RepititionView.m */,
@@ -667,6 +670,7 @@
 				1AD113AD1605873A00002528 /* _Storyboard.storyboard in Resources */,
 				1A9FA582160B556A00A24883 /* Repitition.xib in Resources */,
 				1A48D88A160C6D96003FB08B /* Set.xib in Resources */,
+				1A51E5D4161F0B5800AD97CF /* SmallRepition.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

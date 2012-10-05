@@ -22,7 +22,7 @@
 
 @implementation ExerciseViewController
 
-@synthesize setContainer = _setContainer;
+@synthesize repContainer = _repContainer;
 @synthesize exercise = _exercise;
 @synthesize programDatasource = _programDatasource;
 @synthesize programDelegate = _programDelegate;
@@ -82,17 +82,24 @@
     if (self.programDatasource.program.exerciseCount > 0) {
         self.name.text = self.programDatasource.program.currentExercise.name;
         
-        for (UIView *view in [self.setContainer subviews]) {
+        for (UIView *view in [self.repContainer subviews]) {
             [view removeFromSuperview];
         }
         
+//        self.repContainer.pagingEnabled = YES;
+        
+//        self.repContainer.contentSize = CGSizeMake(100 * self.programDatasource.program.exerciseCount, 98);
+        self.repScrollView.contentSize = CGSizeMake(1024, 98);
+        
         for (Set *set in self.programDatasource.program.currentExercise.sets) {
-            RepititionView *repView = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 100, 0, 100, 98)];
-            [self.setContainer addSubview: repView];
-            repView.delegate = self;
+            RepititionView *repView = [[RepititionView alloc] initWithFrame:CGRectMake([self.repContainer.subviews count] * 119, 0, 119, 105)];
+            //            repView.delegate = self;
+            repView.viewController = self;
             repView.reps.text = [set.reps stringValue];
             repView.rest.text = [set.rest stringValue];
             repView.weight.text = [set.weight stringValue];
+            repView.set = set; 
+            [self.repContainer addSubview: repView];
         }
     }
 }
@@ -109,7 +116,7 @@
 
 - (IBAction)addSet:(id)sender
 {
-    [self.programDatasource.program.currentExercise addSet:[[Set alloc] init]];
+    [self.programDatasource.program.currentExercise addSet];
     [self programChanged];
 }
 
@@ -175,38 +182,40 @@
         destination.programDataSource = self.programDatasource;
         destination.exerciseViewController = self;
         
-    } 
-    //    else if ([segue.identifier isEqualToString:@"editRep"]) {
-    //        EditRepViewController *destination = segue.destinationViewController;
-    //        destination.programDataSource = self.programDatasource;
-    //        destination.exerciseViewController = self;
-    //    }
+    } else if ([segue.identifier isEqualToString:@"editRep"]) {
+        RepititionView *repitionView = (RepititionView *) sender;
+        
+        EditRepViewController *destination = segue.destinationViewController;
+        destination.programDatasource = self.programDatasource;
+        destination.exerciseViewController = self;
+        destination.set = repitionView.set;
+    }
 }
 
-- (void) showPopoverWithView: (RepititionView *) targetView
-{
-    if (!editRepViewController)
-    {
-        editRepViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRepViewController"];
-    }
-    editRepViewController.repititionView = targetView;
-    editRepViewController.programDatasource = self.programDatasource;
-    
-    if (!editRepPopoverViewController) {
-        editRepPopoverViewController = [[UIPopoverController alloc] initWithContentViewController:editRepViewController];
-    }
-    //    editRepViewController.pickerView = editRepPopoverViewController.contentViewController.view;
-    [editRepPopoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    
-    
-    //    [self performSegueWithIdentifier:@"editRep" sender:targetView];
-    //    UIView *aView = [UIView alloc];
-    //
-    //    RepititionViewController *repViewController = [[RepititionViewController alloc] init];
-    //    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: repViewController];
-    //    popover.popoverContentSize = CGSizeMake(320, 416);
-    //    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: aView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-}
+//- (void) showPopoverWithView: (RepititionView *) targetView
+//{
+//    if (!editRepViewController)
+//    {
+//        editRepViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRepViewController"];
+//    }
+////    editRepViewController.set = set;
+//    editRepViewController.programDatasource = self.programDatasource;
+//
+//    if (!editRepPopoverViewController) {
+//        editRepPopoverViewController = [[UIPopoverController alloc] initWithContentViewController:editRepViewController];
+//    }
+//    //    editRepViewController.pickerView = editRepPopoverViewController.contentViewController.view;
+//    [editRepPopoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//
+//
+//    //    [self performSegueWithIdentifier:@"editRep" sender:targetView];
+//    //    UIView *aView = [UIView alloc];
+//    //
+//    //    RepititionViewController *repViewController = [[RepititionViewController alloc] init];
+//    //    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: repViewController];
+//    //    popover.popoverContentSize = CGSizeMake(320, 416);
+//    //    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: aView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//}
 
 //
 //- (IBAction)repTapped:(id)sender {

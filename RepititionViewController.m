@@ -54,4 +54,11 @@
     [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: (UIView *)view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"editRep"]) {
+        
+    }
+}
 @end

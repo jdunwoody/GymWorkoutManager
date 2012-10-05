@@ -10,7 +10,9 @@
 #import "ProgramDataSource.h"
 
 @implementation EditRestDelegate
+
 @synthesize programDataSource = _programDataSource;
+@synthesize set = _set;
 
 - (id) init
 {
@@ -51,7 +53,7 @@
 {
     NSString *minutes = [minuteValues objectAtIndex: [pickerView selectedRowInComponent:0]];
     NSString *seconds = [secondValues objectAtIndex: [pickerView selectedRowInComponent:1]];
-    self.programDataSource.program.currentExercise.currentSet.rest = [NSNumber numberWithInteger:[minutes integerValue] * 60 + [seconds integerValue]];
+    self.set.rest = [NSNumber numberWithInteger:[minutes integerValue] * 60 + [seconds integerValue]];
     [self.programDataSource notifyProgramChangeObservers];
 }
 

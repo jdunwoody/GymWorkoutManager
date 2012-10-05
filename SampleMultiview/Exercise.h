@@ -32,7 +32,9 @@ extern const NSString *DEFAULT_EXERCISE;
 - (int) setCount;
 - (void) currentSetIsCompleted;
 - (int) currentSetPosition;
+
 - (void) addSet: (Set *)set;
+- (void) addSet;
 
 + (NSArray *) nameValues;
 + (NSArray *) restValues;

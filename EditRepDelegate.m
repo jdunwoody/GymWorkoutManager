@@ -11,6 +11,8 @@
 
 @implementation EditRepDelegate
 
+@synthesize set = _set;
+
 - (id) init
 {
     if (self = [super init]) {
@@ -44,7 +46,7 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.programDataSource.program.currentExercise.currentSet.reps = [NSNumber numberWithInteger:[[repValues objectAtIndex: row] integerValue]];
+    self.set.reps = [NSNumber numberWithInteger:[[repValues objectAtIndex: row] integerValue]];
     [self.programDataSource notifyProgramChangeObservers];
 }
 
