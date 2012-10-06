@@ -66,7 +66,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     if ([self.programDatasource.program exerciseCount] == 0) {
-        [self performSegueWithIdentifier:@"loadProgram" sender:self];
+        [self loadProgram:self];
     }
 }
 
@@ -92,7 +92,7 @@
         self.repScrollView.contentSize = CGSizeMake(1024, 98);
         
         for (Set *set in self.programDatasource.program.currentExercise.sets) {
-            RepititionView *repView = [[RepititionView alloc] initWithFrame:CGRectMake([self.repContainer.subviews count] * 119, 0, 119, 105)];
+            RepititionView *repView = [[RepititionView alloc] initWithFrame:CGRectMake([self.repContainer.subviews count] * 119, 0, 119, 105) withNibName:@"Repitition"];
             //            repView.delegate = self;
             repView.viewController = self;
             repView.reps.text = [set.reps stringValue];
@@ -112,6 +112,10 @@
     [self programChanged];
     
     [self scrollToCurrent];
+}
+
+- (IBAction)loadProgram:(id)sender {
+    [self performSegueWithIdentifier:@"loadProgram" sender:sender];
 }
 
 - (IBAction)addSet:(id)sender

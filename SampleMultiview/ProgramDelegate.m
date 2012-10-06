@@ -45,7 +45,7 @@
     }
     
     for (Set *set in exercise.sets) {
-        SmallRepititionView *just = [[SmallRepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 50, 0, 50, 50)];
+        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 50, 0, 50, 50) withNibName: @"SmallRepitition"];
         just.reps.text = [set.reps stringValue];
         just.rest.text = [set.rest stringValue];
         just.weight.text = [set.weight stringValue];
@@ -83,7 +83,7 @@
     [tableView scrollToRowAtIndexPath: indexPath atScrollPosition: UITableViewScrollPositionMiddle animated: YES];
     
     [self.programDataSource.program setCurrentExerciseIsAtIndex: indexPath.row];
-    NSLog(@"Current exercise %@", self.programDataSource.program.currentExercise.name);
+    //    NSLog(@"Current exercise %@", self.programDataSource.program.currentExercise.name);
     [self.programDataSource notifyProgramChangeObservers];
 }
 

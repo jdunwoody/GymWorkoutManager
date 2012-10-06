@@ -404,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8h-oM-Eyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-323" y="69"/>
+            <point key="canvasLocation" x="-537" y="59"/>
         </scene>
         <!--Exercise View Controller-->
         <scene sceneID="QcM-bn-2gg">
@@ -419,7 +419,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="126" sectionHeaderHeight="22" sectionFooterHeight="22" id="xcW-NM-DaJ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="661"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="617"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.100645727" green="0.100645727" blue="0.100645727" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -462,7 +462,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" id="jan-Fd-GcT">
-                                <rect key="frame" x="0.0" y="661" width="320" height="43"/>
+                                <rect key="frame" x="0.0" y="617" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="V0F-mL-SS9">
@@ -484,7 +484,7 @@
                                 <color key="backgroundColor" red="0.31634646045918369" green="0.31634646045918369" blue="0.31634646045918369" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" id="bFW-8V-XHN">
-                                <rect key="frame" x="342" y="77" width="662" height="584"/>
+                                <rect key="frame" x="342" y="76" width="662" height="485"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" text="Weight Exercise Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2ll-Av-ZmW">
@@ -554,7 +554,7 @@
                                 <rect key="frame" x="726" y="12" width="278" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Program name" minimumFontSize="17" id="q9u-iE-CVo">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Program name" minimumFontSize="17" clearButtonMode="whileEditing" id="q9u-iE-CVo">
                                         <rect key="frame" x="20" y="14" width="238" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -566,6 +566,18 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.10716278698979587" green="0.10716278698979587" blue="0.10716278698979587" alpha="0.77000000000000002" colorSpace="calibratedRGB"/>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="QUh-0v-DYb">
+                                <rect key="frame" x="0.0" y="660" width="1024" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Program Comments" id="DIF-Al-qQ4"/>
+                                    <barButtonItem title="Load Program" id="QYv-sp-y5V">
+                                        <connections>
+                                            <action selector="loadProgram:" destination="z0A-Ht-MZL" id="HEP-iH-1th"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.52696387365481834" green="0.54669563139999999" blue="0.43470716419668826" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -677,6 +689,7 @@
             <relationships>
                 <relationship kind="action" name="addExercise:"/>
                 <relationship kind="action" name="addSet:"/>
+                <relationship kind="action" name="loadProgram:"/>
                 <relationship kind="outlet" name="name" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="programName" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="repContainer" candidateClass="UIView"/>

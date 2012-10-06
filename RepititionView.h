@@ -14,6 +14,8 @@
 
 @interface RepititionView : UIView<UIGestureRecognizerDelegate>
 
+- (id)initWithFrame:(CGRect)frame withNibName: (NSString *) nibName;
+
 @property (weak, nonatomic) IBOutlet UILabel *rest;
 @property (weak, nonatomic) IBOutlet UILabel *reps;
 @property (weak, nonatomic) IBOutlet UILabel *weight;

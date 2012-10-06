@@ -15,11 +15,11 @@
 @synthesize delegate = _delegate;
 @synthesize viewController = _viewController;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame withNibName: (NSString *) nibName
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview: [[[NSBundle mainBundle] loadNibNamed:@"Repitition" owner:self options:nil] objectAtIndex:0]];
+        [self addSubview: [[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] objectAtIndex:0]];
         
         [self.layer setCornerRadius:5.0];
         
@@ -46,8 +46,11 @@
     
     //    UIView *aView = [[UIView alloc] init];
 //    [self.delegate showPopoverWithView: self];
+   
+    UIGestureRecognizer *recoginizer = sender;
     
-    [self.viewController performSegueWithIdentifier: @"editRep" sender: self];
+    recoginizer.view.backgroundColor = [UIColor blueColor];
+     [self.viewController performSegueWithIdentifier: @"editRep" sender: self];
    }
 
 @end

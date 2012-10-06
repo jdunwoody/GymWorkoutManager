@@ -36,6 +36,7 @@
 
 - (IBAction)addSet:(id)sender;
 - (IBAction)addExercise:(id)sender;
+- (IBAction)loadProgram:(id)sender;
 
 
 
