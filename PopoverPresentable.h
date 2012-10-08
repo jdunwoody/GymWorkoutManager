@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class RepititionView;
+#import "Set.h"
+#import "EditExerciseComponentController.h"
 
 @protocol PopoverPresentable <NSObject>
-- (void) showPopoverWithView: (RepititionView *)view;
+
+- (void) showRestPopoverWithView: (UIView *)view withSet: (Set *) set;
+- (void) showRepPopoverWithView: (UIView *)view withSet: (Set *) set;
+- (void) showWeightPopoverWithView: (UIView *)view withSet: (Set *) set;
+- (void) showPopover: (id<EditExerciseComponentController>) viewController withView: (UIView *) targetView withSet: (Set *) set;
 
 @end

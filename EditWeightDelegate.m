@@ -54,4 +54,10 @@
     [self.programDataSource notifyProgramChangeObservers];
 }
 
+- (int) indexOfSet: (Set *) set
+{
+    return [weightValues indexOfObject: [set.weight stringValue]];
+}
+
+
 @end

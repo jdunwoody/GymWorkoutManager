@@ -57,4 +57,9 @@
     [self.programDataSource notifyProgramChangeObservers];
 }
 
+- (int) indexOfSet: (Set *) set
+{
+    return [minuteValues indexOfObject: [set.rest stringValue]];
+}
+
 @end

@@ -10,6 +10,8 @@
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
 		1A0FAF55161B0B0100BA20B7 /* EditWeightDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */; };
 		1A0FAF59161B0B0E00BA20B7 /* EditRestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */; };
+		1A1967F91620FAAD0008B6D2 /* EditRepUIPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1967F81620FAAD0008B6D2 /* EditRepUIPickerViewController.m */; };
+		1A1967FD1621463F0008B6D2 /* EditRestUIPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1967FC1621463E0008B6D2 /* EditRestUIPickerViewController.m */; };
 		1A37AA85161888A5001FD544 /* EditRepDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A37AA84161888A5001FD544 /* EditRepDelegate.m */; };
 		1A3FF13716107B14003CC260 /* EditNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3FF13616107B14003CC260 /* EditNameViewController.m */; };
 		1A48D88A160C6D96003FB08B /* Set.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A48D889160C6D96003FB08B /* Set.xib */; };
@@ -24,6 +26,9 @@
 		1A5B6B471604871F00D3F4C6 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5B6B461604871F00D3F4C6 /* Utils.m */; };
 		1A82594C15F8D86E00616088 /* touchableSurface.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A82594B15F8D86E00616088 /* touchableSurface.png */; };
 		1A84054F15EB8FD300E8F071 /* 45dc8608037206cbb7a8fa9648.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A84054E15EB8FD300E8F071 /* 45dc8608037206cbb7a8fa9648.jpg */; };
+		1A85A7C91620614B00ECE4AC /* EditWeightUIPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A85A7C81620614B00ECE4AC /* EditWeightUIPickerViewController.m */; };
+		1A8D23D91622E1010079A7E1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8D23D81622E1010079A7E1 /* CoreData.framework */; };
+		1A8D23E21622E7000079A7E1 /* Program.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D23E01622E7000079A7E1 /* Program.xcdatamodeld */; };
 		1A8D936015FDF04E0023248F /* Spacious_Gym_Floor.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D935F15FDF04E0023248F /* Spacious_Gym_Floor.jpeg */; };
 		1A8D936415FDF07A0023248F /* a5fe27f89b81aa6784169d7eba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D936215FDF07A0023248F /* a5fe27f89b81aa6784169d7eba.jpg */; };
 		1A8D936515FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D936315FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg */; };
@@ -98,6 +103,11 @@
 		1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWeightDelegate.m; sourceTree = "<group>"; };
 		1A0FAF57161B0B0E00BA20B7 /* EditRestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRestDelegate.h; sourceTree = "<group>"; };
 		1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRestDelegate.m; sourceTree = "<group>"; };
+		1A1967F71620FAAD0008B6D2 /* EditRepUIPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRepUIPickerViewController.h; sourceTree = "<group>"; };
+		1A1967F81620FAAD0008B6D2 /* EditRepUIPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRepUIPickerViewController.m; sourceTree = "<group>"; };
+		1A1967FB1621463E0008B6D2 /* EditRestUIPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRestUIPickerViewController.h; sourceTree = "<group>"; };
+		1A1967FC1621463E0008B6D2 /* EditRestUIPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRestUIPickerViewController.m; sourceTree = "<group>"; };
+		1A1967FE16214CA50008B6D2 /* EditExerciseComponentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditExerciseComponentController.h; sourceTree = "<group>"; };
 		1A37AA83161888A5001FD544 /* EditRepDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRepDelegate.h; sourceTree = "<group>"; };
 		1A37AA84161888A5001FD544 /* EditRepDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRepDelegate.m; sourceTree = "<group>"; };
 		1A3BD5F415FF3E060052BD96 /* ProgramLoadObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramLoadObserver.h; sourceTree = "<group>"; };
@@ -120,6 +130,10 @@
 		1A5B6B461604871F00D3F4C6 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		1A82594B15F8D86E00616088 /* touchableSurface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = touchableSurface.png; path = SampleMultiview/image_elements/touchableSurface.png; sourceTree = "<group>"; };
 		1A84054E15EB8FD300E8F071 /* 45dc8608037206cbb7a8fa9648.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 45dc8608037206cbb7a8fa9648.jpg; sourceTree = "<group>"; };
+		1A85A7C71620614B00ECE4AC /* EditWeightUIPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWeightUIPickerViewController.h; sourceTree = "<group>"; };
+		1A85A7C81620614B00ECE4AC /* EditWeightUIPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWeightUIPickerViewController.m; sourceTree = "<group>"; };
+		1A8D23D81622E1010079A7E1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1A8D23E11622E7000079A7E1 /* Program.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Program.xcdatamodel; sourceTree = "<group>"; };
 		1A8D935F15FDF04E0023248F /* Spacious_Gym_Floor.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Spacious_Gym_Floor.jpeg; sourceTree = "<group>"; };
 		1A8D936215FDF07A0023248F /* a5fe27f89b81aa6784169d7eba.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a5fe27f89b81aa6784169d7eba.jpg; sourceTree = "<group>"; };
 		1A8D936315FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a37b704e14f062a520eabd2e22.jpg; sourceTree = "<group>"; };
@@ -252,6 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8D23D91622E1010079A7E1 /* CoreData.framework in Frameworks */,
 				1A4B1B0615E9872200A5CBEC /* QuartzCore.framework in Frameworks */,
 				1AFADC6815BEDED6006B03BC /* AudioToolbox.framework in Frameworks */,
 				1ABFF5211595A63E004C7EE1 /* UIKit.framework in Frameworks */,
@@ -266,6 +281,13 @@
 		1A37AA821618887C001FD544 /* EditRep */ = {
 			isa = PBXGroup;
 			children = (
+				1A1967FE16214CA50008B6D2 /* EditExerciseComponentController.h */,
+				1A85A7C71620614B00ECE4AC /* EditWeightUIPickerViewController.h */,
+				1A85A7C81620614B00ECE4AC /* EditWeightUIPickerViewController.m */,
+				1A1967F71620FAAD0008B6D2 /* EditRepUIPickerViewController.h */,
+				1A1967F81620FAAD0008B6D2 /* EditRepUIPickerViewController.m */,
+				1A1967FB1621463E0008B6D2 /* EditRestUIPickerViewController.h */,
+				1A1967FC1621463E0008B6D2 /* EditRestUIPickerViewController.m */,
 				1A9BF80E1613A8C20065BEA0 /* EditRepViewController.h */,
 				1A9BF80F1613A8C20065BEA0 /* EditRepViewController.m */,
 				1A37AA83161888A5001FD544 /* EditRepDelegate.h */,
@@ -354,6 +376,14 @@
 			name = textures;
 			sourceTree = "<group>";
 		};
+		1A8D23DF1622E6E80079A7E1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1A8D23E01622E7000079A7E1 /* Program.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		1AA277321605716C00A3CD64 /* Full Program View */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +455,7 @@
 		1ABFF5111595A63E004C7EE1 = {
 			isa = PBXGroup;
 			children = (
+				1A8D23D81622E1010079A7E1 /* CoreData.framework */,
 				1ABFF5261595A63F004C7EE1 /* GymApp */,
 				1ABD3F0D15C00414002E9520 /* icons */,
 				1A4B1B1215E9A32900A5CBEC /* image cutouts */,
@@ -463,6 +494,7 @@
 		1ABFF5261595A63F004C7EE1 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
+				1A8D23DF1622E6E80079A7E1 /* Data */,
 				1AD113641605871300002528 /* Unused */,
 				1AA277361605735100A3CD64 /* Storyboard.storyboard */,
 				1ABFF52F1595A63F004C7EE1 /* GymAppDelegate.h */,
@@ -735,6 +767,10 @@
 				1A37AA85161888A5001FD544 /* EditRepDelegate.m in Sources */,
 				1A0FAF55161B0B0100BA20B7 /* EditWeightDelegate.m in Sources */,
 				1A0FAF59161B0B0E00BA20B7 /* EditRestDelegate.m in Sources */,
+				1A85A7C91620614B00ECE4AC /* EditWeightUIPickerViewController.m in Sources */,
+				1A1967F91620FAAD0008B6D2 /* EditRepUIPickerViewController.m in Sources */,
+				1A1967FD1621463F0008B6D2 /* EditRestUIPickerViewController.m in Sources */,
+				1A8D23E21622E7000079A7E1 /* Program.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,6 +884,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1A8D23E01622E7000079A7E1 /* Program.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1A8D23E11622E7000079A7E1 /* Program.xcdatamodel */,
+			);
+			currentVersion = 1A8D23E11622E7000079A7E1 /* Program.xcdatamodel */;
+			path = Program.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1ABFF5131595A63E004C7EE1 /* Project object */;
 }

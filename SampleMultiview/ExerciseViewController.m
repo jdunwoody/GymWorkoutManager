@@ -15,6 +15,8 @@
 #import "RepititionViewController.h"
 #import "RepititionView.h"
 #import "EditRepViewController.h"
+#import "EditWeightUIPickerViewController.h"
+#import "EditExerciseComponentController.h"
 
 @interface ExerciseViewController ()
 
@@ -86,9 +88,9 @@
             [view removeFromSuperview];
         }
         
-//        self.repContainer.pagingEnabled = YES;
+        //        self.repContainer.pagingEnabled = YES;
         
-//        self.repContainer.contentSize = CGSizeMake(100 * self.programDatasource.program.exerciseCount, 98);
+        //        self.repContainer.contentSize = CGSizeMake(100 * self.programDatasource.program.exerciseCount, 98);
         self.repScrollView.contentSize = CGSizeMake(1024, 98);
         
         for (Set *set in self.programDatasource.program.currentExercise.sets) {
@@ -98,7 +100,7 @@
             repView.reps.text = [set.reps stringValue];
             repView.rest.text = [set.rest stringValue];
             repView.weight.text = [set.weight stringValue];
-            repView.set = set; 
+            repView.set = set;
             [self.repContainer addSubview: repView];
         }
     }
@@ -195,31 +197,58 @@
         destination.set = repitionView.set;
     }
 }
+- (void) showRestPopoverWithView: (UIView *) targetView withSet: (Set *) set
+{
+    editRestViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRestViewController"];
+    
+    [self showPopover:editRestViewController withView: targetView withSet: set];
+}
 
-//- (void) showPopoverWithView: (RepititionView *) targetView
-//{
-//    if (!editRepViewController)
+- (void) showRepPopoverWithView: (UIView *) targetView withSet: (Set *) set
+{
+    editRepViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRepViewController"];
+    
+    [self showPopover: editRepViewController withView: targetView withSet: set];
+}
+
+- (void) showWeightPopoverWithView: (UIView *) targetView withSet: (Set *) set
+{
+    editWeightViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editWeightViewController"];
+    
+    [self showPopover: editWeightViewController withView:targetView withSet: set];
+}
+
+- (void) showPopover: (id<EditExerciseComponentController>) viewController withView: (UIView *) targetView withSet: (Set *) set
+{
+    viewController.programDatasource = self.programDatasource;
+    viewController.exerciseViewController = self;
+    viewController.set = set;
+    
+    popoverViewController = [[UIPopoverController alloc] initWithContentViewController:((UIViewController *)viewController)];
+    
+    [popoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+//    if (!editWeightViewController)
 //    {
-//        editRepViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRepViewController"];
 //    }
-////    editRepViewController.set = set;
-//    editRepViewController.programDatasource = self.programDatasource;
-//
-//    if (!editRepPopoverViewController) {
-//        editRepPopoverViewController = [[UIPopoverController alloc] initWithContentViewController:editRepViewController];
+//    editWeightViewController = set;
+//    editWeightViewController.programDatasource = self.programDatasource;
+
+
+//    if (!editWeightPopoverViewController) {
 //    }
-//    //    editRepViewController.pickerView = editRepPopoverViewController.contentViewController.view;
-//    [editRepPopoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//    editRepViewController.pickerView = editRepPopoverViewController.contentViewController.view;
+
+
+//    [self performSegueWithIdentifier:@"editRep" sender:targetView];
+//    UIView *aView = [UIView alloc];
 //
-//
-//    //    [self performSegueWithIdentifier:@"editRep" sender:targetView];
-//    //    UIView *aView = [UIView alloc];
-//    //
-//    //    RepititionViewController *repViewController = [[RepititionViewController alloc] init];
-//    //    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: repViewController];
-//    //    popover.popoverContentSize = CGSizeMake(320, 416);
-//    //    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: aView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-//}
+//    RepititionViewController *repViewController = [[RepititionViewController alloc] init];
+//    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: repViewController];
+//    popover.popoverContentSize = CGSizeMake(320, 416);
+//    [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: aView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
 
 //
 //- (IBAction)repTapped:(id)sender {

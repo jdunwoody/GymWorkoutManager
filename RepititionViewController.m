@@ -45,7 +45,13 @@
     NSLog(@"rest tapped in controller");
 }
 
-- (void) showPopoverWithView: (RepititionView *)view
+- (void) showRestPopoverWithView: (UIView *)view withSet:(Set *)set
+{
+}
+- (void) showRepPopoverWithView: (UIView *)view withSet:(Set *)set
+{
+}
+- (void) showWeightPopoverWithView: (UIView *)view withSet:(Set *)set
 {
 //    UIView *aView = [UIView alloc];
     
@@ -53,6 +59,11 @@
     popover.popoverContentSize = CGSizeMake(320, 416);
     [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: (UIView *)view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 
+}
+
+- (void) showPopover:(UIViewController *)viewController withView:(UIView *)targetView withSet:(Set *)set
+{
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

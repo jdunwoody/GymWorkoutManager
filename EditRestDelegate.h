@@ -19,4 +19,7 @@
 
 @property(strong, nonatomic) ProgramDataSource *programDataSource;
 @property(strong, nonatomic) Set *set;
+
+- (int) indexOfSet: (Set *) set;
+
 @end

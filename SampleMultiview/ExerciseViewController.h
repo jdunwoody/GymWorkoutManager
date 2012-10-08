@@ -10,15 +10,27 @@
 #import "ProgramDataSource.h"
 #import "ProgramDelegate.h"
 #import "PopoverPresentable.h"
+#import "EditExerciseComponentController.h"
 
 @class WeightExercise;
 @class Exercise;
 @class EditRepViewController;
+@class EditWeightUIPickerViewController;
+@class EditRestUIPickerViewController;
+@class EditRepUIPickerViewController;
 
-@interface ExerciseViewController : UIViewController<ProgramChangeObserver, UIGestureRecognizerDelegate, UITextFieldDelegate>
+@interface ExerciseViewController : UIViewController<ProgramChangeObserver, UIGestureRecognizerDelegate, UITextFieldDelegate, PopoverPresentable>
 {
+    UIPopoverController *popoverViewController;
+    
     UIPopoverController *editRepPopoverViewController;
-    EditRepViewController *editRepViewController;
+    id<EditExerciseComponentController> editRepViewController;
+
+    UIPopoverController *editWeightPopoverViewController;
+    id<EditExerciseComponentController> editWeightViewController;
+
+    UIPopoverController *editRestPopoverViewController;
+    id<EditExerciseComponentController> editRestViewController;
 }
 
 @property (strong, nonatomic) IBOutlet UIScrollView *repScrollView;
@@ -37,9 +49,6 @@
 - (IBAction)addSet:(id)sender;
 - (IBAction)addExercise:(id)sender;
 - (IBAction)loadProgram:(id)sender;
-
-
-
 
 //@property (weak, nonatomic) IBOutlet UILabel *rest;
 //@property (weak, nonatomic) IBOutlet UILabel *reps;

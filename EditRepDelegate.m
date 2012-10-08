@@ -51,4 +51,9 @@
 }
 
 
+- (int) indexOfSet: (Set *) set
+{
+    return [repValues indexOfObject: [set.reps stringValue]];
+}
+
 @end

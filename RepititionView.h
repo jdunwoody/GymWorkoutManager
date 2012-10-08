@@ -24,7 +24,12 @@
 @property (strong, nonatomic) ExerciseViewController *viewController;
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *repTapGesture;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *weightTapGesture;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *restTapGuest;
+
 - (IBAction)repTapped:(id)sender;
+- (IBAction)restTapped:(id)sender;
+- (IBAction)weightTapped:(id)sender;
 
 @property (strong, nonatomic) Set *set;
 
