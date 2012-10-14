@@ -11,7 +11,7 @@
 #import "ProgramStatusProtocol.h"
 #import "Item.h"
 
-@interface Program : NSObject
+@interface Program : NSManagedObject
 {
     Exercise *current;
 //    NSMutableArray *exercises;
@@ -21,8 +21,8 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray * exercises;
 
-- (id) initWithName: (NSString *) name;
-- (id) initWithDefaultAndName: (NSString *) name;
+//- (id) initWithName: (NSString *) name;
+//- (id) initWithDefaultAndName: (NSString *) name;
 
 - (BOOL) empty;
 - (int) exerciseCount;

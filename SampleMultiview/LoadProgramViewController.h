@@ -30,5 +30,5 @@
 @property (strong, nonatomic) LoadProgramTableDataSource *tableDataSource;
 
 @property (strong, nonatomic) ProgramDataSource *programDataSource;
-
+@property (strong, nonatomic) NSManagedObjectContext *context;
 @end

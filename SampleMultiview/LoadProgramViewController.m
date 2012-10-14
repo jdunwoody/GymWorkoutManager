@@ -19,12 +19,13 @@
 @synthesize programDataSource = _programDataSource;
 @synthesize tableView = _tableView;
 @synthesize tableDelegate = _tableDelegate;
+@synthesize context = _context;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.tableDataSource = [[LoadProgramTableDataSource alloc] init];
+    self.tableDataSource = [[LoadProgramTableDataSource alloc] initWithManagedObjectContext: self.context];
     self.tableView.dataSource = self.tableDataSource;
     
     self.tableDelegate = [[LoadProgramTableDelegate alloc] initWithDataSource:self.tableDataSource withViewObserver: self];

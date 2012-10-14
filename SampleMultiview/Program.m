@@ -15,28 +15,28 @@
 @synthesize name = _name;
 @synthesize exercises = _exercises;
 
-- (id) initWithName: (NSString *) name
-{
-    if (self = [super init]) {
-        self.exercises = [[NSMutableArray alloc] init];
-        self.name = name;
-        current = nil;
-    }
-    return self;
-}
-
-- (id) initWithDefaultAndName:(NSString *)name
-{
-    self = [self initWithName:name];
-    
-    Exercise *exercise = [[Exercise alloc] init];
-    exercise.name = [Exercise.nameValues objectAtIndex:0];
-    
-    [exercise.sets addObject:[[Set alloc] init]];
-    
-    [self.exercises addObject:exercise];
-    return self;
-}
+//- (id) initWithName: (NSString *) name
+//{
+//    if (self = [super init]) {
+//        self.exercises = [[NSMutableArray alloc] init];
+//        self.name = name;
+//        current = nil;
+//    }
+//    return self;
+//}
+//
+//- (id) initWithDefaultAndName:(NSString *)name
+//{
+//    self = [self initWithName:name];
+//
+//    Exercise *exercise = [[Exercise alloc] init];
+//    exercise.name = [Exercise.nameValues objectAtIndex:0];
+//
+//    [exercise.sets addObject:[[Set alloc] init]];
+//
+//    [self.exercises addObject:exercise];
+//    return self;
+//}
 
 - (BOOL) empty
 {

@@ -19,6 +19,7 @@ const NSString *DEFAULT_EXERCISE = @"Fly";
 @synthesize bodyPart = _bodyPart;
 @synthesize rest = _rest;
 @synthesize comment = _comment;
+@synthesize sets = _sets;
 
 + (NSArray *) nameValues
 {

@@ -182,6 +182,7 @@
         LoadProgramViewController *destination = segue.destinationViewController;
         destination.programDataSource = self.programDatasource;
         destination.observer = self;
+        destination.context = self.context;
         
     } else if ([segue.identifier isEqualToString:@"editName"]) {
         EditNameViewController *destination = segue.destinationViewController;

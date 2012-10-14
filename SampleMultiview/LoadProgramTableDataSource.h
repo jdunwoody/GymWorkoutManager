@@ -12,7 +12,9 @@
 
 @interface LoadProgramTableDataSource : NSObject <UITableViewDataSource>
 @property (strong, nonatomic) NSMutableArray *programs;
+@property (strong, nonatomic) NSManagedObjectContext *context;
 
+- (id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
 - (int) numberOfPrograms;
 - (Program *) programAtIndex: (int) index;
 

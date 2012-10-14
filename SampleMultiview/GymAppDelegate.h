@@ -10,6 +10,12 @@
 #import "OldProgramViewController.h"
 
 @interface GymAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    NSMutableArray *eventsArray;
+	NSManagedObjectContext *managedObjectContext;
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+    NSManagedObjectModel *managedObjectModel;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
