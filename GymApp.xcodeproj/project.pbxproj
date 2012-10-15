@@ -10,6 +10,8 @@
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
 		1A0FAF55161B0B0100BA20B7 /* EditWeightDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */; };
 		1A0FAF59161B0B0E00BA20B7 /* EditRestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */; };
+		1A10D9F2162C29B50027E6BF /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A10D9F1162C29B50027E6BF /* Event.m */; };
+		1A10D9F5162C29F60027E6BF /* Event.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A10D9F3162C29F60027E6BF /* Event.xcdatamodeld */; };
 		1A1967F91620FAAD0008B6D2 /* EditRepUIPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1967F81620FAAD0008B6D2 /* EditRepUIPickerViewController.m */; };
 		1A1967FD1621463F0008B6D2 /* EditRestUIPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1967FC1621463E0008B6D2 /* EditRestUIPickerViewController.m */; };
 		1A37AA85161888A5001FD544 /* EditRepDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A37AA84161888A5001FD544 /* EditRepDelegate.m */; };
@@ -103,6 +105,9 @@
 		1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWeightDelegate.m; sourceTree = "<group>"; };
 		1A0FAF57161B0B0E00BA20B7 /* EditRestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRestDelegate.h; sourceTree = "<group>"; };
 		1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRestDelegate.m; sourceTree = "<group>"; };
+		1A10D9F0162C29B50027E6BF /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		1A10D9F1162C29B50027E6BF /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		1A10D9F4162C29F60027E6BF /* event.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = event.xcdatamodel; sourceTree = "<group>"; };
 		1A1967F71620FAAD0008B6D2 /* EditRepUIPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRepUIPickerViewController.h; sourceTree = "<group>"; };
 		1A1967F81620FAAD0008B6D2 /* EditRepUIPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRepUIPickerViewController.m; sourceTree = "<group>"; };
 		1A1967FB1621463E0008B6D2 /* EditRestUIPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRestUIPickerViewController.h; sourceTree = "<group>"; };
@@ -278,6 +283,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A10D9EE162C298E0027E6BF /* EventSample */ = {
+			isa = PBXGroup;
+			children = (
+				1A10D9F0162C29B50027E6BF /* Event.h */,
+				1A10D9F1162C29B50027E6BF /* Event.m */,
+				1A10D9F3162C29F60027E6BF /* Event.xcdatamodeld */,
+			);
+			name = EventSample;
+			sourceTree = "<group>";
+		};
 		1A37AA821618887C001FD544 /* EditRep */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +509,7 @@
 		1ABFF5261595A63F004C7EE1 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
+				1A10D9EE162C298E0027E6BF /* EventSample */,
 				1A8D23DF1622E6E80079A7E1 /* Data */,
 				1AD113641605871300002528 /* Unused */,
 				1AA277361605735100A3CD64 /* Storyboard.storyboard */,
@@ -771,6 +787,8 @@
 				1A1967F91620FAAD0008B6D2 /* EditRepUIPickerViewController.m in Sources */,
 				1A1967FD1621463F0008B6D2 /* EditRestUIPickerViewController.m in Sources */,
 				1A6287EF162AD9A6000404AD /* Program.xcdatamodeld in Sources */,
+				1A10D9F2162C29B50027E6BF /* Event.m in Sources */,
+				1A10D9F5162C29F60027E6BF /* Event.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,6 +904,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		1A10D9F3162C29F60027E6BF /* Event.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1A10D9F4162C29F60027E6BF /* event.xcdatamodel */,
+			);
+			currentVersion = 1A10D9F4162C29F60027E6BF /* event.xcdatamodel */;
+			name = Event.xcdatamodeld;
+			path = event.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		1A6287ED162AD9A6000404AD /* Program.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

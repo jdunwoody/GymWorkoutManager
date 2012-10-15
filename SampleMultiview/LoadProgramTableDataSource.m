@@ -19,17 +19,32 @@
     self = [super init];
     if (self) {
         self.context = context;
+        
+        NSArray *programs = [self loadPrograms];
+        
         Program *newProgram = [NSEntityDescription
                                insertNewObjectForEntityForName:@"Program"
                                inManagedObjectContext:context];
         newProgram.name = [self currentDateString];
         
-    //    NSArray *program = [self loadPrograms];
         
         self.programs = [[NSMutableArray alloc] initWithObjects:
                          newProgram,
                          nil];
+        [self.programs addObjectsFromArray: programs];
         
+        for (Program *program in self.programs) {
+            NSLog(@"Loaded program %@", program.name);
+        }
+        NSError *error;
+        if (self.context != nil) {
+            if ([self.context hasChanges] && ![self.context save:&error]) {
+                NSLog(@"Failed to log");
+                // Handle the error.
+            }
+        }
+        
+        //        [self.context save:nil];
         //                         [self makeExampleProgramWithName:@"Last weeks"],
         //                         [self makeExampleProgramWithName:@"High intensity"],
         //                         [self makeExampleProgramWithName:@"Low intensity"],
@@ -86,17 +101,17 @@
 //- (Program *) makeExampleProgramWithName: (NSString *) name
 //{
 //    Program *program = [[Program alloc] initWithName: name];
-//    
+//
 //    int numExercises = 5;
 //    NSArray *exerciseNames = Exercise.nameValues;
-//    
+//
 //    for (int e=0; e< numExercises; e++) {
 //        Exercise *exercise = [[Exercise alloc] init];
 //        exercise.name = [exerciseNames objectAtIndex: (arc4random() % [exerciseNames count])];
 //        exercise.rest = [NSString stringWithFormat:@"%is", e * 20];
-//        
+//
 //        int numSets = DEFAULT_NUM_SETS;
-//        
+//
 //        for (int s = 0; s < numSets; s++) {
 //            [exercise.sets addObject:[[Set alloc] init]];
 //        }

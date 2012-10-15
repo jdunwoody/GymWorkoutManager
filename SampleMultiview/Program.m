@@ -12,7 +12,8 @@
 
 @implementation Program
 
-@synthesize name = _name;
+@dynamic name;
+
 @synthesize exercises = _exercises;
 
 //- (id) initWithName: (NSString *) name

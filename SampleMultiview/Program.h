@@ -18,7 +18,7 @@
 //    id<ProgramStatusProtocol> programStatus;
 }
 
-@property (strong, nonatomic) NSString *name;
+@property (retain, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray * exercises;
 
 //- (id) initWithName: (NSString *) name;

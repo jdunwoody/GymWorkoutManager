@@ -11,6 +11,7 @@
 #import "ProgramDataSource.h"
 #import "ProgramDelegate.h"
 #import "NavigationViewController.h"
+#import "Event.h"
 
 @implementation GymAppDelegate
 
@@ -23,8 +24,10 @@
     NavigationViewController *navigationController = (NavigationViewController *) self.window.rootViewController;
     
     ExerciseViewController *viewController = (ExerciseViewController *) [navigationController.childViewControllers objectAtIndex: 0];
-  
-    NSManagedObjectContext *context = [self setupData];
+    
+//    [self loadEvent];
+    
+    NSManagedObjectContext *context = [self setupContext];
     viewController.context = context;
     
     ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers: viewController, nil];
@@ -38,45 +41,83 @@
     return YES;
 }
 
-- (NSManagedObjectContext *) setupData
+- (void) loadEvent
 {
     NSManagedObjectContext *context = [self managedObjectContext];
 	if (!context) {
 		// Handle the error.
 	}
     
+    Event *event = (Event *)[NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
+    [event setLatitude:[NSNumber numberWithDouble:123]];
+	[event setLongitude:[NSNumber numberWithDouble:567]];
+	[event setCreationDate:[NSDate date]];
+	
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Failed to save");
+    }
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *programEntity = [NSEntityDescription entityForName:@"Program" inManagedObjectContext:context];
-	[request setEntity:programEntity];
-   
-    return context;
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
+	[request setEntity:entity];
+	
+	NSMutableArray *mutableFetchResults = [[context executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Handle the error.
+        NSLog(@"Failed to retrieve");
+	}
+    
+    for (Event *event in mutableFetchResults) {
+        NSLog(@"Event %@", event.latitude.stringValue);
+    }
 }
 
-
+- (NSManagedObjectContext *) setupContext
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+	if (!context) {
+		// Handle the error.
+	}
+    
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//	NSEntityDescription *programEntity = [NSEntityDescription entityForName:@"Program" inManagedObjectContext:context];
+//	[request setEntity:programEntity];
+// 
+//    NSError *error;
+//    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+//	if (mutableFetchResults == nil) {
+//		// Handle the error.
+//	}
+//	
+//    for (Program *program in mutableFetchResults) {
+//        NSLog(@"%@");
+//    }
+    return context;
+}
 
 /**
  Performs the save action for the application, which is to send the save:
  message to the application's managed object context.
  */
-- (IBAction)saveAction:(id)sender {
-	
-    NSError *error;
-    if (![[self managedObjectContext] save:&error]) {
-		// Handle error
-    }
-}
+//- (IBAction)saveAction:(id)sender {
+//	
+//    NSError *error;
+//    if (![[self managedObjectContext] save:&error]) {
+//		// Handle error
+//    }
+//}
 
 /**
  applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
  */
-- (void)applicationWillTerminate:(UIApplication *)application {
-	
-    NSError *error;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-			// Handle the error.
-        }
-    }
+- (void)applicationWillTerminate:(UIApplication *)application {	
+//    NSError *error;
+//    if (managedObjectContext != nil) {
+//        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+//			// Handle the error.
+//        }
+//    }
 }
 
 #pragma mark -
@@ -114,26 +155,67 @@
     return managedObjectModel;
 }
 
-/**
- Returns the persistent store coordinator for the application.
- If the coordinator doesn't already exist, it is created and the application's store added to it.
- */
+//- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+//	
+//    if (persistentStoreCoordinator != nil) {
+//        return persistentStoreCoordinator;
+//    }
+//	
+//    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"Events.sqlite"]];
+//	
+//	NSError *error;
+//    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+//    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+//        // Handle the error.
+//        NSLog(@"Unable to created persistent store");
+//    }
+//	
+//    return persistentStoreCoordinator;
+//}
+
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 	
     if (persistentStoreCoordinator != nil) {
         return persistentStoreCoordinator;
     }
 	
-    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"Locations.sqlite"]];
-	
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"Programs.sqlite"]];
+	NSLog(@"Using store %@", storeUrl.absoluteString);
 	NSError *error;
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
         // Handle the error.
+        NSLog(@"Unable to created persistent store");
+        NSLog(@"%@", error);
     }
 	
     return persistentStoreCoordinator;
 }
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+//- (NSPersistentStoreCoordinator *)persistentStoreCoordinator2 {
+//	
+//    if (persistentStoreCoordinator != nil) {
+//        return persistentStoreCoordinator;
+//    }
+//    
+//    //    NSPersistentDocument *d = NSPersistentDocument.[[NSPersistentDocument alloc] init];
+//    //
+//    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"Programs.sqlite"]];
+//	
+//	NSError *error;
+//    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+//    
+////    if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+//    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+//        // Handle the error.
+//    }
+//	
+//    return persistentStoreCoordinator;
+//}
 
 #pragma mark -
 #pragma mark Application's documents directory
