@@ -11,6 +11,8 @@
 #import "Set.h"
 #import "Item.h"
 
+@class Program;
+
 @interface Exercise : Item
 {
     Set *_currentSet;
@@ -20,11 +22,14 @@ extern const int DEFAULT_REPS;
 extern const int DEFAULT_WEIGHT;
 extern const NSString *DEFAULT_EXERCISE;
 
-@property NSString *name;
-@property NSString *bodyPart;
-@property NSString *rest;
-@property NSMutableArray *sets;
-@property NSString *comment;
+@property (retain, nonatomic) Program *program;
+@property (retain, nonatomic) NSString *name;
+@property (retain, nonatomic) NSString *bodyPart;
+@property (retain, nonatomic) NSString *rest;
+@property (retain, nonatomic) NSMutableArray *sets;
+@property (retain, nonatomic) NSString *comment;
+
++ (Exercise *) exerciseWithName:(NSString *)name withContext: (NSManagedObjectContext *)context;
 
 - (NSString *) restAsDisplayValue;
 - (Set *) setAtIndex: (int) index;

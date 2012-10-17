@@ -19,7 +19,9 @@
 }
 
 @property (retain, nonatomic) NSString *name;
-@property (strong, nonatomic) NSMutableArray * exercises;
+@property (nonatomic) NSMutableArray *exercises;
+
++ (Program *) programWithName:(NSString *)name withContext: (NSManagedObjectContext *)context;
 
 //- (id) initWithName: (NSString *) name;
 //- (id) initWithDefaultAndName: (NSString *) name;

@@ -15,11 +15,12 @@ const int DEFAULT_REPS = 12;
 const int DEFAULT_WEIGHT = 40;
 const NSString *DEFAULT_EXERCISE = @"Fly";
 
-@synthesize name = _name;
-@synthesize bodyPart = _bodyPart;
-@synthesize rest = _rest;
-@synthesize comment = _comment;
-@synthesize sets = _sets;
+@dynamic name;
+@dynamic bodyPart;
+@dynamic rest;
+@dynamic comment;
+@dynamic sets;
+@dynamic program;
 
 + (NSArray *) nameValues
 {
@@ -38,14 +39,24 @@ const NSString *DEFAULT_EXERCISE = @"Fly";
     return restValues;
 }
 
-- (id)init
++ (Exercise *) exerciseWithName:(NSString *)name withContext: (NSManagedObjectContext *)context
 {
-    if (self = [super init]) {
-        self.name = @"None";
-        self.sets = [[NSMutableArray alloc] init];
-    }
-    return self;
+    Exercise *newExercise = [NSEntityDescription
+                             insertNewObjectForEntityForName:@"Exercise"
+                             inManagedObjectContext:context];
+    newExercise.name = @"None";
+    newExercise.sets = [NSMutableArray array];
+    return newExercise;
 }
+
+//- (id)init
+//{
+//    if (self = [super init]) {
+//        self.name = @"None";
+//        self.sets = [[NSMutableArray alloc] init];
+//    }
+//    return self;
+//}
 
 - (NSString *) restAsDisplayValue
 {
@@ -97,17 +108,17 @@ const NSString *DEFAULT_EXERCISE = @"Fly";
 
 - (void) addSet
 {
-    if ([self.sets count] ==0) {
-        return [self.sets addObject:[[Set alloc] init]];
-    }
-                
-    Set *lastSet = [self.sets lastObject];
-    Set *set = [[Set alloc] init];
+    Set *set = [Set setWithContext: self.managedObjectContext];
     
-    set.reps = lastSet.reps;
-    set.rest = lastSet.rest;
-    set.weight = lastSet.weight;
-    [self.sets addObject:set];
+    if ([self.sets count] > 0) {
+        Set *lastSet = [self.sets lastObject];
+        
+        set.reps = lastSet.reps;
+        set.rest = lastSet.rest;
+        set.weight = lastSet.weight;
+    }
+    
+    set.exercise = self;
 }
 
 @end

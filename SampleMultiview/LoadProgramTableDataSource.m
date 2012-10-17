@@ -22,9 +22,7 @@
         
         NSArray *programs = [self loadPrograms];
         
-        Program *newProgram = [NSEntityDescription
-                               insertNewObjectForEntityForName:@"Program"
-                               inManagedObjectContext:context];
+        Program *newProgram = [Program programWithName:[self currentDateString] withContext:context];
         newProgram.name = [self currentDateString];
         
         

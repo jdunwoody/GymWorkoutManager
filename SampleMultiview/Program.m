@@ -13,8 +13,28 @@
 @implementation Program
 
 @dynamic name;
+@dynamic exercises;
 
-@synthesize exercises = _exercises;
++ (Program *) programWithName:(NSString *)name withContext: (NSManagedObjectContext *)context
+{
+    Program *newProgram = [NSEntityDescription
+                           insertNewObjectForEntityForName:@"Program"
+                           inManagedObjectContext:context];
+    newProgram.name = name;
+    
+    return newProgram;
+    
+    //    NSError *error = nil;
+    //    if (![context save:&error]) {
+    //        // Replace this implementation with code to handle the error appropriately.
+    //        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+    //        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    //        abort();
+    //    }
+    //    int count = [newProgram.exercises count];
+    //    newProgram.exercises = [NSMutableArray array];
+    
+}
 
 //- (id) initWithName: (NSString *) name
 //{
@@ -79,7 +99,9 @@
 
 - (void) setCurrentExerciseToLast
 {
-    [self setCurrentExerciseIsAtIndex: [self.exercises count] -1];
+    //    if ([self exerciseCount] > 0) {
+    //        [self setCurrentExerciseIsAtIndex: [self.exercises count] -1];
+    //    }
 }
 
 - (int) exerciseCount
@@ -142,7 +164,8 @@
 {
     Exercise *last = (Exercise *) self.exercises.lastObject;
     
-    Exercise *exercise = [[Exercise alloc] init];
+    Exercise *exercise = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:[self managedObjectContext]];
+    //    Exercise *exercise = [[Exercise alloc] init];
     
     if (last) {
         exercise.name = last.name;
@@ -153,7 +176,8 @@
     int numSets = last ? [last.sets count] : DEFAULT_NUM_SETS;
     
     for (int i=0; i<numSets; i++) {
-        Set *set = [[Set alloc] init];
+        Set *set = [NSEntityDescription insertNewObjectForEntityForName:@"Set" inManagedObjectContext:[self managedObjectContext]];
+        //        Set *set = [[Set alloc] init];
         
         if (last) {
             Set *lastSet = [last.sets objectAtIndex: i];
@@ -161,10 +185,12 @@
             set.rest = lastSet.rest;
             set.weight = lastSet.weight;
         }
-        [exercise addSet:set];
+        set.exercise = exercise;
+        //        [exercise addSet:set];
     }
     
-    [self.exercises addObject:exercise];
+    exercise.program = self;
+    //    [self.exercises addObject:exercise];
 }
 
 - (void) addExercise:(Exercise *)exercise
