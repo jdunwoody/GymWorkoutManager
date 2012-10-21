@@ -4,22 +4,22 @@
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="program" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="exercises" inverseEntity="Program" syncable="YES"/>
-        <relationship name="set" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Set" inverseName="exercise" inverseEntity="Set" syncable="YES"/>
+        <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Set" inverseName="exercise" inverseEntity="Set" syncable="YES"/>
     </entity>
     <entity name="Program" representedClassName="Program" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="exercises" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="program" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise" inverseName="program" inverseEntity="Exercise" syncable="YES"/>
     </entity>
     <entity name="Set" representedClassName="Set" syncable="YES">
-        <attribute name="rep" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reps" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="rest" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="exercise" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="set" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="exercise" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="sets" inverseEntity="Exercise" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="160" positionY="192" width="128" height="103"/>
-        <element name="Program" positionX="-369" positionY="180" width="128" height="88"/>
-        <element name="Set" positionX="90" positionY="396" width="128" height="103"/>
+        <element name="Exercise" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Program" positionX="-369" positionY="180" width="128" height="90"/>
+        <element name="Set" positionX="90" positionY="396" width="128" height="105"/>
     </elements>
 </model>

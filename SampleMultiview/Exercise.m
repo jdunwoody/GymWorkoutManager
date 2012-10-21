@@ -49,6 +49,10 @@ const NSString *DEFAULT_EXERCISE = @"Fly";
     return newExercise;
 }
 
+- (void) afterAwake
+{
+    
+}
 //- (id)init
 //{
 //    if (self = [super init]) {
@@ -67,7 +71,7 @@ const NSString *DEFAULT_EXERCISE = @"Fly";
 {
     return [self.sets objectAtIndex:index];
 }
-
+   
 - (Set *) currentSet
 {
     if (_currentSet == nil) {
@@ -103,7 +107,8 @@ const NSString *DEFAULT_EXERCISE = @"Fly";
 
 - (void) addSet: (Set *)set
 {
-    [self.sets addObject:set];
+    set.exercise = self;
+//    [self.sets addObject:set];
 }
 
 - (void) addSet

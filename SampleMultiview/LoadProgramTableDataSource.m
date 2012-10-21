@@ -25,7 +25,6 @@
         Program *newProgram = [Program programWithName:[self currentDateString] withContext:context];
         newProgram.name = [self currentDateString];
         
-        
         self.programs = [[NSMutableArray alloc] initWithObjects:
                          newProgram,
                          nil];

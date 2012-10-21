@@ -13,7 +13,7 @@
 
 @class Program;
 
-@interface Exercise : Item
+@interface Exercise : NSManagedObject
 {
     Set *_currentSet;
 }
@@ -26,7 +26,7 @@ extern const NSString *DEFAULT_EXERCISE;
 @property (retain, nonatomic) NSString *name;
 @property (retain, nonatomic) NSString *bodyPart;
 @property (retain, nonatomic) NSString *rest;
-@property (retain, nonatomic) NSMutableArray *sets;
+@property (retain, nonatomic) NSOrderedSet *sets;
 @property (retain, nonatomic) NSString *comment;
 
 + (Exercise *) exerciseWithName:(NSString *)name withContext: (NSManagedObjectContext *)context;

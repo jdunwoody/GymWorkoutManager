@@ -14,18 +14,14 @@
 @interface Program : NSManagedObject
 {
     Exercise *current;
-//    NSMutableArray *exercises;
-//    id<ProgramStatusProtocol> programStatus;
 }
 
 @property (retain, nonatomic) NSString *name;
-@property (nonatomic) NSMutableArray *exercises;
+@property (nonatomic) NSOrderedSet *exercises;
 
 + (Program *) programWithName:(NSString *)name withContext: (NSManagedObjectContext *)context;
 
-//- (id) initWithName: (NSString *) name;
-//- (id) initWithDefaultAndName: (NSString *) name;
-
+- (void) save;
 - (BOOL) empty;
 - (int) exerciseCount;
 
@@ -50,3 +46,10 @@
 - (void) setCurrentExerciseToLast;
 
 @end
+
+
+//- (id) initWithName: (NSString *) name;
+//- (id) initWithDefaultAndName: (NSString *) name;
+//@property (nonatomic) NSMutableArray *exercises;
+//    NSMutableArray *exercises;
+//    id<ProgramStatusProtocol> programStatus;

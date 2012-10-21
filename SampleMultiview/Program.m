@@ -21,19 +21,8 @@
                            insertNewObjectForEntityForName:@"Program"
                            inManagedObjectContext:context];
     newProgram.name = name;
-    
+    //    [newProgram addExercise];
     return newProgram;
-    
-    //    NSError *error = nil;
-    //    if (![context save:&error]) {
-    //        // Replace this implementation with code to handle the error appropriately.
-    //        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-    //        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    //        abort();
-    //    }
-    //    int count = [newProgram.exercises count];
-    //    newProgram.exercises = [NSMutableArray array];
-    
 }
 
 //- (id) initWithName: (NSString *) name
@@ -58,6 +47,15 @@
 //    [self.exercises addObject:exercise];
 //    return self;
 //}
+
+- (void) save
+{
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+}
 
 - (BOOL) empty
 {
@@ -157,7 +155,8 @@
 
 -(void) removeExerciseAtIndex:(NSUInteger)theIndex
 {
-    [self.exercises removeObjectAtIndex:theIndex];
+    
+//    [self.exercises removeObjectAtIndex:theIndex];
 }
 
 - (void) addExercise
@@ -189,18 +188,22 @@
         //        [exercise addSet:set];
     }
     
+    int sizeBefore = [self.exercises count];
     exercise.program = self;
+    int sizeAfter = [[self exercises] count];
     //    [self.exercises addObject:exercise];
+    [self save];
 }
 
 - (void) addExercise:(Exercise *)exercise
 {
-    [self.exercises addObject:exercise];
+    exercise.program = self;
+//    [self.exercises addObject:exercise];
 }
 
 - (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise
 {
-    [self.exercises replaceObjectAtIndex:row withObject:exercise];
+//    [self.exercises replaceObjectAtIndex:row withObject:exercise];
 }
 
 - (void) currentExerciseIsCompleted
