@@ -62,6 +62,8 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    self.programDatasource.program.name = self.programName.text;
+    [self.programDatasource save];
     return NO;
 }
 
@@ -111,8 +113,10 @@
     [self.programDatasource.program addExercise];
 //    [self.programDatasource.program setCurrentExerciseToLast];
     
-    [self programChanged];
-    
+//    [self programChanged];
+
+    [self.programDatasource notifyProgramChangeObservers];
+
     [self scrollToCurrent];
 }
 
@@ -123,7 +127,8 @@
 - (IBAction)addSet:(id)sender
 {
     [self.programDatasource.program.currentExercise addSet];
-    [self programChanged];
+//    [self programChanged];
+    [self.programDatasource notifyProgramChangeObservers];
 }
 
 - (void) scrollToLast

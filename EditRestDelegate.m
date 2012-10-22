@@ -47,10 +47,8 @@
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if (component == 0) {
-        NSLog(@"Minute values %i %@", row, [minuteValues objectAtIndex: row]);
         return [minuteValues objectAtIndex:row];
     } else {
-        NSLog(@"Second values %i %@", row, [secondValues objectAtIndex: row]);
         return [secondValues objectAtIndex:row];
     }
 }
@@ -68,7 +66,6 @@
     int restValue = set.rest.intValue;
     
     return [minuteValues indexOfObject: [NSString stringWithFormat:@"%i", restValue / 60]];
-//    return [minuteValues indexOfObject: [set.rest stringValue]];
 }
 
 @end

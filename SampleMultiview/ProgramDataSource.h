@@ -20,5 +20,6 @@
 
 - (id) initWithObservers: (id<ProgramChangeObserver>) withObservers, ...;
 - (void) notifyProgramChangeObservers;
+- (void) save;
 
 @end

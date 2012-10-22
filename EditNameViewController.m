@@ -46,6 +46,10 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"%@", self.exerciseViewController.name.text);
+    NSLog(@"%i", [nameValues count]);
+    NSLog(@"%i", [nameValues indexOfObject: self.exerciseViewController.name.text]);
+    
     [self.pickerView selectRow: [nameValues indexOfObject: self.exerciseViewController.name.text] inComponent:0 animated:NO];
 }
 
@@ -66,6 +70,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    NSLog(@"%i", [nameValues count]);
     return [nameValues count];
 }
 
@@ -76,6 +81,7 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    NSLog(@"%i object %@", row, [nameValues objectAtIndex:row]);
     return [nameValues objectAtIndex:row];
 }
 
