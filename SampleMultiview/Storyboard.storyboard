@@ -399,10 +399,6 @@
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="45dc8608037206cbb7a8fa9648.jpg" id="m3Z-0H-vg6">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="126" sectionHeaderHeight="22" sectionFooterHeight="22" id="xcW-NM-DaJ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="617"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -669,7 +665,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="45dc8608037206cbb7a8fa9648.jpg" width="2560" height="1600"/>
         <image name="MB_0019_plus.png" width="256" height="256"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

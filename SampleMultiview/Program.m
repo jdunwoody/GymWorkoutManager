@@ -48,14 +48,14 @@
 //    return self;
 //}
 
-- (void) save
-{
-    NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-}
+//- (void) save
+//{
+//    NSError *error = nil;
+//    if (![self.managedObjectContext save:&error]) {
+//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//        abort();
+//    }
+//}
 
 - (BOOL) empty
 {
@@ -112,29 +112,29 @@
     return [self.exercises objectAtIndex:theIndex];
 }
 
-- (Item *) itemAtIndex: (NSIndexPath *)path
-{
-    int i = 0;
-    for (int e = 0; e < [self.exercises count]; e++) {
-        Exercise *exercise = [self.exercises objectAtIndex:e];
-        
-        int setSize = [exercise.sets count];
-        
-        if (path.row == i) {
-            return exercise;
-        }
-        
-        int setIndex = path.row - i - 1;
-        
-        if (path.row < i + setSize + 1) {
-            return [exercise.sets objectAtIndex:setIndex];
-        }
-        
-        i += setSize + 1;
-    }
-    return nil;
-}
-
+//- (Item *) itemAtIndex: (NSIndexPath *)path
+//{
+//    int i = 0;
+//    for (int e = 0; e < [self.exercises count]; e++) {
+//        Exercise *exercise = [self.exercises objectAtIndex:e];
+//        
+//        int setSize = [exercise.sets count];
+//        
+//        if (path.row == i) {
+//            return exercise;
+//        }
+//        
+//        int setIndex = path.row - i - 1;
+//        
+//        if (path.row < i + setSize + 1) {
+//            return [exercise.sets objectAtIndex:setIndex];
+//        }
+//        
+//        i += setSize + 1;
+//    }
+//    return nil;
+//}
+//
 - (int) itemCount
 {
     int i = 0;
@@ -155,28 +155,30 @@
 
 -(void) removeExerciseAtIndex:(NSUInteger)theIndex
 {
-    
-//    [self.exercises removeObjectAtIndex:theIndex];
+    //    [self.exercises removeObjectAtIndex:theIndex];
 }
 
 - (void) addExercise
 {
     Exercise *last = (Exercise *) self.exercises.lastObject;
     
-    Exercise *exercise = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:[self managedObjectContext]];
-    //    Exercise *exercise = [[Exercise alloc] init];
+    NSString *name;
     
     if (last) {
-        exercise.name = last.name;
+        name = last.name;
     } else {
-        exercise.name = @"Fly";
+        name = @"Fly";
     }
+    
+    Exercise *exercise = [Exercise exerciseWithName: name withContext:[self managedObjectContext]];
+//    Exercise *exercise = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:[self managedObjectContext]];
+    //    Exercise *exercise = [[Exercise alloc] init];
+    
     
     int numSets = last ? [last.sets count] : DEFAULT_NUM_SETS;
     
     for (int i=0; i<numSets; i++) {
-        Set *set = [NSEntityDescription insertNewObjectForEntityForName:@"Set" inManagedObjectContext:[self managedObjectContext]];
-        //        Set *set = [[Set alloc] init];
+        Set *set = [Set setWithContext:[self managedObjectContext]];
         
         if (last) {
             Set *lastSet = [last.sets objectAtIndex: i];
@@ -185,25 +187,27 @@
             set.weight = lastSet.weight;
         }
         set.exercise = exercise;
-        //        [exercise addSet:set];
     }
-    
-    int sizeBefore = [self.exercises count];
     exercise.program = self;
-    int sizeAfter = [[self exercises] count];
-    //    [self.exercises addObject:exercise];
-    [self save];
+//    [self save];
 }
+
+//        Set *set = [[Set alloc] init];
+//        [exercise addSet:set];
+//int numExercises = [self.exercises count];
+//    int sizeBefore = [self.exercises count];
+//    int sizeAfter = [[self exercises] count];
+//    [self.exercises addObject:exercise];
 
 - (void) addExercise:(Exercise *)exercise
 {
     exercise.program = self;
-//    [self.exercises addObject:exercise];
+    //    [self.exercises addObject:exercise];
 }
 
 - (void) updateExerciseAtIndex:(NSUInteger)row withObject:(Exercise *)exercise
 {
-//    [self.exercises replaceObjectAtIndex:row withObject:exercise];
+    //    [self.exercises replaceObjectAtIndex:row withObject:exercise];
 }
 
 - (void) currentExerciseIsCompleted

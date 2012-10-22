@@ -32,11 +32,21 @@
     for (id<ProgramChangeObserver> observer in observers) {
         [observer programChanged];
     }
+    [self save];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.program exerciseCount];
+}
+
+- (void) save
+{
+    NSLog(@"Saving");
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Failed to save");
+    }
 }
 
 @end

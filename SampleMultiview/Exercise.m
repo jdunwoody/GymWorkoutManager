@@ -44,15 +44,19 @@ const NSString *DEFAULT_EXERCISE = @"Fly";
     Exercise *newExercise = [NSEntityDescription
                              insertNewObjectForEntityForName:@"Exercise"
                              inManagedObjectContext:context];
-    newExercise.name = @"None";
-    newExercise.sets = [NSMutableArray array];
+    newExercise.name = [Exercise.nameValues objectAtIndex:0];
+//    newExercise.sets = [NSMutableArray array];
     return newExercise;
 }
 
-- (void) afterAwake
-{
-    
-}
+//- (void) awakeFromInsert
+//{
+//    [super awakeFromInsert];
+//    
+//    self.name = @"None";
+//    self.sets = [[NSMutableArray alloc] init];
+//}
+
 //- (id)init
 //{
 //    if (self = [super init]) {

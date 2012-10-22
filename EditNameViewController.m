@@ -84,6 +84,7 @@
     self.programDataSource.program.currentExercise.name = [nameValues objectAtIndex: row];
     [self.programDataSource notifyProgramChangeObservers];
 }
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"editRep"]) {

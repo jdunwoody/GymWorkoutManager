@@ -22,24 +22,24 @@
         
         NSArray *programs = [self loadPrograms];
         
-        Program *newProgram = [Program programWithName:[self currentDateString] withContext:context];
-        newProgram.name = [self currentDateString];
-        
+        //        Program *newProgram = [Program programWithName:[self currentDateString] withContext:context];
+        //        newProgram.name = [self currentDateString];
+        //
         self.programs = [[NSMutableArray alloc] initWithObjects:
-                         newProgram,
+                         //                         newProgram,
                          nil];
         [self.programs addObjectsFromArray: programs];
         
-        for (Program *program in self.programs) {
-            NSLog(@"Loaded program %@", program.name);
-        }
-        NSError *error;
-        if (self.context != nil) {
-            if ([self.context hasChanges] && ![self.context save:&error]) {
-                NSLog(@"Failed to log");
-                // Handle the error.
-            }
-        }
+        //        for (Program *program in self.programs) {
+        //            NSLog(@"Loaded program %@", program.name);
+        //        }
+        //        NSError *error;
+        //        if (self.context != nil) {
+        //            if ([self.context hasChanges] && ![self.context save:&error]) {
+        //                NSLog(@"Failed to log");
+        //                // Handle the error.
+        //            }
+        //        }
         
         //        [self.context save:nil];
         //                         [self makeExampleProgramWithName:@"Last weeks"],

@@ -16,6 +16,7 @@
 }
 
 @property (strong, nonatomic) Program *program;
+@property (strong, nonatomic) NSManagedObjectContext *context;
 
 - (id) initWithObservers: (id<ProgramChangeObserver>) withObservers, ...;
 - (void) notifyProgramChangeObservers;

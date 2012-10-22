@@ -21,12 +21,11 @@
 
 + (Program *) programWithName:(NSString *)name withContext: (NSManagedObjectContext *)context;
 
-- (void) save;
 - (BOOL) empty;
 - (int) exerciseCount;
 
 - (Exercise *) exerciseAtIndex:(NSUInteger)theIndex;
-- (Item *) itemAtIndex: (NSIndexPath *)path;
+//- (Item *) itemAtIndex: (NSIndexPath *)path;
 
 - (int) itemCount;
 - (BOOL) isIndexOfCurrentExercise: (NSIndexPath *)path;

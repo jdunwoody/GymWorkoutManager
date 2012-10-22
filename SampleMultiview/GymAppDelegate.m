@@ -29,6 +29,8 @@
     viewController.context = [self managedObjectContext];
     
     ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers: viewController, nil];
+    programDataSource.context = [self managedObjectContext];
+    
     ProgramDelegate *programDelegate = [[ProgramDelegate alloc] init];
     
     programDelegate.programDataSource = programDataSource;
@@ -39,37 +41,37 @@
     return YES;
 }
 
-- (void) loadEvent
-{
-    NSManagedObjectContext *context = [self managedObjectContext];
-	if (!context) {
-		// Handle the error.
-	}
-    
-    Event *event = (Event *)[NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
-    [event setLatitude:[NSNumber numberWithDouble:123]];
-	[event setLongitude:[NSNumber numberWithDouble:567]];
-	[event setCreationDate:[NSDate date]];
-	
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Failed to save");
-    }
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
-	[request setEntity:entity];
-	
-	NSMutableArray *mutableFetchResults = [[context executeFetchRequest:request error:&error] mutableCopy];
-	if (mutableFetchResults == nil) {
-		// Handle the error.
-        NSLog(@"Failed to retrieve");
-	}
-    
-    for (Event *event in mutableFetchResults) {
-        NSLog(@"Event %@", event.latitude.stringValue);
-    }
-}
+//- (void) loadEvent
+//{
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//	if (!context) {
+//		// Handle the error.
+//	}
+//    
+//    Event *event = (Event *)[NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
+//    [event setLatitude:[NSNumber numberWithDouble:123]];
+//	[event setLongitude:[NSNumber numberWithDouble:567]];
+//	[event setCreationDate:[NSDate date]];
+//	
+//    NSError *error;
+//    if (![context save:&error]) {
+//        NSLog(@"Failed to save");
+//    }
+//    
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
+//	[request setEntity:entity];
+//	
+//	NSMutableArray *mutableFetchResults = [[context executeFetchRequest:request error:&error] mutableCopy];
+//	if (mutableFetchResults == nil) {
+//		// Handle the error.
+//        NSLog(@"Failed to retrieve");
+//	}
+//    
+//    for (Event *event in mutableFetchResults) {
+//        NSLog(@"Event %@", event.latitude.stringValue);
+//    }
+//}
 
 //- (NSManagedObjectContext *) setupContext
 //{

@@ -50,7 +50,6 @@
     [self.programDataSource notifyProgramChangeObservers];
 }
 
-
 - (int) indexOfSet: (Set *) set
 {
     return [repValues indexOfObject: [set.reps stringValue]];

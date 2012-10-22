@@ -109,7 +109,7 @@
 - (IBAction)addExercise:(id)sender
 {
     [self.programDatasource.program addExercise];
-    [self.programDatasource.program setCurrentExerciseToLast];
+//    [self.programDatasource.program setCurrentExerciseToLast];
     
     [self programChanged];
     
