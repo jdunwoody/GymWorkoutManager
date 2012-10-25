@@ -72,10 +72,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.programDataSource.program isIndexOfCurrentExercise: indexPath]) {
-        return 180;
+        return 88;
     }
     
-    return 126;
+    return tableView.rowHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

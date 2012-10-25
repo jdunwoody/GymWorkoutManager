@@ -470,7 +470,6 @@
 		1ABFF5111595A63E004C7EE1 = {
 			isa = PBXGroup;
 			children = (
-				1A8D23D81622E1010079A7E1 /* CoreData.framework */,
 				1ABFF5261595A63F004C7EE1 /* GymApp */,
 				1ABD3F0D15C00414002E9520 /* icons */,
 				1A4B1B1215E9A32900A5CBEC /* image cutouts */,
@@ -497,6 +496,7 @@
 		1ABFF51F1595A63E004C7EE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A8D23D81622E1010079A7E1 /* CoreData.framework */,
 				1A4B1B0115E8E09700A5CBEC /* QuartzCore.framework */,
 				1AFADC6715BEDED6006B03BC /* AudioToolbox.framework */,
 				1ABFF5201595A63E004C7EE1 /* UIKit.framework */,
