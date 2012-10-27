@@ -9,6 +9,7 @@
 #import "RepititionView.h"
 #import "ExerciseViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ExerciseDetailViewController.h"
 
 @implementation RepititionView
 

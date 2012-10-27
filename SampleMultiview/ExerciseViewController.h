@@ -20,18 +20,9 @@
 @class EditRepUIPickerViewController;
 @class ExerciseDetailViewController;
 
-@interface ExerciseViewController : UIViewController<ProgramChangeObserver, UIGestureRecognizerDelegate, UITextFieldDelegate, PopoverPresentable>
+@interface ExerciseViewController : UIViewController<ProgramChangeObserver, UIGestureRecognizerDelegate, UITextFieldDelegate>
 {
-    UIPopoverController *popoverViewController;
     
-    UIPopoverController *editRepPopoverViewController;
-    id<EditExerciseComponentController> editRepViewController;
-
-    UIPopoverController *editWeightPopoverViewController;
-    id<EditExerciseComponentController> editWeightViewController;
-
-    UIPopoverController *editRestPopoverViewController;
-    id<EditExerciseComponentController> editRestViewController;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

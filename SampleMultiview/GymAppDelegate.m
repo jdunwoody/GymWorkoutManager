@@ -12,6 +12,7 @@
 #import "ProgramDelegate.h"
 #import "NavigationViewController.h"
 #import "Event.h"
+#import "ExerciseDetailViewController.h"
 
 @implementation GymAppDelegate
 
@@ -28,12 +29,14 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
     ExerciseDetailViewController *exerciseDetailViewController = (ExerciseDetailViewController*)[storyboard instantiateViewControllerWithIdentifier: @"exerciseDetailViewController"];
+    
     viewController.currentExerciseDetailViewController = exerciseDetailViewController;
     
     viewController.context = [self managedObjectContext];
     
-    ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers: viewController, nil];
+    ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers: viewController, exerciseDetailViewController, nil];
     programDataSource.context = [self managedObjectContext];
+    exerciseDetailViewController.programDatasource = programDataSource;
     
     ProgramDelegate *programDelegate = [[ProgramDelegate alloc] init];
     

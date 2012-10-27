@@ -8,6 +8,7 @@
 #import "EditRestDelegate.h"
 #import "EditWeightDelegate.h"
 #import "ProgramDataSource.h"
+#import "ExerciseDetailViewController.h"
 
 @interface EditRepUIPickerViewController ()
 

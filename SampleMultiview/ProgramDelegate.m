@@ -45,14 +45,14 @@
         [view removeFromSuperview];
     }
     
-    for (Set *set in exercise.sets) {
-        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 50, 0, 50, 50) withNibName: @"SmallRepitition"];
-        just.reps.text = [set.reps stringValue];
-        just.rest.text = [set.rest stringValue];
-        just.weight.text = [set.weight stringValue];
-        
-        [cell.setsScrollView addSubview: just];
-    }
+//    for (Set *set in exercise.sets) {
+//        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 50, 0, 50, 50) withNibName: @"SmallRepitition"];
+//        just.reps.text = [set.reps stringValue];
+//        just.rest.text = [set.rest stringValue];
+//        just.weight.text = [set.weight stringValue];
+//        
+//        [cell.setsScrollView addSubview: just];
+//    }
     
     cell.exercise = exercise;
     cell.name.text = exercise.name;

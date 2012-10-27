@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class ExerciseViewController;
 @class Set;
 @class ProgramDataSource;
+@class ExerciseDetailViewController;
 
 @protocol EditExerciseComponentController <NSObject>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
-@property (strong, nonatomic) ExerciseViewController *exerciseViewController;
+@property (strong, nonatomic) ExerciseDetailViewController *exerciseViewController;
 @property (strong, nonatomic) Set *set;
 @property (strong, nonatomic) ProgramDataSource *programDatasource;
 

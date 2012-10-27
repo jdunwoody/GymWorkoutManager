@@ -45,4 +45,42 @@
     }
 }
 
+- (void) programChanged
+{
+    [self reloadCurrentExercise];
+}
+
+- (void) showRestPopoverWithView: (UIView *) targetView withSet: (Set *) set
+{
+    editRestViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRestViewController"];
+    
+    [self showPopover:editRestViewController withView: targetView withSet: set];
+}
+
+- (void) showRepPopoverWithView: (UIView *) targetView withSet: (Set *) set
+{
+    editRepViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRepViewController"];
+    
+    [self showPopover: editRepViewController withView: targetView withSet: set];
+}
+
+- (void) showWeightPopoverWithView: (UIView *) targetView withSet: (Set *) set
+{
+    editWeightViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editWeightViewController"];
+    
+    [self showPopover: editWeightViewController withView:targetView withSet: set];
+}
+
+- (void) showPopover: (id<EditExerciseComponentController>) viewController withView: (UIView *) targetView withSet: (Set *) set
+{
+    viewController.programDatasource = self.programDatasource;
+    viewController.exerciseViewController = self;
+    viewController.set = set;
+    
+    popoverViewController = [[UIPopoverController alloc] initWithContentViewController:((UIViewController *)viewController)];
+    
+    [popoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+
 @end

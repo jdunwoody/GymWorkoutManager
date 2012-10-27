@@ -7,10 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProgramChangedObserver.h"
+#import "PopoverPresentable.h"
 
 @class ProgramDataSource;
+@class EditRepViewController;
+@class EditWeightViewController;
+@class EditRestViewController;
 
-@interface ExerciseDetailViewController : UIViewController
+
+@interface ExerciseDetailViewController : UIViewController<ProgramChangeObserver, UIGestureRecognizerDelegate, PopoverPresentable>
+{
+    UIPopoverController *popoverViewController;
+    
+    UIPopoverController *editRepPopoverViewController;
+    id<EditExerciseComponentController> editRepViewController;
+    
+    UIPopoverController *editWeightPopoverViewController;
+    id<EditExerciseComponentController> editWeightViewController;
+    
+    UIPopoverController *editRestPopoverViewController;
+    id<EditExerciseComponentController> editRestViewController;
+}
 
 @property (strong, nonatomic) ProgramDataSource *programDatasource;
 @property (strong, nonatomic) IBOutlet UIScrollView *repScrollView;

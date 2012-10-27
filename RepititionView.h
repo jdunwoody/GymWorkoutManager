@@ -11,6 +11,7 @@
 #import "Set.h"
 
 @class ExerciseViewController;
+@class ExerciseDetailViewController;
 
 @interface RepititionView : UIView<UIGestureRecognizerDelegate>
 
@@ -21,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *weight;
 
 @property (strong, nonatomic) id<PopoverPresentable> delegate;
-@property (strong, nonatomic) ExerciseViewController *viewController;
+@property (strong, nonatomic) ExerciseDetailViewController *viewController;
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *repTapGesture;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *weightTapGesture;

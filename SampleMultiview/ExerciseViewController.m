@@ -50,9 +50,10 @@
     
     [self addChildViewController: self.currentExerciseDetailViewController];
     [self.mainPanel addSubview: self.currentExerciseDetailViewController.view];
-//    self.currentExerciseDetailViewController.view.frame = CGRectMake(0, 0, 400, 400);
+    //    self.currentExerciseDetailViewController.view.frame = CGRectMake(0, 0, 400, 400);
     [self.currentExerciseDetailViewController didMoveToParentViewController: self];
     
+    [self.currentExerciseDetailViewController reloadCurrentExercise];
     //    [self addChildViewController: self.nextExerciseDetailViewController];
     //    [self.mainPanel addSubview: self.nextExerciseDetailViewController.view];
     //    self.nextExerciseDetailViewController.view.frame = CGRectMake(0, 0, 400, 400);
@@ -91,7 +92,7 @@
 {
     [self.tableView reloadData];
     self.programName.text = self.programDatasource.program.name;
-    //    [self reloadCurrentExercise];
+    [self.currentExerciseDetailViewController reloadCurrentExercise];
 }
 
 - (IBAction)addExercise:(id)sender
@@ -141,32 +142,6 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
-//        } else {
-//            repView = [self.setContainer.subviews objectAtIndex:0];
-//        }
-
-//        [self.setContainer addSubview: [[[NSBundle mainBundle] loadNibNamed:@"Repitition" owner:self options:nil] objectAtIndex:0]];
-//
-//        self.reps.text = set.reps.stringValue;
-//        self.rest.text = [NSString stringWithFormat: @"%@ sec", set.rest];
-
-//        if ([self.setContainer.subviews count] == 0) {
-
-//    RepititionView *repitition = [[RepititionView alloc] initWithFrame:CGRectMake([self.setContainer.subviews count] * 92, 0, 92, 38)];
-//    repitition.delegate = self;
-
-
-//    Set *currentSet = [self.programDatasource.program.currentExercise currentSet];
-//    if (currentSet == NULL) {
-//        currentSet = [self.programDatasource.program.currentExercise currentSet];
-//    }
-
-//    repitition.reps.text = newSet.reps.stringValue;
-//    repitition.rest.text = [NSString stringWithFormat: @"%@ sec", newSet.rest];
-//
-//    [self.setContainer addSubview: repitition];
-//}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"loadProgram"]) {
@@ -188,37 +163,6 @@
         destination.exerciseViewController = self;
         destination.set = repitionView.set;
     }
-}
-- (void) showRestPopoverWithView: (UIView *) targetView withSet: (Set *) set
-{
-    editRestViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRestViewController"];
-    
-    [self showPopover:editRestViewController withView: targetView withSet: set];
-}
-
-- (void) showRepPopoverWithView: (UIView *) targetView withSet: (Set *) set
-{
-    editRepViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editRepViewController"];
-    
-    [self showPopover: editRepViewController withView: targetView withSet: set];
-}
-
-- (void) showWeightPopoverWithView: (UIView *) targetView withSet: (Set *) set
-{
-    editWeightViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"editWeightViewController"];
-    
-    [self showPopover: editWeightViewController withView:targetView withSet: set];
-}
-
-- (void) showPopover: (id<EditExerciseComponentController>) viewController withView: (UIView *) targetView withSet: (Set *) set
-{
-    viewController.programDatasource = self.programDatasource;
-    viewController.exerciseViewController = self;
-    viewController.set = set;
-    
-    popoverViewController = [[UIPopoverController alloc] initWithContentViewController:((UIViewController *)viewController)];
-    
-    [popoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 //    if (!editWeightViewController)
