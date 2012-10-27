@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ProgramDataSource.h"
 
-@class ExerciseViewController;
+@class ExerciseDetailViewController;
 @class RepititionView;
 @class EditRepDelegate;
 @class EditRestDelegate;
@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *restPickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *weightPickerView;
 
-@property (strong, nonatomic) ExerciseViewController *exerciseViewController;
+@property (strong, nonatomic) ExerciseDetailViewController *exerciseViewController;
 @property (strong, nonatomic) Set *set;
 @property (strong, nonatomic) ProgramDataSource *programDatasource;
 

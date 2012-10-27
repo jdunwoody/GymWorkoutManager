@@ -37,7 +37,6 @@
 
 //@property (weak, nonatomic) IBOutlet UIPickerView *weightPicker;
 
-- (IBAction)addSet:(id)sender;
 - (IBAction)addExercise:(id)sender;
 - (IBAction)loadProgram:(id)sender;
 

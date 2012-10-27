@@ -34,6 +34,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *repScrollView;
 @property (strong, nonatomic) IBOutlet UIView *repContainer;
 @property (strong, nonatomic) IBOutlet UILabel *name;
+- (IBAction)addSet:(id)sender;
 
 - (void) reloadCurrentExercise;
 

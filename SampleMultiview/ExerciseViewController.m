@@ -111,12 +111,7 @@
     [self performSegueWithIdentifier:@"loadProgram" sender:sender];
 }
 
-- (IBAction)addSet:(id)sender
-{
-    [self.programDatasource.program.currentExercise addSet];
-    //    [self programChanged];
-    [self.programDatasource notifyProgramChangeObservers];
-}
+
 
 - (void) scrollToLast
 {
@@ -150,20 +145,23 @@
         destination.observer = self;
         destination.context = self.context;
         
-    } else if ([segue.identifier isEqualToString:@"editName"]) {
-        EditNameViewController *destination = segue.destinationViewController;
-        destination.programDataSource = self.programDatasource;
-        destination.exerciseViewController = self.currentExerciseDetailViewController;
-        
-    } else if ([segue.identifier isEqualToString:@"editRep"]) {
-        RepititionView *repitionView = (RepititionView *) sender;
-        
-        EditRepViewController *destination = segue.destinationViewController;
-        destination.programDatasource = self.programDatasource;
-        destination.exerciseViewController = self;
-        destination.set = repitionView.set;
     }
 }
+
+//    else if ([segue.identifier isEqualToString:@"editName"]) {
+//        EditNameViewController *destination = segue.destinationViewController;
+//        destination.programDataSource = self.programDatasource;
+//        destination.exerciseViewController = self.currentExerciseDetailViewController;
+//
+//    } else if ([segue.identifier isEqualToString:@"editRep"]) {
+//        RepititionView *repitionView = (RepititionView *) sender;
+//
+//        EditRepViewController *destination = segue.destinationViewController;
+//        destination.programDatasource = self.programDatasource;
+//        destination.exerciseViewController = self;
+//        destination.set = repitionView.set;
+//    }
+
 
 //    if (!editWeightViewController)
 //    {

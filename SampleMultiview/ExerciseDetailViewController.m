@@ -9,6 +9,8 @@
 #import "ExerciseDetailViewController.h"
 #import "ProgramDataSource.h"
 #import "RepititionView.h"
+#import "EditNameViewController.h"
+#import "EditRepViewController.h"
 
 @implementation ExerciseDetailViewController
 
@@ -82,5 +84,28 @@
     [popoverViewController presentPopoverFromRect:targetView.frame inView:targetView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+   if ([segue.identifier isEqualToString:@"editName"]) {
+        EditNameViewController *destination = segue.destinationViewController;
+        destination.programDataSource = self.programDatasource;
+        destination.exerciseViewController = self;
+        
+    } else if ([segue.identifier isEqualToString:@"editRep"]) {
+        RepititionView *repitionView = (RepititionView *) sender;
+        
+        EditRepViewController *destination = segue.destinationViewController;
+        destination.programDatasource = self.programDatasource;
+        destination.exerciseViewController = self;
+        destination.set = repitionView.set;
+    }
+}
+
+- (IBAction)addSet:(id)sender
+{
+    [self.programDatasource.program.currentExercise addSet];
+    //    [self programChanged];
+    [self.programDatasource notifyProgramChangeObservers];
+}
 
 @end
