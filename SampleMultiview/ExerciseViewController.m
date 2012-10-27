@@ -17,6 +17,7 @@
 #import "EditRepViewController.h"
 #import "EditWeightUIPickerViewController.h"
 #import "EditExerciseComponentController.h"
+#import "ExerciseDetailViewController.h"
 
 @interface ExerciseViewController ()
 
@@ -24,10 +25,12 @@
 
 @implementation ExerciseViewController
 
-@synthesize repContainer = _repContainer;
+//@synthesize repContainer = _repContainer;
 @synthesize exercise = _exercise;
 @synthesize programDatasource = _programDatasource;
 @synthesize programDelegate = _programDelegate;
+@synthesize currentExerciseContainer = _currentExerciseContainer;
+@synthesize currentExerciseDetailViewController = _currentExerciseDetailViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +47,16 @@
     
     self.tableView.dataSource = self.programDatasource;
     self.tableView.delegate = self.programDelegate;
+    
+    [self addChildViewController: self.currentExerciseDetailViewController];
+    [self.mainPanel addSubview: self.currentExerciseDetailViewController.view];
+//    self.currentExerciseDetailViewController.view.frame = CGRectMake(0, 0, 400, 400);
+    [self.currentExerciseDetailViewController didMoveToParentViewController: self];
+    
+    //    [self addChildViewController: self.nextExerciseDetailViewController];
+    //    [self.mainPanel addSubview: self.nextExerciseDetailViewController.view];
+    //    self.nextExerciseDetailViewController.view.frame = CGRectMake(0, 0, 400, 400);
+    //    [self.nextExerciseDetailViewController didMoveToParentViewController: self];
     
     //    [[NSNotificationCenter defaultCenter] addObserver:self
     //                                             selector:@selector(keyboardWasShown:)
@@ -78,45 +91,18 @@
 {
     [self.tableView reloadData];
     self.programName.text = self.programDatasource.program.name;
-    [self reloadCurrentExercise];
-}
-
-- (void) reloadCurrentExercise
-{
-    if (self.programDatasource.program.exerciseCount > 0) {
-        self.name.text = self.programDatasource.program.currentExercise.name;
-        
-        for (UIView *view in [self.repContainer subviews]) {
-            [view removeFromSuperview];
-        }
-        
-        //        self.repContainer.pagingEnabled = YES;
-        
-        //        self.repContainer.contentSize = CGSizeMake(100 * self.programDatasource.program.exerciseCount, 98);
-        self.repScrollView.contentSize = CGSizeMake(1024, 98);
-        
-        for (Set *set in self.programDatasource.program.currentExercise.sets) {
-            RepititionView *repView = [[RepititionView alloc] initWithFrame:CGRectMake([self.repContainer.subviews count] * 119, 0, 119, 105) withNibName:@"Repitition"];
-            //            repView.delegate = self;
-            repView.viewController = self;
-            repView.reps.text = [set.reps stringValue];
-            repView.rest.text = [set.rest stringValue];
-            repView.weight.text = [set.weight stringValue];
-            repView.set = set;
-            [self.repContainer addSubview: repView];
-        }
-    }
+    //    [self reloadCurrentExercise];
 }
 
 - (IBAction)addExercise:(id)sender
 {
     [self.programDatasource.program addExercise];
-//    [self.programDatasource.program setCurrentExerciseToLast];
+    //    [self.programDatasource.program setCurrentExerciseToLast];
     
-//    [self programChanged];
-
+    //    [self programChanged];
+    
     [self.programDatasource notifyProgramChangeObservers];
-
+    
     [self scrollToCurrent];
 }
 
@@ -127,7 +113,7 @@
 - (IBAction)addSet:(id)sender
 {
     [self.programDatasource.program.currentExercise addSet];
-//    [self programChanged];
+    //    [self programChanged];
     [self.programDatasource notifyProgramChangeObservers];
 }
 
@@ -192,7 +178,7 @@
     } else if ([segue.identifier isEqualToString:@"editName"]) {
         EditNameViewController *destination = segue.destinationViewController;
         destination.programDataSource = self.programDatasource;
-        destination.exerciseViewController = self;
+        destination.exerciseViewController = self.currentExerciseDetailViewController;
         
     } else if ([segue.identifier isEqualToString:@"editRep"]) {
         RepititionView *repitionView = (RepititionView *) sender;
@@ -381,4 +367,9 @@
 //    }
 
 
+- (void)viewDidUnload {
+    [self setCurrentExerciseContainer:nil];
+    [self setMainPanel:nil];
+    [super viewDidUnload];
+}
 @end

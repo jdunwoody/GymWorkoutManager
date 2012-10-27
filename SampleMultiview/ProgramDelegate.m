@@ -14,6 +14,7 @@
 #import "NormalExerciseCell.h"
 #import "TableSelectionObserver.h"
 #import "RepititionView.h"
+#import "Colours.h"
 
 @implementation ProgramDelegate
 
@@ -57,23 +58,23 @@
     cell.name.text = exercise.name;
     
     if ([self.programDataSource.program isIndexOfCurrentExercise: indexPath]) {
-        cell.name.textColor = [UIColor blueColor];
-        cell.container.backgroundColor = [UIColor lightGrayColor];
+        cell.name.textColor = [Colours tableCellCurrentForegroundColour];
+        cell.container.backgroundColor = [Colours tableCellCurrentBackgroundColour];
     } else {
-        cell.name.textColor = [UIColor darkGrayColor];
-        cell.container.backgroundColor = [UIColor grayColor];
+        cell.name.textColor = [Colours tableCellForegroundColour];
+        cell.container.backgroundColor = [Colours tableCellBackgroundColour];
     }
     
-    cell.container.layer.cornerRadius = 5.0f;
+    cell.container.layer.cornerRadius = 4.0f;
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.programDataSource.program isIndexOfCurrentExercise: indexPath]) {
-        return 88;
-    }
+//    if ([self.programDataSource.program isIndexOfCurrentExercise: indexPath]) {
+//        return 88;
+//    }
     
     return tableView.rowHeight;
 }

@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     
-    self.tableDataSource = [[LoadProgramTableDataSource alloc] initWithManagedObjectContext: self.context];
+    self.tableDataSource = [[LoadProgramTableDataSource alloc] initWithManagedObjectContext: self.context withProgramDataSource:self.programDataSource];
     self.tableView.dataSource = self.tableDataSource;
     
     self.tableDelegate = [[LoadProgramTableDelegate alloc] initWithDataSource:self.tableDataSource withViewObserver: self];
@@ -42,6 +42,13 @@
     [self dismissViewControllerAnimated:YES completion: nil];
     self.programDataSource.program = withProgram;
     [self.observer programChanged];
+}
+
+- (IBAction)newProgramPressed:(id)sender
+{
+    [self.tableDataSource addNewProgram];
+    [self.programDataSource save];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidUnload

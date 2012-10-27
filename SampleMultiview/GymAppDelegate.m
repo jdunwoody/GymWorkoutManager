@@ -21,11 +21,15 @@
 {
     //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
     
-    NavigationViewController *navigationController = (NavigationViewController *) self.window.rootViewController;
+//    NavigationViewController *navigationController = (NavigationViewController *) self.window.rootViewController;
+//    ExerciseViewController *viewController = (ExerciseViewController *) [navigationController.childViewControllers objectAtIndex: 0];
     
-    ExerciseViewController *viewController = (ExerciseViewController *) [navigationController.childViewControllers objectAtIndex: 0];
+    ExerciseViewController *viewController = (ExerciseViewController *) self.window.rootViewController;
     
-    //    [self loadEvent];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    ExerciseDetailViewController *exerciseDetailViewController = (ExerciseDetailViewController*)[storyboard instantiateViewControllerWithIdentifier: @"exerciseDetailViewController"];
+    viewController.currentExerciseDetailViewController = exerciseDetailViewController;
+    
     viewController.context = [self managedObjectContext];
     
     ProgramDataSource *programDataSource = [[ProgramDataSource alloc] initWithObservers: viewController, nil];

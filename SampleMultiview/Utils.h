@@ -14,4 +14,6 @@
 + (int) windowHeight;
 + (BOOL) isLandscape;
 + (int) statusBarHeight;
++ (NSString *) currentDateString;
+
 @end

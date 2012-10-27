@@ -7,7 +7,7 @@
 //
 
 #import "EditNameViewController.h"
-#import "ExerciseViewController.h"
+#import "ExerciseDetailViewController.h"
 
 @interface EditNameViewController ()
 
@@ -45,10 +45,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSLog(@"%@", self.exerciseViewController.name.text);
-    NSLog(@"%i", [nameValues count]);
-    NSLog(@"%i", [nameValues indexOfObject: self.exerciseViewController.name.text]);
     
     [self.pickerView selectRow: [nameValues indexOfObject: self.exerciseViewController.name.text] inComponent:0 animated:NO];
 }

@@ -18,6 +18,7 @@
 @class EditWeightUIPickerViewController;
 @class EditRestUIPickerViewController;
 @class EditRepUIPickerViewController;
+@class ExerciseDetailViewController;
 
 @interface ExerciseViewController : UIViewController<ProgramChangeObserver, UIGestureRecognizerDelegate, UITextFieldDelegate, PopoverPresentable>
 {
@@ -33,11 +34,8 @@
     id<EditExerciseComponentController> editRestViewController;
 }
 
-@property (strong, nonatomic) IBOutlet UIScrollView *repScrollView;
-@property (weak, nonatomic) IBOutlet UIView *repContainer;
-
-@property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UITextField *programName;
 
 @property (strong, nonatomic) ProgramDataSource *programDatasource;
@@ -51,6 +49,11 @@
 - (IBAction)addSet:(id)sender;
 - (IBAction)addExercise:(id)sender;
 - (IBAction)loadProgram:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIView *currentExerciseContainer;
+@property (weak, nonatomic) IBOutlet UIView *mainPanel;
+
+@property (strong, nonatomic) ExerciseDetailViewController *currentExerciseDetailViewController;
 
 //@property (weak, nonatomic) IBOutlet UILabel *rest;
 //@property (weak, nonatomic) IBOutlet UILabel *reps;

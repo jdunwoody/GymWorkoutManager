@@ -31,4 +31,13 @@
     return MIN(application.statusBarFrame.size.width, application.statusBarFrame.size.height);
 }
 
++ (NSString *) currentDateString
+{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
+    return [formatter stringFromDate:now];
+}
 @end

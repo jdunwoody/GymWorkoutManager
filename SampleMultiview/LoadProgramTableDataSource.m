@@ -8,17 +8,21 @@
 
 #import "LoadProgramTableDataSource.h"
 #import "Program.h"
+#import "Utils.h"
+#import "ProgramDataSource.h"
 
 @implementation LoadProgramTableDataSource
+
 
 @synthesize programs = _programs;
 @synthesize context = _context;
 
-- (id) initWithManagedObjectContext: (NSManagedObjectContext *) context
+- (id) initWithManagedObjectContext: (NSManagedObjectContext *) context withProgramDataSource: (ProgramDataSource *) programDataSource
 {
     self = [super init];
     if (self) {
         self.context = context;
+        self.programDataSource = programDataSource;
         
         NSArray *programs = [self loadPrograms];
         
@@ -56,6 +60,12 @@
         //                         nil];
     }
     return self;
+}
+
+- (void) addNewProgram
+{
+    [self.programs addObject: [Program programWithName:[Utils currentDateString] withContext: self.context]];
+    
 }
 
 - (NSArray *) loadPrograms
@@ -118,14 +128,6 @@
 //    return program;
 //}
 
-- (NSString *) currentDateString
-{
-    NSDate *now = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Australia/Melbourne"]];
-    return [formatter stringFromDate:now];
-}
+
 
 @end

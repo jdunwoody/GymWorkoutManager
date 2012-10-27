@@ -21,6 +21,7 @@
 
 //- (IBAction)newProgramChosen:(id)sender;
 - (void) programLoadedWithProgram:(Program *) withProgram;
+- (IBAction)newProgramPressed:(id)sender;
 
 //@property (strong, nonatomic) CurrentViewController *delegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
