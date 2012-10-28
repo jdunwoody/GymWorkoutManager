@@ -48,22 +48,20 @@
 - (void) showRestPopoverWithView: (UIView *)view withSet:(Set *)set
 {
 }
+
 - (void) showRepPopoverWithView: (UIView *)view withSet:(Set *)set
 {
 }
+
 - (void) showWeightPopoverWithView: (UIView *)view withSet:(Set *)set
 {
-//    UIView *aView = [UIView alloc];
-    
     UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController: self];
     popover.popoverContentSize = CGSizeMake(320, 416);
     [popover presentPopoverFromRect:CGRectMake(0,0, 200,200) inView: (UIView *)view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-
 }
 
 - (void) showPopover:(UIViewController *)viewController withView:(UIView *)targetView withSet:(Set *)set
 {
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -72,4 +70,5 @@
         
     }
 }
+
 @end

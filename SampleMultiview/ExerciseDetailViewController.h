@@ -38,4 +38,7 @@
 
 - (void) reloadCurrentExercise;
 
+- (IBAction)nextExercise:(id)sender;
+- (IBAction)previousExercise:(id)sender;
+
 @end

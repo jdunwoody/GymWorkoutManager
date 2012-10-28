@@ -50,14 +50,10 @@
     
     [self addChildViewController: self.currentExerciseDetailViewController];
     [self.mainPanel addSubview: self.currentExerciseDetailViewController.view];
-    //    self.currentExerciseDetailViewController.view.frame = CGRectMake(0, 0, 400, 400);
     [self.currentExerciseDetailViewController didMoveToParentViewController: self];
+    //    self.currentExerciseDetailViewController.view.frame = CGRectMake(0, 0, 400, 400);
     
     [self.currentExerciseDetailViewController reloadCurrentExercise];
-    //    [self addChildViewController: self.nextExerciseDetailViewController];
-    //    [self.mainPanel addSubview: self.nextExerciseDetailViewController.view];
-    //    self.nextExerciseDetailViewController.view.frame = CGRectMake(0, 0, 400, 400);
-    //    [self.nextExerciseDetailViewController didMoveToParentViewController: self];
     
     //    [[NSNotificationCenter defaultCenter] addObserver:self
     //                                             selector:@selector(keyboardWasShown:)
@@ -111,8 +107,6 @@
     [self performSegueWithIdentifier:@"loadProgram" sender:sender];
 }
 
-
-
 - (void) scrollToLast
 {
     [self scrollToIndex:[self.tableView numberOfRowsInSection:0] - 1];
@@ -144,9 +138,28 @@
         destination.programDataSource = self.programDatasource;
         destination.observer = self;
         destination.context = self.context;
-        
     }
 }
+
+- (void)viewDidUnload {
+    [self setCurrentExerciseContainer:nil];
+    [self setMainPanel:nil];
+    [super viewDidUnload];
+}
+
+- (IBAction)nextExercise:(id)sender
+{
+    [self.currentExerciseDetailViewController nextExercise:sender];
+    [self scrollToIndex:[self.programDatasource.program currentExercisePosition]];
+}
+
+- (IBAction)previousExercise:(id)sender
+{
+    [self.currentExerciseDetailViewController previousExercise:sender];
+    [self scrollToIndex:[self.programDatasource.program currentExercisePosition]];
+}
+
+@end
 
 //    else if ([segue.identifier isEqualToString:@"editName"]) {
 //        EditNameViewController *destination = segue.destinationViewController;
@@ -308,10 +321,3 @@
 //              subview.frame.size.height);
 //    }
 
-
-- (void)viewDidUnload {
-    [self setCurrentExerciseContainer:nil];
-    [self setMainPanel:nil];
-    [super viewDidUnload];
-}
-@end

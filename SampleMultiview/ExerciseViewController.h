@@ -45,6 +45,9 @@
 
 @property (strong, nonatomic) ExerciseDetailViewController *currentExerciseDetailViewController;
 
+- (IBAction)nextExercise:(id)sender;
+- (IBAction)previousExercise:(id)sender;
+
 //@property (weak, nonatomic) IBOutlet UILabel *rest;
 //@property (weak, nonatomic) IBOutlet UILabel *reps;
 //@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *repTapGesture;

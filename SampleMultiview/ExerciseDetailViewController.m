@@ -47,6 +47,18 @@
     }
 }
 
+- (IBAction)nextExercise:(id)sender
+{
+    [self.programDatasource.program next];
+    [self.programDatasource notifyProgramChangeObservers];
+}
+
+- (IBAction)previousExercise:(id)sender
+{
+    [self.programDatasource.program previous];
+    [self.programDatasource notifyProgramChangeObservers];
+}
+
 - (void) programChanged
 {
     [self reloadCurrentExercise];
@@ -86,7 +98,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-   if ([segue.identifier isEqualToString:@"editName"]) {
+    if ([segue.identifier isEqualToString:@"editName"]) {
         EditNameViewController *destination = segue.destinationViewController;
         destination.programDataSource = self.programDatasource;
         destination.exerciseViewController = self;

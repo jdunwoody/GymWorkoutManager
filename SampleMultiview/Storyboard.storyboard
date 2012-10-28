@@ -7,7 +7,6 @@
         <!--Navigation View Controller-->
         <scene sceneID="Pca-zg-6OH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7oA-hM-wK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="navigationView" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IcP-sJ-r6o" customClass="NavigationViewController" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -16,6 +15,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7oA-hM-wK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3044" y="-716"/>
         </scene>
@@ -400,6 +400,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="646" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.68055791440000002" green="0.01637291917" blue="0.0083494394269999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8MS-jM-CaA" appends="YES" id="Sr0-rM-AuK"/>
+                                </connections>
                             </view>
                             <view alpha="0.80000001192092896" contentMode="scaleToFill" id="5AV-aS-qvh" userLabel="Current View">
                                 <rect key="frame" x="0.0" y="148" width="646" height="346"/>
@@ -472,6 +476,10 @@
                                 <rect key="frame" x="0.0" y="556" width="646" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.68055791440000002" green="0.01637291917" blue="0.0083494394269999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cIr-wI-1HM" appends="YES" id="DkU-Ai-TFN"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -487,7 +495,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8a-Ez-hDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="eRN-I8-ITo" userLabel="Program Name Tap Gesture"/>
                 <tapGestureRecognizer id="vef-aC-cYC" userLabel="Name Tap Gesture">
                     <connections>
                         <segue destination="Qmn-vo-TBb" kind="popover" identifier="editName" popoverAnchorView="tSw-LJ-1ts" id="nHE-Us-D81">
@@ -495,7 +502,16 @@
                         </segue>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="hMU-Ba-qX6" userLabel="Weight Tap Gesture"/>
+                <tapGestureRecognizer id="cIr-wI-1HM" userLabel="Next Exercise Gesture Recognizer">
+                    <connections>
+                        <action selector="nextExercise:" destination="OZG-Zj-V9Z" id="FPe-yx-soO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8MS-jM-CaA" userLabel="Previous Exercise Gesture Recognizer">
+                    <connections>
+                        <action selector="previousExercise:" destination="OZG-Zj-V9Z" id="N3I-4A-FIL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2304" y="-1515"/>
         </scene>
@@ -645,7 +661,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qPK-f3-yzv">
-                                        <rect key="frame" x="13" y="378" width="57" height="44"/>
+                                        <rect key="frame" x="11" y="380" width="57" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Next">
@@ -655,6 +671,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nextExercise:" destination="z0A-Ht-MZL" eventType="touchUpInside" id="z34-eX-Sps"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kaB-nG-TNQ">
                                         <rect key="frame" x="11" y="268" width="57" height="44"/>
@@ -667,6 +686,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="previousExercise:" destination="z0A-Ht-MZL" eventType="touchUpInside" id="mC6-RX-gWd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.67813305199999996" blue="0.31818759149999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -846,94 +868,6 @@
     <resources>
         <image name="MB_0019_plus.png" width="256" height="256"/>
     </resources>
-    <classes>
-        <class className="AddExerciseCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExerciseCell.h"/>
-        </class>
-        <class className="EditNameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditNameViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="EditRepUIPickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditRepUIPickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="EditRestUIPickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditRestUIPickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="EditWeightUIPickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditWeightUIPickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="ExerciseDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addSet:"/>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="repContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="repScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="ExerciseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addExercise:"/>
-                <relationship kind="action" name="loadProgram:"/>
-                <relationship kind="outlet" name="currentExerciseContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mainPanel" candidateClass="UIView"/>
-                <relationship kind="outlet" name="programName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="FullExerciseCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FullExerciseCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setsScrollView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="FullProgramViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FullProgramViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addExercise:"/>
-                <relationship kind="action" name="addSet:"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LoadProgramCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LoadProgramViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoadProgramViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="newProgramPressed:"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NavigationViewController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavigationViewController.h"/>
-        </class>
-        <class className="NormalExerciseCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NormalExerciseCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="container" candidateClass="UIView"/>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setsScrollView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

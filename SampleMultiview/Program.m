@@ -85,6 +85,15 @@
     }
 }
 
+- (void) previous
+{
+    if (current == [self.exercises objectAtIndex:0]) {
+        current = nil;
+    } else {
+        current = [self.exercises objectAtIndex:[self.exercises indexOfObject:current] - 1];
+    }
+}
+
 - (void) setCurrent: (Exercise *)withCurrent
 {
     current = withCurrent;

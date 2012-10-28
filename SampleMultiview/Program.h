@@ -31,6 +31,7 @@
 - (BOOL) isIndexOfCurrentExercise: (NSIndexPath *)path;
 
 - (void) next;
+- (void) previous;
 - (void) addExercise;
 - (void) addExercise:(Exercise *)exercise;
 - (void) removeExerciseAtIndex:(NSUInteger)theIndex;
