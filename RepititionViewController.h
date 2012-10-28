@@ -11,7 +11,6 @@
 
 @interface RepititionViewController : UIViewController<UIGestureRecognizerDelegate, PopoverPresentable>
 
-
 @property (weak, nonatomic) IBOutlet UILabel *reps;
 @property (weak, nonatomic) IBOutlet UILabel *rest;
 

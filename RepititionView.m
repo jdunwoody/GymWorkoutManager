@@ -23,50 +23,11 @@
         [self addSubview: [[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] objectAtIndex:0]];
         
         [self.layer setCornerRadius:5.0];
-        
-        //        [[self layer] masksToBounds:YES];
-        
-        
         [self.layer setBorderWidth:2.0];
-        [self.layer setBorderColor:[[UIColor darkGrayColor] CGColor]];   //Adding Border color.
+        [self.layer setBorderColor:[[UIColor darkGrayColor] CGColor]];
     }
     return self;
 }
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
-
-//- (IBAction)repTapped:(id)sender {
-//    //    NSLog(@"Rep tapped");
-//    
-//    //    UIView *aView = [[UIView alloc] init];
-//    //    [self.delegate showPopoverWithView: self];
-//    
-//    UIGestureRecognizer *recoginizer = sender;
-//    
-//    recoginizer.view.backgroundColor = [UIColor blueColor];
-//    
-//    [self.viewController performSegueWithIdentifier: @"editRep" sender: self];
-//    
-//    //    RepititionView *repitionView = (RepititionView *) sender;
-//    //    EditRepViewController *destination = segue.destinationViewController;
-//    //    destination.programDatasource = self.programDatasource;
-//    //    destination.exerciseViewController = self;
-//    //    destination.set = repitionView.set;
-//}
-//
-//- (IBAction)restTapped:(id)sender {
-//    UIGestureRecognizer *recoginizer = sender;
-//    recoginizer.view.backgroundColor = [UIColor blueColor];
-//    [self.viewController performSegueWithIdentifier: @"editRep" sender: self];
-//}
-
 
 - (IBAction)repTapped:(id)sender {
     UIGestureRecognizer *recoginizer = sender;

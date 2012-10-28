@@ -67,11 +67,5 @@
     [super viewDidLoad];
     [self setup];
 }
-//    [self.pickerView selectRow: 4 inComponent:0 animated:NO];
-
-//    [self.pickerView selectRow:[repValues indexOfObject:self.repititionView.reps.text] inComponent:0 animated:NO];
-
-//    [self.pickerView selectRow:[self.pickerView selectedRowInComponent:5] inComponent:0 animated:YES];
-
 
 @end

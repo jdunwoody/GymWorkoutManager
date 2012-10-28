@@ -25,7 +25,6 @@
 
 @implementation ExerciseViewController
 
-//@synthesize repContainer = _repContainer;
 @synthesize exercise = _exercise;
 @synthesize programDatasource = _programDatasource;
 @synthesize programDelegate = _programDelegate;
@@ -65,11 +64,6 @@
     //                                               object:nil];
 }
 
-//- (void)textFieldDidBeginEditing:(UITextField *)textField
-//{
-//
-//}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     self.programDatasource.program.name = self.programName.text;
@@ -94,9 +88,6 @@
 - (IBAction)addExercise:(id)sender
 {
     [self.programDatasource.program addExercise];
-    //    [self.programDatasource.program setCurrentExerciseToLast];
-    
-    //    [self programChanged];
     
     [self.programDatasource notifyProgramChangeObservers];
     

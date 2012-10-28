@@ -59,5 +59,4 @@
     return [weightValues indexOfObject: [set.weight stringValue]];
 }
 
-
 @end

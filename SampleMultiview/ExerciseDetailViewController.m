@@ -21,8 +21,6 @@
 - (void) reloadCurrentExercise
 {
     if (self.programDatasource.program.exerciseCount > 0) {
-        //        self.currentExerciseContainer;
-        
         self.name.text = self.programDatasource.program.currentExercise.name;
         
         for (UIView *view in [self.repContainer subviews]) {
@@ -30,8 +28,8 @@
         }
         
         //        self.repContainer.pagingEnabled = YES;
-        
         //        self.repContainer.contentSize = CGSizeMake(100 * self.programDatasource.program.exerciseCount, 98);
+        
         self.repScrollView.contentSize = CGSizeMake(1024, 98);
         
         for (Set *set in self.programDatasource.program.currentExercise.sets) {
@@ -116,7 +114,6 @@
 - (IBAction)addSet:(id)sender
 {
     [self.programDatasource.program.currentExercise addSet];
-    //    [self programChanged];
     [self.programDatasource notifyProgramChangeObservers];
 }
 

@@ -21,35 +21,21 @@
 @class ExerciseDetailViewController;
 
 @interface ExerciseViewController : UIViewController<ProgramChangeObserver, UIGestureRecognizerDelegate, UITextFieldDelegate>
-{
-    
-}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (weak, nonatomic) IBOutlet UITextField *programName;
+@property (weak, nonatomic) IBOutlet UIView *currentExerciseContainer;
+@property (weak, nonatomic) IBOutlet UIView *mainPanel;
 
 @property (strong, nonatomic) ProgramDataSource *programDatasource;
 @property (strong, nonatomic) ProgramDelegate *programDelegate;
 @property (strong, nonatomic) Exercise *exercise;
-
+@property (strong, nonatomic) ExerciseDetailViewController *currentExerciseDetailViewController;
 @property (strong, nonatomic) NSManagedObjectContext *context;
-
-//@property (weak, nonatomic) IBOutlet UIPickerView *weightPicker;
 
 - (IBAction)addExercise:(id)sender;
 - (IBAction)loadProgram:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UIView *currentExerciseContainer;
-@property (weak, nonatomic) IBOutlet UIView *mainPanel;
-
-@property (strong, nonatomic) ExerciseDetailViewController *currentExerciseDetailViewController;
-
 - (IBAction)nextExercise:(id)sender;
 - (IBAction)previousExercise:(id)sender;
-
-//@property (weak, nonatomic) IBOutlet UILabel *rest;
-//@property (weak, nonatomic) IBOutlet UILabel *reps;
-//@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *repTapGesture;
 
 @end

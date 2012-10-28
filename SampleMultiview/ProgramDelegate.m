@@ -45,14 +45,14 @@
         [view removeFromSuperview];
     }
     
-//    for (Set *set in exercise.sets) {
-//        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 50, 0, 50, 50) withNibName: @"SmallRepitition"];
-//        just.reps.text = [set.reps stringValue];
-//        just.rest.text = [set.rest stringValue];
-//        just.weight.text = [set.weight stringValue];
-//        
-//        [cell.setsScrollView addSubview: just];
-//    }
+    //    for (Set *set in exercise.sets) {
+    //        RepititionView *just = [[RepititionView alloc] initWithFrame:CGRectMake([cell.setsScrollView.subviews count] * 50, 0, 50, 50) withNibName: @"SmallRepitition"];
+    //        just.reps.text = [set.reps stringValue];
+    //        just.rest.text = [set.rest stringValue];
+    //        just.weight.text = [set.weight stringValue];
+    //
+    //        [cell.setsScrollView addSubview: just];
+    //    }
     
     cell.exercise = exercise;
     cell.name.text = exercise.name;
@@ -72,10 +72,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if ([self.programDataSource.program isIndexOfCurrentExercise: indexPath]) {
-//        return 88;
-//    }
-    
     return tableView.rowHeight;
 }
 
@@ -84,39 +80,7 @@
     [tableView scrollToRowAtIndexPath: indexPath atScrollPosition: UITableViewScrollPositionMiddle animated: YES];
     
     [self.programDataSource.program setCurrentExerciseIsAtIndex: indexPath.row];
-    //    NSLog(@"Current exercise %@", self.programDataSource.program.currentExercise.name);
     [self.programDataSource notifyProgramChangeObservers];
 }
 
 @end
-
-//- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-//{
-//    [self.programDetailNotifiable showProgramDetailWithExericise:[self.programDataSource.program exerciseAtIndex:indexPath.row]];
-//}
-
-//        UILabel *setLabel;
-//        UILabel *lastLabel = nil;
-//        setLabel = [[UILabel alloc] init];
-//        setLabel.text = set.reps.stringValue;
-//        setLabel.frame = CGRectMake(lastLabel.frame.origin.x + lastLabel.frame.size.width + 20,
-//                                    lastLabel.frame.origin.y,
-//                                    48, //lastLabel.frame.size.width,
-//                                    48); //lastLabel.frame.size.height);
-//
-
-//    [[cell rest] setText: [exercise restAsDisplayValue]];
-//    [[cell bodyPart] setText: exercise.bodyPart];
-//
-//    WeightExercise *weightExercise = (WeightExercise *) exercise;
-//    [[cell reps] setText: [weightExercise repsAsDisplayValue]];
-//    [[cell weight] setText: [weightExercise weightAsDisplayValue]];
-//    cell.weightImage.hidden = false;
-//    cell.repsImage.hidden = true;
-//
-
-//    if (exercise == current) {
-//        cell.currentExerciseIndicator.hidden = NO;
-//    } else {
-//        cell.currentExerciseIndicator.hidden = YES;
-//    }

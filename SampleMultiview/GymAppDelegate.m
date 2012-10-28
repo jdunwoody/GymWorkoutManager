@@ -22,8 +22,8 @@
 {
     //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
     
-//    NavigationViewController *navigationController = (NavigationViewController *) self.window.rootViewController;
-//    ExerciseViewController *viewController = (ExerciseViewController *) [navigationController.childViewControllers objectAtIndex: 0];
+    //    NavigationViewController *navigationController = (NavigationViewController *) self.window.rootViewController;
+    //    ExerciseViewController *viewController = (ExerciseViewController *) [navigationController.childViewControllers objectAtIndex: 0];
     
     ExerciseViewController *viewController = (ExerciseViewController *) self.window.rootViewController;
     
@@ -47,74 +47,6 @@
     
     return YES;
 }
-
-//- (void) loadEvent
-//{
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//	if (!context) {
-//		// Handle the error.
-//	}
-//    
-//    Event *event = (Event *)[NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
-//    [event setLatitude:[NSNumber numberWithDouble:123]];
-//	[event setLongitude:[NSNumber numberWithDouble:567]];
-//	[event setCreationDate:[NSDate date]];
-//	
-//    NSError *error;
-//    if (![context save:&error]) {
-//        NSLog(@"Failed to save");
-//    }
-//    
-//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
-//	[request setEntity:entity];
-//	
-//	NSMutableArray *mutableFetchResults = [[context executeFetchRequest:request error:&error] mutableCopy];
-//	if (mutableFetchResults == nil) {
-//		// Handle the error.
-//        NSLog(@"Failed to retrieve");
-//	}
-//    
-//    for (Event *event in mutableFetchResults) {
-//        NSLog(@"Event %@", event.latitude.stringValue);
-//    }
-//}
-
-//- (NSManagedObjectContext *) setupContext
-//{
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//	if (!context) {
-//        NSLog(@"Failed to create context");
-//	}
-
-    //    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    //	NSEntityDescription *programEntity = [NSEntityDescription entityForName:@"Program" inManagedObjectContext:context];
-    //	[request setEntity:programEntity];
-    //
-    //    NSError *error;
-    //    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    //	if (mutableFetchResults == nil) {
-    //		// Handle the error.
-    //	}
-    //
-    //    for (Program *program in mutableFetchResults) {
-    //        NSLog(@"%@");
-    //    }
-//    return context;
-//}
-
-/**
- Performs the save action for the application, which is to send the save:
- message to the application's managed object context.
- */
-//- (IBAction)saveAction:(id)sender {
-//
-//    NSError *error;
-//    if (![[self managedObjectContext] save:&error]) {
-//		// Handle error
-//    }
-//}
-
 /**
  applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
  */
@@ -148,7 +80,6 @@
     return managedObjectContext;
 }
 
-
 /**
  Returns the managed object model for the application.
  If the model doesn't already exist, it is created by merging all of the models found in the application bundle.
@@ -161,24 +92,6 @@
     managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     return managedObjectModel;
 }
-
-//- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-//
-//    if (persistentStoreCoordinator != nil) {
-//        return persistentStoreCoordinator;
-//    }
-//
-//    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"Events.sqlite"]];
-//
-//	NSError *error;
-//    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
-//    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
-//        // Handle the error.
-//        NSLog(@"Unable to created persistent store");
-//    }
-//
-//    return persistentStoreCoordinator;
-//}
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
 	
@@ -198,6 +111,132 @@
 	
     return persistentStoreCoordinator;
 }
+
+#pragma mark -
+#pragma mark Application's documents directory
+
+/**
+ Returns the path to the application's documents directory.
+ */
+- (NSString *)applicationDocumentsDirectory {
+	
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // store the program
+    // make the app background friendly to continue to timer if any
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+@end
+
+//- (void) loadEvent
+//{
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//	if (!context) {
+//		// Handle the error.
+//	}
+//
+//    Event *event = (Event *)[NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:context];
+//    [event setLatitude:[NSNumber numberWithDouble:123]];
+//	[event setLongitude:[NSNumber numberWithDouble:567]];
+//	[event setCreationDate:[NSDate date]];
+//
+//    NSError *error;
+//    if (![context save:&error]) {
+//        NSLog(@"Failed to save");
+//    }
+//
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
+//	[request setEntity:entity];
+//
+//	NSMutableArray *mutableFetchResults = [[context executeFetchRequest:request error:&error] mutableCopy];
+//	if (mutableFetchResults == nil) {
+//		// Handle the error.
+//        NSLog(@"Failed to retrieve");
+//	}
+//
+//    for (Event *event in mutableFetchResults) {
+//        NSLog(@"Event %@", event.latitude.stringValue);
+//    }
+//}
+
+//- (NSManagedObjectContext *) setupContext
+//{
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//	if (!context) {
+//        NSLog(@"Failed to create context");
+//	}
+
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//	NSEntityDescription *programEntity = [NSEntityDescription entityForName:@"Program" inManagedObjectContext:context];
+//	[request setEntity:programEntity];
+//
+//    NSError *error;
+//    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+//	if (mutableFetchResults == nil) {
+//		// Handle the error.
+//	}
+//
+//    for (Program *program in mutableFetchResults) {
+//        NSLog(@"%@");
+//    }
+//    return context;
+//}
+
+/**
+ Performs the save action for the application, which is to send the save:
+ message to the application's managed object context.
+ */
+//- (IBAction)saveAction:(id)sender {
+//
+//    NSError *error;
+//    if (![[self managedObjectContext] save:&error]) {
+//		// Handle error
+//    }
+//}
+
+
+//- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+//
+//    if (persistentStoreCoordinator != nil) {
+//        return persistentStoreCoordinator;
+//    }
+//
+//    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"Events.sqlite"]];
+//
+//	NSError *error;
+//    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+//    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+//        // Handle the error.
+//        NSLog(@"Unable to created persistent store");
+//    }
+//
+//    return persistentStoreCoordinator;
+//}
+
 
 /**
  Returns the persistent store coordinator for the application.
@@ -224,18 +263,6 @@
 //    return persistentStoreCoordinator;
 //}
 
-#pragma mark -
-#pragma mark Application's documents directory
-
-/**
- Returns the path to the application's documents directory.
- */
-- (NSString *)applicationDocumentsDirectory {
-	
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-    return basePath;
-}
 
 //{
 //    SlidingPanelContainerViewController *slidingPanel =  (SlidingPanelContainerViewController*)self.window.rootViewController;
@@ -310,30 +337,6 @@
 //    ExerciseViewController *exerciseViewController = (ExerciseViewController *)[[navigationController viewControllers] objectAtIndex:0];
 
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
-    // store the program
-    // make the app background friendly to continue to timer if any
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
 
 //- (void)applicationWillTerminate:(UIApplication *)application
 //{
@@ -350,4 +353,3 @@
 ////    [window makeKeyAndVisible];
 //}
 
-@end

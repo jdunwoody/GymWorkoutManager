@@ -10,8 +10,6 @@
 		1A0F0EEC15BBBEF900A25C21 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */; };
 		1A0FAF55161B0B0100BA20B7 /* EditWeightDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */; };
 		1A0FAF59161B0B0E00BA20B7 /* EditRestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */; };
-		1A10D9F2162C29B50027E6BF /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A10D9F1162C29B50027E6BF /* Event.m */; };
-		1A10D9F5162C29F60027E6BF /* Event.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A10D9F3162C29F60027E6BF /* Event.xcdatamodeld */; };
 		1A1967F91620FAAD0008B6D2 /* EditRepUIPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1967F81620FAAD0008B6D2 /* EditRepUIPickerViewController.m */; };
 		1A1967FD1621463F0008B6D2 /* EditRestUIPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1967FC1621463E0008B6D2 /* EditRestUIPickerViewController.m */; };
 		1A37AA85161888A5001FD544 /* EditRepDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A37AA84161888A5001FD544 /* EditRepDelegate.m */; };
@@ -56,37 +54,10 @@
 		1AC41453163AA80B00087ACA /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC41452163AA80B00087ACA /* Colours.m */; };
 		1AD1135F1605862000002528 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1135E1605862000002528 /* ExerciseViewController.m */; };
 		1AD113631605863D00002528 /* FullProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113621605863D00002528 /* FullProgramViewController.m */; };
-		1AD113AC1605873A00002528 /* _ProgramDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113661605873A00002528 /* _ProgramDataSource.m */; };
-		1AD113AD1605873A00002528 /* _Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AD113671605873A00002528 /* _Storyboard.storyboard */; };
-		1AD113AE1605873A00002528 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113691605873A00002528 /* BackgroundLayer.m */; };
-		1AD113AF1605873A00002528 /* CurrentExerciseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1136B1605873A00002528 /* CurrentExerciseTableDelegate.m */; };
-		1AD113B01605873A00002528 /* CurrentUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1136F1605873A00002528 /* CurrentUIViewController.m */; };
-		1AD113B11605873A00002528 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113711605873A00002528 /* CurrentViewController.m */; };
-		1AD113B21605873A00002528 /* OldExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113731605873A00002528 /* OldExerciseCell.m */; };
-		1AD113B31605873A00002528 /* ExerciseCellOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113751605873A00002528 /* ExerciseCellOld.m */; };
-		1AD113B41605873A00002528 /* ExerciseDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113771605873A00002528 /* ExerciseDataController.m */; };
-		1AD113B51605873A00002528 /* ExercisePickerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1137A1605873A00002528 /* ExercisePickerDelegate.m */; };
-		1AD113B61605873A00002528 /* ExerciseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1137C1605873A00002528 /* ExerciseTableDelegate.m */; };
-		1AD113B81605873A00002528 /* ExerciseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113801605873A00002528 /* ExerciseView.m */; };
-		1AD113B91605873A00002528 /* FullProgramDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113831605873A00002528 /* FullProgramDataSource.m */; };
-		1AD113BA1605873A00002528 /* FullProgramTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113851605873A00002528 /* FullProgramTableDelegate.m */; };
-		1AD113BB1605873A00002528 /* FullProgramViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113871605873A00002528 /* FullProgramViewCell.m */; };
-		1AD113BC1605873A00002528 /* InnerShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113891605873A00002528 /* InnerShadowView.m */; };
 		1AD113BD1605873A00002528 /* LoadProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1138B1605873A00002528 /* LoadProgramCell.m */; };
 		1AD113BE1605873A00002528 /* LoadProgramTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1138E1605873A00002528 /* LoadProgramTableDataSource.m */; };
 		1AD113BF1605873A00002528 /* LoadProgramTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113901605873A00002528 /* LoadProgramTableDelegate.m */; };
 		1AD113C01605873A00002528 /* LoadProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113921605873A00002528 /* LoadProgramViewController.m */; };
-		1AD113C11605873A00002528 /* MainPanelOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113941605873A00002528 /* MainPanelOverlayViewController.m */; };
-		1AD113C21605873A00002528 /* OldProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113961605873A00002528 /* OldProgramViewController.m */; };
-		1AD113C31605873A00002528 /* OtherExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113981605873A00002528 /* OtherExerciseCell.m */; };
-		1AD113C41605873A00002528 /* ProgramTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1139C1605873A00002528 /* ProgramTimer.m */; };
-		1AD113C51605873A00002528 /* ReportingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1139F1605873A00002528 /* ReportingViewController.m */; };
-		1AD113C61605873A00002528 /* SampleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113A11605873A00002528 /* SampleCell.m */; };
-		1AD113C71605873A00002528 /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113A31605873A00002528 /* SampleViewController.m */; };
-		1AD113C81605873A00002528 /* SetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113A51605873A00002528 /* SetCell.m */; };
-		1AD113C91605873A00002528 /* SummaryDetailWithChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113A71605873A00002528 /* SummaryDetailWithChildViewController.m */; };
-		1AD113CA1605873A00002528 /* SummaryProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113A91605873A00002528 /* SummaryProgramCell.m */; };
-		1AD113CB1605873A00002528 /* SummaryProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113AB1605873A00002528 /* SummaryProgramViewController.m */; };
 		1AD113D1160594E500002528 /* FullExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113D0160594E500002528 /* FullExerciseCell.m */; };
 		1AD113D41605A02900002528 /* AddExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD113D31605A02900002528 /* AddExerciseCell.m */; };
 		1AE3D8BD15F0B61700ACBFB0 /* SlidingPanelContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3D8BC15F0B61700ACBFB0 /* SlidingPanelContainerViewController.m */; };
@@ -109,9 +80,6 @@
 		1A0FAF54161B0B0100BA20B7 /* EditWeightDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWeightDelegate.m; sourceTree = "<group>"; };
 		1A0FAF57161B0B0E00BA20B7 /* EditRestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRestDelegate.h; sourceTree = "<group>"; };
 		1A0FAF58161B0B0E00BA20B7 /* EditRestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRestDelegate.m; sourceTree = "<group>"; };
-		1A10D9F0162C29B50027E6BF /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		1A10D9F1162C29B50027E6BF /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		1A10D9F4162C29F60027E6BF /* event.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = event.xcdatamodel; sourceTree = "<group>"; };
 		1A1967F71620FAAD0008B6D2 /* EditRepUIPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRepUIPickerViewController.h; sourceTree = "<group>"; };
 		1A1967F81620FAAD0008B6D2 /* EditRepUIPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRepUIPickerViewController.m; sourceTree = "<group>"; };
 		1A1967FB1621463E0008B6D2 /* EditRestUIPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRestUIPickerViewController.h; sourceTree = "<group>"; };
@@ -188,41 +156,6 @@
 		1AD1135E1605862000002528 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseViewController.m; path = SampleMultiview/ExerciseViewController.m; sourceTree = "<group>"; };
 		1AD113611605863D00002528 /* FullProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FullProgramViewController.h; path = SampleMultiview/FullProgramViewController.h; sourceTree = "<group>"; };
 		1AD113621605863D00002528 /* FullProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FullProgramViewController.m; path = SampleMultiview/FullProgramViewController.m; sourceTree = "<group>"; };
-		1AD113651605873A00002528 /* _ProgramDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ProgramDataSource.h; sourceTree = "<group>"; };
-		1AD113661605873A00002528 /* _ProgramDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ProgramDataSource.m; sourceTree = "<group>"; };
-		1AD113671605873A00002528 /* _Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = _Storyboard.storyboard; sourceTree = "<group>"; };
-		1AD113681605873A00002528 /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
-		1AD113691605873A00002528 /* BackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundLayer.m; sourceTree = "<group>"; };
-		1AD1136A1605873A00002528 /* CurrentExerciseTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentExerciseTableDelegate.h; sourceTree = "<group>"; };
-		1AD1136B1605873A00002528 /* CurrentExerciseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentExerciseTableDelegate.m; sourceTree = "<group>"; };
-		1AD1136C1605873A00002528 /* CurrentProgramObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentProgramObserver.h; sourceTree = "<group>"; };
-		1AD1136D1605873A00002528 /* CurrentSummaryObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentSummaryObserver.h; sourceTree = "<group>"; };
-		1AD1136E1605873A00002528 /* CurrentUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUIViewController.h; sourceTree = "<group>"; };
-		1AD1136F1605873A00002528 /* CurrentUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUIViewController.m; sourceTree = "<group>"; };
-		1AD113701605873A00002528 /* CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentViewController.h; sourceTree = "<group>"; };
-		1AD113711605873A00002528 /* CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentViewController.m; sourceTree = "<group>"; };
-		1AD113721605873A00002528 /* OldExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldExerciseCell.h; sourceTree = "<group>"; };
-		1AD113731605873A00002528 /* OldExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldExerciseCell.m; sourceTree = "<group>"; };
-		1AD113741605873A00002528 /* ExerciseCellOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseCellOld.h; sourceTree = "<group>"; };
-		1AD113751605873A00002528 /* ExerciseCellOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseCellOld.m; sourceTree = "<group>"; };
-		1AD113761605873A00002528 /* ExerciseDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseDataController.h; sourceTree = "<group>"; };
-		1AD113771605873A00002528 /* ExerciseDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseDataController.m; sourceTree = "<group>"; };
-		1AD113781605873A00002528 /* ExercisePickerControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePickerControllerProtocol.h; sourceTree = "<group>"; };
-		1AD113791605873A00002528 /* ExercisePickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePickerDelegate.h; sourceTree = "<group>"; };
-		1AD1137A1605873A00002528 /* ExercisePickerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePickerDelegate.m; sourceTree = "<group>"; };
-		1AD1137B1605873A00002528 /* ExerciseTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableDelegate.h; sourceTree = "<group>"; };
-		1AD1137C1605873A00002528 /* ExerciseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableDelegate.m; sourceTree = "<group>"; };
-		1AD1137F1605873A00002528 /* ExerciseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseView.h; sourceTree = "<group>"; };
-		1AD113801605873A00002528 /* ExerciseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseView.m; sourceTree = "<group>"; };
-		1AD113811605873A00002528 /* ExerciseWeightOrTimeMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseWeightOrTimeMode.h; sourceTree = "<group>"; };
-		1AD113821605873A00002528 /* FullProgramDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullProgramDataSource.h; sourceTree = "<group>"; };
-		1AD113831605873A00002528 /* FullProgramDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullProgramDataSource.m; sourceTree = "<group>"; };
-		1AD113841605873A00002528 /* FullProgramTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullProgramTableDelegate.h; sourceTree = "<group>"; };
-		1AD113851605873A00002528 /* FullProgramTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullProgramTableDelegate.m; sourceTree = "<group>"; };
-		1AD113861605873A00002528 /* FullProgramViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullProgramViewCell.h; sourceTree = "<group>"; };
-		1AD113871605873A00002528 /* FullProgramViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullProgramViewCell.m; sourceTree = "<group>"; };
-		1AD113881605873A00002528 /* InnerShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InnerShadowView.h; sourceTree = "<group>"; };
-		1AD113891605873A00002528 /* InnerShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InnerShadowView.m; sourceTree = "<group>"; };
 		1AD1138A1605873A00002528 /* LoadProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramCell.h; sourceTree = "<group>"; };
 		1AD1138B1605873A00002528 /* LoadProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgramCell.m; sourceTree = "<group>"; };
 		1AD1138C1605873A00002528 /* LoadProgramInternalObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramInternalObserver.h; sourceTree = "<group>"; };
@@ -232,31 +165,7 @@
 		1AD113901605873A00002528 /* LoadProgramTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgramTableDelegate.m; sourceTree = "<group>"; };
 		1AD113911605873A00002528 /* LoadProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgramViewController.h; sourceTree = "<group>"; };
 		1AD113921605873A00002528 /* LoadProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgramViewController.m; sourceTree = "<group>"; };
-		1AD113931605873A00002528 /* MainPanelOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPanelOverlayViewController.h; sourceTree = "<group>"; };
-		1AD113941605873A00002528 /* MainPanelOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPanelOverlayViewController.m; sourceTree = "<group>"; };
-		1AD113951605873A00002528 /* OldProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldProgramViewController.h; sourceTree = "<group>"; };
-		1AD113961605873A00002528 /* OldProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldProgramViewController.m; sourceTree = "<group>"; };
-		1AD113971605873A00002528 /* OtherExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherExerciseCell.h; sourceTree = "<group>"; };
-		1AD113981605873A00002528 /* OtherExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherExerciseCell.m; sourceTree = "<group>"; };
 		1AD113991605873A00002528 /* ProgramChangedObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramChangedObserver.h; sourceTree = "<group>"; };
-		1AD1139A1605873A00002528 /* ProgramStatusProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramStatusProtocol.h; sourceTree = "<group>"; };
-		1AD1139B1605873A00002528 /* ProgramTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramTimer.h; sourceTree = "<group>"; };
-		1AD1139C1605873A00002528 /* ProgramTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramTimer.m; sourceTree = "<group>"; };
-		1AD1139D1605873A00002528 /* ProgramTimerObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramTimerObserver.h; sourceTree = "<group>"; };
-		1AD1139E1605873A00002528 /* ReportingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportingViewController.h; sourceTree = "<group>"; };
-		1AD1139F1605873A00002528 /* ReportingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportingViewController.m; sourceTree = "<group>"; };
-		1AD113A01605873A00002528 /* SampleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleCell.h; sourceTree = "<group>"; };
-		1AD113A11605873A00002528 /* SampleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleCell.m; sourceTree = "<group>"; };
-		1AD113A21605873A00002528 /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
-		1AD113A31605873A00002528 /* SampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
-		1AD113A41605873A00002528 /* SetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCell.h; sourceTree = "<group>"; };
-		1AD113A51605873A00002528 /* SetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCell.m; sourceTree = "<group>"; };
-		1AD113A61605873A00002528 /* SummaryDetailWithChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryDetailWithChildViewController.h; sourceTree = "<group>"; };
-		1AD113A71605873A00002528 /* SummaryDetailWithChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryDetailWithChildViewController.m; sourceTree = "<group>"; };
-		1AD113A81605873A00002528 /* SummaryProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryProgramCell.h; sourceTree = "<group>"; };
-		1AD113A91605873A00002528 /* SummaryProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryProgramCell.m; sourceTree = "<group>"; };
-		1AD113AA1605873A00002528 /* SummaryProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryProgramViewController.h; sourceTree = "<group>"; };
-		1AD113AB1605873A00002528 /* SummaryProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryProgramViewController.m; sourceTree = "<group>"; };
 		1AD113CF160594E500002528 /* FullExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullExerciseCell.h; sourceTree = "<group>"; };
 		1AD113D0160594E500002528 /* FullExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullExerciseCell.m; sourceTree = "<group>"; };
 		1AD113D21605A02900002528 /* AddExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExerciseCell.h; sourceTree = "<group>"; };
@@ -294,16 +203,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A10D9EE162C298E0027E6BF /* EventSample */ = {
-			isa = PBXGroup;
-			children = (
-				1A10D9F0162C29B50027E6BF /* Event.h */,
-				1A10D9F1162C29B50027E6BF /* Event.m */,
-				1A10D9F3162C29F60027E6BF /* Event.xcdatamodeld */,
-			);
-			name = EventSample;
-			sourceTree = "<group>";
-		};
 		1A37AA821618887C001FD544 /* EditRep */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,15 +433,13 @@
 		1ABFF5261595A63F004C7EE1 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
-				1A10D9EE162C298E0027E6BF /* EventSample */,
-				1A8D23DF1622E6E80079A7E1 /* Data */,
-				1AD113641605871300002528 /* Unused */,
 				1AA277361605735100A3CD64 /* Storyboard.storyboard */,
-				1AB0429C163B2E9100A7C42C /* Exercise Detail */,
 				1ABFF52F1595A63F004C7EE1 /* GymAppDelegate.h */,
 				1ABFF5301595A63F004C7EE1 /* GymAppDelegate.m */,
+				1AB0429C163B2E9100A7C42C /* Exercise Detail */,
 				1A4BD928160745B30082EB1E /* Navigation */,
 				1AA277341605717400A3CD64 /* Normal View */,
+				1A8D23DF1622E6E80079A7E1 /* Data */,
 				1AA277321605716C00A3CD64 /* Full Program View */,
 				1AE3D8BA15F0B5D500ACBFB0 /* Sliding Panel Container */,
 				1AD113CE160588F300002528 /* Loading */,
@@ -565,72 +462,6 @@
 				1A0F0EEB15BBBEF900A25C21 /* Entitlements.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1AD113641605871300002528 /* Unused */ = {
-			isa = PBXGroup;
-			children = (
-				1AD113651605873A00002528 /* _ProgramDataSource.h */,
-				1AD113661605873A00002528 /* _ProgramDataSource.m */,
-				1AD113671605873A00002528 /* _Storyboard.storyboard */,
-				1AD113681605873A00002528 /* BackgroundLayer.h */,
-				1AD113691605873A00002528 /* BackgroundLayer.m */,
-				1AD1136A1605873A00002528 /* CurrentExerciseTableDelegate.h */,
-				1AD1136B1605873A00002528 /* CurrentExerciseTableDelegate.m */,
-				1AD1136C1605873A00002528 /* CurrentProgramObserver.h */,
-				1AD1136D1605873A00002528 /* CurrentSummaryObserver.h */,
-				1AD1136E1605873A00002528 /* CurrentUIViewController.h */,
-				1AD1136F1605873A00002528 /* CurrentUIViewController.m */,
-				1AD113701605873A00002528 /* CurrentViewController.h */,
-				1AD113711605873A00002528 /* CurrentViewController.m */,
-				1AD113721605873A00002528 /* OldExerciseCell.h */,
-				1AD113731605873A00002528 /* OldExerciseCell.m */,
-				1AD113741605873A00002528 /* ExerciseCellOld.h */,
-				1AD113751605873A00002528 /* ExerciseCellOld.m */,
-				1AD113761605873A00002528 /* ExerciseDataController.h */,
-				1AD113771605873A00002528 /* ExerciseDataController.m */,
-				1AD113781605873A00002528 /* ExercisePickerControllerProtocol.h */,
-				1AD113791605873A00002528 /* ExercisePickerDelegate.h */,
-				1AD1137A1605873A00002528 /* ExercisePickerDelegate.m */,
-				1AD1137B1605873A00002528 /* ExerciseTableDelegate.h */,
-				1AD1137C1605873A00002528 /* ExerciseTableDelegate.m */,
-				1AD1137F1605873A00002528 /* ExerciseView.h */,
-				1AD113801605873A00002528 /* ExerciseView.m */,
-				1AD113811605873A00002528 /* ExerciseWeightOrTimeMode.h */,
-				1AD113821605873A00002528 /* FullProgramDataSource.h */,
-				1AD113831605873A00002528 /* FullProgramDataSource.m */,
-				1AD113841605873A00002528 /* FullProgramTableDelegate.h */,
-				1AD113851605873A00002528 /* FullProgramTableDelegate.m */,
-				1AD113861605873A00002528 /* FullProgramViewCell.h */,
-				1AD113871605873A00002528 /* FullProgramViewCell.m */,
-				1AD113881605873A00002528 /* InnerShadowView.h */,
-				1AD113891605873A00002528 /* InnerShadowView.m */,
-				1AD113931605873A00002528 /* MainPanelOverlayViewController.h */,
-				1AD113941605873A00002528 /* MainPanelOverlayViewController.m */,
-				1AD113951605873A00002528 /* OldProgramViewController.h */,
-				1AD113961605873A00002528 /* OldProgramViewController.m */,
-				1AD113971605873A00002528 /* OtherExerciseCell.h */,
-				1AD113981605873A00002528 /* OtherExerciseCell.m */,
-				1AD1139A1605873A00002528 /* ProgramStatusProtocol.h */,
-				1AD1139B1605873A00002528 /* ProgramTimer.h */,
-				1AD1139C1605873A00002528 /* ProgramTimer.m */,
-				1AD1139D1605873A00002528 /* ProgramTimerObserver.h */,
-				1AD1139E1605873A00002528 /* ReportingViewController.h */,
-				1AD1139F1605873A00002528 /* ReportingViewController.m */,
-				1AD113A01605873A00002528 /* SampleCell.h */,
-				1AD113A11605873A00002528 /* SampleCell.m */,
-				1AD113A21605873A00002528 /* SampleViewController.h */,
-				1AD113A31605873A00002528 /* SampleViewController.m */,
-				1AD113A41605873A00002528 /* SetCell.h */,
-				1AD113A51605873A00002528 /* SetCell.m */,
-				1AD113A61605873A00002528 /* SummaryDetailWithChildViewController.h */,
-				1AD113A71605873A00002528 /* SummaryDetailWithChildViewController.m */,
-				1AD113A81605873A00002528 /* SummaryProgramCell.h */,
-				1AD113A91605873A00002528 /* SummaryProgramCell.m */,
-				1AD113AA1605873A00002528 /* SummaryProgramViewController.h */,
-				1AD113AB1605873A00002528 /* SummaryProgramViewController.m */,
-			);
-			name = Unused;
 			sourceTree = "<group>";
 		};
 		1AD113CE160588F300002528 /* Loading */ = {
@@ -741,7 +572,6 @@
 				1A8D936415FDF07A0023248F /* a5fe27f89b81aa6784169d7eba.jpg in Resources */,
 				1A8D936515FDF07A0023248F /* a37b704e14f062a520eabd2e22.jpg in Resources */,
 				1AA277371605735100A3CD64 /* Storyboard.storyboard in Resources */,
-				1AD113AD1605873A00002528 /* _Storyboard.storyboard in Resources */,
 				1A9FA582160B556A00A24883 /* Repitition.xib in Resources */,
 				1A48D88A160C6D96003FB08B /* Set.xib in Resources */,
 				1A51E5D4161F0B5800AD97CF /* SmallRepitition.xib in Resources */,
@@ -768,36 +598,10 @@
 				1AA2774416057C8A00A3CD64 /* ProgramDelegate.m in Sources */,
 				1AD1135F1605862000002528 /* ExerciseViewController.m in Sources */,
 				1AD113631605863D00002528 /* FullProgramViewController.m in Sources */,
-				1AD113AC1605873A00002528 /* _ProgramDataSource.m in Sources */,
-				1AD113AE1605873A00002528 /* BackgroundLayer.m in Sources */,
-				1AD113AF1605873A00002528 /* CurrentExerciseTableDelegate.m in Sources */,
-				1AD113B01605873A00002528 /* CurrentUIViewController.m in Sources */,
-				1AD113B11605873A00002528 /* CurrentViewController.m in Sources */,
-				1AD113B21605873A00002528 /* OldExerciseCell.m in Sources */,
-				1AD113B31605873A00002528 /* ExerciseCellOld.m in Sources */,
-				1AD113B41605873A00002528 /* ExerciseDataController.m in Sources */,
-				1AD113B51605873A00002528 /* ExercisePickerDelegate.m in Sources */,
-				1AD113B61605873A00002528 /* ExerciseTableDelegate.m in Sources */,
-				1AD113B81605873A00002528 /* ExerciseView.m in Sources */,
-				1AD113B91605873A00002528 /* FullProgramDataSource.m in Sources */,
-				1AD113BA1605873A00002528 /* FullProgramTableDelegate.m in Sources */,
-				1AD113BB1605873A00002528 /* FullProgramViewCell.m in Sources */,
-				1AD113BC1605873A00002528 /* InnerShadowView.m in Sources */,
 				1AD113BD1605873A00002528 /* LoadProgramCell.m in Sources */,
 				1AD113BE1605873A00002528 /* LoadProgramTableDataSource.m in Sources */,
 				1AD113BF1605873A00002528 /* LoadProgramTableDelegate.m in Sources */,
 				1AD113C01605873A00002528 /* LoadProgramViewController.m in Sources */,
-				1AD113C11605873A00002528 /* MainPanelOverlayViewController.m in Sources */,
-				1AD113C21605873A00002528 /* OldProgramViewController.m in Sources */,
-				1AD113C31605873A00002528 /* OtherExerciseCell.m in Sources */,
-				1AD113C41605873A00002528 /* ProgramTimer.m in Sources */,
-				1AD113C51605873A00002528 /* ReportingViewController.m in Sources */,
-				1AD113C61605873A00002528 /* SampleCell.m in Sources */,
-				1AD113C71605873A00002528 /* SampleViewController.m in Sources */,
-				1AD113C81605873A00002528 /* SetCell.m in Sources */,
-				1AD113C91605873A00002528 /* SummaryDetailWithChildViewController.m in Sources */,
-				1AD113CA1605873A00002528 /* SummaryProgramCell.m in Sources */,
-				1AD113CB1605873A00002528 /* SummaryProgramViewController.m in Sources */,
 				1AD113D1160594E500002528 /* FullExerciseCell.m in Sources */,
 				1AD113D41605A02900002528 /* AddExerciseCell.m in Sources */,
 				1A4BD92B160745CF0082EB1E /* NavigationViewController.m in Sources */,
@@ -814,8 +618,6 @@
 				1A1967F91620FAAD0008B6D2 /* EditRepUIPickerViewController.m in Sources */,
 				1A1967FD1621463F0008B6D2 /* EditRestUIPickerViewController.m in Sources */,
 				1A6287EF162AD9A6000404AD /* Program.xcdatamodeld in Sources */,
-				1A10D9F2162C29B50027E6BF /* Event.m in Sources */,
-				1A10D9F5162C29F60027E6BF /* Event.xcdatamodeld in Sources */,
 				1AC41453163AA80B00087ACA /* Colours.m in Sources */,
 				1AB0429F163B35DA00A7C42C /* ExerciseDetailViewController.m in Sources */,
 				1AB042A2163B59DF00A7C42C /* ExerciseDetailView.m in Sources */,
@@ -934,17 +736,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		1A10D9F3162C29F60027E6BF /* Event.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				1A10D9F4162C29F60027E6BF /* event.xcdatamodel */,
-			);
-			currentVersion = 1A10D9F4162C29F60027E6BF /* event.xcdatamodel */;
-			name = Event.xcdatamodeld;
-			path = event.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		1A6287ED162AD9A6000404AD /* Program.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
